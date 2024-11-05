@@ -223,6 +223,8 @@ Partial Class Form1
     Friend WithEvents chbDateOfCreation As CheckBox
     Friend WithEvents chbDateToName As CheckBox
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents chbCSVFile As CheckBox
+    Friend WithEvents btnOpenDataFile As Button
 
     Public Sub New()
 
@@ -240,7 +242,6 @@ Partial Class Form1
         gpxCalculator = New GPXDistanceCalculator()
     End Sub
 
-    Friend WithEvents chbCSVFile As CheckBox
-    Friend WithEvents btnOpenDataFile As Button
+
 End Class
 

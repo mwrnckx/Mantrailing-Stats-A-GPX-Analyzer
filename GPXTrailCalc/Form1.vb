@@ -1,65 +1,16 @@
 ﻿Imports System.IO
 Public Class Form1
-    Public directoryPath As String
-    Public gpxFiles As String()
-    Dim distances As List(Of Double)
-    Dim totalDistance As Double
-    Shared csvFilePath As String
+    Dim directoryPath As String
+
+
 
     Private gpxCalculator As GPXDistanceCalculator
 
 
     Private Sub btnCalculate_Click(sender As Object, e As EventArgs) Handles btnCalculate.Click
-        Try
-            ' Fix file attributes and names
-            gpxFiles = gpxCalculator.GetgpxFiles(directoryPath)
 
-
-
-            gpxCalculator.SplitTrackIntoTwo(gpxFiles) 'in gpx files, splits a track with two segments into two separate tracks
-
-            gpxCalculator.ChangeAttributesAndFilenames(directoryPath)
-            gpxFiles = gpxCalculator.GetgpxFiles(directoryPath) 'znovu načíst kvůli změnám názvů!
-
-            ' Get the entered values
-            Dim startDate As DateTime = dtpStartDate.Value
-            Dim endDate As DateTime = dtpEndDate.Value
-
-            ' Validate that the directory is not empty
-            If String.IsNullOrWhiteSpace(directoryPath) Then
-                ' Input validation
-                MessageBox.Show("Please select a directory.")
-                Return
-            End If
-
-            ' Start calculation using the values
-            distances = gpxCalculator.GetDistances(directoryPath, startDate, endDate)
-
-            ' Calculate the sum of all first segment lengths
-            totalDistance = gpxCalculator.SumFirstSegmentDistances(distances)
-
-            ' Display results
-
-
-
-            Me.txtOutput.AppendText(vbCrLf & "Processed period: from " & startDate.ToString("dd.MM.yy") & " to " & endDate.ToString("dd.MM.yy") &
-                vbCrLf & "All gpx files from directory: " & directoryPath & vbCrLf &
-                vbCrLf & "Total number of processed GPX files, thus trails: " & distances.Count &
-                vbCrLf &
-                vbCrLf & vbCrLf & "Total Route Distance: " & totalDistance.ToString("F2") & " km")
-
-        Catch ex As Exception
-            MessageBox.Show("An error occurred while processing data: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
-        If chbCSVFile.Checked Then
-            Try
-                csvFilePath = Path.Combine(directoryPath, "GPX_File_Data.csv")
-                gpxCalculator.WriteCSVfile(csvFilePath, distances)
-                gpxCalculator.ChangeAttributesAndFilenames(directoryPath) 'ještě jednou změnit atributy, protože se možná zapisovalo do filů
-            Catch ex As Exception
-                MessageBox.Show("An error occurred while creating the CSV file: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End Try
-        End If
+        'send directoryPath to gpxCalculator
+        gpxCalculator.Calculate(directoryPath, dtpStartDate.Value, dtpEndDate.Value, chbCSVFile.Checked, chbDateOfCreation.Checked, chbDateToName.Checked)
     End Sub
 
     Private Sub btnBrowse_Click(sender As Object, e As EventArgs) Handles btnBrowse.Click
@@ -75,8 +26,8 @@ Public Class Form1
     End Sub
 
     Private Sub btnOpenDataFile_Click(sender As Object, e As EventArgs) Handles btnOpenDataFile.Click
-        If File.Exists(csvFilePath) Then
-            Process.Start(csvFilePath)
+        If File.Exists(gpxCalculator.CsvFilesDirectoryPath) Then
+            Process.Start(gpxCalculator.CsvFilesDirectoryPath)
         Else
             MessageBox.Show("The data file has not been created yet, check that you want to create it and start the calculation")
         End If
