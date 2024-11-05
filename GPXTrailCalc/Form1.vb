@@ -26,7 +26,7 @@ Public Class Form1
             Dim endDate As DateTime = dtpEndDate.Value
 
             ' Validate that the directory is not empty
-            If String.IsNullOrEmpty(directoryPath) Then
+            If String.IsNullOrWhiteSpace(directoryPath) Then
                 ' Input validation
                 MessageBox.Show("Please select a directory.")
                 Return

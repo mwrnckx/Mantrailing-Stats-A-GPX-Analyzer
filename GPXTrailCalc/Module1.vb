@@ -118,9 +118,9 @@ Public Class GPXDistanceCalculator
         If ageFromComments Is Nothing And Not ageFromTime Is Nothing Then
             ' Najde řetězec "Trail:" a nahradí ho řetězcem "Trail:" & AgeFromTime
             Dim newDescription As String = description.Replace("Trail:", "Trail: " & ageFromTime & " hod")
-            SetDescription(gpxfilePath, newDescription)
+            If Not String.IsNullOrWhiteSpace(newDescription) Then SetDescription(gpxfilePath, newDescription)
         End If
-        If Not String.IsNullOrWhiteSpace(ageFromTime) Then
+            If Not String.IsNullOrWhiteSpace(ageFromTime) Then
             Return ageFromTime
         ElseIf Not String.IsNullOrWhiteSpace(ageFromComments) Then
             Return ageFromComments
@@ -266,14 +266,29 @@ Public Class GPXDistanceCalculator
 
         ' Find the first <trk> node and its <desc> subnode
         Dim descNode As XmlNode = xmlDoc.SelectSingleNode("/gpx:gpx/gpx:trk[1]/gpx:desc", namespaceManager)
-        Try
+
+        ' Pokud uzel <desc> neexistuje, vytvoříme jej a přidáme do <trk>
+        If descNode Is Nothing Then
+            ' Najdeme první uzel <trk>
+            Dim trkNode As XmlNode = xmlDoc.SelectSingleNode("/gpx:gpx/gpx:trk[1]", namespaceManager)
+
+            If trkNode IsNot Nothing Then
+                ' Vytvoříme nový uzel <desc>
+                descNode = xmlDoc.CreateElement("desc") ', trkNode.NamespaceURI)
+
+                ' Nastavíme hodnotu pro <desc> (můžete ji změnit podle potřeby)
+                descNode.InnerText = newDescription
+
+                ' Přidáme nový uzel <desc> do uzlu <trk>
+                trkNode.AppendChild(descNode)
+            End If
+        Else
             descNode.InnerText = newDescription
-            xmlDoc.Save(gpxFilePath)
-            Return True
-        Catch ex As Exception
-            Return False
-        End Try
-        Return False
+        End If
+        xmlDoc.Save(gpxFilePath)
+        Return True
+
+
     End Function
 
     ' Function to read and calculate the length of only the first segment from the GPX file
@@ -407,7 +422,7 @@ Public Class GPXDistanceCalculator
                     If File.Exists(newFilePath) Then
                         ' Handle existing files
                         Dim userInput As String = InputBox($"File {newFilePath} already exists. Enter a new name:")
-                        If Not String.IsNullOrEmpty(userInput) Then
+                        If Not String.IsNullOrWhiteSpace(userInput) Then
                             newFilePath = Path.Combine(directoryPath, userInput & fileExtension)
                         Else
                             Form1.txtWarnings.AppendText($"New name for {newFilePath} was not provided.{Environment.NewLine}")
