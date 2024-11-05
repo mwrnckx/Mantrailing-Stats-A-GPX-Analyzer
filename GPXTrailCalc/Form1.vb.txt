@@ -1,0 +1,51 @@
+﻿Public Class Form1
+    Public directoryPath As String
+    Public gpxFiles As String()
+    Private Sub CreateCSVFile_Click(sender As Object, e As EventArgs) Handles btnCreateCSVFile.Click
+
+        Createcsvfile()
+    End Sub
+
+    Private Sub btnCalculate_Click(sender As Object, e As EventArgs) Handles btnCalculate.Click
+        'opraví attributy a jména souborů
+        DataCreatingChange(directoryPath)
+
+        ' Získání zadaných hodnot
+        Dim startDate As DateTime = dtpStartDate.Value
+        Dim endDate As DateTime = dtpEndDate.Value
+
+        ' Ověření, že adresář není prázdný
+        If String.IsNullOrEmpty(directoryPath) Then
+            MessageBox.Show("Vyberte prosím adresář.")
+            Return
+        End If
+
+        ' Spuštění výpočtu s použitím hodnot
+        Dim distances As List(Of Double) = GPXDistanceCalculator.CalculateDistanceOfAllGPXFiles(directoryPath, startDate, endDate)
+
+        ' Výpočet součtu všech délek prvních segmentů
+        Dim totalDistance As Double = GPXDistanceCalculator.SumFirstSegmentDistances(distances)
+
+        ' Zobrazení výsledků
+        Me.txtOutput.AppendText("Celková délka trailů: " & totalDistance.ToString("F2") & " km")
+        MessageBox.Show("Zpracované období: od " & startDate.ToString("dd.MM.yy") & " do " & endDate.ToString("dd.MM.yy") &
+                vbCrLf & "z adresáře: " & directoryPath & vbCrLf &
+                                        vbCrLf & "Celkový počet zpracovaných gpx souborů, tedy trailů: " & distances.Count &
+                        vbCrLf & "Délky trailů (v km): " & String.Join(", ", distances.Select(Function(d) d.ToString("F2"))) &
+                        vbCrLf & vbCrLf & "Celková délka trailů: " & totalDistance.ToString("F2") & " km", "GPXTrailCalc")
+
+    End Sub
+
+    Private Sub btnBrowse_Click(sender As Object, e As EventArgs) Handles btnBrowse.Click
+        Dim folderDialog As New FolderBrowserDialog()
+        folderDialog.SelectedPath = txtDirectory.Text
+        If folderDialog.ShowDialog() = DialogResult.OK Then
+            txtDirectory.Text = folderDialog.SelectedPath
+        End If
+    End Sub
+
+    Private Sub txtDirectory_TextChanged(sender As Object, e As EventArgs) Handles txtDirectory.TextChanged
+        directoryPath = txtDirectory.Text
+        gpxFiles = GetgpxFiles(directoryPath)
+    End Sub
+End Class
