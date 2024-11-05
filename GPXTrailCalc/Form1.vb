@@ -6,19 +6,20 @@ Public Class Form1
     Dim totalDistance As Double
     Shared csvFilePath As String
 
+    Private gpxCalculator As GPXDistanceCalculator
 
 
     Private Sub btnCalculate_Click(sender As Object, e As EventArgs) Handles btnCalculate.Click
         Try
             ' Fix file attributes and names
-            gpxFiles = GetgpxFiles(directoryPath)
+            gpxFiles = gpxCalculator.GetgpxFiles(directoryPath)
 
 
 
-            SplitTrackIntoTwo(gpxFiles) 'in gpx files, splits a track with two segments into two separate tracks
+            gpxCalculator.SplitTrackIntoTwo(gpxFiles) 'in gpx files, splits a track with two segments into two separate tracks
 
-            ChangeAttributesAndFilenames(directoryPath)
-            gpxFiles = GetgpxFiles(directoryPath) 'znovu načíst kvůli změnám názvů!
+            gpxCalculator.ChangeAttributesAndFilenames(directoryPath)
+            gpxFiles = gpxCalculator.GetgpxFiles(directoryPath) 'znovu načíst kvůli změnám názvů!
 
             ' Get the entered values
             Dim startDate As DateTime = dtpStartDate.Value
@@ -32,10 +33,10 @@ Public Class Form1
             End If
 
             ' Start calculation using the values
-            distances = GPXDistanceCalculator.GetDistances(directoryPath, startDate, endDate)
+            distances = gpxCalculator.GetDistances(directoryPath, startDate, endDate)
 
             ' Calculate the sum of all first segment lengths
-            totalDistance = GPXDistanceCalculator.SumFirstSegmentDistances(distances)
+            totalDistance = gpxCalculator.SumFirstSegmentDistances(distances)
 
             ' Display results
 
@@ -53,8 +54,8 @@ Public Class Form1
         If chbCSVFile.Checked Then
             Try
                 csvFilePath = Path.Combine(directoryPath, "GPX_File_Data.csv")
-                WriteCSVfile(csvFilePath, distances)
-                ChangeAttributesAndFilenames(directoryPath) 'ještě jednou změnit atributy, protože se možná zapisovalo do filů
+                gpxCalculator.WriteCSVfile(csvFilePath, distances)
+                gpxCalculator.ChangeAttributesAndFilenames(directoryPath) 'ještě jednou změnit atributy, protože se možná zapisovalo do filů
             Catch ex As Exception
                 MessageBox.Show("An error occurred while creating the CSV file: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try

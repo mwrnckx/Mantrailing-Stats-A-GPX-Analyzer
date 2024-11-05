@@ -237,6 +237,7 @@ Partial Class Form1
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles Me.Load
         Me.txtDirectory.Text = Application.StartupPath
+        gpxCalculator = New GPXDistanceCalculator()
     End Sub
 
     Friend WithEvents chbCSVFile As CheckBox

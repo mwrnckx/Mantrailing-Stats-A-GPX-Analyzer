@@ -5,11 +5,11 @@ Imports System.Text.RegularExpressions ' Added for working with Match type
 Imports System.Windows.Forms.DataVisualization.Charting
 Imports System.Collections.Generic
 
-Module GPXDistanceCalculator
+Public Class GPXDistanceCalculator
 
     ' Constants for converting degrees to radians and Earth's radius
-    Const PI As Double = 3.14159265358979
-    Const EARTH_RADIUS As Double = 6371 ' Earth's radius in kilometers
+    Private Const PI As Double = 3.14159265358979
+    Private Const EARTH_RADIUS As Double = 6371 ' Earth's radius in kilometers
 
 
     ' Function to convert degrees to radians
@@ -577,5 +577,5 @@ Module GPXDistanceCalculator
         Next
     End Sub
 
-End Module
+End Class
 
