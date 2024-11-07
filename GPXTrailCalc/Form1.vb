@@ -54,18 +54,18 @@ Public Class Form1
         'what to display
         Dim yAxisData() As Double
         If rbTotDistance.Checked Then
-            yAxisData = gpxCalculator.totalDistances
+            yAxisData = gpxCalculator.totalDistances.Select(Function(ts) ts).ToArray()
         ElseIf rbDistances.Checked Then
-            yAxisData = gpxCalculator.distances
+            yAxisData = gpxCalculator.distances.Select(Function(ts) ts).ToArray()
         ElseIf rbAge.Checked Then
             yAxisData = gpxCalculator.age.Select(Function(ts) ts.TotalHours).ToArray()
         ElseIf rbSpeed.Checked Then
-            yAxisData = gpxCalculator.speed
+            yAxisData = gpxCalculator.speed.Select(Function(ts) ts).ToArray()
         End If
 
         ' Vytvoření instance DistanceChart s daty
         If Not gpxCalculator.distances Is Nothing Then
-            Dim distanceChart As New DistanceChart(gpxCalculator.layerStart, yAxisData)
+            Dim distanceChart As New DistanceChart(gpxCalculator.layerStart.Select(Function(ts) ts).ToArray(), yAxisData)
 
             ' Zobrazení grafu
             distanceChart.Display()
