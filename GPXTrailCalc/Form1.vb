@@ -37,35 +37,44 @@ Public Class Form1
 
     Private Sub btnOpenDataFile_Click(sender As Object, e As EventArgs) Handles btnOpenDataFile.Click
         Dim csvFileName As String = "GPX_File_Data_" & Today.ToString("yyyy-MM-dd") 'Path.Combine(directoryPath, "GPX_File_Data_" & Today.ToString("yyyy-MM-dd") & ".csv")
+        Dim csvFilePath As String = Path.Combine(directoryPath, "GPX_File_Data_" & Today.ToString("yyyy-MM-dd") & ".csv")
+        Try 'když existuje zeptá se 
+            If File.Exists(csvFilePath) Then
 
-        Dim csvFilePath As String = gpxCalculator.SaveAsCsvFile(csvFileName)
-
-        If File.Exists(csvFilePath) Then
-            Try
+                csvFilePath = gpxCalculator.SaveAsCsvFile(csvFileName)
                 Process.Start(csvFilePath)
-            Catch ex As Exception
-                MessageBox.Show($"An error occurred while creating the CSV file:{csvFilePath} " & ex.Message & vbCrLf, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End Try
 
-        End If
+            Else
+                gpxCalculator.WriteCSVfile(csvFilePath)
+                Process.Start(csvFilePath)
+            End If
+        Catch ex As Exception
+            MessageBox.Show($"An error occurred while creating the CSV file:{csvFilePath} " & ex.Message & vbCrLf, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
 
     Private Sub btnOpenChart(sender As Object, e As EventArgs) Handles btnChartDistances.Click
         'what to display
         Dim yAxisData() As Double
+        Dim yAxisLabel As String
+
         If rbTotDistance.Checked Then
             yAxisData = gpxCalculator.totalDistances.Select(Function(ts) ts).ToArray()
+            yAxisLabel = "Sum of Distances (km)"
         ElseIf rbDistances.Checked Then
             yAxisData = gpxCalculator.distances.Select(Function(ts) ts).ToArray()
+            yAxisLabel = "Distances (km)"
         ElseIf rbAge.Checked Then
             yAxisData = gpxCalculator.age.Select(Function(ts) ts.TotalHours).ToArray()
+            yAxisLabel = "Age of trails hours"
         ElseIf rbSpeed.Checked Then
             yAxisData = gpxCalculator.speed.Select(Function(ts) ts).ToArray()
+            yAxisLabel = "Average dog speed in km/h"
         End If
 
         ' Vytvoření instance DistanceChart s daty
         If Not gpxCalculator.distances Is Nothing Then
-            Dim distanceChart As New DistanceChart(gpxCalculator.layerStart.Select(Function(ts) ts).ToArray(), yAxisData)
+            Dim distanceChart As New DistanceChart(gpxCalculator.layerStart.Select(Function(ts) ts).ToArray(), yAxisData, yAxisLabel)
 
             ' Zobrazení grafu
             distanceChart.Display()

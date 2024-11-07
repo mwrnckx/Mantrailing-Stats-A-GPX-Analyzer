@@ -4,11 +4,14 @@ Public Class DistanceChart
     ' Vlastnosti pro data
     Private layerStart As DateTime()
     Private TotalDistances As Double()
+    Private yAxisLabel As String
+
 
     ' Konstruktor, který přijme data
-    Public Sub New(layerStart As DateTime(), TotalDistances As Double())
+    Public Sub New(layerStart As DateTime(), TotalDistances As Double(), yAxisLabel As String)
         Me.layerStart = layerStart
         Me.TotalDistances = TotalDistances
+        Me.yAxisLabel = yAxisLabel
     End Sub
 
     ' Metoda pro vytvoření a zobrazení grafu
@@ -26,7 +29,7 @@ Public Class DistanceChart
         ' Nastavení oblasti grafu
         Dim chartArea As New ChartArea()
         chartArea.AxisX.Title = "Date"
-        chartArea.AxisY.Title = "Total Distance/km"
+        chartArea.AxisY.Title = yAxisLabel
         chartArea.AxisX.LabelStyle.Format = "yyyy-MM-dd"
         chart.ChartAreas.Add(chartArea)
 

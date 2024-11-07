@@ -433,6 +433,7 @@ Public Class GPXDistanceCalculator
                 End Try
 
                 ' Start calculation using the values
+                RenamewptNodes(i, xmlDoc, "předmět")
                 layerStart.Add(GetLayerStart(gpxFiles(i)))
                 SplitTrackIntoTwo(i, xmlDoc) 'in gpx files, splits a track with two segments into two separate tracks
                 descriptions.Add(GetDescription(i, xmlDoc)) 'musí být první - slouží k výpočtu age
@@ -676,9 +677,9 @@ Public Class GPXDistanceCalculator
             .Filter = "CSV Files (*.csv)|*.csv|All Files (*.*)|*.*",
             .DefaultExt = "csv",
             .AddExtension = True,
-            .Title = "Uložit Jako",
+            .Title = "A file with this name already exists, Save As:",
             .FileName = csvFilename,
-            .InitialDirectory = Application.StartupPath
+            .InitialDirectory = DirectoryPath
         }
 
         ' Zobrazení dialogového okna pro "Uložit Jako"
@@ -700,7 +701,7 @@ Public Class GPXDistanceCalculator
 
 
     ' in gpx files, splits a track with two segments into two separate tracks
-    Sub SplitTrackIntoTwo(i As Integer, xmlDoc As XmlDocument)
+    Sub SplitTrackIntoTwo(i As Integer, ByRef xmlDoc As XmlDocument)
 
 
         Dim namespaceManager As New XmlNamespaceManager(xmlDoc.NameTable)
@@ -715,7 +716,7 @@ Public Class GPXDistanceCalculator
 
             If trkSegNodes.Count > 1 Then
                 ' Vytvoř nový uzel <trk>
-                Dim newTrkNode As XmlNode = xmlDoc.CreateElement("trk")
+                Dim newTrkNode As XmlNode = xmlDoc.CreateElement("trk", "http://www.topografix.com/GPX/1/1")
 
                 ' Přesuň druhý <trkseg> do nového <trk>
                 Dim secondTrkSeg As XmlNode = trkSegNodes(1)
@@ -728,6 +729,13 @@ Public Class GPXDistanceCalculator
                 Form1.txtWarnings.AppendText($"Track in file {gpxFiles(i)} was successfully split.")
             End If
         End If
+    End Sub
+
+
+    Sub RenamewptNodes(i As Integer, ByRef xmlDoc As XmlDocument, newname As String)
+
+        Dim namespaceManager As New XmlNamespaceManager(xmlDoc.NameTable)
+        namespaceManager.AddNamespace("gpx", "http://www.topografix.com/GPX/1/1") ' GPX namespace URI
 
 
         ' traverses all <wpt> nodes in the GPX file and overwrites the value of <name> nodes to "-předmět":
@@ -739,16 +747,11 @@ Public Class GPXDistanceCalculator
             ' Najdi uzel <name> uvnitř <wpt> s použitím namespace
             Dim nameNode As XmlNode = wptNode.SelectSingleNode("gpx:name", namespaceManager)
 
-            If nameNode IsNot Nothing AndAlso nameNode.InnerText <> "předmět" Then
-                ' Přepiš hodnotu <name> na "předmět"
+            If nameNode IsNot Nothing AndAlso nameNode.InnerText <> newname Then
+                ' Přepiš hodnotu <name> na newname
                 nameNode.InnerText = "předmět"
-                xmlDoc.Save(gpxFiles(i))
             End If
         Next
-
-        ' Ulož aktualizovaný GPX soubor
-
-
     End Sub
 
 End Class
