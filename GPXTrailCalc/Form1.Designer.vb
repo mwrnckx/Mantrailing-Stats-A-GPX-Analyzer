@@ -30,11 +30,14 @@ Partial Class Form1
         Me.lblDirectory = New System.Windows.Forms.Label()
         Me.txtOutput = New System.Windows.Forms.TextBox()
         Me.txtWarnings = New System.Windows.Forms.TextBox()
-        Me.chbDateOfCreation = New System.Windows.Forms.CheckBox()
         Me.chbDateToName = New System.Windows.Forms.CheckBox()
-        Me.chbCSVFile = New System.Windows.Forms.CheckBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnOpenDataFile = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.btnChartDistances = New System.Windows.Forms.Button()
+        Me.rbTotDistance = New System.Windows.Forms.RadioButton()
+        Me.rbDistances = New System.Windows.Forms.RadioButton()
+        Me.rbAge = New System.Windows.Forms.RadioButton()
+        Me.rbSpeed = New System.Windows.Forms.RadioButton()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -77,11 +80,11 @@ Partial Class Form1
         '
         Me.btnCalculate.BackColor = System.Drawing.Color.LightCoral
         Me.btnCalculate.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.btnCalculate.Location = New System.Drawing.Point(21, 245)
+        Me.btnCalculate.Location = New System.Drawing.Point(21, 203)
         Me.btnCalculate.Name = "btnCalculate"
-        Me.btnCalculate.Size = New System.Drawing.Size(232, 60)
+        Me.btnCalculate.Size = New System.Drawing.Size(327, 72)
         Me.btnCalculate.TabIndex = 1
-        Me.btnCalculate.Text = "Start Calculation"
+        Me.btnCalculate.Text = "Read data from gpx files"
         Me.btnCalculate.UseVisualStyleBackColor = False
         '
         'lblStartDate
@@ -129,36 +132,28 @@ Partial Class Form1
         Me.txtWarnings.TabIndex = 9
         Me.txtWarnings.Text = "Errors and Logs:"
         '
-        'chbDateOfCreation
-        '
-        Me.chbDateOfCreation.Checked = True
-        Me.chbDateOfCreation.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.chbDateOfCreation.Location = New System.Drawing.Point(21, 143)
-        Me.chbDateOfCreation.Name = "chbDateOfCreation"
-        Me.chbDateOfCreation.Size = New System.Drawing.Size(232, 24)
-        Me.chbDateOfCreation.TabIndex = 12
-        Me.chbDateOfCreation.Text = "Change Date File Attributes"
-        Me.chbDateOfCreation.UseVisualStyleBackColor = True
-        '
         'chbDateToName
         '
-        Me.chbDateToName.Location = New System.Drawing.Point(21, 173)
+        Me.chbDateToName.Checked = True
+        Me.chbDateToName.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.chbDateToName.Location = New System.Drawing.Point(21, 171)
         Me.chbDateToName.Name = "chbDateToName"
-        Me.chbDateToName.Size = New System.Drawing.Size(232, 24)
+        Me.chbDateToName.Size = New System.Drawing.Size(272, 26)
         Me.chbDateToName.TabIndex = 13
         Me.chbDateToName.Text = "Prepend Date to File Name"
         Me.chbDateToName.UseVisualStyleBackColor = True
         '
-        'chbCSVFile
+        'btnOpenDataFile
         '
-        Me.chbCSVFile.Checked = True
-        Me.chbCSVFile.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.chbCSVFile.Location = New System.Drawing.Point(21, 203)
-        Me.chbCSVFile.Name = "chbCSVFile"
-        Me.chbCSVFile.Size = New System.Drawing.Size(232, 24)
-        Me.chbCSVFile.TabIndex = 15
-        Me.chbCSVFile.Text = "Create CSV Data  File"
-        Me.chbCSVFile.UseVisualStyleBackColor = True
+        Me.btnOpenDataFile.BackColor = System.Drawing.Color.LightGreen
+        Me.btnOpenDataFile.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.btnOpenDataFile.Location = New System.Drawing.Point(21, 281)
+        Me.btnOpenDataFile.Name = "btnOpenDataFile"
+        Me.btnOpenDataFile.Size = New System.Drawing.Size(327, 70)
+        Me.btnOpenDataFile.TabIndex = 16
+        Me.btnOpenDataFile.Text = "Open CSV data file"
+        Me.btnOpenDataFile.UseVisualStyleBackColor = False
+        Me.btnOpenDataFile.Visible = False
         '
         'PictureBox1
         '
@@ -171,26 +166,76 @@ Partial Class Form1
         Me.PictureBox1.TabIndex = 14
         Me.PictureBox1.TabStop = False
         '
-        'btnOpenDataFile
+        'btnChartDistances
         '
-        Me.btnOpenDataFile.BackColor = System.Drawing.Color.LightGreen
-        Me.btnOpenDataFile.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.btnOpenDataFile.Location = New System.Drawing.Point(26, 332)
-        Me.btnOpenDataFile.Name = "btnOpenDataFile"
-        Me.btnOpenDataFile.Size = New System.Drawing.Size(232, 60)
-        Me.btnOpenDataFile.TabIndex = 16
-        Me.btnOpenDataFile.Text = "Open Data File"
-        Me.btnOpenDataFile.UseVisualStyleBackColor = False
+        Me.btnChartDistances.BackColor = System.Drawing.Color.Yellow
+        Me.btnChartDistances.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.btnChartDistances.Location = New System.Drawing.Point(26, 357)
+        Me.btnChartDistances.Name = "btnChartDistances"
+        Me.btnChartDistances.Size = New System.Drawing.Size(322, 60)
+        Me.btnChartDistances.TabIndex = 16
+        Me.btnChartDistances.Text = "Show Chart of:"
+        Me.btnChartDistances.UseVisualStyleBackColor = False
+        Me.btnChartDistances.Visible = False
+        '
+        'rbTotDistance
+        '
+        Me.rbTotDistance.AutoSize = True
+        Me.rbTotDistance.Checked = True
+        Me.rbTotDistance.Location = New System.Drawing.Point(26, 433)
+        Me.rbTotDistance.Name = "rbTotDistance"
+        Me.rbTotDistance.Size = New System.Drawing.Size(183, 24)
+        Me.rbTotDistance.TabIndex = 17
+        Me.rbTotDistance.TabStop = True
+        Me.rbTotDistance.Text = "sum of trail distances"
+        Me.rbTotDistance.UseVisualStyleBackColor = True
+        Me.rbTotDistance.Visible = False
+        '
+        'rbDistances
+        '
+        Me.rbDistances.AutoSize = True
+        Me.rbDistances.Location = New System.Drawing.Point(26, 464)
+        Me.rbDistances.Name = "rbDistances"
+        Me.rbDistances.Size = New System.Drawing.Size(131, 24)
+        Me.rbDistances.TabIndex = 18
+        Me.rbDistances.Text = "trail distances"
+        Me.rbDistances.UseVisualStyleBackColor = True
+        Me.rbDistances.Visible = False
+        '
+        'rbAge
+        '
+        Me.rbAge.AutoSize = True
+        Me.rbAge.Location = New System.Drawing.Point(26, 495)
+        Me.rbAge.Name = "rbAge"
+        Me.rbAge.Size = New System.Drawing.Size(98, 24)
+        Me.rbAge.TabIndex = 19
+        Me.rbAge.Text = "trail ages"
+        Me.rbAge.UseVisualStyleBackColor = True
+        Me.rbAge.Visible = False
+        '
+        'rbSpeed
+        '
+        Me.rbSpeed.AutoSize = True
+        Me.rbSpeed.Location = New System.Drawing.Point(26, 526)
+        Me.rbSpeed.Name = "rbSpeed"
+        Me.rbSpeed.Size = New System.Drawing.Size(147, 24)
+        Me.rbSpeed.TabIndex = 20
+        Me.rbSpeed.Text = "dog aver. speed"
+        Me.rbSpeed.UseVisualStyleBackColor = True
+        Me.rbSpeed.Visible = False
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1778, 844)
+        Me.Controls.Add(Me.rbSpeed)
+        Me.Controls.Add(Me.rbAge)
+        Me.Controls.Add(Me.rbDistances)
+        Me.Controls.Add(Me.rbTotDistance)
+        Me.Controls.Add(Me.btnChartDistances)
         Me.Controls.Add(Me.btnOpenDataFile)
-        Me.Controls.Add(Me.chbCSVFile)
         Me.Controls.Add(Me.chbDateToName)
-        Me.Controls.Add(Me.chbDateOfCreation)
         Me.Controls.Add(Me.txtWarnings)
         Me.Controls.Add(Me.txtOutput)
         Me.Controls.Add(Me.lblDirectory)
@@ -220,10 +265,8 @@ Partial Class Form1
     Friend WithEvents lblDirectory As Label
     Friend WithEvents txtOutput As TextBox
     Friend WithEvents txtWarnings As TextBox
-    Friend WithEvents chbDateOfCreation As CheckBox
     Friend WithEvents chbDateToName As CheckBox
     Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents chbCSVFile As CheckBox
     Friend WithEvents btnOpenDataFile As Button
 
     Public Sub New()
@@ -242,6 +285,10 @@ Partial Class Form1
         gpxCalculator = New GPXDistanceCalculator()
     End Sub
 
-
+    Friend WithEvents btnChartDistances As Button
+    Friend WithEvents rbTotDistance As RadioButton
+    Friend WithEvents rbDistances As RadioButton
+    Friend WithEvents rbAge As RadioButton
+    Friend WithEvents rbSpeed As RadioButton
 End Class
 
