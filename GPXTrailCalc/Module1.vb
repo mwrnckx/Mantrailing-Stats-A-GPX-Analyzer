@@ -401,7 +401,7 @@ Public Class GPXDistanceCalculator
         Return totalLengthOfFirst_trkseg ' Result in kilometers
     End Function
 
-    Public Sub Calculate(directorypath As String, startDate As DateTime, endDate As DateTime, PrependDatetoFileName As Boolean)
+    Public Function Calculate(directorypath As String, startDate As DateTime, endDate As DateTime, PrependDatetoFileName As Boolean) As Boolean
         Me.DirectoryPath = directorypath
         dateFrom = startDate
         dateTo = endDate
@@ -417,6 +417,11 @@ Public Class GPXDistanceCalculator
         descriptions.Clear()
 
         gpxFiles = GetGpxFiles(Me.DirectoryPath)
+
+        If gpxFiles.Count = 0 Then
+            MessageBox.Show("No gpx file was found in the specified directory.")
+            Return False
+        End If
 
         Try
             For i = 0 To gpxFiles.Count - 1
@@ -466,15 +471,16 @@ Public Class GPXDistanceCalculator
 
         Catch ex As Exception
             MessageBox.Show("An error occurred while processing data: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return False
         End Try
 
 
+        Return True
 
 
 
 
-
-    End Sub
+    End Function
 
     Private Function GetDogStart(i As Integer, xmldoc As XmlDocument) As Date
         Dim namespaceManager As New XmlNamespaceManager(xmldoc.NameTable)

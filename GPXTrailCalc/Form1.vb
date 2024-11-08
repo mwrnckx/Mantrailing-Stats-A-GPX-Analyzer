@@ -9,14 +9,18 @@ Public Class Form1
     Private Sub btnCalculate_Click(sender As Object, e As EventArgs) Handles btnCalculate.Click
         Try
             'send directoryPath to gpxCalculator
-            gpxCalculator.Calculate(directoryPath, dtpStartDate.Value, dtpEndDate.Value, chbDateToName.Checked)
-            Me.btnChartDistances.Visible = True
-            Me.btnOpenDataFile.Visible = True
-            Me.rbTotDistance.Visible = True
-            Me.rbDistances.Visible = True
-            Me.rbAge.Visible = True
-            Me.rbSpeed.Visible = True
+            If gpxCalculator.Calculate(directoryPath, dtpStartDate.Value, dtpEndDate.Value, chbDateToName.Checked) Then
 
+
+                Me.btnChartDistances.Visible = True
+                Me.btnOpenDataFile.Visible = True
+                Me.rbTotDistance.Visible = True
+                Me.rbDistances.Visible = True
+                Me.rbAge.Visible = True
+                Me.rbSpeed.Visible = True
+            Else
+                MessageBox.Show("Data retrieval failed")
+            End If
         Catch ex As Exception
             MessageBox.Show("Data retrieval failed")
         End Try
