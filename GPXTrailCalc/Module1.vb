@@ -572,54 +572,130 @@ Public Class GPXDistanceCalculator
         Dim dateTimeFromFileName As DateTime
         Try
 
+            ' Regex s pojmenovanými skupinami pro celé formáty i jednotlivé části data
+            Dim pattern As String = "(?<format1>T(?<year1>\d{4})-(?<month1>\d{2})-(?<day1>\d{2})-(?<hour1>\d{2})-(?<minute1>\d{2}))|" &
+                        "(?<format2>(?<year2>\d{4})-(?<month2>\d{2})-(?<day2>\d{2})_(?<hour2>\d{2})-(?<minute2>\d{2}))|" &
+                        "(?<format3>(?<day3>\d{1,2})\._(?<month3>\d{2})\._(?<year3>\d{4})_(?<hour3>\d{1,2})_(?<minute3>\d{2})_(?<second3>\d{2}))|" &
+                        "(?<format4>(?<year4>\d{4})-(?<month4>\d{2})-(?<day4>\d{2}))"
+            Dim myRegex As New Regex(pattern)
 
-            If Regex.IsMatch(fileName, "(?:(\d{4})[-/.](\d{2})[-/.](\d{2})|(\d{2})[-/.](\d{2})[-/.](\d{4}))") Then
-                ' If Regex.IsMatch(fileName, "^\d{4}-\d{2}-\d{2}") Then
-                ' Extrahování data z názvu souboru
-                Dim dateMatch As Match = Regex.Match(fileName, , "(?:(\d{4})[-/.](\d{2})[-/.](\d{2})|(\d{2})[-/.](\d{2})[-/.](\d{4}))")
-                If dateMatch.Success Then
-                    ' Převedení nalezeného řetězce na DateTime
-                    dateTimeFromFileName = DateTime.ParseExact(dateMatch.Value, "yyyy-MM-dd", CultureInfo.InvariantCulture)
+            Dim match As Match = myRegex.Match(fileName)
+            If match.Success Then
+
+                Dim formattedDate As String = ""
+                ' Rozpoznání formátu podle shody celé pojmenované skupiny formátu
+                If match.Groups("format1").Success Then
+                    ' Formát TYYYY-MM-DD-hh-mm
+                    Dim year As Integer = Integer.Parse(match.Groups("year1").Value)
+                    Dim month As Integer = Integer.Parse(match.Groups("month1").Value)
+                    Dim day As Integer = Integer.Parse(match.Groups("day1").Value)
+                    Dim hour As Integer = Integer.Parse(match.Groups("hour1").Value)
+                    Dim minute As Integer = Integer.Parse(match.Groups("minute1").Value)
+                    dateTimeFromFileName = New DateTime(year, month, day, hour, minute, 0)
+                    formattedDate = match.Groups("format1").Value
+
+                ElseIf match.Groups("format2").Success Then
+                    ' Formát YYYY-MM-DD_hh-mm
+                    Dim year As Integer = Integer.Parse(match.Groups("year2").Value)
+                    Dim month As Integer = Integer.Parse(match.Groups("month2").Value)
+                    Dim day As Integer = Integer.Parse(match.Groups("day2").Value)
+                    Dim hour As Integer = Integer.Parse(match.Groups("hour2").Value)
+                    Dim minute As Integer = Integer.Parse(match.Groups("minute2").Value)
+                    dateTimeFromFileName = New DateTime(year, month, day, hour, minute, 0)
+                    formattedDate = match.Groups("format2").Value
+                ElseIf match.Groups("format3").Success Then
+                    ' Formát D._MM._YYYY_h_mm_ss
+                    Dim day As Integer = Integer.Parse(match.Groups("day3").Value.PadLeft(2, "0"c))
+                    Dim month As Integer = Integer.Parse(match.Groups("month3").Value.PadLeft(2, "0"c))
+                    Dim year As Integer = Integer.Parse(match.Groups("year3").Value)
+                    Dim hour As Integer = Integer.Parse(match.Groups("hour3").Value)
+                    Dim minute As Integer = Integer.Parse(match.Groups("minute3").Value)
+                    Dim second As Integer = Integer.Parse(match.Groups("second3").Value)
+                    formattedDate = match.Groups("format3").Value
+                    dateTimeFromFileName = New DateTime(year, month, day, hour, minute, second)
+                ElseIf match.Groups("format4").Success Then
+                    ' Formát YYYY-MM-DD
+                    Dim year As Integer = Integer.Parse(match.Groups("year4").Value)
+                    Dim month As Integer = Integer.Parse(match.Groups("month4").Value)
+                    Dim day As Integer = Integer.Parse(match.Groups("day4").Value)
+                    dateTimeFromFileName = New DateTime(year, month, day)
                 End If
 
-                'zkontroluje, zda je datum v názvu správné
+                ' Výstup formátu data ve tvaru YYYY-MM-DD
+                Console.WriteLine("Převedené datum: " & dateTimeFromFileName.ToString("yyyy-MM-dd"))
+                ' Odstranění původního datového vzoru z řetězce
+                Dim modifiedFileName As String = myRegex.Replace(fileName, "")
 
-                If dateTimeFromFileName <> Date.MinValue AndAlso dateTimeFromFileName.Date.ToShortDateString <> _layerStart.Date.ToShortDateString Then
-                    ' Nahrazení staré hodnoty za novou v názvu souboru
-                    newFileName = Regex.Replace(fileName, "^(?:(\d{4})[-/.](\d{2})[-/.](\d{2})|(\d{2})[-/.](\d{2})[-/.](\d{4}))", _layerStart.ToString("yyyy-MM-dd"))
+                ' Přidání přeformátovaného data na začátek modifikovaného řetězce
+                newFileName = $"{dateTimeFromFileName.ToString("yyyy-MM-dd")}{modifiedFileName}"
+                Console.WriteLine("Přeformátované file name: " & newFileName)
+
+                If Not String.IsNullOrWhiteSpace(newFileName) AndAlso Not newFileName.TrimEnd = fileName.TrimEnd Then
+
                     newFilePath = Path.Combine(DirectoryPath, newFileName & ".gpx")
-                    File.Move(gpxFiles(i), newFilePath)
-                    Form1.txtWarnings.AppendText($"Renamed file: {Path.GetFileName(gpxFiles(i))} to {Path.GetFileName(newFilePath)}.{Environment.NewLine}")
-                    gpxFiles(i) = newFilePath
-                End If
-            End If
+                    If Form1.chbDateToName.Checked Then
+                        If File.Exists(newFilePath) Then
+                            ' Handle existing files
+                            Dim userInput As String = InputBox($"File {newFileName} already exists. Enter a new name:", newFileName)
+                            If Not String.IsNullOrWhiteSpace(userInput) Then
+                                newFilePath = Path.Combine(DirectoryPath, userInput & fileExtension)
+                                File.Move(gpxFiles(i), newFilePath)
+                                Form1.txtWarnings.AppendText($"Renamed file: {Path.GetFileName(gpxFiles(i))} to {Path.GetFileName(newFilePath)}.{Environment.NewLine}")
+                                Console.WriteLine($"Renamed file: {Path.GetFileName(gpxFiles(i))} to {Path.GetFileName(newFilePath)}.{Environment.NewLine}")
 
-            ' když na začátku jména souboru není datum, pokusí se ho přidat
-            If Not Regex.IsMatch(fileName, "^\d{4}-\d{2}-\d{2}") Then
+                            Else
+                                Form1.txtWarnings.AppendText($"New name for {newFilePath} was not provided.{Environment.NewLine}")
+
+                            End If
+
+                        Else
+                            File.Move(gpxFiles(i), newFilePath)
+                            gpxFiles(i) = newFilePath
+                            Console.WriteLine($"Renamed file: {Path.GetFileName(gpxFiles(i))} to {Path.GetFileName(newFilePath)}.{Environment.NewLine}")
+                            Form1.txtWarnings.AppendText($"Renamed file: {Path.GetFileName(gpxFiles(i))} to {Path.GetFileName(newFilePath)}.{Environment.NewLine}")
+                        End If
+
+                        gpxFiles(i) = newFilePath
+                    End If
+                End If
+
+            Else
+                Console.WriteLine("Žádné datum v požadovaném formátu nebylo nalezeno.")
                 newFileName = $"{_layerStart.Date.ToString("yyyy-MM-dd")}{fileName}{fileExtension}"
                 newFilePath = Path.Combine(DirectoryPath, newFileName)
                 If Form1.chbDateToName.Checked Then
                     If File.Exists(newFilePath) Then
                         ' Handle existing files
-                        Dim userInput As String = InputBox($"File {newFilePath} already exists. Enter a new name:")
+                        Dim userInput As String = InputBox($"File {newFileName} already exists. Enter a new name:", newFileName)
                         If Not String.IsNullOrWhiteSpace(userInput) Then
                             newFilePath = Path.Combine(DirectoryPath, userInput & fileExtension)
                             File.Move(gpxFiles(i), newFilePath)
                             Form1.txtWarnings.AppendText($"Renamed file: {Path.GetFileName(gpxFiles(i))} to {Path.GetFileName(newFilePath)}.{Environment.NewLine}")
+                            Console.WriteLine($"Renamed file: {Path.GetFileName(gpxFiles(i))} to {Path.GetFileName(newFilePath)}.{Environment.NewLine}")
+
                         Else
                             Form1.txtWarnings.AppendText($"New name for {newFilePath} was not provided.{Environment.NewLine}")
 
                         End If
+
                     Else
                         File.Move(gpxFiles(i), newFilePath)
                         gpxFiles(i) = newFilePath
+                        Console.WriteLine($"Renamed file: {Path.GetFileName(gpxFiles(i))} to {Path.GetFileName(newFilePath)}.{Environment.NewLine}")
+                        Form1.txtWarnings.AppendText($"Renamed file: {Path.GetFileName(gpxFiles(i))} to {Path.GetFileName(newFilePath)}.{Environment.NewLine}")
                     End If
 
                 End If
             End If
+
         Catch ex As Exception
-            MessageBox.Show(ex.Message)
+            Console.WriteLine(ex.ToString)
         End Try
+
+
+
+
+
     End Sub
 
 
