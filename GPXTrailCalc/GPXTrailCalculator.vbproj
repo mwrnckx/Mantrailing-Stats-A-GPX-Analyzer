@@ -128,15 +128,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Medlinfoto.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Medlinfoto2.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Medlinfoto21.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\trail.jpg" />
   </ItemGroup>
   <ItemGroup>
