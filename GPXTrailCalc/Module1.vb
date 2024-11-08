@@ -573,10 +573,10 @@ Public Class GPXDistanceCalculator
         Try
 
 
-            If Regex.IsMatch(fileName, "^(?:(\d{4})[-/.](\d{2})[-/.](\d{2})|(\d{2})[-/.](\d{2})[-/.](\d{4}))") Then
+            If Regex.IsMatch(fileName, "(?:(\d{4})[-/.](\d{2})[-/.](\d{2})|(\d{2})[-/.](\d{2})[-/.](\d{4}))") Then
                 ' If Regex.IsMatch(fileName, "^\d{4}-\d{2}-\d{2}") Then
                 ' Extrahování data z názvu souboru
-                Dim dateMatch As Match = Regex.Match(fileName, "^(?:(\d{4})[-/.](\d{2})[-/.](\d{2})|(\d{2})[-/.](\d{2})[-/.](\d{4}))")
+                Dim dateMatch As Match = Regex.Match(fileName, , "(?:(\d{4})[-/.](\d{2})[-/.](\d{2})|(\d{2})[-/.](\d{2})[-/.](\d{4}))")
                 If dateMatch.Success Then
                     ' Převedení nalezeného řetězce na DateTime
                     dateTimeFromFileName = DateTime.ParseExact(dateMatch.Value, "yyyy-MM-dd", CultureInfo.InvariantCulture)

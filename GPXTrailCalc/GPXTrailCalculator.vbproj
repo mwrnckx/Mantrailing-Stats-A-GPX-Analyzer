@@ -6,9 +6,9 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{8505612D-F1E7-4D9F-88FA-E7B20E1CDC96}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>GPXTrailCalc.My.MyApplication</StartupObject>
-    <RootNamespace>GPXTrailCalc</RootNamespace>
-    <AssemblyName>GPX Route Distance Calculator</AssemblyName>
+    <StartupObject>GPXTrailAnalyzer.My.MyApplication</StartupObject>
+    <RootNamespace>GPXTrailAnalyzer</RootNamespace>
+    <AssemblyName>GPX Dog Trail Analyzer</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
@@ -22,7 +22,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>GPX Route Distance Calculator.xml</DocumentationFile>
+    <DocumentationFile>GPX Dog Trail Analyzer.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -32,7 +32,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>GPX Route Distance Calculator.xml</DocumentationFile>
+    <DocumentationFile>GPX Dog Trail Analyzer.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -91,6 +91,7 @@
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>

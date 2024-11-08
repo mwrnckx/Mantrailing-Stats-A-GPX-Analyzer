@@ -158,7 +158,7 @@ Partial Class Form1
         'PictureBox1
         '
         Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Left
-        Me.PictureBox1.Image = Global.GPXTrailCalc.My.Resources.Resources.trail1
+        Me.PictureBox1.Image = Global.GPXTrailAnalyzer.My.Resources.Resources.trail1
         Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(1300, 844)
