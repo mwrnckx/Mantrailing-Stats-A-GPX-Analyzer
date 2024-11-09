@@ -16,6 +16,7 @@ Needs further development for The Mantrailing app,
 
 ## Installation
 *** ***
+**Download file Mantrailing_Stats_A_GPX_Analyzer.exe** to any folder, copy your gpx files to this folder and run exe file.  Doporu
 
 ## License
 This project is licensed under the MIT License - see the LICENSE.md file for details.
