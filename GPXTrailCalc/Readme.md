@@ -2,7 +2,7 @@
 
 The **Mantrailing Stats A GPX Analyzer** is a Visual Basic application that processes GPX files with GPS routes of the trail layer and the dog and provides statistics such as total distance, average speed and age of routes.
 Tested for Geo Tracker, AGPS Tracker and Locus map apps.
-Needs further development for The Mantrailing app, 
+Needs further development for The Mantrailing App and other aplications.
 
 ## Features
 

@@ -6,6 +6,7 @@ Imports System.Windows.Forms.DataVisualization.Charting
 Imports System.Collections.Generic
 Imports System.Runtime.InteropServices.ComTypes
 Imports System.DirectoryServices.ActiveDirectory
+Imports System.Diagnostics.Eventing
 
 Public Class GPXDistanceCalculator
 
@@ -13,6 +14,7 @@ Public Class GPXDistanceCalculator
     Private Const PI As Double = 3.14159265358979
     Private Const EARTH_RADIUS As Double = 6371 ' Earth's radius in kilometers
     Private gpxFiles As New List(Of String)
+    Private gpxReaders As New List(Of GpxReader)
     Public distances As New List(Of Double)
     Private dateFrom As DateTime
     Private dateTo As DateTime
@@ -73,37 +75,11 @@ Public Class GPXDistanceCalculator
 
     ' Function to read the time from the first <time> node in the GPX file
     ' If <time> node doesnt exist tries to read date from file name and creates <time> node
-    Private Function GetLayerStart(filePath As String) As DateTime
+    Private Function GetLayerStart(filePath As String, reader As GpxReader) As DateTime
         Dim layerStart As DateTime
-        Dim xmlDoc As New XmlDocument()
 
-        Try
-            xmlDoc.Load(filePath)
-        Catch ex As Exception
-            ' Adding a more detailed exception message
-            Debug.WriteLine("Error: " & ex.Message)
-            ' TODO: Replace direct access to Form1 with a better method for separating logic
-            Form1.txtWarnings.AppendText($"File {filePath} could not be read: " & ex.Message & Environment.NewLine)
-        End Try
-
-        Dim namespaceManager As New XmlNamespaceManager(xmlDoc.NameTable)
-        namespaceManager.AddNamespace("gpx", "http://www.topografix.com/GPX/1/1") ' GPX namespace URI
-        Dim trksegNodes As XmlNodeList = xmlDoc.SelectNodes("//gpx:trkseg", namespaceManager)
-
-
-        Dim LayerStartTimeNode As XmlNode = xmlDoc.SelectSingleNode("//gpx:time", namespaceManager)
-
-
-        'If trksegNodes.Count > 1 Then
-
-        '    Dim dogtimeNodes As XmlNodeList = trksegNodes(1).SelectNodes("gpx:trkpt/gpx:time", namespaceManager)
-
-        '    Dim DogStartTimeNode As XmlNode = dogtimeNodes(0)
-        '    DateTime.TryParse(DogStartTimeNode.InnerText, _dogStart)
-
-        '    Dim DogFinishTimeNode As XmlNode = dogtimeNodes(dogtimeNodes.Count - 1)
-        '    DateTime.TryParse(DogFinishTimeNode.InnerText, dogFinish(i))
-        'End If
+        ' Načtení jednoho uzlu <time>
+        Dim LayerStartTimeNode As XmlNode = reader.SelectSingleNode("time")
 
 
         Dim RecordedDateFromFileName As DateTime
@@ -142,7 +118,7 @@ Public Class GPXDistanceCalculator
 
     End Function
 
-    Private Function CalculateAge(i As Integer, ByRef xmlDoc As XmlDocument) As TimeSpan
+    Private Function CalculateAge(i As Integer) As TimeSpan
         Dim ageFromTime As TimeSpan
         Dim ageFromComments As TimeSpan
 
@@ -171,7 +147,7 @@ Public Class GPXDistanceCalculator
                 newDescription = "Trail: " & ageFromTime.TotalHours.ToString("F1") & " hod" & descriptions(i)
             End If
 
-            If Not String.IsNullOrWhiteSpace(newDescription) Then SetDescription(i, xmlDoc, newDescription)
+            If Not String.IsNullOrWhiteSpace(newDescription) Then SetDescription(i, newDescription)
             descriptions(i) = newDescription
         Else
 
@@ -258,14 +234,13 @@ Public Class GPXDistanceCalculator
         End If
     End Sub
     ' Function to read the <link> description from the first <trk> node in the GPX file
-    Private Function Getlink(xmlDoc As XmlDocument) As String
+    Private Function Getlink(i As Integer)
 
-        Dim namespaceManager As New XmlNamespaceManager(xmlDoc.NameTable)
-        namespaceManager.AddNamespace("gpx", "http://www.topografix.com/GPX/1/1") ' GPX namespace URI
 
-        ' Find the first <trk> node and its <desc> subnode
 
-        Dim linkNodes As XmlNodeList = xmlDoc.SelectNodes("//gpx:link", namespaceManager)
+
+        ' Načtení více uzlů, např. <trkseg>
+        Dim linkNodes As XmlNodeList = gpxReaders(i).SelectNodes("link")
 
         For Each linkNode As XmlNode In linkNodes
             ' Zpracování každého uzlu <link>
@@ -281,15 +256,14 @@ Public Class GPXDistanceCalculator
     End Function
 
     ' Function to read the <desc> description from the first <trk> node in the GPX file
-    Private Function GetDescription(i As Integer, xmlDoc As XmlDocument) As String
+    Private Function GetDescription(i As Integer) As String
 
-        Dim namespaceManager As New XmlNamespaceManager(xmlDoc.NameTable)
-        namespaceManager.AddNamespace("gpx", "http://www.topografix.com/GPX/1/1") ' GPX namespace URI
 
         ' Find the first <trk> node and its <desc> subnode
         ' Vyhledání uzlu <trk> v rámci hlavního namespace
-        Dim trkNode As XmlNode = xmlDoc.SelectSingleNode("//gpx:trk", namespaceManager)
-        Dim descNode As XmlNode = trkNode?.SelectSingleNode("gpx:desc", namespaceManager)
+        Dim trkNode As XmlNode = gpxReaders(i).SelectSingleNode("trk")
+
+        Dim descNode As XmlNode = gpxReaders(i).SelectSingleChildNode("desc", trkNode) 'trkNode?.SelectSingleNode("desc")
 
         'Dim descNode As XmlNode = xmlDoc.SelectSingleNode("/gpx:gpx/gpx:trk[1]/gpx:desc", namespaceManager)
 
@@ -301,20 +275,18 @@ Public Class GPXDistanceCalculator
     End Function
 
     ' Function to set the <desc> description from the first <trk> node in the GPX file
-    Private Function SetDescription(i As Integer, ByRef xmlDoc As XmlDocument, newDescription As String) As Boolean
+    Private Function SetDescription(i As Integer, newDescription As String) As Boolean
 
-        Dim namespaceManager As New XmlNamespaceManager(xmlDoc.NameTable)
-        namespaceManager.AddNamespace("gpx", "http://www.topografix.com/GPX/1/1") ' GPX namespace URI
 
         ' Find the first <trk> node and its <desc> subnode
         'Dim descNode As XmlNode = xmlDoc.SelectSingleNode("/gpx:gpx/gpx:trk[1]/gpx:desc", namespaceManager)
-        Dim trkNode As XmlNode = xmlDoc.SelectSingleNode("//gpx:trk", namespaceManager)
-        Dim descNode As XmlNode = trkNode?.SelectSingleNode("gpx:desc", namespaceManager)
+        Dim trkNode As XmlNode = gpxReaders(i).SelectSingleNode("trk")
+        Dim descNode As XmlNode = gpxReaders(i).SelectSingleChildNode("desc", trkNode)
         ' Pokud uzel <desc> neexistuje, vytvoříme jej a přidáme do <trk>
         If descNode Is Nothing Then
             ' Najdeme první uzel <trk>
             'Dim trkNode As XmlNode = xmlDoc.SelectSingleNode("/gpx:gpx/gpx:trk[1]", namespaceManager)
-            descNode = xmlDoc.CreateElement("desc", "http://www.topografix.com/GPX/1/1")
+            descNode = gpxReaders(i).CreateElement("desc")
             If trkNode IsNot Nothing Then
                 ' Vytvoříme nový uzel <desc>
                 ' Přidání <desc> jako prvního potomka v uzlu <trk>
@@ -342,25 +314,22 @@ Public Class GPXDistanceCalculator
     End Function
 
     ' Function to read and calculate the length of only the first segment from the GPX file
-    Private Function CalculateFirstSegmentDistance(i As Integer, xmlDoc As XmlDocument) As Double
+    Private Function CalculateFirstSegmentDistance(i As Integer) As Double
         Dim totalLengthOfFirst_trkseg As Double = 0.0
         Dim lat1, lon1, lat2, lon2 As Double
         Dim firstPoint As Boolean = True
 
-        ' Load the GPX file
 
 
-        ' Create an XML Namespace Manager with the GPX namespace definition
-        Dim namespaceManager As New XmlNamespaceManager(xmlDoc.NameTable)
-        namespaceManager.AddNamespace("gpx", "http://www.topografix.com/GPX/1/1") ' GPX namespace URI
 
         ' Select the first track segment (<trkseg>) using the namespace
-        Dim firstSegment As XmlNode = xmlDoc.SelectSingleNode("//gpx:trkseg", namespaceManager)
+        Dim trknode As XmlNode = gpxReaders(i).SelectSingleNode("trk")
+        Dim firstSegment As XmlNode = gpxReaders(i).SelectSingleChildNode("trkseg", trknode)
 
         ' If the segment exists, calculate its length
         If firstSegment IsNot Nothing Then
             ' Select all track points in the first segment (<trkpt>)
-            Dim trackPoints As XmlNodeList = firstSegment.SelectNodes("gpx:trkpt", namespaceManager)
+            Dim trackPoints As XmlNodeList = gpxReaders(i).SelectChildNodes("trkpt", firstSegment)
 
             ' Calculate the distance between each point in the first segment
             For Each point As XmlNode In trackPoints
@@ -407,14 +376,7 @@ Public Class GPXDistanceCalculator
         dateTo = endDate
 
         gpxFiles.Clear()
-        layerStart.Clear()
-        dogStart.Clear()
-        dogFinish.Clear()
-        distances.Clear()
-        totalDistances.Clear()
-        age.Clear()
-        speed.Clear()
-        descriptions.Clear()
+
 
         gpxFiles = GetGpxFiles(Me.DirectoryPath)
 
@@ -423,36 +385,43 @@ Public Class GPXDistanceCalculator
             Return False
         End If
 
+
+        gpxReaders.Clear()
+        layerStart.Clear()
+        dogStart.Clear()
+        dogFinish.Clear()
+        distances.Clear()
+        totalDistances.Clear()
+        age.Clear()
+        speed.Clear()
+        descriptions.Clear()
+        link.Clear()
+
         Try
             For i = 0 To gpxFiles.Count - 1
                 Dim gpxfilePath As String = gpxFiles(i)
 
-                Dim xmlDoc As New XmlDocument()
-                Try
-                    xmlDoc.Load(gpxFiles(i))
-                Catch ex As Exception
-                    ' Adding a more detailed exception message
-                    Debug.WriteLine("Error: " & ex.Message)
-                    ' TODO: Replace direct access to Form1 with a better method for separating logic
-                    Form1.txtWarnings.AppendText($"File {gpxFiles(i)} could not be read: " & ex.Message & Environment.NewLine)
-                End Try
+
+
+                Dim reader As New GpxReader(gpxFiles(i)) 'musí se načíst znovu kvůli files.sort
+                gpxReaders.Add(reader)
 
                 ' Start calculation using the values
-                RenamewptNodes(i, xmlDoc, "předmět")
-                layerStart.Add(GetLayerStart(gpxFiles(i)))
-                SplitTrackIntoTwo(i, xmlDoc) 'in gpx files, splits a track with two segments into two separate tracks
-                descriptions.Add(GetDescription(i, xmlDoc)) 'musí být první - slouží k výpočtu age
-                distances.Add(CalculateFirstSegmentDistance(i, xmlDoc))
+                RenamewptNodes(i, "předmět")
+                layerStart.Add(GetLayerStart(gpxFiles(i), gpxReaders(i)))
+                SplitTrackIntoTwo(i) 'in gpx files, splits a track with two segments into two separate tracks
+                descriptions.Add(GetDescription(i)) 'musí být první - slouží k výpočtu age
+                distances.Add(CalculateFirstSegmentDistance(i))
                 If i = 0 Then totalDistances.Add(distances(i)) Else totalDistances.Add(totalDistances(i - 1) + distances(i))
-                dogStart.Add(GetDogStart(i, xmlDoc))
-                dogFinish.Add(GetDogFinish(i, xmlDoc))
-                age.Add(CalculateAge(i, xmlDoc))
+                dogStart.Add(GetDogStart(i))
+                dogFinish.Add(GetDogFinish(i))
+                age.Add(CalculateAge(i))
                 speed.Add(CalculateSpeed(i))
 
-                link.Add(Getlink(xmlDoc))
+                link.Add(Getlink(i))
                 If Not link(i) Is Nothing Then link(i) = $"=HYPERTEXTOVÝ.ODKAZ(""{link(i)}"")"
 
-                xmlDoc.Save(gpxFiles(i)) 'hlavně kvůli desc
+                gpxReaders(i).save() 'hlavně kvůli desc
                 'a nakonec
                 SetCreatedModifiedDate(i)
 
@@ -482,36 +451,34 @@ Public Class GPXDistanceCalculator
 
     End Function
 
-    Private Function GetDogStart(i As Integer, xmldoc As XmlDocument) As Date
-        Dim namespaceManager As New XmlNamespaceManager(xmldoc.NameTable)
-        namespaceManager.AddNamespace("gpx", "http://www.topografix.com/GPX/1/1") ' GPX namespace URI
-        Dim trksegNodes As XmlNodeList = xmldoc.SelectNodes("//gpx:trkseg", namespaceManager)
+    Private Function GetDogStart(i As Integer) As Date
+
+        Dim trksegNodes As XmlNodeList = gpxReaders(i).SelectNodes("trkseg")
         Dim dogStart As DateTime
 
 
 
         If trksegNodes.Count > 1 Then
 
-            Dim dogtimeNodes As XmlNodeList = trksegNodes(1).SelectNodes("gpx:trkpt/gpx:time", namespaceManager)
+            Dim dogtimeNodes As XmlNodeList = gpxReaders(i).SelectAllChildNodes("time", trksegNodes(1)) '.SelectNodes("gpx:trkpt/gpx:time", namespaceManager)
 
-            Dim DogStartTimeNode As XmlNode = dogtimeNodes(0)
-            DateTime.TryParse(DogStartTimeNode.InnerText, dogStart)
+            Dim DogstartTimeNode As XmlNode = dogtimeNodes(0)
+            DateTime.TryParse(DogstartTimeNode.InnerText, dogStart)
 
         End If
         Return dogStart
 
     End Function
-    Private Function GetDogFinish(i As Integer, xmldoc As XmlDocument) As Date
-        Dim namespaceManager As New XmlNamespaceManager(xmldoc.NameTable)
-        namespaceManager.AddNamespace("gpx", "http://www.topografix.com/GPX/1/1") ' GPX namespace URI
-        Dim trksegNodes As XmlNodeList = xmldoc.SelectNodes("//gpx:trkseg", namespaceManager)
+    Private Function GetDogFinish(i As Integer) As Date
+
+        Dim trksegNodes As XmlNodeList = gpxReaders(i).SelectNodes("trkseg")
         Dim dogFinish As DateTime
 
 
 
         If trksegNodes.Count > 1 Then
 
-            Dim dogtimeNodes As XmlNodeList = trksegNodes(1).SelectNodes("gpx:trkpt/gpx:time", namespaceManager)
+            Dim dogtimeNodes As XmlNodeList = gpxReaders(i).SelectAllChildNodes("time", trksegNodes(1)) '.SelectNodes("gpx:trkpt/gpx:time", namespaceManager)
 
             Dim DogFinishTimeNode As XmlNode = dogtimeNodes(dogtimeNodes.Count - 1)
             DateTime.TryParse(DogFinishTimeNode.InnerText, dogFinish)
@@ -527,15 +494,15 @@ Public Class GPXDistanceCalculator
             ' Načteme všechny GPX soubory
             Dim _gpxFiles As List(Of String) = Directory.GetFiles(directorypath, "*.gpx").ToList()
 
-
-
-
-
             ' Filtrujeme soubory podle podmínky
             For i As Integer = 0 To _gpxFiles.Count - 1
-                Dim _layerStart As DateTime = GetLayerStart(_gpxFiles(i))
+
+
+                Dim reader As New GpxReader(_gpxFiles(i))
+                Dim _layerStart As DateTime = GetLayerStart(_gpxFiles(i), reader)
                 If _layerStart >= dateFrom And _layerStart <= dateTo Then
                     gpxFiles.Add(_gpxFiles(i))
+                    gpxReaders.Add(reader)
                     'layerStart.Add(_layerStart)
                 End If
             Next
@@ -557,9 +524,6 @@ Public Class GPXDistanceCalculator
         End Try
 
 
-
-
-
     End Function
 
 
@@ -569,7 +533,7 @@ Public Class GPXDistanceCalculator
 
         Dim fileName As String = Path.GetFileNameWithoutExtension(gpxFiles(i))
         Dim fileExtension As String = Path.GetExtension(gpxFiles(i))
-        Dim _layerStart As DateTime = GetLayerStart(gpxFiles(i))
+        Dim _layerStart As DateTime = GetLayerStart(gpxFiles(i), gpxReaders(i))
 
         Dim newFileName As String
         Dim newFilePath As String
@@ -748,6 +712,7 @@ Public Class GPXDistanceCalculator
             Form1.txtWarnings.AppendText($"CSV file created: {csvFilePath}.{Environment.NewLine}")
         Catch ex As Exception
             Form1.txtWarnings.AppendText($"Error creating CSV file: {ex.Message}{Environment.NewLine}")
+            MessageBox.Show($"Error creating CSV file: {ex.Message}")
         End Try
     End Sub
 
@@ -783,22 +748,20 @@ Public Class GPXDistanceCalculator
 
 
     ' in gpx files, splits a track with two segments into two separate tracks
-    Sub SplitTrackIntoTwo(i As Integer, ByRef xmlDoc As XmlDocument)
+    Sub SplitTrackIntoTwo(i As Integer)
 
 
-        Dim namespaceManager As New XmlNamespaceManager(xmlDoc.NameTable)
-        namespaceManager.AddNamespace("gpx", "http://www.topografix.com/GPX/1/1") ' GPX namespace URI
 
         ' Najdi první uzel <trk>
-        Dim trkNode As XmlNode = xmlDoc.SelectSingleNode("//gpx:trk", namespaceManager)
+        Dim trkNode As XmlNode = gpxReaders(i).SelectSingleNode("trk")
 
         If trkNode IsNot Nothing Then
             ' Najdi všechny <trkseg> uvnitř <trk>
-            Dim trkSegNodes As XmlNodeList = trkNode.SelectNodes("gpx:trkseg", namespaceManager)
+            Dim trkSegNodes As XmlNodeList = gpxReaders(i).SelectChildNodes("trkseg", trkNode)
 
             If trkSegNodes.Count > 1 Then
                 ' Vytvoř nový uzel <trk>
-                Dim newTrkNode As XmlNode = xmlDoc.CreateElement("trk", "http://www.topografix.com/GPX/1/1")
+                Dim newTrkNode As XmlNode = gpxReaders(i).CreateElement("trk")
 
                 ' Přesuň druhý <trkseg> do nového <trk>
                 Dim secondTrkSeg As XmlNode = trkSegNodes(1)
@@ -807,31 +770,30 @@ Public Class GPXDistanceCalculator
 
                 ' Přidej nový <trk> do dokumentu hned po prvním
                 trkNode.ParentNode.InsertAfter(newTrkNode, trkNode)
-                xmlDoc.Save(gpxFiles(i))
+                gpxReaders(i).Save()
                 Form1.txtWarnings.AppendText($"Track in file {gpxFiles(i)} was successfully split.")
             End If
         End If
     End Sub
 
 
-    Sub RenamewptNodes(i As Integer, ByRef xmlDoc As XmlDocument, newname As String)
-
-        Dim namespaceManager As New XmlNamespaceManager(xmlDoc.NameTable)
-        namespaceManager.AddNamespace("gpx", "http://www.topografix.com/GPX/1/1") ' GPX namespace URI
+    Sub RenamewptNodes(i As Integer, newname As String)
 
 
         ' traverses all <wpt> nodes in the GPX file and overwrites the value of <name> nodes to "-předmět":
         ' Find all <wpt> nodes using the namespace
-        Dim wptNodes As XmlNodeList = xmlDoc.SelectNodes("//gpx:wpt", namespaceManager)
+        gpxReaders(i).Nodes = gpxReaders(i).SelectNodes("wpt")
+
+
 
         ' Go through each <wpt> node
-        For Each wptNode As XmlNode In wptNodes
+        For Each wptNode As XmlNode In gpxReaders(i).Nodes
             ' Najdi uzel <name> uvnitř <wpt> s použitím namespace
-            Dim nameNode As XmlNode = wptNode.SelectSingleNode("gpx:name", namespaceManager)
+            Dim nameNode As XmlNode = gpxReaders(i).SelectSingleChildNode("name", wptNode)
 
             If nameNode IsNot Nothing AndAlso nameNode.InnerText <> newname Then
                 ' Přepiš hodnotu <name> na newname
-                nameNode.InnerText = "předmět"
+                nameNode.InnerText = newname
             End If
         Next
     End Sub
