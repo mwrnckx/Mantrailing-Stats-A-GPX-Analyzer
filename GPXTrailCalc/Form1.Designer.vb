@@ -184,10 +184,10 @@ Partial Class Form1
         Me.rbTotDistance.Checked = True
         Me.rbTotDistance.Location = New System.Drawing.Point(26, 433)
         Me.rbTotDistance.Name = "rbTotDistance"
-        Me.rbTotDistance.Size = New System.Drawing.Size(183, 24)
+        Me.rbTotDistance.Size = New System.Drawing.Size(293, 24)
         Me.rbTotDistance.TabIndex = 17
         Me.rbTotDistance.TabStop = True
-        Me.rbTotDistance.Text = "sum of trail distances"
+        Me.rbTotDistance.Text = "Length Covered by Trailing over Time"
         Me.rbTotDistance.UseVisualStyleBackColor = True
         Me.rbTotDistance.Visible = False
         '
@@ -196,9 +196,9 @@ Partial Class Form1
         Me.rbDistances.AutoSize = True
         Me.rbDistances.Location = New System.Drawing.Point(26, 464)
         Me.rbDistances.Name = "rbDistances"
-        Me.rbDistances.Size = New System.Drawing.Size(131, 24)
+        Me.rbDistances.Size = New System.Drawing.Size(207, 24)
         Me.rbDistances.TabIndex = 18
-        Me.rbDistances.Text = "trail distances"
+        Me.rbDistances.Text = "Length of individual trails"
         Me.rbDistances.UseVisualStyleBackColor = True
         Me.rbDistances.Visible = False
         '
@@ -207,9 +207,9 @@ Partial Class Form1
         Me.rbAge.AutoSize = True
         Me.rbAge.Location = New System.Drawing.Point(26, 495)
         Me.rbAge.Name = "rbAge"
-        Me.rbAge.Size = New System.Drawing.Size(98, 24)
+        Me.rbAge.Size = New System.Drawing.Size(118, 24)
         Me.rbAge.TabIndex = 19
-        Me.rbAge.Text = "trail ages"
+        Me.rbAge.Text = "Age of trails"
         Me.rbAge.UseVisualStyleBackColor = True
         Me.rbAge.Visible = False
         '
@@ -218,9 +218,9 @@ Partial Class Form1
         Me.rbSpeed.AutoSize = True
         Me.rbSpeed.Location = New System.Drawing.Point(26, 526)
         Me.rbSpeed.Name = "rbSpeed"
-        Me.rbSpeed.Size = New System.Drawing.Size(147, 24)
+        Me.rbSpeed.Size = New System.Drawing.Size(150, 24)
         Me.rbSpeed.TabIndex = 20
-        Me.rbSpeed.Text = "dog aver. speed"
+        Me.rbSpeed.Text = "Dog aver. speed"
         Me.rbSpeed.UseVisualStyleBackColor = True
         Me.rbSpeed.Visible = False
         '

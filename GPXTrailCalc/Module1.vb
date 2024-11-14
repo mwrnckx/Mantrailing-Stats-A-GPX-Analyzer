@@ -168,7 +168,9 @@ Public Class GPXDistanceCalculator
     Private Function CalculateSpeed(i As Integer) As Double 'km/h
 
         If Not dogStart(i) = DateTime.MinValue AndAlso Not dogFinish(i) = DateTime.MinValue Then
-            Return distances(i) / (dogFinish(i) - dogStart(i)).TotalHours
+            If (dogFinish(i) - dogStart(i)).TotalHours > 0 Then
+                Return distances(i) / (dogFinish(i) - dogStart(i)).TotalHours
+            End If
         End If
         Return Nothing
 
@@ -426,7 +428,7 @@ Public Class GPXDistanceCalculator
                 SetCreatedModifiedDate(i)
 
                 ' Display results
-                Form1.txtOutput.AppendText(Path.GetFileNameWithoutExtension(gpxFiles(i)) & " Date: " & layerStart(i).Date.ToString("yyyy-MM-dd") & "  Distance: " & distances(i).ToString("F2") & " km" & Environment.NewLine)
+                Form1.txtOutput.AppendText(Path.GetFileNameWithoutExtension(gpxFiles(i)) & " Date: " & layerStart(i).Date.ToString("yyyy-MM-dd") & "  Length: " & distances(i).ToString("F2") & " km" & Environment.NewLine)
             Next i
 
 
@@ -436,7 +438,7 @@ Public Class GPXDistanceCalculator
                 vbCrLf & "All gpx files from directory: " & directorypath & vbCrLf &
                 vbCrLf & "Total number of processed GPX files, thus trails: " & distances.Count &
                 vbCrLf &
-                vbCrLf & vbCrLf & "Total Route Distance: " & totalDistance.ToString("F2") & " km" & vbCrLf)
+                vbCrLf & vbCrLf & "Total Length: " & totalDistance.ToString("F2") & " km" & vbCrLf)
 
         Catch ex As Exception
             MessageBox.Show("An error occurred while processing data: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -682,7 +684,7 @@ Public Class GPXDistanceCalculator
 
             ' Create the CSV file and write headers
             Using writer As New StreamWriter(csvFilePath, False, System.Text.Encoding.UTF8)
-                writer.WriteLine("File Name;Date;Age/h;Distance/km;speed;Total Distance;Description;Video")
+                writer.WriteLine("File Name;Date;Age/h;Length/km;speed;Total Length;Description;Video")
 
                 For i As Integer = 0 To distances.Count - 1
                     Dim fileName As String = Path.GetFileNameWithoutExtension(gpxFiles(i))

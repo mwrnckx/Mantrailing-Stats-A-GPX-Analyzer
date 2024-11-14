@@ -61,25 +61,47 @@ Public Class Form1
         'what to display
         Dim yAxisData() As Double
         Dim yAxisLabel As String
+        Dim xAxisData As Date() = gpxCalculator.layerStart.Select(Function(ts) ts).ToArray()
 
         If rbTotDistance.Checked Then
             yAxisData = gpxCalculator.totalDistances.Select(Function(ts) ts).ToArray()
-            yAxisLabel = "Sum of Distances (km)"
+            yAxisLabel = "Length Covered by Trailing over Time (km)"
         ElseIf rbDistances.Checked Then
             yAxisData = gpxCalculator.distances.Select(Function(ts) ts).ToArray()
-            yAxisLabel = "Distances (km)"
+            yAxisLabel = "Length of individual trails (km)"
         ElseIf rbAge.Checked Then
-            yAxisData = gpxCalculator.age.Select(Function(ts) ts.TotalHours).ToArray()
-            yAxisLabel = "Age of trails hours"
+            ' Filtrování y-hodnot (TotalHours) a x-hodnot (časové značky) pro body, kde TotalHours není nulová
+            yAxisData = gpxCalculator.age.
+    Where(Function(ts, index) ts.TotalHours <> 0). ' Podmínka pro filtrování TotalHours == 0
+    Select(Function(ts) ts.TotalHours).
+    ToArray()
+
+            ' Filtrování x-hodnot (časové značky) podle stejných indexů jako yAxisData
+            xAxisData = gpxCalculator.layerStart.
+    Where(Function(ts, index) gpxCalculator.age(index).TotalHours <> 0).
+    Select(Function(ts) ts).
+    ToArray()
+            yAxisLabel = "Age of trails (hours)"
         ElseIf rbSpeed.Checked Then
-            yAxisData = gpxCalculator.speed.Select(Function(ts) ts).ToArray()
-            yAxisLabel = "Average dog speed in km/h"
+            ' Načtení y-hodnot a filtrování hodnot, kde je y nulové
+            yAxisData = gpxCalculator.speed.
+    Where(Function(ts, index) gpxCalculator.speed(index) <> 0). ' Podmínka pro filtrování y == 0
+    Select(Function(ts) ts).
+    ToArray()
+            ' Filtrování x-hodnot (časové značky) podle stejného indexu jako yAxisData
+            xAxisData = gpxCalculator.layerStart.
+    Where(Function(ts, index) gpxCalculator.speed(index) <> 0).
+    Select(Function(ts) ts).
+    ToArray()
+
+            yAxisLabel = "Average dog speed  (km/h)"
         End If
 
-        ' Vytvoření instance DistanceChart s daty
-        If Not gpxCalculator.distances Is Nothing Then
-            Dim distanceChart As New DistanceChart(gpxCalculator.layerStart.Select(Function(ts) ts).ToArray(), yAxisData, yAxisLabel)
 
+
+        ' Vytvoření instance DistanceChart s filtrováním bodů, kde je y-hodnota nulová
+        If Not gpxCalculator.distances Is Nothing Then
+            Dim distanceChart As New DistanceChart(xAxisData, yAxisData, yAxisLabel)
             ' Zobrazení grafu
             distanceChart.Display()
         Else
