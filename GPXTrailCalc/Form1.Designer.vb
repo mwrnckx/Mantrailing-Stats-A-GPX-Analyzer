@@ -181,47 +181,51 @@ Partial Class Form1
         'rbTotDistance
         '
         Me.rbTotDistance.AutoSize = True
+        Me.rbTotDistance.BackColor = System.Drawing.Color.Yellow
         Me.rbTotDistance.Checked = True
         Me.rbTotDistance.Location = New System.Drawing.Point(26, 433)
         Me.rbTotDistance.Name = "rbTotDistance"
-        Me.rbTotDistance.Size = New System.Drawing.Size(293, 24)
+        Me.rbTotDistance.Size = New System.Drawing.Size(257, 24)
         Me.rbTotDistance.TabIndex = 17
         Me.rbTotDistance.TabStop = True
-        Me.rbTotDistance.Text = "Length Covered by Trailing over Time"
-        Me.rbTotDistance.UseVisualStyleBackColor = True
+        Me.rbTotDistance.Text = "Sniffed within the specified time"
+        Me.rbTotDistance.UseVisualStyleBackColor = False
         Me.rbTotDistance.Visible = False
         '
         'rbDistances
         '
         Me.rbDistances.AutoSize = True
+        Me.rbDistances.BackColor = System.Drawing.Color.Yellow
         Me.rbDistances.Location = New System.Drawing.Point(26, 464)
         Me.rbDistances.Name = "rbDistances"
         Me.rbDistances.Size = New System.Drawing.Size(207, 24)
         Me.rbDistances.TabIndex = 18
         Me.rbDistances.Text = "Length of individual trails"
-        Me.rbDistances.UseVisualStyleBackColor = True
+        Me.rbDistances.UseVisualStyleBackColor = False
         Me.rbDistances.Visible = False
         '
         'rbAge
         '
         Me.rbAge.AutoSize = True
+        Me.rbAge.BackColor = System.Drawing.Color.Yellow
         Me.rbAge.Location = New System.Drawing.Point(26, 495)
         Me.rbAge.Name = "rbAge"
         Me.rbAge.Size = New System.Drawing.Size(118, 24)
         Me.rbAge.TabIndex = 19
         Me.rbAge.Text = "Age of trails"
-        Me.rbAge.UseVisualStyleBackColor = True
+        Me.rbAge.UseVisualStyleBackColor = False
         Me.rbAge.Visible = False
         '
         'rbSpeed
         '
         Me.rbSpeed.AutoSize = True
+        Me.rbSpeed.BackColor = System.Drawing.Color.Yellow
         Me.rbSpeed.Location = New System.Drawing.Point(26, 526)
         Me.rbSpeed.Name = "rbSpeed"
-        Me.rbSpeed.Size = New System.Drawing.Size(150, 24)
+        Me.rbSpeed.Size = New System.Drawing.Size(258, 24)
         Me.rbSpeed.TabIndex = 20
-        Me.rbSpeed.Text = "Dog aver. speed"
-        Me.rbSpeed.UseVisualStyleBackColor = True
+        Me.rbSpeed.Text = "Average dog speed on the trails"
+        Me.rbSpeed.UseVisualStyleBackColor = False
         Me.rbSpeed.Visible = False
         '
         'Form1

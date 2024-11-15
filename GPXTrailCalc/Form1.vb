@@ -65,7 +65,7 @@ Public Class Form1
 
         If rbTotDistance.Checked Then
             yAxisData = gpxCalculator.totalDistances.Select(Function(ts) ts).ToArray()
-            yAxisLabel = "Length Covered by Trailing over Time (km)"
+            yAxisLabel = "Sniffed within the specified time (km)"
         ElseIf rbDistances.Checked Then
             yAxisData = gpxCalculator.distances.Select(Function(ts) ts).ToArray()
             yAxisLabel = "Length of individual trails (km)"
@@ -94,7 +94,7 @@ Public Class Form1
     Select(Function(ts) ts).
     ToArray()
 
-            yAxisLabel = "Average dog speed  (km/h)"
+            yAxisLabel = "Average dog speed on the trails (km/h)"
         End If
 
 
