@@ -37,10 +37,10 @@ Public Class DistanceChart
     End Function
 
     ' Metoda pro vytvoření a zobrazení grafu
-    Public Sub Display()
+    Public Sub Display(text As String)
         ' Vytvoření nového formuláře pro zobrazení grafu
         Dim chartForm As New Form()
-        chartForm.Text = "Chart"
+        chartForm.Text = text
         chartForm.Size = New Size(1000, 600)
 
         ' Vytvoření a nastavení komponenty Chart

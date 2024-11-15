@@ -32,207 +32,150 @@ Partial Class Form1
         Me.txtWarnings = New System.Windows.Forms.TextBox()
         Me.chbDateToName = New System.Windows.Forms.CheckBox()
         Me.btnOpenDataFile = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnChartDistances = New System.Windows.Forms.Button()
         Me.rbTotDistance = New System.Windows.Forms.RadioButton()
         Me.rbDistances = New System.Windows.Forms.RadioButton()
         Me.rbAge = New System.Windows.Forms.RadioButton()
         Me.rbSpeed = New System.Windows.Forms.RadioButton()
+        Me.btnEng = New System.Windows.Forms.Button()
+        Me.btnCS = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnBrowse
         '
+        resources.ApplyResources(Me.btnBrowse, "btnBrowse")
         Me.btnBrowse.BackColor = System.Drawing.Color.LightGreen
-        Me.btnBrowse.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.btnBrowse.Location = New System.Drawing.Point(621, 15)
         Me.btnBrowse.Name = "btnBrowse"
-        Me.btnBrowse.Size = New System.Drawing.Size(143, 33)
-        Me.btnBrowse.TabIndex = 3
-        Me.btnBrowse.Text = "Browse..."
         Me.btnBrowse.UseVisualStyleBackColor = False
         '
         'txtDirectory
         '
-        Me.txtDirectory.Location = New System.Drawing.Point(120, 20)
+        resources.ApplyResources(Me.txtDirectory, "txtDirectory")
         Me.txtDirectory.Name = "txtDirectory"
-        Me.txtDirectory.Size = New System.Drawing.Size(466, 26)
-        Me.txtDirectory.TabIndex = 2
         '
         'dtpStartDate
         '
+        resources.ApplyResources(Me.dtpStartDate, "dtpStartDate")
         Me.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpStartDate.Location = New System.Drawing.Point(149, 67)
         Me.dtpStartDate.Name = "dtpStartDate"
-        Me.dtpStartDate.Size = New System.Drawing.Size(144, 26)
-        Me.dtpStartDate.TabIndex = 5
         Me.dtpStartDate.Value = New Date(2023, 11, 2, 16, 45, 15, 170)
         '
         'dtpEndDate
         '
+        resources.ApplyResources(Me.dtpEndDate, "dtpEndDate")
         Me.dtpEndDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpEndDate.Location = New System.Drawing.Point(149, 105)
         Me.dtpEndDate.Name = "dtpEndDate"
-        Me.dtpEndDate.Size = New System.Drawing.Size(144, 26)
-        Me.dtpEndDate.TabIndex = 7
         '
         'btnCalculate
         '
+        resources.ApplyResources(Me.btnCalculate, "btnCalculate")
         Me.btnCalculate.BackColor = System.Drawing.Color.LightCoral
-        Me.btnCalculate.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.btnCalculate.Location = New System.Drawing.Point(21, 203)
         Me.btnCalculate.Name = "btnCalculate"
-        Me.btnCalculate.Size = New System.Drawing.Size(327, 72)
-        Me.btnCalculate.TabIndex = 1
-        Me.btnCalculate.Text = "Read data from gpx files"
         Me.btnCalculate.UseVisualStyleBackColor = False
         '
         'lblStartDate
         '
-        Me.lblStartDate.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Italic)
-        Me.lblStartDate.Location = New System.Drawing.Point(21, 67)
+        resources.ApplyResources(Me.lblStartDate, "lblStartDate")
         Me.lblStartDate.Name = "lblStartDate"
-        Me.lblStartDate.Size = New System.Drawing.Size(108, 26)
-        Me.lblStartDate.TabIndex = 4
-        Me.lblStartDate.Text = "Start Date:"
         '
         'lblEndDate
         '
-        Me.lblEndDate.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Italic)
-        Me.lblEndDate.Location = New System.Drawing.Point(21, 105)
+        resources.ApplyResources(Me.lblEndDate, "lblEndDate")
         Me.lblEndDate.Name = "lblEndDate"
-        Me.lblEndDate.Size = New System.Drawing.Size(108, 26)
-        Me.lblEndDate.TabIndex = 6
-        Me.lblEndDate.Text = "End Date:"
         '
         'lblDirectory
         '
-        Me.lblDirectory.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Italic)
-        Me.lblDirectory.Location = New System.Drawing.Point(21, 20)
+        resources.ApplyResources(Me.lblDirectory, "lblDirectory")
         Me.lblDirectory.Name = "lblDirectory"
-        Me.lblDirectory.Size = New System.Drawing.Size(93, 28)
-        Me.lblDirectory.TabIndex = 10
-        Me.lblDirectory.Text = "Directory:"
         '
         'txtOutput
         '
-        Me.txtOutput.Location = New System.Drawing.Point(354, 67)
-        Me.txtOutput.Multiline = True
+        resources.ApplyResources(Me.txtOutput, "txtOutput")
         Me.txtOutput.Name = "txtOutput"
-        Me.txtOutput.Size = New System.Drawing.Size(576, 577)
-        Me.txtOutput.TabIndex = 9
-        Me.txtOutput.Text = "GPX Routes:"
         '
         'txtWarnings
         '
-        Me.txtWarnings.Location = New System.Drawing.Point(954, 67)
-        Me.txtWarnings.Multiline = True
+        resources.ApplyResources(Me.txtWarnings, "txtWarnings")
         Me.txtWarnings.Name = "txtWarnings"
-        Me.txtWarnings.Size = New System.Drawing.Size(313, 577)
-        Me.txtWarnings.TabIndex = 9
-        Me.txtWarnings.Text = "Errors and Logs:"
         '
         'chbDateToName
         '
+        resources.ApplyResources(Me.chbDateToName, "chbDateToName")
         Me.chbDateToName.Checked = True
         Me.chbDateToName.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.chbDateToName.Location = New System.Drawing.Point(21, 171)
         Me.chbDateToName.Name = "chbDateToName"
-        Me.chbDateToName.Size = New System.Drawing.Size(272, 26)
-        Me.chbDateToName.TabIndex = 13
-        Me.chbDateToName.Text = "Prepend Date to File Name"
         Me.chbDateToName.UseVisualStyleBackColor = True
         '
         'btnOpenDataFile
         '
+        resources.ApplyResources(Me.btnOpenDataFile, "btnOpenDataFile")
         Me.btnOpenDataFile.BackColor = System.Drawing.Color.LightGreen
-        Me.btnOpenDataFile.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.btnOpenDataFile.Location = New System.Drawing.Point(21, 281)
         Me.btnOpenDataFile.Name = "btnOpenDataFile"
-        Me.btnOpenDataFile.Size = New System.Drawing.Size(327, 70)
-        Me.btnOpenDataFile.TabIndex = 16
-        Me.btnOpenDataFile.Text = "Open CSV data file"
         Me.btnOpenDataFile.UseVisualStyleBackColor = False
-        Me.btnOpenDataFile.Visible = False
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Left
-        Me.PictureBox1.Image = Global.GPXTrailAnalyzer.My.Resources.Resources.trail1
-        Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(1300, 844)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 14
-        Me.PictureBox1.TabStop = False
         '
         'btnChartDistances
         '
+        resources.ApplyResources(Me.btnChartDistances, "btnChartDistances")
         Me.btnChartDistances.BackColor = System.Drawing.Color.Yellow
-        Me.btnChartDistances.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.btnChartDistances.Location = New System.Drawing.Point(26, 357)
         Me.btnChartDistances.Name = "btnChartDistances"
-        Me.btnChartDistances.Size = New System.Drawing.Size(322, 60)
-        Me.btnChartDistances.TabIndex = 16
-        Me.btnChartDistances.Text = "Show Chart of:"
         Me.btnChartDistances.UseVisualStyleBackColor = False
-        Me.btnChartDistances.Visible = False
         '
         'rbTotDistance
         '
-        Me.rbTotDistance.AutoSize = True
+        resources.ApplyResources(Me.rbTotDistance, "rbTotDistance")
         Me.rbTotDistance.BackColor = System.Drawing.Color.Yellow
         Me.rbTotDistance.Checked = True
-        Me.rbTotDistance.Location = New System.Drawing.Point(26, 433)
         Me.rbTotDistance.Name = "rbTotDistance"
-        Me.rbTotDistance.Size = New System.Drawing.Size(257, 24)
-        Me.rbTotDistance.TabIndex = 17
         Me.rbTotDistance.TabStop = True
-        Me.rbTotDistance.Text = "Sniffed within the specified time"
         Me.rbTotDistance.UseVisualStyleBackColor = False
-        Me.rbTotDistance.Visible = False
         '
         'rbDistances
         '
-        Me.rbDistances.AutoSize = True
+        resources.ApplyResources(Me.rbDistances, "rbDistances")
         Me.rbDistances.BackColor = System.Drawing.Color.Yellow
-        Me.rbDistances.Location = New System.Drawing.Point(26, 464)
         Me.rbDistances.Name = "rbDistances"
-        Me.rbDistances.Size = New System.Drawing.Size(207, 24)
-        Me.rbDistances.TabIndex = 18
-        Me.rbDistances.Text = "Length of individual trails"
         Me.rbDistances.UseVisualStyleBackColor = False
-        Me.rbDistances.Visible = False
         '
         'rbAge
         '
-        Me.rbAge.AutoSize = True
+        resources.ApplyResources(Me.rbAge, "rbAge")
         Me.rbAge.BackColor = System.Drawing.Color.Yellow
-        Me.rbAge.Location = New System.Drawing.Point(26, 495)
         Me.rbAge.Name = "rbAge"
-        Me.rbAge.Size = New System.Drawing.Size(118, 24)
-        Me.rbAge.TabIndex = 19
-        Me.rbAge.Text = "Age of trails"
         Me.rbAge.UseVisualStyleBackColor = False
-        Me.rbAge.Visible = False
         '
         'rbSpeed
         '
-        Me.rbSpeed.AutoSize = True
+        resources.ApplyResources(Me.rbSpeed, "rbSpeed")
         Me.rbSpeed.BackColor = System.Drawing.Color.Yellow
-        Me.rbSpeed.Location = New System.Drawing.Point(26, 526)
         Me.rbSpeed.Name = "rbSpeed"
-        Me.rbSpeed.Size = New System.Drawing.Size(258, 24)
-        Me.rbSpeed.TabIndex = 20
-        Me.rbSpeed.Text = "Average dog speed on the trails"
         Me.rbSpeed.UseVisualStyleBackColor = False
-        Me.rbSpeed.Visible = False
+        '
+        'btnEng
+        '
+        resources.ApplyResources(Me.btnEng, "btnEng")
+        Me.btnEng.Name = "btnEng"
+        Me.btnEng.UseVisualStyleBackColor = True
+        '
+        'btnCS
+        '
+        resources.ApplyResources(Me.btnCS, "btnCS")
+        Me.btnCS.Name = "btnCS"
+        Me.btnCS.UseVisualStyleBackColor = True
+        '
+        'PictureBox1
+        '
+        resources.ApplyResources(Me.PictureBox1, "PictureBox1")
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.TabStop = False
         '
         'Form1
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
+        resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1778, 844)
+        Me.Controls.Add(Me.btnEng)
+        Me.Controls.Add(Me.btnCS)
         Me.Controls.Add(Me.rbSpeed)
         Me.Controls.Add(Me.rbAge)
         Me.Controls.Add(Me.rbDistances)
@@ -251,9 +194,7 @@ Partial Class Form1
         Me.Controls.Add(Me.txtDirectory)
         Me.Controls.Add(Me.btnBrowse)
         Me.Controls.Add(Me.PictureBox1)
-        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Form1"
-        Me.Text = "GPX Route Distance Calculator"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -294,5 +235,7 @@ Partial Class Form1
     Friend WithEvents rbDistances As RadioButton
     Friend WithEvents rbAge As RadioButton
     Friend WithEvents rbSpeed As RadioButton
+    Friend WithEvents btnCS As Button
+    Friend WithEvents btnEng As Button
 End Class
 

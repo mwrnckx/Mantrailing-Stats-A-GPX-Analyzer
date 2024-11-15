@@ -1,9 +1,15 @@
-﻿Imports System.IO
+﻿Imports System.ComponentModel
+Imports System.Globalization
+Imports System.IO
+Imports System.Resources
+Imports System.Threading
 Imports System.Windows.Forms.DataVisualization.Charting
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement
+
 Public Class Form1
     Dim directoryPath As String
     Private gpxCalculator As GPXDistanceCalculator
+    Private Shared resourceManager As ResourceManager = New ResourceManager("GPXTrailAnalyzer.Resource1", GetType(Form1).Assembly)
 
 
     Private Sub btnCalculate_Click(sender As Object, e As EventArgs) Handles btnCalculate.Click
@@ -62,13 +68,16 @@ Public Class Form1
         Dim yAxisData() As Double
         Dim yAxisLabel As String
         Dim xAxisData As Date() = gpxCalculator.layerStart.Select(Function(ts) ts).ToArray()
+        Dim GrafText As String = rbTotDistance.Text
 
         If rbTotDistance.Checked Then
             yAxisData = gpxCalculator.totalDistances.Select(Function(ts) ts).ToArray()
-            yAxisLabel = "Sniffed within the specified time (km)"
+            yAxisLabel = resourceManager.GetString("Y-AxisLabelTotalLength") '"Sniffed within the specified time (km)"
+            GrafText = rbTotDistance.Text
         ElseIf rbDistances.Checked Then
             yAxisData = gpxCalculator.distances.Select(Function(ts) ts).ToArray()
-            yAxisLabel = "Length of individual trails (km)"
+            yAxisLabel = resourceManager.GetString("Y-AxisLabelLength")
+            GrafText = rbDistances.Text
         ElseIf rbAge.Checked Then
             ' Filtrování y-hodnot (TotalHours) a x-hodnot (časové značky) pro body, kde TotalHours není nulová
             yAxisData = gpxCalculator.age.
@@ -81,7 +90,8 @@ Public Class Form1
     Where(Function(ts, index) gpxCalculator.age(index).TotalHours <> 0).
     Select(Function(ts) ts).
     ToArray()
-            yAxisLabel = "Age of trails (hours)"
+            yAxisLabel = resourceManager.GetString("Y-AxisLabelAge")
+            GrafText = rbAge.Text
         ElseIf rbSpeed.Checked Then
             ' Načtení y-hodnot a filtrování hodnot, kde je y nulové
             yAxisData = gpxCalculator.speed.
@@ -94,7 +104,8 @@ Public Class Form1
     Select(Function(ts) ts).
     ToArray()
 
-            yAxisLabel = "Average dog speed on the trails (km/h)"
+            yAxisLabel = resourceManager.GetString("Y-AxisLabelSpeed")
+            GrafText = rbSpeed.Text
         End If
 
 
@@ -102,8 +113,9 @@ Public Class Form1
         ' Vytvoření instance DistanceChart s filtrováním bodů, kde je y-hodnota nulová
         If Not gpxCalculator.distances Is Nothing Then
             Dim distanceChart As New DistanceChart(xAxisData, yAxisData, yAxisLabel)
+
             ' Zobrazení grafu
-            distanceChart.Display()
+            distanceChart.Display(GrafText)
         Else
             MessageBox.Show("First you need to read the data from the gpx files")
         End If
@@ -111,5 +123,25 @@ Public Class Form1
 
     End Sub
 
+
+    Public Sub ChangeLanguage(cultureName As String)
+        Thread.CurrentThread.CurrentUICulture = New CultureInfo(cultureName)
+        Threading.Thread.CurrentThread.CurrentUICulture = New CultureInfo("en-US") ' Přepnutí na angličtinu
+
+        Dim resources = New ComponentResourceManager(Me.GetType())
+        resources.ApplyResources(Me, "$this")
+        For Each ctrl As Control In Me.Controls
+            resources.ApplyResources(ctrl, ctrl.Name)
+        Next
+    End Sub
+
+
+    Private Sub btnCS_Click(sender As Object, e As EventArgs) Handles btnCS.Click
+        ChangeLanguage("cs") ' Nastaví češtinu
+    End Sub
+
+    Private Sub btnEng_Click(sender As Object, e As EventArgs) Handles btnEng.Click
+        ChangeLanguage("en") ' Nastaví angličtinu
+    End Sub
 End Class
 
