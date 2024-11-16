@@ -402,13 +402,13 @@
     <value>21, 281</value>
   </data>
   <data name="btnOpenDataFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>327, 70</value>
+    <value>327, 88</value>
   </data>
   <data name="btnOpenDataFile.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
   </data>
   <data name="btnOpenDataFile.Text" xml:space="preserve">
-    <value>Open CSV data file</value>
+    <value>Create and open CSV data file</value>
   </data>
   <data name="btnOpenDataFile.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -429,7 +429,7 @@
     <value>Segoe UI, 10pt, style=Bold</value>
   </data>
   <data name="btnChartDistances.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 357</value>
+    <value>26, 375</value>
   </data>
   <data name="btnChartDistances.Size" type="System.Drawing.Size, System.Drawing">
     <value>322, 60</value>
@@ -459,7 +459,7 @@
     <value>True</value>
   </data>
   <data name="rbTotDistance.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 433</value>
+    <value>26, 451</value>
   </data>
   <data name="rbTotDistance.Size" type="System.Drawing.Size, System.Drawing">
     <value>257, 24</value>
@@ -489,7 +489,7 @@
     <value>True</value>
   </data>
   <data name="rbDistances.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 464</value>
+    <value>26, 482</value>
   </data>
   <data name="rbDistances.Size" type="System.Drawing.Size, System.Drawing">
     <value>207, 24</value>
@@ -519,7 +519,7 @@
     <value>True</value>
   </data>
   <data name="rbAge.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 495</value>
+    <value>26, 513</value>
   </data>
   <data name="rbAge.Size" type="System.Drawing.Size, System.Drawing">
     <value>118, 24</value>
@@ -549,7 +549,7 @@
     <value>True</value>
   </data>
   <data name="rbSpeed.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 526</value>
+    <value>26, 544</value>
   </data>
   <data name="rbSpeed.Size" type="System.Drawing.Size, System.Drawing">
     <value>258, 24</value>
