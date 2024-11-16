@@ -117,6 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="rbAge.Visible" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
   <data name="lblStartDate.Text" xml:space="preserve">
     <value>Von:</value>
   </data>
@@ -141,6 +145,12 @@
   </data>
   <data name="lblEndDate.Text" xml:space="preserve">
     <value>Bis zum:</value>
+  </data>
+  <data name="rbAge.Text" xml:space="preserve">
+    <value>Alter der Spur</value>
+  </data>
+  <data name="rbSpeed.Text" xml:space="preserve">
+    <value>Geschwindigkeit des Hundes auf den Strecken</value>
   </data>
   <data name="PictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1577,12 +1587,11 @@
         OJ2L+Y/sx//Z
 </value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="&gt;&gt;btnBrowse.Name" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
-  </data>
   <data name="btnChartDistances.Text" xml:space="preserve">
     <value>Erstellen Sie ein Diagramm:</value>
+  </data>
+  <data name="rbDistances.Text" xml:space="preserve">
+    <value>Länge der einzelnen Strecken</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -8804,6 +8813,9 @@
   </data>
   <data name="lblDirectory.Text" xml:space="preserve">
     <value>Verzeichnis:</value>
+  </data>
+  <data name="btnOpenDataFile.Text" xml:space="preserve">
+    <value>Erstellen und Öffnen einer CSV-Datei</value>
   </data>
   <data name="rbTotDistance.Text" xml:space="preserve">
     <value>Fluffed in der gewählten Periode</value>

@@ -124,7 +124,7 @@
     <value>Length of trails (km)</value>
   </data>
   <data name="Y-AxisLabelAge" xml:space="preserve">
-    <value>Age of trails (hours)</value>
+    <value>Alter der Spuren (Stunden)</value>
   </data>
   <data name="Y-AxisLabelSpeed" xml:space="preserve">
     <value>Geschwindigkeit  der Hunde (km/h)</value>
