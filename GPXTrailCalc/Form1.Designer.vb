@@ -40,13 +40,14 @@ Partial Class Form1
         Me.btnEng = New System.Windows.Forms.Button()
         Me.btnCS = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.btnDe = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnBrowse
         '
-        resources.ApplyResources(Me.btnBrowse, "btnBrowse")
         Me.btnBrowse.BackColor = System.Drawing.Color.LightGreen
+        resources.ApplyResources(Me.btnBrowse, "btnBrowse")
         Me.btnBrowse.Name = "btnBrowse"
         Me.btnBrowse.UseVisualStyleBackColor = False
         '
@@ -57,21 +58,21 @@ Partial Class Form1
         '
         'dtpStartDate
         '
-        resources.ApplyResources(Me.dtpStartDate, "dtpStartDate")
         Me.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        resources.ApplyResources(Me.dtpStartDate, "dtpStartDate")
         Me.dtpStartDate.Name = "dtpStartDate"
         Me.dtpStartDate.Value = New Date(2023, 11, 2, 16, 45, 15, 170)
         '
         'dtpEndDate
         '
-        resources.ApplyResources(Me.dtpEndDate, "dtpEndDate")
         Me.dtpEndDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        resources.ApplyResources(Me.dtpEndDate, "dtpEndDate")
         Me.dtpEndDate.Name = "dtpEndDate"
         '
         'btnCalculate
         '
-        resources.ApplyResources(Me.btnCalculate, "btnCalculate")
         Me.btnCalculate.BackColor = System.Drawing.Color.LightCoral
+        resources.ApplyResources(Me.btnCalculate, "btnCalculate")
         Me.btnCalculate.Name = "btnCalculate"
         Me.btnCalculate.UseVisualStyleBackColor = False
         '
@@ -102,23 +103,23 @@ Partial Class Form1
         '
         'chbDateToName
         '
-        resources.ApplyResources(Me.chbDateToName, "chbDateToName")
         Me.chbDateToName.Checked = True
         Me.chbDateToName.CheckState = System.Windows.Forms.CheckState.Checked
+        resources.ApplyResources(Me.chbDateToName, "chbDateToName")
         Me.chbDateToName.Name = "chbDateToName"
         Me.chbDateToName.UseVisualStyleBackColor = True
         '
         'btnOpenDataFile
         '
-        resources.ApplyResources(Me.btnOpenDataFile, "btnOpenDataFile")
         Me.btnOpenDataFile.BackColor = System.Drawing.Color.LightGreen
+        resources.ApplyResources(Me.btnOpenDataFile, "btnOpenDataFile")
         Me.btnOpenDataFile.Name = "btnOpenDataFile"
         Me.btnOpenDataFile.UseVisualStyleBackColor = False
         '
         'btnChartDistances
         '
-        resources.ApplyResources(Me.btnChartDistances, "btnChartDistances")
         Me.btnChartDistances.BackColor = System.Drawing.Color.Yellow
+        resources.ApplyResources(Me.btnChartDistances, "btnChartDistances")
         Me.btnChartDistances.Name = "btnChartDistances"
         Me.btnChartDistances.UseVisualStyleBackColor = False
         '
@@ -170,11 +171,19 @@ Partial Class Form1
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.TabStop = False
         '
+        'btnDe
+        '
+        Me.btnDe.Cursor = System.Windows.Forms.Cursors.IBeam
+        resources.ApplyResources(Me.btnDe, "btnDe")
+        Me.btnDe.Name = "btnDe"
+        Me.btnDe.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.btnEng)
+        Me.Controls.Add(Me.btnDe)
         Me.Controls.Add(Me.btnCS)
         Me.Controls.Add(Me.rbSpeed)
         Me.Controls.Add(Me.rbAge)
@@ -237,5 +246,6 @@ Partial Class Form1
     Friend WithEvents rbSpeed As RadioButton
     Friend WithEvents btnCS As Button
     Friend WithEvents btnEng As Button
+    Friend WithEvents btnDe As Button
 End Class
 

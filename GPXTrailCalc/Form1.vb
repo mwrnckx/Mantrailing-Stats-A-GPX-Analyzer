@@ -125,14 +125,15 @@ Public Class Form1
 
 
     Public Sub ChangeLanguage(cultureName As String)
+        Me.SuspendLayout()
         Thread.CurrentThread.CurrentUICulture = New CultureInfo(cultureName)
-        Threading.Thread.CurrentThread.CurrentUICulture = New CultureInfo("en-US") ' Přepnutí na angličtinu
 
         Dim resources = New ComponentResourceManager(Me.GetType())
         resources.ApplyResources(Me, "$this")
         For Each ctrl As Control In Me.Controls
             resources.ApplyResources(ctrl, ctrl.Name)
         Next
+        Me.ResumeLayout()
     End Sub
 
 
@@ -142,6 +143,10 @@ Public Class Form1
 
     Private Sub btnEng_Click(sender As Object, e As EventArgs) Handles btnEng.Click
         ChangeLanguage("en") ' Nastaví angličtinu
+    End Sub
+
+    Private Sub btnDe_Click(sender As Object, e As EventArgs) Handles btnDe.Click
+        ChangeLanguage("de") ' Nastaví češtinu
     End Sub
 End Class
 

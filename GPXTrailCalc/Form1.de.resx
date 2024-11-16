@@ -117,123 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnBrowse.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnBrowse.Text" xml:space="preserve">
-    <value>Durchsuchen...</value>
-  </data>
-  <data name="btnCalculate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblStartDate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblEndDate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblDirectory.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblDirectory.Text" xml:space="preserve">
-    <value>Verzeichnis:</value>
-  </data>
-  <data name="chbDateToName.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnOpenDataFile.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnChartDistances.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="rbTotDistance.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="rbDistances.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="rbAge.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="rbSpeed.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="lblStartDate.Text" xml:space="preserve">
+    <value>Von:</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnEng.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        /9j/4AAQSkZJRgABAQEASABIAAD/4QCCRXhpZgAATU0AKgAAAAgABQESAAMAAAABAAEAAAEaAAUAAAAB
-        AAAASgEbAAUAAAABAAAAUgEoAAMAAAABAAIAAIdpAAQAAAABAAAAWgAAAAAAAABIAAAAAQAAAEgAAAAB
-        AAKgAgAEAAAAAQAAADKgAwAEAAAAAQAAAB8AAAAAAAD/4ge4SUNDX1BST0ZJTEUAAQEAAAeoYXBwbAIg
-        AABtbnRyUkdCIFhZWiAH2QACABkACwAaAAthY3NwQVBQTAAAAABhcHBsAAAAAAAAAAAAAAAAAAAAAAAA
-        9tYAAQAAAADTLWFwcGwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAtkZXNjAAABCAAAAG9kc2NtAAABeAAABWxjcHJ0AAAG5AAAADh3dHB0AAAHHAAAABRyWFlaAAAHMAAA
-        ABRnWFlaAAAHRAAAABRiWFlaAAAHWAAAABRyVFJDAAAHbAAAAA5jaGFkAAAHfAAAACxiVFJDAAAHbAAA
-        AA5nVFJDAAAHbAAAAA5kZXNjAAAAAAAAABRHZW5lcmljIFJHQiBQcm9maWxlAAAAAAAAAAAAAAAUR2Vu
-        ZXJpYyBSR0IgUHJvZmlsZQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAbWx1YwAAAAAAAAAeAAAADHNrU0sAAAAoAAABeGhySFIAAAAoAAABoGNhRVMAAAAkAAAByHB0
-        QlIAAAAmAAAB7HVrVUEAAAAqAAACEmZyRlUAAAAoAAACPHpoVFcAAAAWAAACZGl0SVQAAAAoAAACem5i
-        Tk8AAAAmAAAComtvS1IAAAAWAAACyGNzQ1oAAAAiAAAC3mhlSUwAAAAeAAADAGRlREUAAAAsAAADHmh1
-        SFUAAAAoAAADSnN2U0UAAAAmAAAConpoQ04AAAAWAAADcmphSlAAAAAaAAADiHJvUk8AAAAkAAADomVs
-        R1IAAAAiAAADxnB0UE8AAAAmAAAD6G5sTkwAAAAoAAAEDmVzRVMAAAAmAAAD6HRoVEgAAAAkAAAENnRy
-        VFIAAAAiAAAEWmZpRkkAAAAoAAAEfHBsUEwAAAAsAAAEpHJ1UlUAAAAiAAAE0GFyRUcAAAAmAAAE8mVu
-        VVMAAAAmAAAFGGRhREsAAAAuAAAFPgBWAWEAZQBvAGIAZQBjAG4A/QAgAFIARwBCACAAcAByAG8AZgBp
-        AGwARwBlAG4AZQByAGkBDQBrAGkAIABSAEcAQgAgAHAAcgBvAGYAaQBsAFAAZQByAGYAaQBsACAAUgBH
-        AEIAIABnAGUAbgDoAHIAaQBjAFAAZQByAGYAaQBsACAAUgBHAEIAIABHAGUAbgDpAHIAaQBjAG8EFwQw
-        BDMEMAQ7BEwEPQQ4BDkAIAQ/BEAEPgREBDAEOQQ7ACAAUgBHAEIAUAByAG8AZgBpAGwAIABnAOkAbgDp
-        AHIAaQBxAHUAZQAgAFIAVgBCkBp1KAAgAFIARwBCACCCcl9pY8+P8ABQAHIAbwBmAGkAbABvACAAUgBH
-        AEIAIABnAGUAbgBlAHIAaQBjAG8ARwBlAG4AZQByAGkAcwBrACAAUgBHAEIALQBwAHIAbwBmAGkAbMd8
-        vBgAIABSAEcAQgAg1QS4XNMMx3wATwBiAGUAYwBuAP0AIABSAEcAQgAgAHAAcgBvAGYAaQBsBeQF6AXV
-        BeQF2QXcACAAUgBHAEIAIAXbBdwF3AXZAEEAbABsAGcAZQBtAGUAaQBuAGUAcwAgAFIARwBCAC0AUABy
-        AG8AZgBpAGwAwQBsAHQAYQBsAOEAbgBvAHMAIABSAEcAQgAgAHAAcgBvAGYAaQBsZm6QGgAgAFIARwBC
-        ACBjz4/wZYdO9k4AgiwAIABSAEcAQgAgMNcw7TDVMKEwpDDrAFAAcgBvAGYAaQBsACAAUgBHAEIAIABn
-        AGUAbgBlAHIAaQBjA5MDtQO9A7kDugPMACADwAPBA78DxgOvA7sAIABSAEcAQgBQAGUAcgBmAGkAbAAg
-        AFIARwBCACAAZwBlAG4A6QByAGkAYwBvAEEAbABnAGUAbQBlAGUAbgAgAFIARwBCAC0AcAByAG8AZgBp
-        AGUAbA5CDhsOIw5EDh8OJQ5MACAAUgBHAEIAIA4XDjEOSA4nDkQOGwBHAGUAbgBlAGwAIABSAEcAQgAg
-        AFAAcgBvAGYAaQBsAGkAWQBsAGUAaQBuAGUAbgAgAFIARwBCAC0AcAByAG8AZgBpAGkAbABpAFUAbgBp
-        AHcAZQByAHMAYQBsAG4AeQAgAHAAcgBvAGYAaQBsACAAUgBHAEIEHgQxBEkEOAQ5ACAEPwRABD4ERAQ4
-        BDsETAAgAFIARwBCBkUGRAZBACAGKgY5BjEGSgZBACAAUgBHAEIAIAYnBkQGOQYnBkUARwBlAG4AZQBy
-        AGkAYwAgAFIARwBCACAAUAByAG8AZgBpAGwAZQBHAGUAbgBlAHIAZQBsACAAUgBHAEIALQBiAGUAcwBr
-        AHIAaQB2AGUAbABzAGV0ZXh0AAAAAENvcHlyaWdodCAyMDA3IEFwcGxlIEluYy4sIGFsbCByaWdodHMg
-        cmVzZXJ2ZWQuAFhZWiAAAAAAAADzUgABAAAAARbPWFlaIAAAAAAAAHRNAAA97gAAA9BYWVogAAAAAAAA
-        WnUAAKxzAAAXNFhZWiAAAAAAAAAoGgAAFZ8AALg2Y3VydgAAAAAAAAABAc0AAHNmMzIAAAAAAAEMQgAA
-        Bd7///MmAAAHkgAA/ZH///ui///9owAAA9wAAMBs/9sAQwACAgICAgECAgICAgICAwMGBAMDAwMHBQUE
-        BggHCAgIBwgICQoNCwkJDAoICAsPCwwNDg4ODgkLEBEPDhENDg4O/9sAQwECAgIDAwMGBAQGDgkICQ4O
-        Dg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4O/8AAEQgAHwAyAwEi
-        AAIRAQMRAf/EABoAAAIDAQEAAAAAAAAAAAAAAAgJAAYHBQT/xAA1EAABAwQCAQIEAwUJAAAAAAABAgME
-        BQYHEQgSABMhCRQVIhcYQSQxMlhhFiNRUpSXtdTk/8QAGQEAAwADAAAAAAAAAAAAAAAABQYHAQME/8QA
-        OBEAAQIEBAIGBQ0AAAAAAAAAAQIRAwQFIQAGBxIxQVFTYXFygRUygpGSNUJDUlRzk5SisdHj8P/aAAwD
-        AQACEQMRAD8A7WJeWmJ+Q2KGsS5Mt2n3hTZifTRYV4VNLkxtSU9UqolYeKPVc/hKY8tbcgFR6SFgBPg6
-        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
-        OJ2L+Y/sx//Z
-</value>
-  </data>
-  <data name="btnEng.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="btnCS.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         R0lGODlhMgAhAIYAAAAAAP////8WG/4JEv0KFPwKFP8VG/8WHP8WHf8XHf8XHvwXHv4YIP4YIf0YIfwY
@@ -252,8 +139,8 @@
         HoL4oIorHrEGGjKQgCKMGibXxg4qLICAA0AGKeSQRBZpZJENaFDDCRhw0MGTUEYp5ZRUVlllBh4EBAA7
 </value>
   </data>
-  <data name="btnCS.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="lblEndDate.Text" xml:space="preserve">
+    <value>Bis zum:</value>
   </data>
   <data name="PictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1617,8 +1504,85 @@
         Irz3WJpvCNwZrCeTaT/qZW3Rj6CqspbAemUVS0e8kvtNjnlI3nrtGBV2otYAooopAFFFFABRRRQB/9k=
 </value>
   </data>
-  <data name="PictureBox1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Mantrailing: Statistik und Analyse von GPX-Dateien</value>
+  </data>
+  <data name="btnEng.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        /9j/4AAQSkZJRgABAQEASABIAAD/4QCCRXhpZgAATU0AKgAAAAgABQESAAMAAAABAAEAAAEaAAUAAAAB
+        AAAASgEbAAUAAAABAAAAUgEoAAMAAAABAAIAAIdpAAQAAAABAAAAWgAAAAAAAABIAAAAAQAAAEgAAAAB
+        AAKgAgAEAAAAAQAAADKgAwAEAAAAAQAAAB8AAAAAAAD/4ge4SUNDX1BST0ZJTEUAAQEAAAeoYXBwbAIg
+        AABtbnRyUkdCIFhZWiAH2QACABkACwAaAAthY3NwQVBQTAAAAABhcHBsAAAAAAAAAAAAAAAAAAAAAAAA
+        9tYAAQAAAADTLWFwcGwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAtkZXNjAAABCAAAAG9kc2NtAAABeAAABWxjcHJ0AAAG5AAAADh3dHB0AAAHHAAAABRyWFlaAAAHMAAA
+        ABRnWFlaAAAHRAAAABRiWFlaAAAHWAAAABRyVFJDAAAHbAAAAA5jaGFkAAAHfAAAACxiVFJDAAAHbAAA
+        AA5nVFJDAAAHbAAAAA5kZXNjAAAAAAAAABRHZW5lcmljIFJHQiBQcm9maWxlAAAAAAAAAAAAAAAUR2Vu
+        ZXJpYyBSR0IgUHJvZmlsZQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAbWx1YwAAAAAAAAAeAAAADHNrU0sAAAAoAAABeGhySFIAAAAoAAABoGNhRVMAAAAkAAAByHB0
+        QlIAAAAmAAAB7HVrVUEAAAAqAAACEmZyRlUAAAAoAAACPHpoVFcAAAAWAAACZGl0SVQAAAAoAAACem5i
+        Tk8AAAAmAAAComtvS1IAAAAWAAACyGNzQ1oAAAAiAAAC3mhlSUwAAAAeAAADAGRlREUAAAAsAAADHmh1
+        SFUAAAAoAAADSnN2U0UAAAAmAAAConpoQ04AAAAWAAADcmphSlAAAAAaAAADiHJvUk8AAAAkAAADomVs
+        R1IAAAAiAAADxnB0UE8AAAAmAAAD6G5sTkwAAAAoAAAEDmVzRVMAAAAmAAAD6HRoVEgAAAAkAAAENnRy
+        VFIAAAAiAAAEWmZpRkkAAAAoAAAEfHBsUEwAAAAsAAAEpHJ1UlUAAAAiAAAE0GFyRUcAAAAmAAAE8mVu
+        VVMAAAAmAAAFGGRhREsAAAAuAAAFPgBWAWEAZQBvAGIAZQBjAG4A/QAgAFIARwBCACAAcAByAG8AZgBp
+        AGwARwBlAG4AZQByAGkBDQBrAGkAIABSAEcAQgAgAHAAcgBvAGYAaQBsAFAAZQByAGYAaQBsACAAUgBH
+        AEIAIABnAGUAbgDoAHIAaQBjAFAAZQByAGYAaQBsACAAUgBHAEIAIABHAGUAbgDpAHIAaQBjAG8EFwQw
+        BDMEMAQ7BEwEPQQ4BDkAIAQ/BEAEPgREBDAEOQQ7ACAAUgBHAEIAUAByAG8AZgBpAGwAIABnAOkAbgDp
+        AHIAaQBxAHUAZQAgAFIAVgBCkBp1KAAgAFIARwBCACCCcl9pY8+P8ABQAHIAbwBmAGkAbABvACAAUgBH
+        AEIAIABnAGUAbgBlAHIAaQBjAG8ARwBlAG4AZQByAGkAcwBrACAAUgBHAEIALQBwAHIAbwBmAGkAbMd8
+        vBgAIABSAEcAQgAg1QS4XNMMx3wATwBiAGUAYwBuAP0AIABSAEcAQgAgAHAAcgBvAGYAaQBsBeQF6AXV
+        BeQF2QXcACAAUgBHAEIAIAXbBdwF3AXZAEEAbABsAGcAZQBtAGUAaQBuAGUAcwAgAFIARwBCAC0AUABy
+        AG8AZgBpAGwAwQBsAHQAYQBsAOEAbgBvAHMAIABSAEcAQgAgAHAAcgBvAGYAaQBsZm6QGgAgAFIARwBC
+        ACBjz4/wZYdO9k4AgiwAIABSAEcAQgAgMNcw7TDVMKEwpDDrAFAAcgBvAGYAaQBsACAAUgBHAEIAIABn
+        AGUAbgBlAHIAaQBjA5MDtQO9A7kDugPMACADwAPBA78DxgOvA7sAIABSAEcAQgBQAGUAcgBmAGkAbAAg
+        AFIARwBCACAAZwBlAG4A6QByAGkAYwBvAEEAbABnAGUAbQBlAGUAbgAgAFIARwBCAC0AcAByAG8AZgBp
+        AGUAbA5CDhsOIw5EDh8OJQ5MACAAUgBHAEIAIA4XDjEOSA4nDkQOGwBHAGUAbgBlAGwAIABSAEcAQgAg
+        AFAAcgBvAGYAaQBsAGkAWQBsAGUAaQBuAGUAbgAgAFIARwBCAC0AcAByAG8AZgBpAGkAbABpAFUAbgBp
+        AHcAZQByAHMAYQBsAG4AeQAgAHAAcgBvAGYAaQBsACAAUgBHAEIEHgQxBEkEOAQ5ACAEPwRABD4ERAQ4
+        BDsETAAgAFIARwBCBkUGRAZBACAGKgY5BjEGSgZBACAAUgBHAEIAIAYnBkQGOQYnBkUARwBlAG4AZQBy
+        AGkAYwAgAFIARwBCACAAUAByAG8AZgBpAGwAZQBHAGUAbgBlAHIAZQBsACAAUgBHAEIALQBiAGUAcwBr
+        AHIAaQB2AGUAbABzAGV0ZXh0AAAAAENvcHlyaWdodCAyMDA3IEFwcGxlIEluYy4sIGFsbCByaWdodHMg
+        cmVzZXJ2ZWQuAFhZWiAAAAAAAADzUgABAAAAARbPWFlaIAAAAAAAAHRNAAA97gAAA9BYWVogAAAAAAAA
+        WnUAAKxzAAAXNFhZWiAAAAAAAAAoGgAAFZ8AALg2Y3VydgAAAAAAAAABAc0AAHNmMzIAAAAAAAEMQgAA
+        Bd7///MmAAAHkgAA/ZH///ui///9owAAA9wAAMBs/9sAQwACAgICAgECAgICAgICAwMGBAMDAwMHBQUE
+        BggHCAgIBwgICQoNCwkJDAoICAsPCwwNDg4ODgkLEBEPDhENDg4O/9sAQwECAgIDAwMGBAQGDgkICQ4O
+        Dg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4O/8AAEQgAHwAyAwEi
+        AAIRAQMRAf/EABoAAAIDAQEAAAAAAAAAAAAAAAgJAAYHBQT/xAA1EAABAwQCAQIEAwUJAAAAAAABAgME
+        BQYHEQgSABMhCRQVIhcYQSQxMlhhFiNRUpSXtdTk/8QAGQEAAwADAAAAAAAAAAAAAAAABQYHAQME/8QA
+        OBEAAQIEBAIGBQ0AAAAAAAAAAQIRAwQFIQAGBxIxQVFTYXFygRUygpGSNUJDUlRzk5SisdHj8P/aAAwD
+        AQACEQMRAD8A7WJeWmJ+Q2KGsS5Mt2n3hTZifTRYV4VNLkxtSU9UqolYeKPVc/hKY8tbcgFR6SFgBPg6
+        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
+        OJ2L+Y/sx//Z
+</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="&gt;&gt;btnBrowse.Name" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="btnChartDistances.Text" xml:space="preserve">
+    <value>Erstellen Sie ein Diagramm:</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -8828,5 +8792,88 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAA=
 </value>
+  </data>
+  <data name="chbDateToName.Text" xml:space="preserve">
+    <value>Hinzufügen eines Datums am Anfang von Dateinamen</value>
+  </data>
+  <data name="btnBrowse.Text" xml:space="preserve">
+    <value>Durchsuchen...</value>
+  </data>
+  <data name="btnCalculate.Text" xml:space="preserve">
+    <value>Daten aus gpx-Dateien lesen</value>
+  </data>
+  <data name="lblDirectory.Text" xml:space="preserve">
+    <value>Verzeichnis:</value>
+  </data>
+  <data name="rbTotDistance.Text" xml:space="preserve">
+    <value>Fluffed in der gewählten Periode</value>
+  </data>
+  <data name="btnBrowse.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnCalculate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblStartDate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblEndDate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblDirectory.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="chbDateToName.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnOpenDataFile.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnChartDistances.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="rbTotDistance.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="rbDistances.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="rbAge.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="rbSpeed.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnEng.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnCS.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="PictureBox1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnEng.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="btnCS.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="btnDe.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAATCAYAAADxlA/3AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
+        cAAAAHABznhikwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAABFSURBVEhL7c4x
+        EQAwDEJR3NVfhdVBBVQFjQBmWMjdy8D0MccwOTrJ0UmOTnJ0kqPPnpeEOy+pAQ3AW2ASeMCkBjQgHAB+
+        gzF5/QKqNpwAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="btnDe.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnDe.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="btnDe.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 33</value>
   </data>
 </root>
