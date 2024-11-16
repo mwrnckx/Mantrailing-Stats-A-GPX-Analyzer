@@ -129,4 +129,10 @@
   <data name="Y-AxisLabelSpeed" xml:space="preserve">
     <value>Rychlost psa (km/h)</value>
   </data>
+  <data name="No gpx file" xml:space="preserve">
+    <value>V zadaném adresáři nebyl nalezen žádný soubor gpx.</value>
+  </data>
+  <data name="X-AxisLabel" xml:space="preserve">
+    <value>Datum</value>
+  </data>
 </root>

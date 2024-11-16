@@ -7,6 +7,7 @@ Imports System.Collections.Generic
 Imports System.Runtime.InteropServices.ComTypes
 Imports System.DirectoryServices.ActiveDirectory
 Imports System.Diagnostics.Eventing
+Imports System.Resources
 
 Public Class GPXDistanceCalculator
 
@@ -383,7 +384,7 @@ Public Class GPXDistanceCalculator
         gpxFiles = GetGpxFiles(Me.DirectoryPath)
 
         If gpxFiles.Count = 0 Then
-            MessageBox.Show("No gpx file was found in the specified directory.")
+            MessageBox.Show(SharedResources.ResourceManager.GetString("No gpx file"))
             Return False
         End If
 
@@ -423,7 +424,7 @@ Public Class GPXDistanceCalculator
                 link.Add(Getlink(i))
                 If Not link(i) Is Nothing Then link(i) = $"=HYPERTEXTOVÝ.ODKAZ(""{link(i)}"")"
 
-                gpxReaders(i).save() 'hlavně kvůli desc
+                gpxReaders(i).Save() 'hlavně kvůli desc
                 'a nakonec
                 SetCreatedModifiedDate(i)
 

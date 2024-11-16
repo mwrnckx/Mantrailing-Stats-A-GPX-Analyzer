@@ -129,4 +129,10 @@
   <data name="Y-AxisLabelSpeed" xml:space="preserve">
     <value>Dogs average speed (km/h)</value>
   </data>
+  <data name="No gpx file" xml:space="preserve">
+    <value>No gpx file was found in the specified directory.</value>
+  </data>
+  <data name="X-AxisLabel" xml:space="preserve">
+    <value>Date</value>
+  </data>
 </root>

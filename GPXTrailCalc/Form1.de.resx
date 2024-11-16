@@ -117,57 +117,29 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnBrowse.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="btnBrowse.Text" xml:space="preserve">
     <value>Durchsuchen...</value>
-  </data>
-  <data name="btnCalculate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="btnCalculate.Text" xml:space="preserve">
     <value>Daten aus gpx-Dateien lesen</value>
   </data>
-  <data name="lblStartDate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="lblStartDate.Text" xml:space="preserve">
     <value>Von:</value>
-  </data>
-  <data name="lblEndDate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="lblEndDate.Text" xml:space="preserve">
     <value>Bis zum:</value>
   </data>
-  <data name="lblDirectory.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="lblDirectory.Text" xml:space="preserve">
     <value>Verzeichnis:</value>
-  </data>
-  <data name="chbDateToName.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="chbDateToName.Text" xml:space="preserve">
     <value>Hinzufügen eines Datums am Anfang von Dateinamen</value>
   </data>
-  <data name="btnOpenDataFile.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="btnOpenDataFile.Text" xml:space="preserve">
     <value>Erstellen und Öffnen einer CSV-Datei</value>
   </data>
-  <data name="btnChartDistances.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="btnChartDistances.Text" xml:space="preserve">
     <value>Erstellen Sie ein Diagramm:</value>
-  </data>
-  <data name="rbTotDistance.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="rbTotDistance.Size" type="System.Drawing.Size, System.Drawing">
@@ -176,26 +148,17 @@
   <data name="rbTotDistance.Text" xml:space="preserve">
     <value>Fluffed in der gewählten Periode</value>
   </data>
-  <data name="rbDistances.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="rbDistances.Size" type="System.Drawing.Size, System.Drawing">
     <value>246, 24</value>
   </data>
   <data name="rbDistances.Text" xml:space="preserve">
     <value>Länge der einzelnen Strecken</value>
   </data>
-  <data name="rbAge.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="rbAge.Size" type="System.Drawing.Size, System.Drawing">
     <value>132, 24</value>
   </data>
   <data name="rbAge.Text" xml:space="preserve">
     <value>Alter der Spur</value>
-  </data>
-  <data name="rbSpeed.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="rbSpeed.Size" type="System.Drawing.Size, System.Drawing">
     <value>366, 24</value>
@@ -273,12 +236,6 @@
         OJ2L+Y/sx//Z
 </value>
   </data>
-  <data name="btnEng.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnEng.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
   <data name="btnCS.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         R0lGODlhMgAhAIYAAAAAAP////8WG/4JEv0KFPwKFP8VG/8WHP8WHf8XHf8XHvwXHv4YIP4YIf0YIfwY
@@ -296,12 +253,6 @@
         MH9+fbRsoGEDfPL1Rx97VlGBRg8sPKCAgQb+5xMbZ9BgggEQQBghgjQp2MMKDmoI4X8BzlCCABGIOCJ7
         HoL4oIorHrEGGjKQgCKMGibXxg4qLICAA0AGKeSQRBZpZJENaFDDCRhw0MGTUEYp5ZRUVlllBh4EBAA7
 </value>
-  </data>
-  <data name="btnCS.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnCS.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
   </data>
   <data name="PictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1665,9 +1616,6 @@
         Irz3WJpvCNwZrCeTaT/qZW3Rj6CqspbAemUVS0e8kvtNjnlI3nrtGBV2otYAooopAFFFFABRRRQB/9k=
 </value>
   </data>
-  <data name="PictureBox1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="btnDe.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAATCAYAAADxlA/3AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
@@ -1675,9 +1623,6 @@
         EQAwDEJR3NVfhdVBBVQFjQBmWMjdy8D0MccwOTrJ0UmOTnJ0kqPPnpeEOy+pAQ3AW2ASeMCkBjQgHAB+
         gzF5/QKqNpwAAAAASUVORK5CYII=
 </value>
-  </data>
-  <data name="btnDe.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -8890,5 +8835,63 @@
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Mantrailing: Statistik und Analyse von GPX-Dateien</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnBrowse.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnCalculate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblStartDate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblEndDate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblDirectory.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="chbDateToName.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnOpenDataFile.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnChartDistances.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="rbTotDistance.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="rbDistances.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="rbAge.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="rbSpeed.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnEng.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnEng.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="btnCS.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnCS.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="PictureBox1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnDe.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnChart.Text" xml:space="preserve">
+    <value>Diagramm anzeigen von:</value>
   </data>
 </root>

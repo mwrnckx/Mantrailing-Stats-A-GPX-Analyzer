@@ -32,7 +32,7 @@ Partial Class Form1
         Me.txtWarnings = New System.Windows.Forms.TextBox()
         Me.chbDateToName = New System.Windows.Forms.CheckBox()
         Me.btnOpenDataFile = New System.Windows.Forms.Button()
-        Me.btnChartDistances = New System.Windows.Forms.Button()
+        Me.btnChart = New System.Windows.Forms.Button()
         Me.rbTotDistance = New System.Windows.Forms.RadioButton()
         Me.rbDistances = New System.Windows.Forms.RadioButton()
         Me.rbAge = New System.Windows.Forms.RadioButton()
@@ -116,12 +116,12 @@ Partial Class Form1
         Me.btnOpenDataFile.Name = "btnOpenDataFile"
         Me.btnOpenDataFile.UseVisualStyleBackColor = False
         '
-        'btnChartDistances
+        'btnChart
         '
-        Me.btnChartDistances.BackColor = System.Drawing.Color.Yellow
-        resources.ApplyResources(Me.btnChartDistances, "btnChartDistances")
-        Me.btnChartDistances.Name = "btnChartDistances"
-        Me.btnChartDistances.UseVisualStyleBackColor = False
+        Me.btnChart.BackColor = System.Drawing.Color.Yellow
+        resources.ApplyResources(Me.btnChart, "btnChart")
+        Me.btnChart.Name = "btnChart"
+        Me.btnChart.UseVisualStyleBackColor = False
         '
         'rbTotDistance
         '
@@ -189,7 +189,7 @@ Partial Class Form1
         Me.Controls.Add(Me.rbAge)
         Me.Controls.Add(Me.rbDistances)
         Me.Controls.Add(Me.rbTotDistance)
-        Me.Controls.Add(Me.btnChartDistances)
+        Me.Controls.Add(Me.btnChart)
         Me.Controls.Add(Me.btnOpenDataFile)
         Me.Controls.Add(Me.chbDateToName)
         Me.Controls.Add(Me.txtWarnings)
@@ -239,7 +239,7 @@ Partial Class Form1
         gpxCalculator = New GPXDistanceCalculator()
     End Sub
 
-    Friend WithEvents btnChartDistances As Button
+    Friend WithEvents btnChart As Button
     Friend WithEvents rbTotDistance As RadioButton
     Friend WithEvents rbDistances As RadioButton
     Friend WithEvents rbAge As RadioButton

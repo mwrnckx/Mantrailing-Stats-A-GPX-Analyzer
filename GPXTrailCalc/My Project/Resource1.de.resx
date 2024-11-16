@@ -121,12 +121,18 @@
     <value>Erschnüffelte Kilometer</value>
   </data>
   <data name="Y-AxisLabelLength" xml:space="preserve">
-    <value>Length of trails (km)</value>
+    <value>Länge der Strecken (km)</value>
   </data>
   <data name="Y-AxisLabelAge" xml:space="preserve">
     <value>Alter der Spuren (Stunden)</value>
   </data>
   <data name="Y-AxisLabelSpeed" xml:space="preserve">
     <value>Geschwindigkeit  der Hunde (km/h)</value>
+  </data>
+  <data name="No gpx file" xml:space="preserve">
+    <value>Es wurde keine gpx-Datei im angegebenen Verzeichnis gefunden.</value>
+  </data>
+  <data name="X-AxisLabel" xml:space="preserve">
+    <value>Datum</value>
   </data>
 </root>
