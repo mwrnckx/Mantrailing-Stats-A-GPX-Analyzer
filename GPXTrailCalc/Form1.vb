@@ -9,6 +9,7 @@ Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 Public Class Form1
     Dim directoryPath As String
     Private gpxCalculator As GPXDistanceCalculator
+    Private Shared resourceManager As ResourceManager = New ResourceManager("GPXTrailAnalyzer.Resource1", GetType(Form1).Assembly)
 
 
     Private Sub btnCalculate_Click(sender As Object, e As EventArgs) Handles btnCalculate.Click
@@ -17,7 +18,7 @@ Public Class Form1
             If gpxCalculator.Calculate(directoryPath, dtpStartDate.Value, dtpEndDate.Value, chbDateToName.Checked) Then
 
 
-                Me.btnChart.Visible = True
+                Me.btnChartDistances.Visible = True
                 Me.btnOpenDataFile.Visible = True
                 Me.rbTotDistance.Visible = True
                 Me.rbDistances.Visible = True
@@ -62,7 +63,7 @@ Public Class Form1
         End Try
     End Sub
 
-    Private Sub btnOpenChart(sender As Object, e As EventArgs) Handles btnChart.Click
+    Private Sub btnOpenChart(sender As Object, e As EventArgs) Handles btnChartDistances.Click
         'what to display
         Dim yAxisData() As Double
         Dim yAxisLabel As String

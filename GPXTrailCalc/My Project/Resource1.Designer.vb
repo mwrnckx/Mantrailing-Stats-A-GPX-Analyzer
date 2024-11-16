@@ -65,24 +65,6 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Vyhledá lokalizovaný řetězec podobný No gpx file was found in the specified directory..
-        '''</summary>
-        Friend Shared ReadOnly Property No_gpx_file() As String
-            Get
-                Return ResourceManager.GetString("No gpx file", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Vyhledá lokalizovaný řetězec podobný Date.
-        '''</summary>
-        Friend Shared ReadOnly Property X_AxisLabel() As String
-            Get
-                Return ResourceManager.GetString("X-AxisLabel", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
         '''  Vyhledá lokalizovaný řetězec podobný Age of trails (hours).
         '''</summary>
         Friend Shared ReadOnly Property Y_AxisLabelAge() As String

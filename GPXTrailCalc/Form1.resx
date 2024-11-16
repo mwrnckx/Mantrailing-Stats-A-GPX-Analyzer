@@ -425,34 +425,34 @@
   <data name="&gt;&gt;btnOpenDataFile.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
-  <data name="btnChart.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="btnChartDistances.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 10pt, style=Bold</value>
   </data>
-  <data name="btnChart.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="btnChartDistances.Location" type="System.Drawing.Point, System.Drawing">
     <value>26, 375</value>
   </data>
-  <data name="btnChart.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btnChartDistances.Size" type="System.Drawing.Size, System.Drawing">
     <value>322, 60</value>
   </data>
-  <data name="btnChart.TabIndex" type="System.Int32, mscorlib">
+  <data name="btnChartDistances.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
   </data>
-  <data name="btnChart.Text" xml:space="preserve">
+  <data name="btnChartDistances.Text" xml:space="preserve">
     <value>Show Chart of:</value>
   </data>
-  <data name="btnChart.Visible" type="System.Boolean, mscorlib">
+  <data name="btnChartDistances.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="&gt;&gt;btnChart.Name" xml:space="preserve">
-    <value>btnChart</value>
+  <data name="&gt;&gt;btnChartDistances.Name" xml:space="preserve">
+    <value>btnChartDistances</value>
   </data>
-  <data name="&gt;&gt;btnChart.Type" xml:space="preserve">
+  <data name="&gt;&gt;btnChartDistances.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btnChart.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btnChartDistances.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;btnChart.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btnChartDistances.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
   <data name="rbTotDistance.AutoSize" type="System.Boolean, mscorlib">

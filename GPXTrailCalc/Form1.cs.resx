@@ -8845,7 +8845,4 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Mantrailing: statistiky a analýza GPX souborů</value>
   </data>
-  <data name="btnChart.Text" xml:space="preserve">
-    <value>Vytvoř graf:</value>
-  </data>
 </root>

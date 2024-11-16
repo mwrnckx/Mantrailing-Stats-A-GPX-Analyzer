@@ -50,7 +50,7 @@ Public Class DistanceChart
 
         ' Nastavení oblasti grafu
         Dim chartArea As New ChartArea()
-        chartArea.AxisX.Title = SharedResources.ResourceManager.GetString("X-AxisLabel")
+        chartArea.AxisX.Title = "Date"
         chartArea.AxisX.TitleFont = New Font("Arial", 14, FontStyle.Bold) ' Nastavení většího a tučného písma
         chartArea.AxisX.LabelStyle.Format = "yyyy-MM-dd"
         chartArea.AxisX.LabelStyle.Font = New Font("Arial", 14, FontStyle.Bold)
