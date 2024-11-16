@@ -117,555 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnBrowse.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="btnBrowse.Location" type="System.Drawing.Point, System.Drawing">
-    <value>621, 15</value>
-  </data>
-  <data name="btnBrowse.Size" type="System.Drawing.Size, System.Drawing">
-    <value>143, 33</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnBrowse.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="btnBrowse.Text" xml:space="preserve">
-    <value>Browse...</value>
-  </data>
-  <data name="&gt;&gt;btnBrowse.Name" xml:space="preserve">
-    <value>btnBrowse</value>
-  </data>
-  <data name="&gt;&gt;btnBrowse.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnBrowse.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btnBrowse.ZOrder" xml:space="preserve">
-    <value>19</value>
-  </data>
-  <data name="txtDirectory.Location" type="System.Drawing.Point, System.Drawing">
-    <value>120, 20</value>
-  </data>
-  <data name="txtDirectory.Size" type="System.Drawing.Size, System.Drawing">
-    <value>466, 26</value>
-  </data>
-  <data name="txtDirectory.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;txtDirectory.Name" xml:space="preserve">
-    <value>txtDirectory</value>
-  </data>
-  <data name="&gt;&gt;txtDirectory.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtDirectory.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;txtDirectory.ZOrder" xml:space="preserve">
-    <value>18</value>
-  </data>
-  <data name="dtpStartDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>149, 67</value>
-  </data>
-  <data name="dtpStartDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>144, 26</value>
-  </data>
-  <data name="dtpStartDate.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;dtpStartDate.Name" xml:space="preserve">
-    <value>dtpStartDate</value>
-  </data>
-  <data name="&gt;&gt;dtpStartDate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dtpStartDate.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;dtpStartDate.ZOrder" xml:space="preserve">
-    <value>17</value>
-  </data>
-  <data name="dtpEndDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>149, 105</value>
-  </data>
-  <data name="dtpEndDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>144, 26</value>
-  </data>
-  <data name="dtpEndDate.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;dtpEndDate.Name" xml:space="preserve">
-    <value>dtpEndDate</value>
-  </data>
-  <data name="&gt;&gt;dtpEndDate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dtpEndDate.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;dtpEndDate.ZOrder" xml:space="preserve">
-    <value>16</value>
-  </data>
-  <data name="btnCalculate.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 10pt, style=Bold</value>
-  </data>
-  <data name="btnCalculate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 171</value>
-  </data>
-  <data name="btnCalculate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>327, 72</value>
-  </data>
-  <data name="btnCalculate.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="btnCalculate.Text" xml:space="preserve">
-    <value>Read data from gpx files</value>
-  </data>
-  <data name="&gt;&gt;btnCalculate.Name" xml:space="preserve">
-    <value>btnCalculate</value>
-  </data>
-  <data name="&gt;&gt;btnCalculate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnCalculate.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btnCalculate.ZOrder" xml:space="preserve">
-    <value>15</value>
-  </data>
-  <data name="lblStartDate.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt, style=Italic</value>
-  </data>
-  <data name="lblStartDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 67</value>
-  </data>
-  <data name="lblStartDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 26</value>
-  </data>
-  <data name="lblStartDate.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="rbAge.Visible" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
   </data>
   <data name="lblStartDate.Text" xml:space="preserve">
-    <value>Start Date:</value>
+    <value>Von:</value>
   </data>
-  <data name="&gt;&gt;lblStartDate.Name" xml:space="preserve">
-    <value>lblStartDate</value>
-  </data>
-  <data name="&gt;&gt;lblStartDate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblStartDate.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblStartDate.ZOrder" xml:space="preserve">
-    <value>14</value>
-  </data>
-  <data name="lblEndDate.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt, style=Italic</value>
-  </data>
-  <data name="lblEndDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 105</value>
-  </data>
-  <data name="lblEndDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 26</value>
-  </data>
-  <data name="lblEndDate.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="lblEndDate.Text" xml:space="preserve">
-    <value>End Date:</value>
-  </data>
-  <data name="&gt;&gt;lblEndDate.Name" xml:space="preserve">
-    <value>lblEndDate</value>
-  </data>
-  <data name="&gt;&gt;lblEndDate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblEndDate.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblEndDate.ZOrder" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="lblDirectory.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt, style=Italic</value>
-  </data>
-  <data name="lblDirectory.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 20</value>
-  </data>
-  <data name="lblDirectory.Size" type="System.Drawing.Size, System.Drawing">
-    <value>93, 28</value>
-  </data>
-  <data name="lblDirectory.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="lblDirectory.Text" xml:space="preserve">
-    <value>Directory:</value>
-  </data>
-  <data name="&gt;&gt;lblDirectory.Name" xml:space="preserve">
-    <value>lblDirectory</value>
-  </data>
-  <data name="&gt;&gt;lblDirectory.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblDirectory.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblDirectory.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="txtOutput.Location" type="System.Drawing.Point, System.Drawing">
-    <value>354, 67</value>
-  </data>
-  <data name="txtOutput.Multiline" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="txtOutput.Size" type="System.Drawing.Size, System.Drawing">
-    <value>576, 577</value>
-  </data>
-  <data name="txtOutput.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="txtOutput.Text" xml:space="preserve">
-    <value>GPX Routes:</value>
-  </data>
-  <data name="&gt;&gt;txtOutput.Name" xml:space="preserve">
-    <value>txtOutput</value>
-  </data>
-  <data name="&gt;&gt;txtOutput.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtOutput.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;txtOutput.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="txtWarnings.Location" type="System.Drawing.Point, System.Drawing">
-    <value>954, 67</value>
-  </data>
-  <data name="txtWarnings.Multiline" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="txtWarnings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>313, 577</value>
-  </data>
-  <data name="txtWarnings.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="txtWarnings.Text" xml:space="preserve">
-    <value>Errors and Logs:</value>
-  </data>
-  <data name="&gt;&gt;txtWarnings.Name" xml:space="preserve">
-    <value>txtWarnings</value>
-  </data>
-  <data name="&gt;&gt;txtWarnings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtWarnings.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;txtWarnings.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="chbDateToName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 249</value>
-  </data>
-  <data name="chbDateToName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>272, 26</value>
-  </data>
-  <data name="chbDateToName.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="chbDateToName.Text" xml:space="preserve">
-    <value>Prepend Date to File Name</value>
-  </data>
-  <data name="&gt;&gt;chbDateToName.Name" xml:space="preserve">
-    <value>chbDateToName</value>
-  </data>
-  <data name="&gt;&gt;chbDateToName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;chbDateToName.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;chbDateToName.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="btnOpenDataFile.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 10pt, style=Bold</value>
-  </data>
-  <data name="btnOpenDataFile.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 281</value>
-  </data>
-  <data name="btnOpenDataFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>327, 70</value>
-  </data>
-  <data name="btnOpenDataFile.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="btnOpenDataFile.Text" xml:space="preserve">
-    <value>Open CSV data file</value>
-  </data>
-  <data name="btnOpenDataFile.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;btnOpenDataFile.Name" xml:space="preserve">
-    <value>btnOpenDataFile</value>
-  </data>
-  <data name="&gt;&gt;btnOpenDataFile.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnOpenDataFile.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btnOpenDataFile.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="btnChartDistances.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 10pt, style=Bold</value>
-  </data>
-  <data name="btnChartDistances.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 357</value>
-  </data>
-  <data name="btnChartDistances.Size" type="System.Drawing.Size, System.Drawing">
-    <value>322, 60</value>
-  </data>
-  <data name="btnChartDistances.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="btnChartDistances.Text" xml:space="preserve">
-    <value>Show Chart of:</value>
-  </data>
-  <data name="btnChartDistances.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;btnChartDistances.Name" xml:space="preserve">
-    <value>btnChartDistances</value>
-  </data>
-  <data name="&gt;&gt;btnChartDistances.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnChartDistances.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btnChartDistances.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="rbTotDistance.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="rbTotDistance.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 433</value>
-  </data>
-  <data name="rbTotDistance.Size" type="System.Drawing.Size, System.Drawing">
-    <value>257, 24</value>
-  </data>
-  <data name="rbTotDistance.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
-  </data>
-  <data name="rbTotDistance.Text" xml:space="preserve">
-    <value>Sniffed within the specified time</value>
-  </data>
-  <data name="rbTotDistance.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;rbTotDistance.Name" xml:space="preserve">
-    <value>rbTotDistance</value>
-  </data>
-  <data name="&gt;&gt;rbTotDistance.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rbTotDistance.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;rbTotDistance.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="rbDistances.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="rbDistances.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 464</value>
-  </data>
-  <data name="rbDistances.Size" type="System.Drawing.Size, System.Drawing">
-    <value>207, 24</value>
-  </data>
-  <data name="rbDistances.TabIndex" type="System.Int32, mscorlib">
-    <value>18</value>
-  </data>
-  <data name="rbDistances.Text" xml:space="preserve">
-    <value>Length of individual trails</value>
-  </data>
-  <data name="rbDistances.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;rbDistances.Name" xml:space="preserve">
-    <value>rbDistances</value>
-  </data>
-  <data name="&gt;&gt;rbDistances.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rbDistances.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;rbDistances.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="rbAge.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="rbAge.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 495</value>
-  </data>
-  <data name="rbAge.Size" type="System.Drawing.Size, System.Drawing">
-    <value>118, 24</value>
-  </data>
-  <data name="rbAge.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
-  </data>
-  <data name="rbAge.Text" xml:space="preserve">
-    <value>Age of trails</value>
-  </data>
-  <data name="rbAge.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;rbAge.Name" xml:space="preserve">
-    <value>rbAge</value>
-  </data>
-  <data name="&gt;&gt;rbAge.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rbAge.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;rbAge.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="rbSpeed.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="rbSpeed.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 526</value>
-  </data>
-  <data name="rbSpeed.Size" type="System.Drawing.Size, System.Drawing">
-    <value>258, 24</value>
-  </data>
-  <data name="rbSpeed.TabIndex" type="System.Int32, mscorlib">
-    <value>20</value>
-  </data>
-  <data name="rbSpeed.Text" xml:space="preserve">
-    <value>Average dog speed on the trails</value>
-  </data>
-  <data name="rbSpeed.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;rbSpeed.Name" xml:space="preserve">
-    <value>rbSpeed</value>
-  </data>
-  <data name="&gt;&gt;rbSpeed.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rbSpeed.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;rbSpeed.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="btnEng.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        /9j/4AAQSkZJRgABAQEASABIAAD/4QCCRXhpZgAATU0AKgAAAAgABQESAAMAAAABAAEAAAEaAAUAAAAB
-        AAAASgEbAAUAAAABAAAAUgEoAAMAAAABAAIAAIdpAAQAAAABAAAAWgAAAAAAAABIAAAAAQAAAEgAAAAB
-        AAKgAgAEAAAAAQAAADKgAwAEAAAAAQAAAB8AAAAAAAD/4ge4SUNDX1BST0ZJTEUAAQEAAAeoYXBwbAIg
-        AABtbnRyUkdCIFhZWiAH2QACABkACwAaAAthY3NwQVBQTAAAAABhcHBsAAAAAAAAAAAAAAAAAAAAAAAA
-        9tYAAQAAAADTLWFwcGwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAtkZXNjAAABCAAAAG9kc2NtAAABeAAABWxjcHJ0AAAG5AAAADh3dHB0AAAHHAAAABRyWFlaAAAHMAAA
-        ABRnWFlaAAAHRAAAABRiWFlaAAAHWAAAABRyVFJDAAAHbAAAAA5jaGFkAAAHfAAAACxiVFJDAAAHbAAA
-        AA5nVFJDAAAHbAAAAA5kZXNjAAAAAAAAABRHZW5lcmljIFJHQiBQcm9maWxlAAAAAAAAAAAAAAAUR2Vu
-        ZXJpYyBSR0IgUHJvZmlsZQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAbWx1YwAAAAAAAAAeAAAADHNrU0sAAAAoAAABeGhySFIAAAAoAAABoGNhRVMAAAAkAAAByHB0
-        QlIAAAAmAAAB7HVrVUEAAAAqAAACEmZyRlUAAAAoAAACPHpoVFcAAAAWAAACZGl0SVQAAAAoAAACem5i
-        Tk8AAAAmAAAComtvS1IAAAAWAAACyGNzQ1oAAAAiAAAC3mhlSUwAAAAeAAADAGRlREUAAAAsAAADHmh1
-        SFUAAAAoAAADSnN2U0UAAAAmAAAConpoQ04AAAAWAAADcmphSlAAAAAaAAADiHJvUk8AAAAkAAADomVs
-        R1IAAAAiAAADxnB0UE8AAAAmAAAD6G5sTkwAAAAoAAAEDmVzRVMAAAAmAAAD6HRoVEgAAAAkAAAENnRy
-        VFIAAAAiAAAEWmZpRkkAAAAoAAAEfHBsUEwAAAAsAAAEpHJ1UlUAAAAiAAAE0GFyRUcAAAAmAAAE8mVu
-        VVMAAAAmAAAFGGRhREsAAAAuAAAFPgBWAWEAZQBvAGIAZQBjAG4A/QAgAFIARwBCACAAcAByAG8AZgBp
-        AGwARwBlAG4AZQByAGkBDQBrAGkAIABSAEcAQgAgAHAAcgBvAGYAaQBsAFAAZQByAGYAaQBsACAAUgBH
-        AEIAIABnAGUAbgDoAHIAaQBjAFAAZQByAGYAaQBsACAAUgBHAEIAIABHAGUAbgDpAHIAaQBjAG8EFwQw
-        BDMEMAQ7BEwEPQQ4BDkAIAQ/BEAEPgREBDAEOQQ7ACAAUgBHAEIAUAByAG8AZgBpAGwAIABnAOkAbgDp
-        AHIAaQBxAHUAZQAgAFIAVgBCkBp1KAAgAFIARwBCACCCcl9pY8+P8ABQAHIAbwBmAGkAbABvACAAUgBH
-        AEIAIABnAGUAbgBlAHIAaQBjAG8ARwBlAG4AZQByAGkAcwBrACAAUgBHAEIALQBwAHIAbwBmAGkAbMd8
-        vBgAIABSAEcAQgAg1QS4XNMMx3wATwBiAGUAYwBuAP0AIABSAEcAQgAgAHAAcgBvAGYAaQBsBeQF6AXV
-        BeQF2QXcACAAUgBHAEIAIAXbBdwF3AXZAEEAbABsAGcAZQBtAGUAaQBuAGUAcwAgAFIARwBCAC0AUABy
-        AG8AZgBpAGwAwQBsAHQAYQBsAOEAbgBvAHMAIABSAEcAQgAgAHAAcgBvAGYAaQBsZm6QGgAgAFIARwBC
-        ACBjz4/wZYdO9k4AgiwAIABSAEcAQgAgMNcw7TDVMKEwpDDrAFAAcgBvAGYAaQBsACAAUgBHAEIAIABn
-        AGUAbgBlAHIAaQBjA5MDtQO9A7kDugPMACADwAPBA78DxgOvA7sAIABSAEcAQgBQAGUAcgBmAGkAbAAg
-        AFIARwBCACAAZwBlAG4A6QByAGkAYwBvAEEAbABnAGUAbQBlAGUAbgAgAFIARwBCAC0AcAByAG8AZgBp
-        AGUAbA5CDhsOIw5EDh8OJQ5MACAAUgBHAEIAIA4XDjEOSA4nDkQOGwBHAGUAbgBlAGwAIABSAEcAQgAg
-        AFAAcgBvAGYAaQBsAGkAWQBsAGUAaQBuAGUAbgAgAFIARwBCAC0AcAByAG8AZgBpAGkAbABpAFUAbgBp
-        AHcAZQByAHMAYQBsAG4AeQAgAHAAcgBvAGYAaQBsACAAUgBHAEIEHgQxBEkEOAQ5ACAEPwRABD4ERAQ4
-        BDsETAAgAFIARwBCBkUGRAZBACAGKgY5BjEGSgZBACAAUgBHAEIAIAYnBkQGOQYnBkUARwBlAG4AZQBy
-        AGkAYwAgAFIARwBCACAAUAByAG8AZgBpAGwAZQBHAGUAbgBlAHIAZQBsACAAUgBHAEIALQBiAGUAcwBr
-        AHIAaQB2AGUAbABzAGV0ZXh0AAAAAENvcHlyaWdodCAyMDA3IEFwcGxlIEluYy4sIGFsbCByaWdodHMg
-        cmVzZXJ2ZWQuAFhZWiAAAAAAAADzUgABAAAAARbPWFlaIAAAAAAAAHRNAAA97gAAA9BYWVogAAAAAAAA
-        WnUAAKxzAAAXNFhZWiAAAAAAAAAoGgAAFZ8AALg2Y3VydgAAAAAAAAABAc0AAHNmMzIAAAAAAAEMQgAA
-        Bd7///MmAAAHkgAA/ZH///ui///9owAAA9wAAMBs/9sAQwACAgICAgECAgICAgICAwMGBAMDAwMHBQUE
-        BggHCAgIBwgICQoNCwkJDAoICAsPCwwNDg4ODgkLEBEPDhENDg4O/9sAQwECAgIDAwMGBAQGDgkICQ4O
-        Dg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4O/8AAEQgAHwAyAwEi
-        AAIRAQMRAf/EABoAAAIDAQEAAAAAAAAAAAAAAAgJAAYHBQT/xAA1EAABAwQCAQIEAwUJAAAAAAABAgME
-        BQYHEQgSABMhCRQVIhcYQSQxMlhhFiNRUpSXtdTk/8QAGQEAAwADAAAAAAAAAAAAAAAABQYHAQME/8QA
-        OBEAAQIEBAIGBQ0AAAAAAAAAAQIRAwQFIQAGBxIxQVFTYXFygRUygpGSNUJDUlRzk5SisdHj8P/aAAwD
-        AQACEQMRAD8A7WJeWmJ+Q2KGsS5Mt2n3hTZifTRYV4VNLkxtSU9UqolYeKPVc/hKY8tbcgFR6SFgBPg6
-        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
-        OJ2L+Y/sx//Z
-</value>
-  </data>
-  <data name="btnEng.Location" type="System.Drawing.Point, System.Drawing">
-    <value>829, 17</value>
-  </data>
-  <data name="btnEng.Size" type="System.Drawing.Size, System.Drawing">
-    <value>52, 33</value>
-  </data>
-  <data name="btnEng.TabIndex" type="System.Int32, mscorlib">
-    <value>22</value>
-  </data>
-  <data name="&gt;&gt;btnEng.Name" xml:space="preserve">
-    <value>btnEng</value>
-  </data>
-  <data name="&gt;&gt;btnEng.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnEng.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btnEng.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnCS.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         R0lGODlhMgAhAIYAAAAAAP////8WG/4JEv0KFPwKFP8VG/8WHP8WHf8XHf8XHvwXHv4YIP4YIf0YIfwY
@@ -684,30 +143,14 @@
         HoL4oIorHrEGGjKQgCKMGibXxg4qLICAA0AGKeSQRBZpZJENaFDDCRhw0MGTUEYp5ZRUVlllBh4EBAA7
 </value>
   </data>
-  <data name="btnCS.Location" type="System.Drawing.Point, System.Drawing">
-    <value>898, 17</value>
+  <data name="lblEndDate.Text" xml:space="preserve">
+    <value>Bis zum:</value>
   </data>
-  <data name="btnCS.Size" type="System.Drawing.Size, System.Drawing">
-    <value>52, 33</value>
+  <data name="rbAge.Text" xml:space="preserve">
+    <value>Alter der Spur</value>
   </data>
-  <data name="btnCS.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
-  </data>
-  <data name="&gt;&gt;btnCS.Name" xml:space="preserve">
-    <value>btnCS</value>
-  </data>
-  <data name="&gt;&gt;btnCS.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnCS.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btnCS.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="PictureBox1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
+  <data name="rbSpeed.Text" xml:space="preserve">
+    <value>Geschwindigkeit des Hundes auf den Strecken</value>
   </data>
   <data name="PictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2071,70 +1514,84 @@
         Irz3WJpvCNwZrCeTaT/qZW3Rj6CqspbAemUVS0e8kvtNjnlI3nrtGBV2otYAooopAFFFFABRRRQB/9k=
 </value>
   </data>
-  <data name="PictureBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Mantrailing: Statistik und Analyse von GPX-Dateien</value>
   </data>
-  <data name="PictureBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1300, 844</value>
-  </data>
-  <data name="PictureBox1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>StretchImage</value>
-  </data>
-  <data name="PictureBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="&gt;&gt;PictureBox1.Name" xml:space="preserve">
-    <value>PictureBox1</value>
-  </data>
-  <data name="&gt;&gt;PictureBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;PictureBox1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;PictureBox1.ZOrder" xml:space="preserve">
-    <value>20</value>
-  </data>
-  <data name="btnDe.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnEng.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAATCAYAAADxlA/3AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        cAAAAHABznhikwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAABFSURBVEhL7c4x
-        EQAwDEJR3NVfhdVBBVQFjQBmWMjdy8D0MccwOTrJ0UmOTnJ0kqPPnpeEOy+pAQ3AW2ASeMCkBjQgHAB+
-        gzF5/QKqNpwAAAAASUVORK5CYII=
+        /9j/4AAQSkZJRgABAQEASABIAAD/4QCCRXhpZgAATU0AKgAAAAgABQESAAMAAAABAAEAAAEaAAUAAAAB
+        AAAASgEbAAUAAAABAAAAUgEoAAMAAAABAAIAAIdpAAQAAAABAAAAWgAAAAAAAABIAAAAAQAAAEgAAAAB
+        AAKgAgAEAAAAAQAAADKgAwAEAAAAAQAAAB8AAAAAAAD/4ge4SUNDX1BST0ZJTEUAAQEAAAeoYXBwbAIg
+        AABtbnRyUkdCIFhZWiAH2QACABkACwAaAAthY3NwQVBQTAAAAABhcHBsAAAAAAAAAAAAAAAAAAAAAAAA
+        9tYAAQAAAADTLWFwcGwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAtkZXNjAAABCAAAAG9kc2NtAAABeAAABWxjcHJ0AAAG5AAAADh3dHB0AAAHHAAAABRyWFlaAAAHMAAA
+        ABRnWFlaAAAHRAAAABRiWFlaAAAHWAAAABRyVFJDAAAHbAAAAA5jaGFkAAAHfAAAACxiVFJDAAAHbAAA
+        AA5nVFJDAAAHbAAAAA5kZXNjAAAAAAAAABRHZW5lcmljIFJHQiBQcm9maWxlAAAAAAAAAAAAAAAUR2Vu
+        ZXJpYyBSR0IgUHJvZmlsZQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAbWx1YwAAAAAAAAAeAAAADHNrU0sAAAAoAAABeGhySFIAAAAoAAABoGNhRVMAAAAkAAAByHB0
+        QlIAAAAmAAAB7HVrVUEAAAAqAAACEmZyRlUAAAAoAAACPHpoVFcAAAAWAAACZGl0SVQAAAAoAAACem5i
+        Tk8AAAAmAAAComtvS1IAAAAWAAACyGNzQ1oAAAAiAAAC3mhlSUwAAAAeAAADAGRlREUAAAAsAAADHmh1
+        SFUAAAAoAAADSnN2U0UAAAAmAAAConpoQ04AAAAWAAADcmphSlAAAAAaAAADiHJvUk8AAAAkAAADomVs
+        R1IAAAAiAAADxnB0UE8AAAAmAAAD6G5sTkwAAAAoAAAEDmVzRVMAAAAmAAAD6HRoVEgAAAAkAAAENnRy
+        VFIAAAAiAAAEWmZpRkkAAAAoAAAEfHBsUEwAAAAsAAAEpHJ1UlUAAAAiAAAE0GFyRUcAAAAmAAAE8mVu
+        VVMAAAAmAAAFGGRhREsAAAAuAAAFPgBWAWEAZQBvAGIAZQBjAG4A/QAgAFIARwBCACAAcAByAG8AZgBp
+        AGwARwBlAG4AZQByAGkBDQBrAGkAIABSAEcAQgAgAHAAcgBvAGYAaQBsAFAAZQByAGYAaQBsACAAUgBH
+        AEIAIABnAGUAbgDoAHIAaQBjAFAAZQByAGYAaQBsACAAUgBHAEIAIABHAGUAbgDpAHIAaQBjAG8EFwQw
+        BDMEMAQ7BEwEPQQ4BDkAIAQ/BEAEPgREBDAEOQQ7ACAAUgBHAEIAUAByAG8AZgBpAGwAIABnAOkAbgDp
+        AHIAaQBxAHUAZQAgAFIAVgBCkBp1KAAgAFIARwBCACCCcl9pY8+P8ABQAHIAbwBmAGkAbABvACAAUgBH
+        AEIAIABnAGUAbgBlAHIAaQBjAG8ARwBlAG4AZQByAGkAcwBrACAAUgBHAEIALQBwAHIAbwBmAGkAbMd8
+        vBgAIABSAEcAQgAg1QS4XNMMx3wATwBiAGUAYwBuAP0AIABSAEcAQgAgAHAAcgBvAGYAaQBsBeQF6AXV
+        BeQF2QXcACAAUgBHAEIAIAXbBdwF3AXZAEEAbABsAGcAZQBtAGUAaQBuAGUAcwAgAFIARwBCAC0AUABy
+        AG8AZgBpAGwAwQBsAHQAYQBsAOEAbgBvAHMAIABSAEcAQgAgAHAAcgBvAGYAaQBsZm6QGgAgAFIARwBC
+        ACBjz4/wZYdO9k4AgiwAIABSAEcAQgAgMNcw7TDVMKEwpDDrAFAAcgBvAGYAaQBsACAAUgBHAEIAIABn
+        AGUAbgBlAHIAaQBjA5MDtQO9A7kDugPMACADwAPBA78DxgOvA7sAIABSAEcAQgBQAGUAcgBmAGkAbAAg
+        AFIARwBCACAAZwBlAG4A6QByAGkAYwBvAEEAbABnAGUAbQBlAGUAbgAgAFIARwBCAC0AcAByAG8AZgBp
+        AGUAbA5CDhsOIw5EDh8OJQ5MACAAUgBHAEIAIA4XDjEOSA4nDkQOGwBHAGUAbgBlAGwAIABSAEcAQgAg
+        AFAAcgBvAGYAaQBsAGkAWQBsAGUAaQBuAGUAbgAgAFIARwBCAC0AcAByAG8AZgBpAGkAbABpAFUAbgBp
+        AHcAZQByAHMAYQBsAG4AeQAgAHAAcgBvAGYAaQBsACAAUgBHAEIEHgQxBEkEOAQ5ACAEPwRABD4ERAQ4
+        BDsETAAgAFIARwBCBkUGRAZBACAGKgY5BjEGSgZBACAAUgBHAEIAIAYnBkQGOQYnBkUARwBlAG4AZQBy
+        AGkAYwAgAFIARwBCACAAUAByAG8AZgBpAGwAZQBHAGUAbgBlAHIAZQBsACAAUgBHAEIALQBiAGUAcwBr
+        AHIAaQB2AGUAbABzAGV0ZXh0AAAAAENvcHlyaWdodCAyMDA3IEFwcGxlIEluYy4sIGFsbCByaWdodHMg
+        cmVzZXJ2ZWQuAFhZWiAAAAAAAADzUgABAAAAARbPWFlaIAAAAAAAAHRNAAA97gAAA9BYWVogAAAAAAAA
+        WnUAAKxzAAAXNFhZWiAAAAAAAAAoGgAAFZ8AALg2Y3VydgAAAAAAAAABAc0AAHNmMzIAAAAAAAEMQgAA
+        Bd7///MmAAAHkgAA/ZH///ui///9owAAA9wAAMBs/9sAQwACAgICAgECAgICAgICAwMGBAMDAwMHBQUE
+        BggHCAgIBwgICQoNCwkJDAoICAsPCwwNDg4ODgkLEBEPDhENDg4O/9sAQwECAgIDAwMGBAQGDgkICQ4O
+        Dg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4O/8AAEQgAHwAyAwEi
+        AAIRAQMRAf/EABoAAAIDAQEAAAAAAAAAAAAAAAgJAAYHBQT/xAA1EAABAwQCAQIEAwUJAAAAAAABAgME
+        BQYHEQgSABMhCRQVIhcYQSQxMlhhFiNRUpSXtdTk/8QAGQEAAwADAAAAAAAAAAAAAAAABQYHAQME/8QA
+        OBEAAQIEBAIGBQ0AAAAAAAAAAQIRAwQFIQAGBxIxQVFTYXFygRUygpGSNUJDUlRzk5SisdHj8P/aAAwD
+        AQACEQMRAD8A7WJeWmJ+Q2KGsS5Mt2n3hTZifTRYV4VNLkxtSU9UqolYeKPVc/hKY8tbcgFR6SFgBPg6
+        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
+        OJ2L+Y/sx//Z
 </value>
   </data>
-  <data name="btnDe.Location" type="System.Drawing.Point, System.Drawing">
-    <value>966, 17</value>
+  <data name="btnChartDistances.Text" xml:space="preserve">
+    <value>Erstellen Sie ein Diagramm:</value>
   </data>
-  <data name="btnDe.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="btnDe.Size" type="System.Drawing.Size, System.Drawing">
-    <value>52, 33</value>
-  </data>
-  <data name="btnDe.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
-  </data>
-  <data name="&gt;&gt;btnDe.Name" xml:space="preserve">
-    <value>btnDe</value>
-  </data>
-  <data name="&gt;&gt;btnDe.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnDe.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btnDe.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>9, 20</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1778, 844</value>
+  <data name="rbDistances.Text" xml:space="preserve">
+    <value>Länge der einzelnen Strecken</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -9345,13 +8802,90 @@
         AAAAAAAAAAAAAAAAAAA=
 </value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Mantrailing Stats &amp; GPX Analyzer</value>
+  <data name="chbDateToName.Text" xml:space="preserve">
+    <value>Hinzufügen eines Datums am Anfang von Dateinamen</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>Form1</value>
+  <data name="btnBrowse.Text" xml:space="preserve">
+    <value>Durchsuchen...</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="btnCalculate.Text" xml:space="preserve">
+    <value>Daten aus gpx-Dateien lesen</value>
+  </data>
+  <data name="lblDirectory.Text" xml:space="preserve">
+    <value>Verzeichnis:</value>
+  </data>
+  <data name="btnOpenDataFile.Text" xml:space="preserve">
+    <value>Erstellen und Öffnen einer CSV-Datei</value>
+  </data>
+  <data name="rbTotDistance.Text" xml:space="preserve">
+    <value>Fluffed in der gewählten Periode</value>
+  </data>
+  <data name="btnBrowse.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnCalculate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblStartDate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblEndDate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblDirectory.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="chbDateToName.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnOpenDataFile.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnChartDistances.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="rbTotDistance.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="rbDistances.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="rbAge.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="rbSpeed.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnEng.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnCS.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="PictureBox1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnEng.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="btnCS.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="btnDe.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAATCAYAAADxlA/3AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
+        cAAAAHABznhikwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAABFSURBVEhL7c4x
+        EQAwDEJR3NVfhdVBBVQFjQBmWMjdy8D0MccwOTrJ0UmOTnJ0kqPPnpeEOy+pAQ3AW2ASeMCkBjQgHAB+
+        gzF5/QKqNpwAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="btnDe.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnDe.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="btnDe.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 33</value>
   </data>
 </root>

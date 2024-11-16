@@ -4,12 +4,57 @@ Imports System.Globalization
 Imports System.Text.RegularExpressions ' Added for working with Match type
 Imports System.Windows.Forms.DataVisualization.Charting
 Imports System.Collections.Generic
+Imports System.Runtime.InteropServices.ComTypes
+Imports System.DirectoryServices.ActiveDirectory
+Imports System.Diagnostics.Eventing
 
-Module GPXDistanceCalculator
+Public Class GPXDistanceCalculator
 
     ' Constants for converting degrees to radians and Earth's radius
-    Const PI As Double = 3.14159265358979
-    Const EARTH_RADIUS As Double = 6371 ' Earth's radius in kilometers
+    Private Const PI As Double = 3.14159265358979
+    Private Const EARTH_RADIUS As Double = 6371 ' Earth's radius in kilometers
+    Private gpxFiles As New List(Of String)
+    Private gpxReaders As New List(Of GpxReader)
+    Public distances As New List(Of Double)
+    Private dateFrom As DateTime
+    Private dateTo As DateTime
+    Public layerStart, dogStart, dogFinish As New List(Of DateTime)
+    Public age As New List(Of TimeSpan)
+    Private descriptions As New List(Of String)
+    Public totalDistances As New List(Of Double)
+    Private link As New List(Of String)
+    Public speed As New List(Of Double)
+
+
+    Dim totalDistance As Double
+
+    Private _gpxFilesCount As Integer = 0
+    Public Property GpxFilesCount As Integer
+        Get
+            Return _gpxFilesCount
+        End Get
+        Set(value As Integer)
+            _gpxFilesCount = value
+        End Set
+    End Property
+
+
+
+    Private _directoryPath As String
+    Public Property DirectoryPath() As String
+        Get
+            Return _directoryPath
+        End Get
+        Set(value As String)
+            If Not String.IsNullOrWhiteSpace(value) AndAlso Directory.Exists(value) Then
+                _directoryPath = value
+            Else
+                Throw New ArgumentException("Zadaná cesta adresáře není platná.")
+            End If
+        End Set
+    End Property
+
+
 
 
     ' Function to convert degrees to radians
@@ -30,64 +75,37 @@ Module GPXDistanceCalculator
 
     ' Function to read the time from the first <time> node in the GPX file
     ' If <time> node doesnt exist tries to read date from file name and creates <time> node
-    Private Function GetgpxTimes(ByRef gpxFilePath As String) As DateTime()
-        Dim xmlDoc As New XmlDocument()
-        Try
-            xmlDoc.Load(gpxFilePath)
-        Catch ex As Exception
-            ' Adding a more detailed exception message
-            Debug.WriteLine("Error: " & ex.Message)
-            ' TODO: Replace direct access to Form1 with a better method for separating logic
-            Form1.txtWarnings.AppendText($"File {gpxFilePath} could not be read: " & ex.Message & Environment.NewLine)
-        End Try
+    Private Function GetLayerStart(filePath As String, reader As GpxReader) As DateTime
+        Dim layerStart As DateTime
 
-        Dim namespaceManager As New XmlNamespaceManager(xmlDoc.NameTable)
-        namespaceManager.AddNamespace("gpx", "http://www.topografix.com/GPX/1/1") ' GPX namespace URI
-        Dim trksegNodes As XmlNodeList = xmlDoc.SelectNodes("//gpx:trkseg", namespaceManager)
-
-        Dim dateTimeValue(1) As DateTime
-        Dim firstTimeNode As XmlNode = xmlDoc.SelectSingleNode("//gpx:time", namespaceManager)
-
-        Dim secondTimeNode As XmlNode
-        If trksegNodes.Count > 1 Then
-            secondTimeNode = trksegNodes(1).SelectNodes("gpx:trkpt/gpx:time", namespaceManager)(0)
-            DateTime.TryParse(secondTimeNode.InnerText, dateTimeValue(1))
-
-        End If
+        ' Načtení jednoho uzlu <time>
+        Dim LayerStartTimeNode As XmlNode = reader.SelectSingleNode("time")
 
 
-        Dim dateTimeFromFileName As DateTime
-        Dim filename As String = Path.GetFileNameWithoutExtension(gpxFilePath)
+        Dim RecordedDateFromFileName As DateTime
+        Dim filename As String = Path.GetFileNameWithoutExtension(filePath)
         If Regex.IsMatch(filename, "^\d{4}-\d{2}-\d{2}") Then
             ' Extrahování data z názvu souboru
             Dim dateMatch As Match = Regex.Match(filename, "^\d{4}-\d{2}-\d{2}")
             If dateMatch.Success Then
                 ' Převedení nalezeného řetězce na DateTime
-                dateTimeFromFileName = DateTime.ParseExact(dateMatch.Value, "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                RecordedDateFromFileName = DateTime.ParseExact(dateMatch.Value, "yyyy-MM-dd", CultureInfo.InvariantCulture)
             End If
         End If
 
-        'zkontroluje, zda je datum v názvu správné
+
 
         ' Check if the <time> node exists and has a valid value
-        If firstTimeNode IsNot Nothing AndAlso DateTime.TryParse(firstTimeNode.InnerText, dateTimeValue(0)) Then
-            'zkontroluje, zda je datum v názvu správné
-            If dateTimeFromFileName <> Date.MinValue AndAlso dateTimeFromFileName.Date.ToShortDateString <> dateTimeValue(0).Date.ToShortDateString Then
-                ' Nahrazení staré hodnoty za novou v názvu souboru
-                Dim newFileName As String = Regex.Replace(filename, "^\d{4}-\d{2}-\d{2}", dateTimeValue(0).ToString("yyyy-MM-dd"))
-                Dim newFilePath As String = Path.Combine(Form1.directoryPath, newFileName & ".gpx")
-                File.Move(gpxFilePath, newFilePath)
-                Form1.txtWarnings.AppendText($"Renamed file: {Path.GetFileName(gpxFilePath)} to {Path.GetFileName(newFilePath)}.{Environment.NewLine}")
-                gpxFilePath = newFilePath
-            End If
+        If LayerStartTimeNode IsNot Nothing AndAlso DateTime.TryParse(LayerStartTimeNode.InnerText, layerStart) Then
 
-        ElseIf dateTimeFromFileName <> Date.MinValue Then
+            'keeps value from file
+        ElseIf RecordedDateFromFileName <> Date.MinValue Then
 
             'pokusí se odečíst datum z názvu souboru a vytvořit uzel <time>
             ' Převedení nalezeného řetězce na DateTime
-            dateTimeValue(0) = dateTimeFromFileName
-            AddTimeNodeToFirstTrkpt(gpxFilePath, dateTimeValue.ToString("yyyy-MM-dd" & "T" & "hh:mm:ss" & "Z"))
-            Form1.txtWarnings.AppendText($" <time> node with Date from file name created: {dateTimeValue.ToString("yyyy-MM-dd")}" & "in file: {filename}")
+            layerStart = RecordedDateFromFileName
+            AddTimeNodeToFirstTrkpt(filePath, RecordedDateFromFileName.ToString("yyyy-MM-dd" & "T" & "hh:mm:ss" & "Z"))
+            Form1.txtWarnings.AppendText($" <time> node with Date from file name created: {RecordedDateFromFileName.ToString("yyyy-MM-dd")}" & $"in file: {filename}")
 
 
         Else
@@ -96,43 +114,73 @@ Module GPXDistanceCalculator
 
         End If
 
-        Return dateTimeValue
+        Return layerStart
 
     End Function
 
-    Private Function CalculateAge(gpxfilePath As String, dateTimeValue() As DateTime, description As String) As String
-        Dim age As String = ""
-        Dim ageFromTime As String = ""
-        Dim ageFromComments As String = ""
+    Private Function CalculateAge(i As Integer) As TimeSpan
+        Dim ageFromTime As TimeSpan
+        Dim ageFromComments As TimeSpan
 
-        If dateTimeValue(1) <> Date.MinValue AndAlso dateTimeValue(0) <> Date.MinValue Then
+        If dogStart(i) <> Date.MinValue AndAlso layerStart(i) <> Date.MinValue Then
             Try
-                ageFromTime = (dateTimeValue(1) - dateTimeValue(0)).TotalHours.ToString("F2")
+                ageFromTime = dogStart(i) - layerStart(i)
             Catch ex As Exception
             End Try
         End If
 
-        ageFromComments = FindTheAgeinComments(description)
+
+
+        If Not String.IsNullOrWhiteSpace(descriptions(i)) Then ageFromComments = FindTheAgeinComments(descriptions(i))
 
         'Add age to comments
-        If ageFromComments Is Nothing And Not ageFromTime Is Nothing Then
-            ' Najde řetězec "Trail:" a nahradí ho řetězcem "Trail:" & AgeFromTime
-            Dim newDescription As String = description.Replace("Trail:", "Trail: " & ageFromTime & " hod")
-            SetDescription(gpxfilePath, newDescription)
+        If ageFromComments = TimeSpan.Zero And Not ageFromTime = TimeSpan.Zero Then
+            Dim newDescription As String
+            If descriptions(i) Is Nothing Then
+                newDescription = "Trail: " & ageFromTime.TotalHours.ToString("F1") & " hod"
+
+                ' Najde řetězec "Trail:" a nahradí ho řetězcem "Trail:" & AgeFromTime
+            ElseIf descriptions(i).Contains("Trail:") Then
+                newDescription = descriptions(i).Replace($"Trail:", "Trail: " & ageFromTime.TotalHours.ToString("F1") & " hod")
+                ' když tam Trai není vytvoří ho a doplní do desc
+            Else
+                newDescription = "Trail: " & ageFromTime.TotalHours.ToString("F1") & " hod" & descriptions(i)
+            End If
+
+            If Not String.IsNullOrWhiteSpace(newDescription) Then SetDescription(i, newDescription)
+            descriptions(i) = newDescription
+        Else
+
         End If
-        If Not String.IsNullOrWhiteSpace(ageFromTime) Then
+
+
+
+
+        If Not ageFromTime = TimeSpan.Zero Then
             Return ageFromTime
-        ElseIf Not String.IsNullOrWhiteSpace(ageFromComments) Then
+        ElseIf Not ageFromComments = TimeSpan.Zero Then
             Return ageFromComments
-        Else Return ""
+        Else Return TimeSpan.Zero
         End If
-        Return ""
+        Return TimeSpan.Zero
+    End Function
+
+    Private Function CalculateSpeed(i As Integer) As Double 'km/h
+
+        If Not dogStart(i) = DateTime.MinValue AndAlso Not dogFinish(i) = DateTime.MinValue Then
+            If (dogFinish(i) - dogStart(i)).TotalHours > 0 Then
+                Return distances(i) / (dogFinish(i) - dogStart(i)).TotalHours
+            End If
+        End If
+        Return Nothing
+
+
     End Function
 
 
 
 
-    Public Function FindTheAgeinComments(inputText As String) As String
+    Public Function FindTheAgeinComments(inputText As String) As TimeSpan
         ' Upravený regulární výraz pro nalezení čísla, které může být i desetinné
         Dim regex As New Regex("\b\d+[.,]?\d*\s*(h(odin(y|a))?|hod|min(ut)?)\b", RegexOptions.IgnoreCase)
         Dim match As Match = regex.Match(inputText)
@@ -143,16 +191,20 @@ Module GPXDistanceCalculator
             Dim casString As String = Regex.Match(nalezenyCas, "\d+[.,]?\d*").Value.Replace(",", ".")
             Dim casCislo As Double = Double.Parse(casString, CultureInfo.InvariantCulture)
 
+
+
+            Dim casTimeSpan As TimeSpan
             If nalezenyCas.Contains("h") Then
-                Return casCislo.ToString("F2")
+                casTimeSpan = TimeSpan.FromHours(casCislo)
+                Return casTimeSpan
             ElseIf nalezenyCas.Contains("min") Then
-                casCislo /= 60
-                Return casCislo.ToString("F2")
+                casTimeSpan = TimeSpan.FromMinutes(casCislo)
+                Return casTimeSpan
             End If
         End If
 
         ' Pokud nebyl čas nalezen, vrátí Nothing
-        Return Nothing
+        Return TimeSpan.Zero
     End Function
 
 
@@ -184,24 +236,13 @@ Module GPXDistanceCalculator
         End If
     End Sub
     ' Function to read the <link> description from the first <trk> node in the GPX file
-    Private Function Getlink(gpxFilePath As String) As String
-        Dim xmlDoc As New XmlDocument()
+    Private Function Getlink(i As Integer)
 
-        Try
-            xmlDoc.Load(gpxFilePath)
-        Catch ex As Exception
-            ' Adding a more detailed exception message
-            Debug.WriteLine("Error: " & ex.Message)
-            ' TODO: Replace direct access to Form1 with a better method for separating logic
-            Form1.txtWarnings.AppendText($"File {gpxFilePath} could not be read: " & ex.Message & Environment.NewLine)
-        End Try
 
-        Dim namespaceManager As New XmlNamespaceManager(xmlDoc.NameTable)
-        namespaceManager.AddNamespace("gpx", "http://www.topografix.com/GPX/1/1") ' GPX namespace URI
 
-        ' Find the first <trk> node and its <desc> subnode
 
-        Dim linkNodes As XmlNodeList = xmlDoc.SelectNodes("//gpx:link", namespaceManager)
+        ' Načtení více uzlů, např. <trkseg>
+        Dim linkNodes As XmlNodeList = gpxReaders(i).SelectNodes("link")
 
         For Each linkNode As XmlNode In linkNodes
             ' Zpracování každého uzlu <link>
@@ -210,101 +251,87 @@ Module GPXDistanceCalculator
                 Dim linkHref As String = linkNode.Attributes("href").Value
                 If linkHref.Contains("youtu") Then
                     Return linkHref
-                Else
-                    Return Nothing
                 End If
-
-            Else
-                Return Nothing
             End If
         Next
         Return Nothing
     End Function
 
     ' Function to read the <desc> description from the first <trk> node in the GPX file
-    Private Function GetDescription(gpxFilePath As String) As String
-        Dim xmlDoc As New XmlDocument()
+    Private Function GetDescription(i As Integer) As String
 
-        Try
-            xmlDoc.Load(gpxFilePath)
-        Catch ex As Exception
-            ' Adding a more detailed exception message
-            Debug.WriteLine("Error: " & ex.Message)
-            ' TODO: Replace direct access to Form1 with a better method for separating logic
-            Form1.txtWarnings.AppendText($"File {gpxFilePath} could not be read: " & ex.Message & Environment.NewLine)
-        End Try
-
-        Dim namespaceManager As New XmlNamespaceManager(xmlDoc.NameTable)
-        namespaceManager.AddNamespace("gpx", "http://www.topografix.com/GPX/1/1") ' GPX namespace URI
 
         ' Find the first <trk> node and its <desc> subnode
-        Dim descNode As XmlNode = xmlDoc.SelectSingleNode("/gpx:gpx/gpx:trk[1]/gpx:desc", namespaceManager)
+        ' Vyhledání uzlu <trk> v rámci hlavního namespace
+        Dim trkNode As XmlNode = gpxReaders(i).SelectSingleNode("trk")
+
+        Dim descNode As XmlNode = gpxReaders(i).SelectSingleChildNode("desc", trkNode) 'trkNode?.SelectSingleNode("desc")
+
+        'Dim descNode As XmlNode = xmlDoc.SelectSingleNode("/gpx:gpx/gpx:trk[1]/gpx:desc", namespaceManager)
 
         If descNode IsNot Nothing Then
             Return descNode.InnerText
         Else
-            Return "" '"The <desc> node was not found."
+            Return Nothing '"The <desc> node was not found."
         End If
     End Function
 
     ' Function to set the <desc> description from the first <trk> node in the GPX file
-    Private Function SetDescription(gpxFilePath As String, newDescription As String) As Boolean
-        Dim xmlDoc As New XmlDocument()
+    Private Function SetDescription(i As Integer, newDescription As String) As Boolean
 
-        Try
-            xmlDoc.Load(gpxFilePath)
-        Catch ex As Exception
-            ' Adding a more detailed exception message
-            Debug.WriteLine("Error: " & ex.Message)
-            ' TODO: Replace direct access to Form1 with a better method for separating logic
-            Form1.txtWarnings.AppendText($"File {gpxFilePath} could not be read: " & ex.Message & Environment.NewLine)
-            Return False
-        End Try
-
-        Dim namespaceManager As New XmlNamespaceManager(xmlDoc.NameTable)
-        namespaceManager.AddNamespace("gpx", "http://www.topografix.com/GPX/1/1") ' GPX namespace URI
 
         ' Find the first <trk> node and its <desc> subnode
-        Dim descNode As XmlNode = xmlDoc.SelectSingleNode("/gpx:gpx/gpx:trk[1]/gpx:desc", namespaceManager)
-        Try
+        'Dim descNode As XmlNode = xmlDoc.SelectSingleNode("/gpx:gpx/gpx:trk[1]/gpx:desc", namespaceManager)
+        Dim trkNode As XmlNode = gpxReaders(i).SelectSingleNode("trk")
+        Dim descNode As XmlNode = gpxReaders(i).SelectSingleChildNode("desc", trkNode)
+        ' Pokud uzel <desc> neexistuje, vytvoříme jej a přidáme do <trk>
+        If descNode Is Nothing Then
+            ' Najdeme první uzel <trk>
+            'Dim trkNode As XmlNode = xmlDoc.SelectSingleNode("/gpx:gpx/gpx:trk[1]", namespaceManager)
+            descNode = gpxReaders(i).CreateElement("desc")
+            If trkNode IsNot Nothing Then
+                ' Vytvoříme nový uzel <desc>
+                ' Přidání <desc> jako prvního potomka v uzlu <trk>
+                If trkNode.HasChildNodes Then
+                    ' Vloží <desc> před první existující poduzel
+                    trkNode.InsertBefore(descNode, trkNode.FirstChild)
+                Else
+                    ' Pokud <trk> nemá žádné poduzly, použijeme AppendChild
+                    trkNode.AppendChild(descNode)
+                End If
+
+
+                ' Nastavíme hodnotu pro <desc> (můžete ji změnit podle potřeby)
+                descNode.InnerText = newDescription
+
+                ' Přidáme nový uzel <desc> do uzlu <trk>
+                'trkNode.AppendChild(descNode)
+            End If
+        Else
             descNode.InnerText = newDescription
-            xmlDoc.Save(gpxFilePath)
-            Return True
-        Catch ex As Exception
-            Return False
-        End Try
-        Return False
+        End If
+        Return True
+
+
     End Function
 
     ' Function to read and calculate the length of only the first segment from the GPX file
-    Private Function CalculateFirstSegmentDistance(gpxFilePath As String) As Double
+    Private Function CalculateFirstSegmentDistance(i As Integer) As Double
         Dim totalLengthOfFirst_trkseg As Double = 0.0
         Dim lat1, lon1, lat2, lon2 As Double
         Dim firstPoint As Boolean = True
 
-        ' Load the GPX file
-        Dim xmlDoc As New XmlDocument()
 
-        Try
-            xmlDoc.Load(gpxFilePath)
-        Catch ex As Exception
-            ' Adding a more detailed exception message
-            Debug.WriteLine("Error: " & ex.Message)
-            ' TODO: Replace direct access to Form1 with a better method for separating logic
-            Form1.txtWarnings.AppendText($"File {gpxFilePath} could not be read: " & ex.Message & Environment.NewLine)
-        End Try
 
-        ' Create an XML Namespace Manager with the GPX namespace definition
-        Dim namespaceManager As New XmlNamespaceManager(xmlDoc.NameTable)
-        namespaceManager.AddNamespace("gpx", "http://www.topografix.com/GPX/1/1") ' GPX namespace URI
 
         ' Select the first track segment (<trkseg>) using the namespace
-        Dim firstSegment As XmlNode = xmlDoc.SelectSingleNode("//gpx:trkseg", namespaceManager)
+        Dim trknode As XmlNode = gpxReaders(i).SelectSingleNode("trk")
+        Dim firstSegment As XmlNode = gpxReaders(i).SelectSingleChildNode("trkseg", trknode)
 
         ' If the segment exists, calculate its length
         If firstSegment IsNot Nothing Then
             ' Select all track points in the first segment (<trkpt>)
-            Dim trackPoints As XmlNodeList = firstSegment.SelectNodes("gpx:trkpt", namespaceManager)
+            Dim trackPoints As XmlNodeList = gpxReaders(i).SelectChildNodes("trkpt", firstSegment)
 
             ' Calculate the distance between each point in the first segment
             For Each point As XmlNode In trackPoints
@@ -339,243 +366,439 @@ Module GPXDistanceCalculator
             Next
         Else
             ' TODO: Replace direct access to Form1 with a better method for separating logic
-            Form1.txtWarnings.AppendText("No segment found in GPX file: " & gpxFilePath & Environment.NewLine)
+            Form1.txtWarnings.AppendText("No segment found in GPX file: " & gpxFiles(i) & Environment.NewLine)
         End If
 
         Return totalLengthOfFirst_trkseg ' Result in kilometers
     End Function
 
-    ' Get a list of all GPX files in the specified directory
-    Public Function GetgpxFiles(directorypath As String) As String()
+    Public Function Calculate(directorypath As String, startDate As DateTime, endDate As DateTime, PrependDatetoFileName As Boolean) As Boolean
+        Me.DirectoryPath = directorypath
+        dateFrom = startDate
+        dateTo = endDate
+
+        gpxFiles.Clear()
+
+
+        gpxFiles = GetGpxFiles(Me.DirectoryPath)
+
+        If gpxFiles.Count = 0 Then
+            MessageBox.Show("No gpx file was found in the specified directory.")
+            Return False
+        End If
+
+
+        gpxReaders.Clear()
+        layerStart.Clear()
+        dogStart.Clear()
+        dogFinish.Clear()
+        distances.Clear()
+        totalDistances.Clear()
+        age.Clear()
+        speed.Clear()
+        descriptions.Clear()
+        link.Clear()
+
         Try
-            Dim gpxFiles() As String = Directory.GetFiles(directorypath, "*.gpx")
-            ' Functions for sorting an array alphabetically
-            Array.Sort(gpxFiles)
+            For i = 0 To gpxFiles.Count - 1
+                Dim gpxfilePath As String = gpxFiles(i)
+
+
+
+                Dim reader As New GpxReader(gpxFiles(i)) 'musí se načíst znovu kvůli files.sort
+                gpxReaders.Add(reader)
+
+                ' Start calculation using the values
+                RenamewptNodes(i, "předmět")
+                layerStart.Add(GetLayerStart(gpxFiles(i), gpxReaders(i)))
+                SplitTrackIntoTwo(i) 'in gpx files, splits a track with two segments into two separate tracks
+                descriptions.Add(GetDescription(i)) 'musí být první - slouží k výpočtu age
+                distances.Add(CalculateFirstSegmentDistance(i))
+                If i = 0 Then totalDistances.Add(distances(i)) Else totalDistances.Add(totalDistances(i - 1) + distances(i))
+                dogStart.Add(GetDogStart(i))
+                dogFinish.Add(GetDogFinish(i))
+                age.Add(CalculateAge(i))
+                speed.Add(CalculateSpeed(i))
+
+                link.Add(Getlink(i))
+                If Not link(i) Is Nothing Then link(i) = $"=HYPERTEXTOVÝ.ODKAZ(""{link(i)}"")"
+
+                gpxReaders(i).save() 'hlavně kvůli desc
+                'a nakonec
+                SetCreatedModifiedDate(i)
+
+                ' Display results
+                Form1.txtOutput.AppendText(Path.GetFileNameWithoutExtension(gpxFiles(i)) & " Date: " & layerStart(i).Date.ToString("yyyy-MM-dd") & "  Length: " & distances(i).ToString("F2") & " km" & Environment.NewLine)
+            Next i
+
+
+            totalDistance = totalDistances(gpxFiles.Count - 1)
+
+            Form1.txtOutput.AppendText(vbCrLf & "Processed period: from " & startDate.ToString("dd.MM.yy") & " to " & endDate.ToString("dd.MM.yy") &
+                vbCrLf & "All gpx files from directory: " & directorypath & vbCrLf &
+                vbCrLf & "Total number of processed GPX files, thus trails: " & distances.Count &
+                vbCrLf &
+                vbCrLf & vbCrLf & "Total Length: " & totalDistance.ToString("F2") & " km" & vbCrLf)
+
+        Catch ex As Exception
+            MessageBox.Show("An error occurred while processing data: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return False
+        End Try
+
+
+        Return True
+
+
+
+
+    End Function
+
+    Private Function GetDogStart(i As Integer) As Date
+
+        Dim trksegNodes As XmlNodeList = gpxReaders(i).SelectNodes("trkseg")
+        Dim dogStart As DateTime
+
+
+
+        If trksegNodes.Count > 1 Then
+
+            Dim dogtimeNodes As XmlNodeList = gpxReaders(i).SelectAllChildNodes("time", trksegNodes(1)) '.SelectNodes("gpx:trkpt/gpx:time", namespaceManager)
+
+            Dim DogstartTimeNode As XmlNode = dogtimeNodes(0)
+            DateTime.TryParse(DogstartTimeNode.InnerText, dogStart)
+
+        End If
+        Return dogStart
+
+    End Function
+    Private Function GetDogFinish(i As Integer) As Date
+
+        Dim trksegNodes As XmlNodeList = gpxReaders(i).SelectNodes("trkseg")
+        Dim dogFinish As DateTime
+
+
+
+        If trksegNodes.Count > 1 Then
+
+            Dim dogtimeNodes As XmlNodeList = gpxReaders(i).SelectAllChildNodes("time", trksegNodes(1)) '.SelectNodes("gpx:trkpt/gpx:time", namespaceManager)
+
+            Dim DogFinishTimeNode As XmlNode = dogtimeNodes(dogtimeNodes.Count - 1)
+            DateTime.TryParse(DogFinishTimeNode.InnerText, dogFinish)
+        End If
+        Return dogFinish
+
+    End Function
+
+    ' Get a list of all GPX files in the specified directory
+    Public Function GetGpxFiles(directorypath As String) As List(Of String)
+        Try
+
+            ' Načteme všechny GPX soubory
+            Dim _gpxFiles As List(Of String) = Directory.GetFiles(directorypath, "*.gpx").ToList()
+
+            ' Filtrujeme soubory podle podmínky
+            For i As Integer = 0 To _gpxFiles.Count - 1
+
+
+                Dim reader As New GpxReader(_gpxFiles(i))
+                Dim _layerStart As DateTime = GetLayerStart(_gpxFiles(i), reader)
+                If _layerStart >= dateFrom And _layerStart <= dateTo Then
+                    gpxFiles.Add(_gpxFiles(i))
+                    gpxReaders.Add(reader)
+                    'layerStart.Add(_layerStart)
+                End If
+            Next
+
+
+            For i = 0 To gpxFiles.Count - 1
+
+                ChangeFilename(i)
+            Next i
+
+
+            gpxFiles.Sort()
+
             Return gpxFiles
         Catch ex As Exception
             ' Adding a more detailed exception message
             Debug.WriteLine("Error: " & ex.Message)
             Return Nothing
         End Try
+
+
     End Function
 
-    ' Function to process all GPX files in the directory and store the lengths of the first segments in a list,
-    ' filtering by file creation date
-    Public Function GetDistances(directoryPath As String, startDate As DateTime, endDate As DateTime) As List(Of Double)
-        Dim firstSegmentDistances As New List(Of Double)
-
-        ' Process each file
-        For Each gpxFilePath As String In Form1.gpxFiles
-            ' Filter files by creation date
-            Dim creationDate As DateTime = GetgpxTimes(gpxFilePath)(0)
-            If creationDate >= startDate AndAlso creationDate <= endDate Then
-                ' If the file falls within the specified range, calculate the length of the first segment
-                Dim distance As Double = CalculateFirstSegmentDistance(gpxFilePath)
-                firstSegmentDistances.Add(distance)
-                Form1.txtOutput.AppendText(Path.GetFileNameWithoutExtension(gpxFilePath) & " Date: " & creationDate.Date.ToString("yyyy-MM-dd") & "  Distance: " & distance.ToString("F2") & " km" & Environment.NewLine)
-            End If
-        Next
-
-        Return firstSegmentDistances
-    End Function
-
-    Public Function SumFirstSegmentDistances(distances As List(Of Double)) As Double
-        Dim totalDistance As Double = 0.0
-
-        For Each distance As Double In distances
-            totalDistance += distance
-        Next
-
-        Return totalDistance
-    End Function
-
-    Public Sub ChangeAttributesAndFilenames(directoryPath As String)
-
-        ' For all files in the folder
-        For Each filePath As String In Form1.gpxFiles
-            Dim fileName As String = Path.GetFileNameWithoutExtension(filePath)
-            Dim fileExtension As String = Path.GetExtension(filePath)
-            Dim dateFromTime As DateTime = GetgpxTimes(filePath)(0)
-
-            Dim newFileName As String = $"{dateFromTime:yyyy-MM-dd}{fileName}{fileExtension}"
-            Dim newFilePath As String = Path.Combine(directoryPath, newFileName)
 
 
-            ' Check if the file needs renaming
-            If Not Regex.IsMatch(fileName, "^\d{4}-\d{2}-\d{2}") Then
+    Public Sub ChangeFilename(i As Integer)
+
+
+        Dim fileName As String = Path.GetFileNameWithoutExtension(gpxFiles(i))
+        Dim fileExtension As String = Path.GetExtension(gpxFiles(i))
+        Dim _layerStart As DateTime = GetLayerStart(gpxFiles(i), gpxReaders(i))
+
+        Dim newFileName As String
+        Dim newFilePath As String
+
+
+        Dim dateTimeFromFileName As DateTime
+        Try
+
+            ' Regex s pojmenovanými skupinami pro celé formáty i jednotlivé části data
+            Dim pattern As String = "(?<format1>T(?<year1>\d{4})-(?<month1>\d{2})-(?<day1>\d{2})-(?<hour1>\d{2})-(?<minute1>\d{2}))|" &
+                        "(?<format2>(?<year2>\d{4})-(?<month2>\d{2})-(?<day2>\d{2})_(?<hour2>\d{2})-(?<minute2>\d{2}))|" &
+                        "(?<format3>(?<day3>\d{1,2})\._(?<month3>\d{2})\._(?<year3>\d{4})_(?<hour3>\d{1,2})_(?<minute3>\d{2})_(?<second3>\d{2}))|" &
+                        "(?<format4>(?<year4>\d{4})-(?<month4>\d{2})-(?<day4>\d{2}))"
+            Dim myRegex As New Regex(pattern)
+
+            Dim match As Match = myRegex.Match(fileName)
+            If match.Success Then
+
+                Dim formattedDate As String = ""
+                ' Rozpoznání formátu podle shody celé pojmenované skupiny formátu
+                If match.Groups("format1").Success Then
+                    ' Formát TYYYY-MM-DD-hh-mm
+                    Dim year As Integer = Integer.Parse(match.Groups("year1").Value)
+                    Dim month As Integer = Integer.Parse(match.Groups("month1").Value)
+                    Dim day As Integer = Integer.Parse(match.Groups("day1").Value)
+                    Dim hour As Integer = Integer.Parse(match.Groups("hour1").Value)
+                    Dim minute As Integer = Integer.Parse(match.Groups("minute1").Value)
+                    dateTimeFromFileName = New DateTime(year, month, day, hour, minute, 0)
+                    formattedDate = match.Groups("format1").Value
+
+                ElseIf match.Groups("format2").Success Then
+                    ' Formát YYYY-MM-DD_hh-mm
+                    Dim year As Integer = Integer.Parse(match.Groups("year2").Value)
+                    Dim month As Integer = Integer.Parse(match.Groups("month2").Value)
+                    Dim day As Integer = Integer.Parse(match.Groups("day2").Value)
+                    Dim hour As Integer = Integer.Parse(match.Groups("hour2").Value)
+                    Dim minute As Integer = Integer.Parse(match.Groups("minute2").Value)
+                    dateTimeFromFileName = New DateTime(year, month, day, hour, minute, 0)
+                    formattedDate = match.Groups("format2").Value
+                ElseIf match.Groups("format3").Success Then
+                    ' Formát D._MM._YYYY_h_mm_ss
+                    Dim day As Integer = Integer.Parse(match.Groups("day3").Value.PadLeft(2, "0"c))
+                    Dim month As Integer = Integer.Parse(match.Groups("month3").Value.PadLeft(2, "0"c))
+                    Dim year As Integer = Integer.Parse(match.Groups("year3").Value)
+                    Dim hour As Integer = Integer.Parse(match.Groups("hour3").Value)
+                    Dim minute As Integer = Integer.Parse(match.Groups("minute3").Value)
+                    Dim second As Integer = Integer.Parse(match.Groups("second3").Value)
+                    formattedDate = match.Groups("format3").Value
+                    dateTimeFromFileName = New DateTime(year, month, day, hour, minute, second)
+                ElseIf match.Groups("format4").Success Then
+                    ' Formát YYYY-MM-DD
+                    Dim year As Integer = Integer.Parse(match.Groups("year4").Value)
+                    Dim month As Integer = Integer.Parse(match.Groups("month4").Value)
+                    Dim day As Integer = Integer.Parse(match.Groups("day4").Value)
+                    dateTimeFromFileName = New DateTime(year, month, day)
+                End If
+
+                ' Výstup formátu data ve tvaru YYYY-MM-DD
+                Console.WriteLine("Převedené datum: " & dateTimeFromFileName.ToString("yyyy-MM-dd"))
+                ' Odstranění původního datového vzoru z řetězce
+                Dim modifiedFileName As String = myRegex.Replace(fileName, "")
+
+                ' Přidání přeformátovaného data na začátek modifikovaného řetězce
+                newFileName = $"{dateTimeFromFileName.ToString("yyyy-MM-dd")}{modifiedFileName}"
+                Console.WriteLine("Přeformátované file name: " & newFileName)
+
+                If Not String.IsNullOrWhiteSpace(newFileName) AndAlso Not newFileName.TrimEnd = fileName.TrimEnd Then
+
+                    newFilePath = Path.Combine(DirectoryPath, newFileName & ".gpx")
+                    If Form1.chbDateToName.Checked Then
+                        If File.Exists(newFilePath) Then
+                            ' Handle existing files
+                            Dim userInput As String = InputBox($"File {newFileName} already exists. Enter a new name:", newFileName)
+                            If Not String.IsNullOrWhiteSpace(userInput) Then
+                                newFilePath = Path.Combine(DirectoryPath, userInput & fileExtension)
+                                File.Move(gpxFiles(i), newFilePath)
+                                Form1.txtWarnings.AppendText($"Renamed file: {Path.GetFileName(gpxFiles(i))} to {Path.GetFileName(newFilePath)}.{Environment.NewLine}")
+                                Console.WriteLine($"Renamed file: {Path.GetFileName(gpxFiles(i))} to {Path.GetFileName(newFilePath)}.{Environment.NewLine}")
+
+                            Else
+                                Form1.txtWarnings.AppendText($"New name for {newFilePath} was not provided.{Environment.NewLine}")
+
+                            End If
+
+                        Else
+                            File.Move(gpxFiles(i), newFilePath)
+                            gpxFiles(i) = newFilePath
+                            Console.WriteLine($"Renamed file: {Path.GetFileName(gpxFiles(i))} to {Path.GetFileName(newFilePath)}.{Environment.NewLine}")
+                            Form1.txtWarnings.AppendText($"Renamed file: {Path.GetFileName(gpxFiles(i))} to {Path.GetFileName(newFilePath)}.{Environment.NewLine}")
+                        End If
+
+                        gpxFiles(i) = newFilePath
+                    End If
+                End If
+
+            Else
+                Console.WriteLine("Žádné datum v požadovaném formátu nebylo nalezeno.")
+                newFileName = $"{_layerStart.Date.ToString("yyyy-MM-dd")}{fileName}{fileExtension}"
+                newFilePath = Path.Combine(DirectoryPath, newFileName)
                 If Form1.chbDateToName.Checked Then
                     If File.Exists(newFilePath) Then
                         ' Handle existing files
-                        Dim userInput As String = InputBox($"File {newFilePath} already exists. Enter a new name:")
-                        If Not String.IsNullOrEmpty(userInput) Then
-                            newFilePath = Path.Combine(directoryPath, userInput & fileExtension)
+                        Dim userInput As String = InputBox($"File {newFileName} already exists. Enter a new name:", newFileName)
+                        If Not String.IsNullOrWhiteSpace(userInput) Then
+                            newFilePath = Path.Combine(DirectoryPath, userInput & fileExtension)
+                            File.Move(gpxFiles(i), newFilePath)
+                            Form1.txtWarnings.AppendText($"Renamed file: {Path.GetFileName(gpxFiles(i))} to {Path.GetFileName(newFilePath)}.{Environment.NewLine}")
+                            Console.WriteLine($"Renamed file: {Path.GetFileName(gpxFiles(i))} to {Path.GetFileName(newFilePath)}.{Environment.NewLine}")
+
                         Else
                             Form1.txtWarnings.AppendText($"New name for {newFilePath} was not provided.{Environment.NewLine}")
-                            Continue For ' Skip to the next file
+
                         End If
+
+                    Else
+                        File.Move(gpxFiles(i), newFilePath)
+                        gpxFiles(i) = newFilePath
+                        Console.WriteLine($"Renamed file: {Path.GetFileName(gpxFiles(i))} to {Path.GetFileName(newFilePath)}.{Environment.NewLine}")
+                        Form1.txtWarnings.AppendText($"Renamed file: {Path.GetFileName(gpxFiles(i))} to {Path.GetFileName(newFilePath)}.{Environment.NewLine}")
                     End If
-                    File.Move(filePath, newFilePath)
-                    Form1.txtWarnings.AppendText($"Renamed file: {Path.GetFileName(filePath)} to {Path.GetFileName(newFilePath)}.{Environment.NewLine}")
-                    filePath = newFilePath 'kvůli změně atributů
+
                 End If
             End If
 
+        Catch ex As Exception
+            Console.WriteLine(ex.ToString)
+        End Try
 
-            'change of attributes
-            ' Setting the file creation date
-            File.SetCreationTime(filePath, dateFromTime)
-            ' Setting the last modified file date
-            File.SetLastWriteTime(filePath, dateFromTime)
 
-        Next
+
+
+
     End Sub
 
-    Public Sub WriteCSVfile(csvFilePath As String, distances As List(Of Double))
-        Try
 
-            Dim totalDistances(distances.Count - 1) As Double
-            Dim descriptions(distances.Count - 1) As String
-            Dim fileDates As New List(Of DateTime())()
-            Dim Age(distances.Count - 1) As String
+    Sub SetCreatedModifiedDate(i)
+        'change of attributes
+        ' Setting the file creation date
+        File.SetCreationTime(gpxFiles(i), layerStart(i))
+        ' Setting the last modified file date
+        File.SetLastWriteTime(gpxFiles(i), layerStart(i))
+    End Sub
+
+    Public Sub WriteCSVfile(csvFilePath As String)
+        Try
 
             ' Create the CSV file and write headers
             Using writer As New StreamWriter(csvFilePath, False, System.Text.Encoding.UTF8)
-                writer.WriteLine("File Name;Date;Age/h;Distance/km;Total Distance;Description;Video")
+                writer.WriteLine("File Name;Date;Age/h;Length/km;speed;Total Length;Description;Video")
 
                 For i As Integer = 0 To distances.Count - 1
-                    Dim fileName As String = Path.GetFileNameWithoutExtension(Form1.gpxFiles(i))
-                    fileDates.Add(GetgpxTimes(Form1.gpxFiles(i)))
+                    Dim fileName As String = Path.GetFileNameWithoutExtension(gpxFiles(i))
 
-
-
-
-                    descriptions(i) = GetDescription(Form1.gpxFiles(i))
-                    Age(i) = CalculateAge(Form1.gpxFiles(i), fileDates(i), descriptions(i))
-                    If i = 0 Then
-                        totalDistances(i) = distances(i)
-                    Else
-                        totalDistances(i) = totalDistances(i - 1) + distances(i)
+                    Dim _age As String = ""
+                    If age(i) > TimeSpan.Zero Then
+                        _age = age(i).TotalHours.ToString("F1")
                     End If
-                    Dim link As String = Getlink(Form1.gpxFiles(i))
-                    If Not link Is Nothing Then link = $"=HYPERTEXTOVÝ.ODKAZ(""{link}"")"
 
                     ' Write each row in the CSV file
-                    writer.WriteLine($"{fileName};{fileDates(i)(0).ToString("yyyy-MM-dd")};{Age(i)};{distances(i):F2};{totalDistances(i):F2};{descriptions(i)};{link}")
+                    writer.Write($"{fileName};")
+                    writer.Write($"{layerStart(i).ToString("yyyy-MM-dd")};")
+                    writer.Write($"{_age};")
+                    writer.Write($"{distances(i):F2};")
+                    If Not speed(i) = 0 Then writer.Write($"{speed(i):F2};") Else writer.Write(";")
+                    writer.Write($"{totalDistances(i):F2};")
+                    writer.Write($"{descriptions(i)};")
+                    writer.WriteLine($"{link(i)}")
+
                 Next
 
                 ' Write the total distance at the end of the CSV file
-                writer.WriteLine($"Total;;; {totalDistances(distances.Count - 1):F2}")
+                writer.WriteLine($"Total;;; {TotalDistances(distances.Count - 1):F2}")
             End Using
 
-            DisplayChart(fileDates, totalDistances)
 
             Form1.txtWarnings.AppendText($"CSV file created: {csvFilePath}.{Environment.NewLine}")
         Catch ex As Exception
             Form1.txtWarnings.AppendText($"Error creating CSV file: {ex.Message}{Environment.NewLine}")
+            MessageBox.Show($"Error creating CSV file: {ex.Message}")
         End Try
     End Sub
 
 
-    ' Funkce pro vytvoření a zobrazení grafu
-    Public Sub DisplayChart(fileDates As List(Of DateTime()), totalDistances As Double())
-        ' Vytvoření nového formuláře pro zobrazení grafu
-        Dim chartForm As New Form()
-        chartForm.Text = "Distance Chart"
-        chartForm.Size = New Size(800, 600)
+    Public Function SaveAsCsvFile(csvFilename As String) As String
+        ' Vytvoření instance SaveFileDialog
+        ' Nastavení filtrů a výchozí přípony
+        Dim saveFileDialog As New SaveFileDialog With {
+            .Filter = "CSV Files (*.csv)|*.csv|All Files (*.*)|*.*",
+            .DefaultExt = "csv",
+            .AddExtension = True,
+            .Title = "A file with this name already exists, Save As:",
+            .FileName = csvFilename,
+            .InitialDirectory = DirectoryPath
+        }
 
-        ' Vytvoření a nastavení komponenty Chart
-        Dim chart As New Chart()
-        chart.Dock = DockStyle.Fill
-        chartForm.Controls.Add(chart)
+        ' Zobrazení dialogového okna pro "Uložit Jako"
+        If saveFileDialog.ShowDialog() = DialogResult.OK Then
+            ' Získání cesty k novému souboru z dialogu
+            Dim newFilePath As String = saveFileDialog.FileName
 
-        ' Nastavení oblasti grafu
-        Dim chartArea As New ChartArea()
-        chartArea.AxisX.Title = "Date"
-        chartArea.AxisY.Title = "Total Distance/km"
-        chartArea.AxisX.LabelStyle.Format = "yyyy-MM-dd"
-        chart.ChartAreas.Add(chartArea)
+            Try
+                Me.WriteCSVfile(newFilePath)
+            Catch ex As Exception
+                MessageBox.Show("Chyba při ukládání souboru: " & ex.Message, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+            Return newFilePath
+        Else
+            MessageBox.Show("Uložení bylo zrušeno.", "Uložení souboru", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Return Nothing
+        End If
+    End Function
 
-        ' Vytvoření série dat
-        Dim series1, series2 As New Series()
-        series1.Name = "Total Distance Over Time"
-        series1.ChartType = SeriesChartType.Line
-        series1.XValueType = ChartValueType.DateTime
-
-        series2.Name = ""
-        series2.ChartType = SeriesChartType.Point
-        series2.XValueType = ChartValueType.DateTime
-
-        ' Přidání dat do série
-        For i As Integer = 0 To totalDistances.Length - 1
-            series1.Points.AddXY(fileDates(i)(0), totalDistances(i))
-            series2.Points.AddXY(fileDates(i)(0), totalDistances(i))
-        Next
-
-        ' Přidání série do grafu
-        chart.Series.Add(series1)
-        chart.Series.Add(series2)
-
-        ' Zobrazení formuláře
-        chartForm.ShowDialog()
-    End Sub
 
     ' in gpx files, splits a track with two segments into two separate tracks
-    Sub SplitTrackIntoTwo(gpxfiles As String())
+    Sub SplitTrackIntoTwo(i As Integer)
 
-        For Each gpxfilepath In gpxfiles
-            'Loading an existing GPX file
-            Dim xmlDoc As New XmlDocument()
-            xmlDoc.Load(gpxfilepath)
 
-            Dim namespaceManager As New XmlNamespaceManager(xmlDoc.NameTable)
-            namespaceManager.AddNamespace("gpx", "http://www.topografix.com/GPX/1/1") ' GPX namespace URI
 
-            ' Najdi první uzel <trk>
-            Dim trkNode As XmlNode = xmlDoc.SelectSingleNode("//gpx:trk", namespaceManager)
+        ' Najdi první uzel <trk>
+        Dim trkNode As XmlNode = gpxReaders(i).SelectSingleNode("trk")
 
-            If trkNode IsNot Nothing Then
-                ' Najdi všechny <trkseg> uvnitř <trk>
-                Dim trkSegNodes As XmlNodeList = trkNode.SelectNodes("gpx:trkseg", namespaceManager)
+        If trkNode IsNot Nothing Then
+            ' Najdi všechny <trkseg> uvnitř <trk>
+            Dim trkSegNodes As XmlNodeList = gpxReaders(i).SelectChildNodes("trkseg", trkNode)
 
-                If trkSegNodes.Count > 1 Then
-                    ' Vytvoř nový uzel <trk>
-                    Dim newTrkNode As XmlNode = xmlDoc.CreateElement("trk")
+            If trkSegNodes.Count > 1 Then
+                ' Vytvoř nový uzel <trk>
+                Dim newTrkNode As XmlNode = gpxReaders(i).CreateElement("trk")
 
-                    ' Přesuň druhý <trkseg> do nového <trk>
-                    Dim secondTrkSeg As XmlNode = trkSegNodes(1)
-                    trkNode.RemoveChild(secondTrkSeg)
-                    newTrkNode.AppendChild(secondTrkSeg)
+                ' Přesuň druhý <trkseg> do nového <trk>
+                Dim secondTrkSeg As XmlNode = trkSegNodes(1)
+                trkNode.RemoveChild(secondTrkSeg)
+                newTrkNode.AppendChild(secondTrkSeg)
 
-                    ' Přidej nový <trk> do dokumentu hned po prvním
-                    trkNode.ParentNode.InsertAfter(newTrkNode, trkNode)
-                    xmlDoc.Save(gpxfilepath)
-                    Form1.txtWarnings.AppendText($"Track in file {gpxfilepath} was successfully split.")
-                End If
+                ' Přidej nový <trk> do dokumentu hned po prvním
+                trkNode.ParentNode.InsertAfter(newTrkNode, trkNode)
+                gpxReaders(i).Save()
+                Form1.txtWarnings.AppendText($"Track in file {gpxFiles(i)} was successfully split.")
             End If
+        End If
+    End Sub
 
 
-            ' traverses all <wpt> nodes in the GPX file and overwrites the value of <name> nodes to "-předmět":
-            ' Find all <wpt> nodes using the namespace
-            Dim wptNodes As XmlNodeList = xmlDoc.SelectNodes("//gpx:wpt", namespaceManager)
+    Sub RenamewptNodes(i As Integer, newname As String)
 
-            ' Go through each <wpt> node
-            For Each wptNode As XmlNode In wptNodes
-                ' Najdi uzel <name> uvnitř <wpt> s použitím namespace
-                Dim nameNode As XmlNode = wptNode.SelectSingleNode("gpx:name", namespaceManager)
 
-                If nameNode IsNot Nothing AndAlso nameNode.InnerText <> "předmět" Then
-                    ' Přepiš hodnotu <name> na "předmět"
-                    nameNode.InnerText = "předmět"
-                    xmlDoc.Save(gpxfilepath)
-                End If
-            Next
-
-            ' Ulož aktualizovaný GPX soubor
+        ' traverses all <wpt> nodes in the GPX file and overwrites the value of <name> nodes to "-předmět":
+        ' Find all <wpt> nodes using the namespace
+        gpxReaders(i).Nodes = gpxReaders(i).SelectNodes("wpt")
 
 
 
+        ' Go through each <wpt> node
+        For Each wptNode As XmlNode In gpxReaders(i).Nodes
+            ' Najdi uzel <name> uvnitř <wpt> s použitím namespace
+            Dim nameNode As XmlNode = gpxReaders(i).SelectSingleChildNode("name", wptNode)
+
+            If nameNode IsNot Nothing AndAlso nameNode.InnerText <> newname Then
+                ' Přepiš hodnotu <name> na newname
+                nameNode.InnerText = newname
+            End If
         Next
     End Sub
 
-End Module
+End Class
 

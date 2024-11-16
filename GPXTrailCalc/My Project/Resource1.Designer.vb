@@ -24,22 +24,26 @@ Namespace My.Resources
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0"),  _
      Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute(),  _
-     Global.Microsoft.VisualBasic.HideModuleNameAttribute()>  _
-    Friend Module Resources
+     Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute()>  _
+    Friend Class Resource1
         
-        Private resourceMan As Global.System.Resources.ResourceManager
+        Private Shared resourceMan As Global.System.Resources.ResourceManager
         
-        Private resourceCulture As Global.System.Globalization.CultureInfo
+        Private Shared resourceCulture As Global.System.Globalization.CultureInfo
+        
+        <Global.System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")>  _
+        Friend Sub New()
+            MyBase.New
+        End Sub
         
         '''<summary>
         '''  Vrací instanci ResourceManager uloženou v mezipaměti použitou touto třídou.
         '''</summary>
         <Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)>  _
-        Friend ReadOnly Property ResourceManager() As Global.System.Resources.ResourceManager
+        Friend Shared ReadOnly Property ResourceManager() As Global.System.Resources.ResourceManager
             Get
                 If Object.ReferenceEquals(resourceMan, Nothing) Then
-                    Dim temp As Global.System.Resources.ResourceManager = New Global.System.Resources.ResourceManager("GPXTrailAnalyzer.Resources", GetType(Resources).Assembly)
+                    Dim temp As Global.System.Resources.ResourceManager = New Global.System.Resources.ResourceManager("GPXTrailAnalyzer.Resource1", GetType(Resource1).Assembly)
                     resourceMan = temp
                 End If
                 Return resourceMan
@@ -51,7 +55,7 @@ Namespace My.Resources
         '''  vyhledání prostředků pomocí třídy prostředků se silnými typy.
         '''</summary>
         <Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)>  _
-        Friend Property Culture() As Global.System.Globalization.CultureInfo
+        Friend Shared Property Culture() As Global.System.Globalization.CultureInfo
             Get
                 Return resourceCulture
             End Get
@@ -61,13 +65,39 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Vyhledává lokalizovaný prostředek typu System.Drawing.Bitmap.
+        '''  Vyhledá lokalizovaný řetězec podobný Age of trails (hours).
         '''</summary>
-        Friend ReadOnly Property trail1() As System.Drawing.Bitmap
+        Friend Shared ReadOnly Property Y_AxisLabelAge() As String
             Get
-                Dim obj As Object = ResourceManager.GetObject("trail1", resourceCulture)
-                Return CType(obj,System.Drawing.Bitmap)
+                Return ResourceManager.GetString("Y-AxisLabelAge", resourceCulture)
             End Get
         End Property
-    End Module
+        
+        '''<summary>
+        '''  Vyhledá lokalizovaný řetězec podobný Length of trails (km).
+        '''</summary>
+        Friend Shared ReadOnly Property Y_AxisLabelLength() As String
+            Get
+                Return ResourceManager.GetString("Y-AxisLabelLength", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Vyhledá lokalizovaný řetězec podobný Dogs average speed (km/h).
+        '''</summary>
+        Friend Shared ReadOnly Property Y_AxisLabelSpeed() As String
+            Get
+                Return ResourceManager.GetString("Y-AxisLabelSpeed", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Vyhledá lokalizovaný řetězec podobný Sniffed Kilometers .
+        '''</summary>
+        Friend Shared ReadOnly Property Y_AxisLabelTotalLength() As String
+            Get
+                Return ResourceManager.GetString("Y-AxisLabelTotalLength", resourceCulture)
+            End Get
+        End Property
+    End Class
 End Namespace
