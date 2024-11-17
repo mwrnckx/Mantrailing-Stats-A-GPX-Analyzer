@@ -383,7 +383,7 @@ Public Class GPXDistanceCalculator
         gpxFiles = GetGpxFiles(Me.DirectoryPath)
 
         If gpxFiles.Count = 0 Then
-            MessageBox.Show("No gpx file was found in the specified directory.")
+            MessageBox.Show(My.Resources.Resource1.mBoxNo_gpx_file_was_found)
             Return False
         End If
 
@@ -400,6 +400,7 @@ Public Class GPXDistanceCalculator
         link.Clear()
 
         Try
+            Form1.txtOutput.AppendText(vbNewLine)
             For i = 0 To gpxFiles.Count - 1
                 Dim gpxfilePath As String = gpxFiles(i)
 
@@ -423,25 +424,25 @@ Public Class GPXDistanceCalculator
                 link.Add(Getlink(i))
                 If Not link(i) Is Nothing Then link(i) = $"=HYPERTEXTOVÝ.ODKAZ(""{link(i)}"")"
 
-                gpxReaders(i).save() 'hlavně kvůli desc
+                gpxReaders(i).Save() 'hlavně kvůli desc
                 'a nakonec
                 SetCreatedModifiedDate(i)
 
                 ' Display results
-                Form1.txtOutput.AppendText(Path.GetFileNameWithoutExtension(gpxFiles(i)) & " Date: " & layerStart(i).Date.ToString("yyyy-MM-dd") & "  Length: " & distances(i).ToString("F2") & " km" & Environment.NewLine)
+                Form1.txtOutput.AppendText(Path.GetFileNameWithoutExtension(gpxFiles(i)) & ", " & vbTab & layerStart(i).Date.ToString("yyyy-MM-dd") & My.Resources.Resource1.outLength & distances(i).ToString("F2") & " km" & Environment.NewLine)
             Next i
 
 
             totalDistance = totalDistances(gpxFiles.Count - 1)
 
-            Form1.txtOutput.AppendText(vbCrLf & "Processed period: from " & startDate.ToString("dd.MM.yy") & " to " & endDate.ToString("dd.MM.yy") &
-                vbCrLf & "All gpx files from directory: " & directorypath & vbCrLf &
-                vbCrLf & "Total number of processed GPX files, thus trails: " & distances.Count &
+            Form1.txtOutput.AppendText(vbCrLf & My.Resources.Resource1.outProcessed_period_from & startDate.ToString("dd.MM.yy") & My.Resources.Resource1.outDo & endDate.ToString("dd.MM.yy") &
+                vbCrLf & My.Resources.Resource1.outAll_gpx_files_from_directory & directorypath & vbCrLf &
+                vbCrLf & My.Resources.Resource1.outTotalNumberOfGPXFiles & distances.Count &
                 vbCrLf &
-                vbCrLf & vbCrLf & "Total Length: " & totalDistance.ToString("F2") & " km" & vbCrLf)
+                vbCrLf & vbCrLf & My.Resources.Resource1.outTotalLength & totalDistance.ToString("F2") & " km" & vbCrLf)
 
         Catch ex As Exception
-            MessageBox.Show("An error occurred while processing data: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(My.Resources.Resource1.mBoxDataRetrievalFailed & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return False
         End Try
 
@@ -707,13 +708,13 @@ Public Class GPXDistanceCalculator
                 Next
 
                 ' Write the total distance at the end of the CSV file
-                writer.WriteLine($"Total;;; {TotalDistances(distances.Count - 1):F2}")
+                writer.WriteLine($"Total;;; {totalDistances(distances.Count - 1):F2}")
             End Using
 
 
             Form1.txtWarnings.AppendText($"CSV file created: {csvFilePath}.{Environment.NewLine}")
         Catch ex As Exception
-            Form1.txtWarnings.AppendText($"Error creating CSV file: {ex.Message}{Environment.NewLine}")
+            Form1.txtWarnings.AppendText($"{My.Resources.Resource1.mBoxErrorCreatingCSV}: {ex.Message}{Environment.NewLine}")
             MessageBox.Show($"Error creating CSV file: {ex.Message}")
         End Try
     End Sub
@@ -739,11 +740,11 @@ Public Class GPXDistanceCalculator
             Try
                 Me.WriteCSVfile(newFilePath)
             Catch ex As Exception
-                MessageBox.Show("Chyba při ukládání souboru: " & ex.Message, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show(My.Resources.Resource1.mBoxErrorCreatingCSV & ex.Message, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
             Return newFilePath
         Else
-            MessageBox.Show("Uložení bylo zrušeno.", "Uložení souboru", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            MessageBox.Show("Saving the file has been cancelled", "Uložení souboru", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Return Nothing
         End If
     End Function

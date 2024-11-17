@@ -61,7 +61,7 @@ Partial Class Form1
         Me.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         resources.ApplyResources(Me.dtpStartDate, "dtpStartDate")
         Me.dtpStartDate.Name = "dtpStartDate"
-        Me.dtpStartDate.Value = New Date(2023, 11, 2, 16, 45, 15, 170)
+
         '
         'dtpEndDate
         '
@@ -237,6 +237,8 @@ Partial Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles Me.Load
         Me.txtDirectory.Text = Application.StartupPath
         gpxCalculator = New GPXDistanceCalculator()
+        Me.dtpEndDate.Value = Now
+        Me.dtpStartDate.Value = Me.dtpEndDate.Value.AddYears(-1)
     End Sub
 
     Friend WithEvents btnChartDistances As Button

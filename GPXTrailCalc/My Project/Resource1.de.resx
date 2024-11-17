@@ -121,12 +121,42 @@
     <value>Erschnüffelte Kilometer</value>
   </data>
   <data name="Y-AxisLabelLength" xml:space="preserve">
-    <value>Length of trails (km)</value>
+    <value>Länge der einzelnen Strecken (km)</value>
   </data>
   <data name="Y-AxisLabelAge" xml:space="preserve">
     <value>Alter der Spuren (Stunden)</value>
   </data>
   <data name="Y-AxisLabelSpeed" xml:space="preserve">
-    <value>Geschwindigkeit  der Hunde (km/h)</value>
+    <value>Geschwindigkeit der Hunde (km/h)</value>
+  </data>
+  <data name="X_AxisLabel" xml:space="preserve">
+    <value>  Datum  </value>
+  </data>
+  <data name="mBoxDataRetrievalFailed" xml:space="preserve">
+    <value>Laden von gpx-Dateien fehlgeschlagen</value>
+  </data>
+  <data name="mBoxErrorCreatingCSV" xml:space="preserve">
+    <value>Fehler beim Erstellen von CSV</value>
+  </data>
+  <data name="mBoxNo gpx file was found" xml:space="preserve">
+    <value>Es wurde keine gpx-Datei gefunden</value>
+  </data>
+  <data name="outProcessed_period_from" xml:space="preserve">
+    <value>Der Zeitraum von:</value>
+  </data>
+  <data name="outDo" xml:space="preserve">
+    <value>  zu</value>
+  </data>
+  <data name="outAll_gpx_files_from_directory" xml:space="preserve">
+    <value>Verarbeitet alle gpx-Dateien aus dem Verzeichnis: </value>
+  </data>
+  <data name="outTotalNumberOfGPXFiles" xml:space="preserve">
+    <value>Gesamtzahl der verarbeiteten GPX-Dateien, d. h. der Strecken: </value>
+  </data>
+  <data name="outTotalLength" xml:space="preserve">
+    <value>Gesamtlänge aller Strecken:  </value>
+  </data>
+  <data name="outLength" xml:space="preserve">
+    <value>  Länge:</value>
   </data>
 </root>

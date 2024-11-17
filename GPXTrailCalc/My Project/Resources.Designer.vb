@@ -61,6 +61,16 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Vyhledává lokalizovaný prostředek typu System.Drawing.Icon podobný (Ikona).
+        '''</summary>
+        Friend ReadOnly Property track2() As System.Drawing.Icon
+            Get
+                Dim obj As Object = ResourceManager.GetObject("track2", resourceCulture)
+                Return CType(obj,System.Drawing.Icon)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Vyhledává lokalizovaný prostředek typu System.Drawing.Bitmap.
         '''</summary>
         Friend ReadOnly Property trail1() As System.Drawing.Bitmap

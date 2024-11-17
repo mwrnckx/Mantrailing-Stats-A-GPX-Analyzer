@@ -65,6 +65,96 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Vyhledá lokalizovaný řetězec podobný Data Retrieval Failed.
+        '''</summary>
+        Friend Shared ReadOnly Property mBoxDataRetrievalFailed() As String
+            Get
+                Return ResourceManager.GetString("mBoxDataRetrievalFailed", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Vyhledá lokalizovaný řetězec podobný Error Creating CSV.
+        '''</summary>
+        Friend Shared ReadOnly Property mBoxErrorCreatingCSV() As String
+            Get
+                Return ResourceManager.GetString("mBoxErrorCreatingCSV", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Vyhledá lokalizovaný řetězec podobný No gpx file was found.
+        '''</summary>
+        Friend Shared ReadOnly Property mBoxNo_gpx_file_was_found() As String
+            Get
+                Return ResourceManager.GetString("mBoxNo gpx file was found", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Vyhledá lokalizovaný řetězec podobný Processes all gpx files from the directory:.
+        '''</summary>
+        Friend Shared ReadOnly Property outAll_gpx_files_from_directory() As String
+            Get
+                Return ResourceManager.GetString("outAll_gpx_files_from_directory", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Vyhledá lokalizovaný řetězec podobný   to .
+        '''</summary>
+        Friend Shared ReadOnly Property outDo() As String
+            Get
+                Return ResourceManager.GetString("outDo", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Vyhledá lokalizovaný řetězec podobný Length: .
+        '''</summary>
+        Friend Shared ReadOnly Property outLength() As String
+            Get
+                Return ResourceManager.GetString("outLength", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Vyhledá lokalizovaný řetězec podobný Processed period: from  .
+        '''</summary>
+        Friend Shared ReadOnly Property outProcessed_period_from() As String
+            Get
+                Return ResourceManager.GetString("outProcessed_period_from", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Vyhledá lokalizovaný řetězec podobný Total Length of all trails.
+        '''</summary>
+        Friend Shared ReadOnly Property outTotalLength() As String
+            Get
+                Return ResourceManager.GetString("outTotalLength", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Vyhledá lokalizovaný řetězec podobný Total number of processed GPX files, i.e. trails: .
+        '''</summary>
+        Friend Shared ReadOnly Property outTotalNumberOfGPXFiles() As String
+            Get
+                Return ResourceManager.GetString("outTotalNumberOfGPXFiles", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Vyhledá lokalizovaný řetězec podobný   Date  .
+        '''</summary>
+        Friend Shared ReadOnly Property X_AxisLabel() As String
+            Get
+                Return ResourceManager.GetString("X_AxisLabel", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Vyhledá lokalizovaný řetězec podobný Age of trails (hours).
         '''</summary>
         Friend Shared ReadOnly Property Y_AxisLabelAge() As String
@@ -83,7 +173,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Vyhledá lokalizovaný řetězec podobný Dogs average speed (km/h).
+        '''  Vyhledá lokalizovaný řetězec podobný Speed of the dog on the trails (km/h).
         '''</summary>
         Friend Shared ReadOnly Property Y_AxisLabelSpeed() As String
             Get

@@ -9,8 +9,7 @@ Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 Public Class Form1
     Dim directoryPath As String
     Private gpxCalculator As GPXDistanceCalculator
-    Private Shared resourceManager As ResourceManager = New ResourceManager("GPXTrailAnalyzer.Resource1", GetType(Form1).Assembly)
-
+    Private currentCulture As CultureInfo = Thread.CurrentThread.CurrentCulture
 
     Private Sub btnCalculate_Click(sender As Object, e As EventArgs) Handles btnCalculate.Click
         Try
@@ -25,10 +24,10 @@ Public Class Form1
                 Me.rbAge.Visible = True
                 Me.rbSpeed.Visible = True
             Else
-                MessageBox.Show("Data retrieval failed")
+                MessageBox.Show(My.Resources.Resource1.mBoxDataRetrievalFailed)
             End If
         Catch ex As Exception
-            MessageBox.Show("Data retrieval failed")
+            MessageBox.Show(My.Resources.Resource1.mBoxDataRetrievalFailed)
         End Try
 
     End Sub
@@ -59,7 +58,7 @@ Public Class Form1
                 Process.Start(csvFilePath)
             End If
         Catch ex As Exception
-            MessageBox.Show($"An error occurred while creating the CSV file:{csvFilePath} " & ex.Message & vbCrLf, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show($"{My.Resources.Resource1.mBoxErrorCreatingCSV}: {csvFilePath} " & ex.Message & vbCrLf, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
@@ -72,11 +71,11 @@ Public Class Form1
 
         If rbTotDistance.Checked Then
             yAxisData = gpxCalculator.totalDistances.Select(Function(ts) ts).ToArray()
-            yAxisLabel = resourceManager.GetString("Y-AxisLabelTotalLength") '"Sniffed within the specified time (km)"
+            yAxisLabel = My.Resources.Resource1.Y_AxisLabelTotalLength
             GrafText = rbTotDistance.Text
         ElseIf rbDistances.Checked Then
             yAxisData = gpxCalculator.distances.Select(Function(ts) ts).ToArray()
-            yAxisLabel = resourceManager.GetString("Y-AxisLabelLength")
+            yAxisLabel = My.Resources.Resource1.Y_AxisLabelLength
             GrafText = rbDistances.Text
         ElseIf rbAge.Checked Then
             ' Filtrování y-hodnot (TotalHours) a x-hodnot (časové značky) pro body, kde TotalHours není nulová
@@ -90,7 +89,7 @@ Public Class Form1
     Where(Function(ts, index) gpxCalculator.age(index).TotalHours <> 0).
     Select(Function(ts) ts).
     ToArray()
-            yAxisLabel = resourceManager.GetString("Y-AxisLabelAge")
+            yAxisLabel = My.Resources.Resource1.Y_AxisLabelAge
             GrafText = rbAge.Text
         ElseIf rbSpeed.Checked Then
             ' Načtení y-hodnot a filtrování hodnot, kde je y nulové
@@ -104,7 +103,7 @@ Public Class Form1
     Select(Function(ts) ts).
     ToArray()
 
-            yAxisLabel = resourceManager.GetString("Y-AxisLabelSpeed")
+            yAxisLabel = My.Resources.Resource1.Y_AxisLabelSpeed
             GrafText = rbSpeed.Text
         End If
 
@@ -112,7 +111,7 @@ Public Class Form1
 
         ' Vytvoření instance DistanceChart s filtrováním bodů, kde je y-hodnota nulová
         If Not gpxCalculator.distances Is Nothing Then
-            Dim distanceChart As New DistanceChart(xAxisData, yAxisData, yAxisLabel)
+            Dim distanceChart As New DistanceChart(xAxisData, yAxisData, yAxisLabel, Me.dtpStartDate.Value, dtpEndDate.Value, Me.currentCulture)
 
             ' Zobrazení grafu
             distanceChart.Display(GrafText)
@@ -126,8 +125,9 @@ Public Class Form1
 
     Public Sub ChangeLanguage(cultureName As String)
         Me.SuspendLayout()
-        Thread.CurrentThread.CurrentUICulture = New CultureInfo(cultureName)
 
+        Thread.CurrentThread.CurrentUICulture = New CultureInfo(cultureName)
+        Me.currentCulture = Thread.CurrentThread.CurrentUICulture
         Dim resources = New ComponentResourceManager(Me.GetType())
         resources.ApplyResources(Me, "$this")
         For Each ctrl As Control In Me.Controls

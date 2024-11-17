@@ -121,12 +121,42 @@
     <value>Načucháno kilometrů</value>
   </data>
   <data name="Y-AxisLabelLength" xml:space="preserve">
-    <value>Délka trailů (km)</value>
+    <value>Délka jednotlivých trailů (km)</value>
   </data>
   <data name="Y-AxisLabelAge" xml:space="preserve">
     <value>Stáří trailů (hodin)</value>
   </data>
   <data name="Y-AxisLabelSpeed" xml:space="preserve">
-    <value>Rychlost psa (km/h)</value>
+    <value>Rychlost psa na trailech (km/h)</value>
+  </data>
+  <data name="X_AxisLabel" xml:space="preserve">
+    <value>  Datum  </value>
+  </data>
+  <data name="mBoxDataRetrievalFailed" xml:space="preserve">
+    <value>Načtení souborů gpx selhalo</value>
+  </data>
+  <data name="mBoxErrorCreatingCSV" xml:space="preserve">
+    <value>Chyba při tvorbě CSV souboru</value>
+  </data>
+  <data name="mBoxNo gpx file was found" xml:space="preserve">
+    <value>Nebyl nalezen žádný soubor gpx </value>
+  </data>
+  <data name="outProcessed_period_from" xml:space="preserve">
+    <value>Období od: </value>
+  </data>
+  <data name="outDo" xml:space="preserve">
+    <value>  do </value>
+  </data>
+  <data name="outAll_gpx_files_from_directory" xml:space="preserve">
+    <value>Zpracovány všechny gpx soubory z adresáře:  </value>
+  </data>
+  <data name="outTotalNumberOfGPXFiles" xml:space="preserve">
+    <value>Celkový počet zpracovaných souborů GPX, tedy trailů: </value>
+  </data>
+  <data name="outTotalLength" xml:space="preserve">
+    <value>Celková délka trailů v daném období:  </value>
+  </data>
+  <data name="outLength" xml:space="preserve">
+    <value>  Délka: </value>
   </data>
 </root>

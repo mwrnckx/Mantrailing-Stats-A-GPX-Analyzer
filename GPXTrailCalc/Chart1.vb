@@ -1,16 +1,25 @@
-﻿Imports System.Windows.Forms.DataVisualization.Charting
+﻿Imports System.Globalization
+Imports System.Runtime.InteropServices.ComTypes
+Imports System.Threading
+Imports System.Windows.Forms.DataVisualization.Charting
 
 Public Class DistanceChart
     ' Vlastnosti pro data
     Private layerStart As DateTime()
-    Private TotalDistances As Double()
+    Private Y_Data As Double()
     Private yAxisLabel As String
+    Private startDate As Date
+    Private endDate As Date
 
     ' Konstruktor, který přijme data
-    Public Sub New(layerStart As DateTime(), TotalDistances As Double(), yAxisLabel As String)
+    Public Sub New(layerStart As DateTime(), _Y_data As Double(), yAxisLabel As String, _startDate As Date, _endDate As Date, _CultureInfo As CultureInfo)
         Me.layerStart = layerStart
-        Me.TotalDistances = TotalDistances
+        Me.Y_Data = _Y_data
         Me.yAxisLabel = yAxisLabel
+        Me.startDate = _startDate
+        Me.endDate = _endDate
+        Thread.CurrentThread.CurrentCulture = _CultureInfo
+
     End Sub
 
     ' Metoda pro výpočet směrnice a posunu přímky metodou nejmenších čtverců
@@ -23,7 +32,7 @@ Public Class DistanceChart
 
         For i As Integer = 0 To n - 1
             Dim x As Double = layerStart(i).ToOADate() ' Převedení data na číselný formát
-            Dim y As Double = TotalDistances(i)
+            Dim y As Double = Y_Data(i)
             sumX += x
             sumY += y
             sumXY += x * y
@@ -42,6 +51,7 @@ Public Class DistanceChart
         Dim chartForm As New Form()
         chartForm.Text = text
         chartForm.Size = New Size(1000, 600)
+        chartForm.Icon = My.Resources.track2
 
         ' Vytvoření a nastavení komponenty Chart
         Dim chart As New Chart()
@@ -50,28 +60,28 @@ Public Class DistanceChart
 
         ' Nastavení oblasti grafu
         Dim chartArea As New ChartArea()
-        chartArea.AxisX.Title = "Date"
+        chartArea.AxisX.Title = My.Resources.Resource1.X_AxisLabel
         chartArea.AxisX.TitleFont = New Font("Arial", 14, FontStyle.Bold) ' Nastavení většího a tučného písma
-        chartArea.AxisX.LabelStyle.Format = "yyyy-MM-dd"
+        chartArea.AxisX.LabelStyle.Format = "MM.yy"
+        chartArea.AxisX.LabelStyle.Format = "MMMM yy"
+
         chartArea.AxisX.LabelStyle.Font = New Font("Arial", 14, FontStyle.Bold)
+        ' Nastavení rozsahu osy X na základě data
+        chartArea.AxisX.Minimum = startDate.ToOADate()
+        chartArea.AxisX.Maximum = endDate.ToOADate()
 
         ' Nastavení vlastností pro osu Y
         chartArea.AxisY.Title = yAxisLabel
         chartArea.AxisY.TitleFont = New Font("Arial", 14, FontStyle.Bold) ' Nastavení většího a tučného písma
         chartArea.AxisY.LabelStyle.Font = New Font("Arial", 14, FontStyle.Bold)
+        chartArea.AxisY.Minimum = 0
         chartArea.BackColor = Color.AntiqueWhite
 
         chart.ChartAreas.Add(chartArea)
         chart.BackColor = Color.AntiqueWhite
 
-        ' Vytvoření série dat (pro původní body)
-        'Dim series1 As New Series() With {
-        '    .Name = "Total Distance Over Time",
-        '    .ChartType = SeriesChartType.Line,
-        '    .XValueType = ChartValueType.DateTime
-        '}
 
-        Dim series2 As New Series() With {
+        Dim series1 As New Series() With {
             .Name = "Data Points",
             .ChartType = SeriesChartType.Point,
             .MarkerSize = 10, ' Nastaví velikost bodů na 10 pixelů
@@ -81,14 +91,14 @@ Public Class DistanceChart
         }
 
         ' Přidání dat do série
-        For i As Integer = 0 To TotalDistances.Length - 1
+        For i As Integer = 0 To Y_Data.Length - 1
             'series1.Points.AddXY(layerStart(i), TotalDistances(i))
-            series2.Points.AddXY(layerStart(i), TotalDistances(i))
+            series1.Points.AddXY(layerStart(i), Y_Data(i))
         Next
 
         ' Přidání série do grafu
         'chart.Series.Add(series1)
-        chart.Series.Add(series2)
+        chart.Series.Add(series1)
 
         ' Výpočet lineární regrese
         Dim regression = CalculateLinearRegression()

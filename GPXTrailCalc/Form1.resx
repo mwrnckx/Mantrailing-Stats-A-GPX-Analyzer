@@ -330,7 +330,7 @@
     <value>9</value>
   </data>
   <data name="txtOutput.Text" xml:space="preserve">
-    <value>GPX Routes:</value>
+    <value>GPX Records:</value>
   </data>
   <data name="&gt;&gt;txtOutput.Name" xml:space="preserve">
     <value>txtOutput</value>
