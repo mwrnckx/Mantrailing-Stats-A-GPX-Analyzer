@@ -65,6 +65,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Vyhledá lokalizovaný řetězec podobný Article.
+        '''</summary>
+        Friend Shared ReadOnly Property article() As String
+            Get
+                Return ResourceManager.GetString("article", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Vyhledá lokalizovaný řetězec podobný Data Retrieval Failed.
         '''</summary>
         Friend Shared ReadOnly Property mBoxDataRetrievalFailed() As String
@@ -92,6 +101,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Vyhledá lokalizovaný řetězec podobný Age.
+        '''</summary>
+        Friend Shared ReadOnly Property outAge() As String
+            Get
+                Return ResourceManager.GetString("outAge", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Vyhledá lokalizovaný řetězec podobný Processes all gpx files from the directory:.
         '''</summary>
         Friend Shared ReadOnly Property outAll_gpx_files_from_directory() As String
@@ -106,6 +124,15 @@ Namespace My.Resources
         Friend Shared ReadOnly Property outDo() As String
             Get
                 Return ResourceManager.GetString("outDo", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Vyhledá lokalizovaný řetězec podobný GPX file name.
+        '''</summary>
+        Friend Shared ReadOnly Property outgpxFileName() As String
+            Get
+                Return ResourceManager.GetString("outgpxFileName", resourceCulture)
             End Get
         End Property
         
@@ -128,7 +155,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Vyhledá lokalizovaný řetězec podobný Total Length of all trails.
+        '''  Vyhledá lokalizovaný řetězec podobný Total Length of all trails:   .
         '''</summary>
         Friend Shared ReadOnly Property outTotalLength() As String
             Get

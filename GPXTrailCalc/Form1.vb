@@ -148,5 +148,15 @@ Public Class Form1
     Private Sub btnDe_Click(sender As Object, e As EventArgs) Handles btnDe.Click
         ChangeLanguage("de") ' Nastaví češtinu
     End Sub
+    Private Sub btnRu_Click(sender As Object, e As EventArgs) Handles btnRu.Click
+        ChangeLanguage("ru") ' Nastaví češtinu
+    End Sub
+    Private Sub btnPl_Click(sender As Object, e As EventArgs) Handles btnPl.Click
+        ChangeLanguage("pl") ' Nastaví češtinu
+    End Sub
+
+    Private Sub btnUK_Click(sender As Object, e As EventArgs) Handles btnUK.Click
+        ChangeLanguage("uk")
+    End Sub
 End Class
 

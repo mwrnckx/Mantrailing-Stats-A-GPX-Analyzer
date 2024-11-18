@@ -41,6 +41,9 @@ Partial Class Form1
         Me.btnCS = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnDe = New System.Windows.Forms.Button()
+        Me.btnRu = New System.Windows.Forms.Button()
+        Me.btnPl = New System.Windows.Forms.Button()
+        Me.btnUK = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -61,7 +64,6 @@ Partial Class Form1
         Me.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         resources.ApplyResources(Me.dtpStartDate, "dtpStartDate")
         Me.dtpStartDate.Name = "dtpStartDate"
-
         '
         'dtpEndDate
         '
@@ -156,12 +158,16 @@ Partial Class Form1
         'btnEng
         '
         resources.ApplyResources(Me.btnEng, "btnEng")
+        Me.btnEng.Cursor = System.Windows.Forms.Cursors.Default
+        Me.btnEng.FlatAppearance.BorderSize = 0
         Me.btnEng.Name = "btnEng"
         Me.btnEng.UseVisualStyleBackColor = True
         '
         'btnCS
         '
         resources.ApplyResources(Me.btnCS, "btnCS")
+        Me.btnCS.Cursor = System.Windows.Forms.Cursors.Default
+        Me.btnCS.FlatAppearance.BorderSize = 0
         Me.btnCS.Name = "btnCS"
         Me.btnCS.UseVisualStyleBackColor = True
         '
@@ -173,16 +179,44 @@ Partial Class Form1
         '
         'btnDe
         '
-        Me.btnDe.Cursor = System.Windows.Forms.Cursors.IBeam
         resources.ApplyResources(Me.btnDe, "btnDe")
+        Me.btnDe.Cursor = System.Windows.Forms.Cursors.Default
+        Me.btnDe.FlatAppearance.BorderSize = 0
         Me.btnDe.Name = "btnDe"
         Me.btnDe.UseVisualStyleBackColor = True
+        '
+        'btnRu
+        '
+        resources.ApplyResources(Me.btnRu, "btnRu")
+        Me.btnRu.Cursor = System.Windows.Forms.Cursors.Default
+        Me.btnRu.FlatAppearance.BorderSize = 0
+        Me.btnRu.Name = "btnRu"
+        Me.btnRu.UseVisualStyleBackColor = True
+        '
+        'btnPl
+        '
+        resources.ApplyResources(Me.btnPl, "btnPl")
+        Me.btnPl.Cursor = System.Windows.Forms.Cursors.Default
+        Me.btnPl.FlatAppearance.BorderSize = 0
+        Me.btnPl.Name = "btnPl"
+        Me.btnPl.UseVisualStyleBackColor = True
+        '
+        'btnUK
+        '
+        resources.ApplyResources(Me.btnUK, "btnUK")
+        Me.btnUK.Cursor = System.Windows.Forms.Cursors.Arrow
+        Me.btnUK.FlatAppearance.BorderSize = 0
+        Me.btnUK.Name = "btnUK"
+        Me.btnUK.UseVisualStyleBackColor = True
         '
         'Form1
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.btnUK)
         Me.Controls.Add(Me.btnEng)
+        Me.Controls.Add(Me.btnPl)
+        Me.Controls.Add(Me.btnRu)
         Me.Controls.Add(Me.btnDe)
         Me.Controls.Add(Me.btnCS)
         Me.Controls.Add(Me.rbSpeed)
@@ -249,5 +283,8 @@ Partial Class Form1
     Friend WithEvents btnCS As Button
     Friend WithEvents btnEng As Button
     Friend WithEvents btnDe As Button
+    Friend WithEvents btnRu As Button
+    Friend WithEvents btnPl As Button
+    Friend WithEvents btnUK As Button
 End Class
 

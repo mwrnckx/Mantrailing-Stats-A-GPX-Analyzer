@@ -1,5 +1,6 @@
 ﻿Imports System.Globalization
 Imports System.Runtime.InteropServices.ComTypes
+Imports System.Text.RegularExpressions
 Imports System.Threading
 Imports System.Windows.Forms.DataVisualization.Charting
 
@@ -62,8 +63,11 @@ Public Class DistanceChart
         Dim chartArea As New ChartArea()
         chartArea.AxisX.Title = My.Resources.Resource1.X_AxisLabel
         chartArea.AxisX.TitleFont = New Font("Arial", 14, FontStyle.Bold) ' Nastavení většího a tučného písma
-        chartArea.AxisX.LabelStyle.Format = "MM.yy"
+        'chartArea.AxisX.LabelStyle.Format = "MM.yy"
+        'Date label according the currentCulture:
         chartArea.AxisX.LabelStyle.Format = "MMMM yy"
+        'chartArea.AxisX.LabelStyle.Format = System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.YearMonthPattern
+        'chartArea.AxisX.LabelStyle.Format = System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern
 
         chartArea.AxisX.LabelStyle.Font = New Font("Arial", 14, FontStyle.Bold)
         ' Nastavení rozsahu osy X na základě data

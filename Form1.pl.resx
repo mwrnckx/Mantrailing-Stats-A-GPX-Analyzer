@@ -144,7 +144,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnBrowse.ZOrder" xml:space="preserve">
-    <value>22</value>
+    <value>21</value>
   </data>
   <data name="txtDirectory.Location" type="System.Drawing.Point, System.Drawing">
     <value>120, 20</value>
@@ -165,7 +165,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtDirectory.ZOrder" xml:space="preserve">
-    <value>21</value>
+    <value>20</value>
   </data>
   <data name="dtpStartDate.Location" type="System.Drawing.Point, System.Drawing">
     <value>149, 67</value>
@@ -186,7 +186,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;dtpStartDate.ZOrder" xml:space="preserve">
-    <value>20</value>
+    <value>19</value>
   </data>
   <data name="dtpEndDate.Location" type="System.Drawing.Point, System.Drawing">
     <value>149, 105</value>
@@ -207,7 +207,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;dtpEndDate.ZOrder" xml:space="preserve">
-    <value>19</value>
+    <value>18</value>
   </data>
   <data name="btnCalculate.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 10pt, style=Bold</value>
@@ -234,7 +234,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnCalculate.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>17</value>
   </data>
   <data name="lblStartDate.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt, style=Italic</value>
@@ -261,7 +261,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblStartDate.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>16</value>
   </data>
   <data name="lblEndDate.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt, style=Italic</value>
@@ -288,7 +288,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblEndDate.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>15</value>
   </data>
   <data name="lblDirectory.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt, style=Italic</value>
@@ -315,7 +315,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblDirectory.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>14</value>
   </data>
   <data name="txtOutput.Location" type="System.Drawing.Point, System.Drawing">
     <value>354, 67</value>
@@ -342,7 +342,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtOutput.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>13</value>
   </data>
   <data name="txtWarnings.Location" type="System.Drawing.Point, System.Drawing">
     <value>954, 67</value>
@@ -369,7 +369,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtWarnings.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>12</value>
   </data>
   <data name="chbDateToName.Location" type="System.Drawing.Point, System.Drawing">
     <value>26, 249</value>
@@ -393,7 +393,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;chbDateToName.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>11</value>
   </data>
   <data name="btnOpenDataFile.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 10pt, style=Bold</value>
@@ -423,7 +423,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnOpenDataFile.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>10</value>
   </data>
   <data name="btnChartDistances.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 10pt, style=Bold</value>
@@ -453,7 +453,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnChartDistances.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>9</value>
   </data>
   <data name="rbTotDistance.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -483,7 +483,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;rbTotDistance.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>8</value>
   </data>
   <data name="rbDistances.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -513,7 +513,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;rbDistances.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>7</value>
   </data>
   <data name="rbAge.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -543,7 +543,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;rbAge.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>6</value>
   </data>
   <data name="rbSpeed.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -573,9 +573,9 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;rbSpeed.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>5</value>
   </data>
-  <data name="btnEng.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnEng.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         /9j/4AAQSkZJRgABAQEASABIAAD/4QCCRXhpZgAATU0AKgAAAAgABQESAAMAAAABAAEAAAEaAAUAAAAB
         AAAASgEbAAUAAAABAAAAUgEoAAMAAAABAAIAAIdpAAQAAAABAAAAWgAAAAAAAABIAAAAAQAAAEgAAAAB
@@ -645,13 +645,6 @@
         OJ2L+Y/sx//Z
 </value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnEng.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
-  </data>
-  <data name="btnEng.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
   <data name="btnEng.Location" type="System.Drawing.Point, System.Drawing">
     <value>829, 17</value>
   </data>
@@ -671,9 +664,9 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnEng.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>0</value>
   </data>
-  <data name="btnCS.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnCS.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         R0lGODlhMgAhAIYAAAAAAP////8WG/4JEv0KFPwKFP8VG/8WHP8WHf8XHf8XHvwXHv4YIP4YIf0YIfwY
         H/4ZIf0ZIf0ZIvwZIvcZIvYZIvUZIvgcJP8pLvkoL/goMPgpMfosM/gsM/Y7Q/2Ijf+KjfyIjfiPkvAS
@@ -691,33 +684,7 @@
         HoL4oIorHrEGGjKQgCKMGibXxg4qLICAA0AGKeSQRBZpZJENaFDDCRhw0MGTUEYp5ZRUVlllBh4EBAA7
 </value>
   </data>
-  <data name="btnCS.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
-  </data>
-  <data name="btnCS.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="btnCS.Location" type="System.Drawing.Point, System.Drawing">
-    <value>896, 17</value>
-  </data>
-  <data name="btnCS.Size" type="System.Drawing.Size, System.Drawing">
-    <value>52, 33</value>
-  </data>
-  <data name="btnCS.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
-  </data>
-  <data name="&gt;&gt;btnCS.Name" xml:space="preserve">
-    <value>btnCS</value>
-  </data>
-  <data name="&gt;&gt;btnCS.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnCS.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btnCS.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="PictureBox1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Left</value>
   </data>
@@ -2105,9 +2072,9 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;PictureBox1.ZOrder" xml:space="preserve">
-    <value>23</value>
+    <value>22</value>
   </data>
-  <data name="btnDe.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnDe.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAATCAYAAADxlA/3AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
         cAAAAHABznhikwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAABFSURBVEhL7c4x
@@ -2115,14 +2082,8 @@
         gzF5/QKqNpwAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="btnDe.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
-  </data>
-  <data name="btnDe.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
   <data name="btnDe.Location" type="System.Drawing.Point, System.Drawing">
-    <value>963, 17</value>
+    <value>966, 17</value>
   </data>
   <data name="btnDe.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
@@ -2143,128 +2104,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnDe.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="btnRu.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAVCAYAAAAnzezqAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        egAAAHoBlQypfwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAABCSURBVEhL7c4x
-        FQAgFEJRkvwCJrCwjcyDBZhhEM65C9MDw2tAAxoA7MMoeTrJ00meTvJ0kqeTPJ3uGiY1oAG/BwwfFb74
-        e0cyoEUAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="btnRu.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
-  </data>
-  <data name="btnRu.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="btnRu.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnRu.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1163, 17</value>
-  </data>
-  <data name="btnRu.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="btnRu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>52, 33</value>
-  </data>
-  <data name="btnRu.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
-  </data>
-  <data name="&gt;&gt;btnRu.Name" xml:space="preserve">
-    <value>btnRu</value>
-  </data>
-  <data name="&gt;&gt;btnRu.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnRu.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btnRu.ZOrder" xml:space="preserve">
     <value>3</value>
-  </data>
-  <data name="btnPl.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAUAQMAAADWX60MAAAABGdBTUEAALGPC/xhBQAAAAZQTFRF3BQ8
-        ////77g10gAAABFJREFUGNNj+A8EpBEkAgYGAK1RJ9lGJWawAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="btnPl.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
-  </data>
-  <data name="btnPl.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="btnPl.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnPl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1030, 17</value>
-  </data>
-  <data name="btnPl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="btnPl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>52, 33</value>
-  </data>
-  <data name="btnPl.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
-  </data>
-  <data name="&gt;&gt;btnPl.Name" xml:space="preserve">
-    <value>btnPl</value>
-  </data>
-  <data name="&gt;&gt;btnPl.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnPl.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btnPl.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="btnUK.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAVCAYAAAAnzezqAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        XAAAAFwBhyfMcAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAABISURBVEhL7c4x
-        FYBQEMTA9cnDCzLwgg707DeQOtdcMU2qJNfXURhNGE0YTRhNGE0YTRhNGE0YTc97d1L6p5N2YAd2YAeG
-        B9IDPPVw2zRJa6MAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="btnUK.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
-  </data>
-  <data name="btnUK.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="btnUK.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnUK.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1096, 18</value>
-  </data>
-  <data name="btnUK.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="btnUK.Size" type="System.Drawing.Size, System.Drawing">
-    <value>52, 33</value>
-  </data>
-  <data name="btnUK.TabIndex" type="System.Int32, mscorlib">
-    <value>23</value>
-  </data>
-  <data name="&gt;&gt;btnUK.Name" xml:space="preserve">
-    <value>btnUK</value>
-  </data>
-  <data name="&gt;&gt;btnUK.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnUK.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btnUK.ZOrder" xml:space="preserve">
-    <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

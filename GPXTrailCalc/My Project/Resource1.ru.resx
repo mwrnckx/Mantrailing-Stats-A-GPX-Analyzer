@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Y-AxisLabelTotalLength" xml:space="preserve">
+    <value>Пройденные километры</value>
+  </data>
+  <data name="Y-AxisLabelLength" xml:space="preserve">
+    <value>Длина маршрутов (км)</value>
+  </data>
+  <data name="Y-AxisLabelAge" xml:space="preserve">
+    <value>Возраст маршрутов (часы)</value>
+  </data>
+  <data name="Y-AxisLabelSpeed" xml:space="preserve">
+    <value>Скорость собаки на маршрутах (км/ч)</value>
+  </data>
+  <data name="X_AxisLabel" xml:space="preserve">
+    <value>Дата</value>
+  </data>
+  <data name="mBoxDataRetrievalFailed" xml:space="preserve">
+    <value>Не удалось получить данные</value>
+  </data>
+  <data name="mBoxErrorCreatingCSV" xml:space="preserve">
+    <value>Ошибка при создании CSV</value>
+  </data>
+  <data name="mBoxNo gpx file was found" xml:space="preserve">
+    <value>GPX файл не найден</value>
+  </data>
+  <data name="outProcessed_period_from" xml:space="preserve">
+    <value>Обработанный период: с</value>
+  </data>
+  <data name="outDo" xml:space="preserve">
+    <value>до</value>
+  </data>
+  <data name="outAll_gpx_files_from_directory" xml:space="preserve">
+    <value>Обрабатываются все файлы GPX из каталога:</value>
+  </data>
+  <data name="outTotalNumberOfGPXFiles" xml:space="preserve">
+    <value>Общее количество обработанных GPX файлов, то есть маршрутов:</value>
+  </data>
+  <data name="outTotalLength" xml:space="preserve">
+    <value>Общая длина всех маршрутов:</value>
+  </data>
+  <data name="outLength" xml:space="preserve">
+    <value>Длина:</value>
+  </data>
+  <data name="outgpxFileName" xml:space="preserve">
+    <value>Имя файла GPX</value>
+  </data>
+  <data name="outAge" xml:space="preserve">
+    <value>Возраст</value>
+  </data>
+  <data name="article" xml:space="preserve">
+    <value>Статья</value>
+  </data>
+</root>
+

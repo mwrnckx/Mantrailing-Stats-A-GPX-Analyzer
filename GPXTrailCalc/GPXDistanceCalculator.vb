@@ -401,6 +401,8 @@ Public Class GPXDistanceCalculator
 
         Try
             Form1.txtOutput.AppendText(vbNewLine)
+            Form1.txtOutput.AppendText(My.Resources.Resource1.outgpxFileName & vbTab & vbTab & My.Resources.Resource1.X_AxisLabel & vbTab & "   " & My.Resources.Resource1.outLength & "     " & My.Resources.Resource1.outAge)
+            Form1.txtOutput.AppendText(vbNewLine)
             For i = 0 To gpxFiles.Count - 1
                 Dim gpxfilePath As String = gpxFiles(i)
 
@@ -410,7 +412,7 @@ Public Class GPXDistanceCalculator
                 gpxReaders.Add(reader)
 
                 ' Start calculation using the values
-                RenamewptNodes(i, "předmět")
+                RenamewptNodes(i, My.Resources.Resource1.article)
                 layerStart.Add(GetLayerStart(gpxFiles(i), gpxReaders(i)))
                 SplitTrackIntoTwo(i) 'in gpx files, splits a track with two segments into two separate tracks
                 descriptions.Add(GetDescription(i)) 'musí být první - slouží k výpočtu age
@@ -429,13 +431,17 @@ Public Class GPXDistanceCalculator
                 SetCreatedModifiedDate(i)
 
                 ' Display results
-                Form1.txtOutput.AppendText(Path.GetFileNameWithoutExtension(gpxFiles(i)) & ", " & vbTab & layerStart(i).Date.ToString("yyyy-MM-dd") & My.Resources.Resource1.outLength & distances(i).ToString("F2") & " km" & Environment.NewLine)
+                Dim fileShortName As String = Path.GetFileNameWithoutExtension(gpxFiles(i))
+                If fileShortName.Length > 24 Then
+                    fileShortName = fileShortName.Substring(0, 24)
+                End If
+                Form1.txtOutput.AppendText(fileShortName & vbTab & layerStart(i).Date.ToShortDateString & "   " & distances(i).ToString("F2") & " km" & "   " & age(i).TotalHours.ToString("F1") & " h" & Environment.NewLine)
             Next i
 
 
             totalDistance = totalDistances(gpxFiles.Count - 1)
 
-            Form1.txtOutput.AppendText(vbCrLf & My.Resources.Resource1.outProcessed_period_from & startDate.ToString("dd.MM.yy") & My.Resources.Resource1.outDo & endDate.ToString("dd.MM.yy") &
+            Form1.txtOutput.AppendText(vbCrLf & My.Resources.Resource1.outProcessed_period_from & startDate.ToShortDateString & My.Resources.Resource1.outDo & endDate.ToShortDateString &
                 vbCrLf & My.Resources.Resource1.outAll_gpx_files_from_directory & directorypath & vbCrLf &
                 vbCrLf & My.Resources.Resource1.outTotalNumberOfGPXFiles & distances.Count &
                 vbCrLf &

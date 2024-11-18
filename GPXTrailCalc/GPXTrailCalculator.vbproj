@@ -140,9 +140,18 @@
     <EmbeddedResource Include="Form1.en.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form1.pl.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.ru.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.uk.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resource1.de.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -159,11 +168,14 @@
       <LastGenOutput>Resource1.cs.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
     </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resource1.pl.resx" />
     <EmbeddedResource Include="My Project\Resource1.resx">
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource1.Designer.vb</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resource1.ru.resx" />
+    <EmbeddedResource Include="My Project\Resource1.uk.resx" />
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -195,6 +207,8 @@
     <Content Include="Resources\De-Flag.png" />
     <Content Include="Resources\en-flag.jpeg" />
     <None Include="Resources\Icona.bmp" />
+    <Content Include="Resources\pl.png" />
+    <Content Include="Resources\rusko.png" />
     <Content Include="track.ico" />
     <Content Include="track2.ico" />
   </ItemGroup>

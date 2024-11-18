@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Y-AxisLabelTotalLength" xml:space="preserve">
+    <value>Przebyte kilometry</value>
+  </data>
+  <data name="Y-AxisLabelLength" xml:space="preserve">
+    <value>Długość tras (km)</value>
+  </data>
+  <data name="Y-AxisLabelAge" xml:space="preserve">
+    <value>Wiek tras (godziny)</value>
+  </data>
+  <data name="Y-AxisLabelSpeed" xml:space="preserve">
+    <value>Prędkość psa na trasach (km/h)</value>
+  </data>
+  <data name="X_AxisLabel" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="mBoxDataRetrievalFailed" xml:space="preserve">
+    <value>Nie udało się pobrać danych</value>
+  </data>
+  <data name="mBoxErrorCreatingCSV" xml:space="preserve">
+    <value>Błąd podczas tworzenia pliku CSV</value>
+  </data>
+  <data name="mBoxNo gpx file was found" xml:space="preserve">
+    <value>Nie znaleziono pliku GPX</value>
+  </data>
+  <data name="outProcessed_period_from" xml:space="preserve">
+    <value>Przetworzony okres: od</value>
+  </data>
+  <data name="outDo" xml:space="preserve">
+    <value>do</value>
+  </data>
+  <data name="outAll_gpx_files_from_directory" xml:space="preserve">
+    <value>Przetwarzanie wszystkich plików GPX z katalogu:</value>
+  </data>
+  <data name="outTotalNumberOfGPXFiles" xml:space="preserve">
+    <value>Całkowita liczba przetworzonych plików GPX, czyli tras:</value>
+  </data>
+  <data name="outTotalLength" xml:space="preserve">
+    <value>Całkowita długość wszystkich tras:</value>
+  </data>
+  <data name="outLength" xml:space="preserve">
+    <value>Długość:</value>
+  </data>
+  <data name="outgpxFileName" xml:space="preserve">
+    <value>Nazwa pliku GPX</value>
+  </data>
+  <data name="outAge" xml:space="preserve">
+    <value>Wiek</value>
+  </data>
+  <data name="article" xml:space="preserve">
+    <value>Artykuł</value>
+  </data>
+</root>
+
