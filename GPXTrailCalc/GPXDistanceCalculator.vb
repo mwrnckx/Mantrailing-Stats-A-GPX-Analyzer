@@ -401,7 +401,7 @@ Public Class GPXDistanceCalculator
 
         Try
             Form1.txtOutput.AppendText(vbNewLine)
-            Form1.txtOutput.AppendText(My.Resources.Resource1.outgpxFileName & vbTab & vbTab & My.Resources.Resource1.X_AxisLabel & vbTab & "   " & My.Resources.Resource1.outLength & "     " & My.Resources.Resource1.outAge)
+            Form1.txtOutput.AppendText(My.Resources.Resource1.outgpxFileName & vbTab & vbTab & My.Resources.Resource1.X_AxisLabel & vbTab & "   " & My.Resources.Resource1.outLength & "    " & My.Resources.Resource1.outAge & " " & My.Resources.Resource1.outSpeed)
             Form1.txtOutput.AppendText(vbNewLine)
             For i = 0 To gpxFiles.Count - 1
                 Dim gpxfilePath As String = gpxFiles(i)
@@ -435,7 +435,16 @@ Public Class GPXDistanceCalculator
                 If fileShortName.Length > 24 Then
                     fileShortName = fileShortName.Substring(0, 24)
                 End If
-                Form1.txtOutput.AppendText(fileShortName & vbTab & layerStart(i).Date.ToShortDateString & "   " & distances(i).ToString("F2") & " km" & "   " & age(i).TotalHours.ToString("F1") & " h" & Environment.NewLine)
+                Form1.txtOutput.AppendText(fileShortName & vbTab & layerStart(i).Date.ToShortDateString & "   " & distances(i).ToString("F2") & " km")
+                If age(i).TotalHours > 0 Then
+                    Form1.txtOutput.AppendText("   " & age(i).TotalHours.ToString("F1") & " h")
+                Else
+                    Form1.txtOutput.AppendText("        ")
+                End If
+                If speed(i) > 0 Then
+                    Form1.txtOutput.AppendText("   " & speed(i).ToString("F1") & " km/h")
+                End If
+                Form1.txtOutput.AppendText(vbCrLf)
             Next i
 
 

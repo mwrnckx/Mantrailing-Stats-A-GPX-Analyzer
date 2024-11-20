@@ -209,6 +209,7 @@
     <None Include="Resources\Icona.bmp" />
     <Content Include="Resources\pl.png" />
     <Content Include="Resources\rusko.png" />
+    <Content Include="Resources\ukrajina.png" />
     <Content Include="track.ico" />
     <Content Include="track2.ico" />
   </ItemGroup>

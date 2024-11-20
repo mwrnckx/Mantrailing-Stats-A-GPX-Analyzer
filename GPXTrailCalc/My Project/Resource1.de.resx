@@ -168,4 +168,7 @@
   <data name="article" xml:space="preserve">
     <value>Artikel</value>
   </data>
+  <data name="outSpeed" xml:space="preserve">
+    <value>Tempo des Hundes</value>
+  </data>
 </root>

@@ -155,6 +155,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Vyhledá lokalizovaný řetězec podobný Dog&apos; s Speed.
+        '''</summary>
+        Friend Shared ReadOnly Property outSpeed() As String
+            Get
+                Return ResourceManager.GetString("outSpeed", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Vyhledá lokalizovaný řetězec podobný Total Length of all trails:   .
         '''</summary>
         Friend Shared ReadOnly Property outTotalLength() As String
