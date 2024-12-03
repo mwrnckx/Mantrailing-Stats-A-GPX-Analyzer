@@ -36,11 +36,6 @@ Public Class GpxReader
 
         Return Node.SelectSingleNode(namespacePrefix & childname, namespaceManager)
 
-        'If namespaceManager.HasNamespace("gpx") Then
-        '    Return Node.SelectSingleNode("//gpx:" & childname, namespaceManager)
-        'Else
-        '    Return Node.SelectSingleNode("//" & childname)
-        'End If
     End Function
 
 
@@ -50,22 +45,12 @@ Public Class GpxReader
 
         Nodes = xmlDoc.SelectNodes("//" & namespacePrefix & nodeName, namespaceManager)
 
-        'If namespaceManager.HasNamespace("gpx") Then
-        '    Nodes = xmlDoc.SelectNodes("//gpx:" & nodeName, namespaceManager)
-        'Else
-        '    Nodes = xmlDoc.SelectNodes("//" & nodeName)
-        'End If
         Return Nodes
     End Function
 
     ' Metoda pro výběr jednoho uzlu na základě názvu
     Public Function SelectSingleNode(nodename As String) As XmlNode
         Return xmlDoc.SelectSingleNode("//" & namespacePrefix & nodename, namespaceManager)
-        'If namespaceManager.HasNamespace("gpx") Then
-        '    Node = xmlDoc.SelectSingleNode("//gpx:" & nodename, namespaceManager)
-        'Else
-        '    Node = xmlDoc.SelectSingleNode("//" & nodename, namespaceManager)
-        'End If
 
     End Function
 
@@ -83,8 +68,18 @@ Public Class GpxReader
         Return xmlDoc.CreateElement(nodename, "http://www.topografix.com/GPX/1/1")
     End Function
 
-    Public Sub Save()
-        xmlDoc.Save(filePath)
+    Public Function CreateElement(parentNode As XmlElement, childNodeName As String, value As String) As XmlElement
+        Dim childNode As XmlElement = Me.CreateElement(childNodeName)
+        childNode.InnerText = value
+        ' Přidání uzlu <childNodeName> do prvního <parentNode>
+        parentNode.AppendChild(childNode)
+
+        Return parentNode
+
+    End Function
+
+    Public Sub Save(save As Boolean)
+        If save Then xmlDoc.Save(filePath)
     End Sub
 End Class
 

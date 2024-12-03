@@ -24,7 +24,7 @@ Partial Class Form1
         Me.txtDirectory = New System.Windows.Forms.TextBox()
         Me.dtpStartDate = New System.Windows.Forms.DateTimePicker()
         Me.dtpEndDate = New System.Windows.Forms.DateTimePicker()
-        Me.btnCalculate = New System.Windows.Forms.Button()
+        Me.btnReadGpxFiles = New System.Windows.Forms.Button()
         Me.lblStartDate = New System.Windows.Forms.Label()
         Me.lblEndDate = New System.Windows.Forms.Label()
         Me.lblDirectory = New System.Windows.Forms.Label()
@@ -44,6 +44,8 @@ Partial Class Form1
         Me.btnRu = New System.Windows.Forms.Button()
         Me.btnPl = New System.Windows.Forms.Button()
         Me.btnUK = New System.Windows.Forms.Button()
+        Me.lblBackupDirectory = New System.Windows.Forms.Label()
+        Me.txtBackupDirectory = New System.Windows.Forms.TextBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -71,12 +73,12 @@ Partial Class Form1
         resources.ApplyResources(Me.dtpEndDate, "dtpEndDate")
         Me.dtpEndDate.Name = "dtpEndDate"
         '
-        'btnCalculate
+        'btnReadGpxFiles
         '
-        Me.btnCalculate.BackColor = System.Drawing.Color.LightCoral
-        resources.ApplyResources(Me.btnCalculate, "btnCalculate")
-        Me.btnCalculate.Name = "btnCalculate"
-        Me.btnCalculate.UseVisualStyleBackColor = False
+        Me.btnReadGpxFiles.BackColor = System.Drawing.Color.LightCoral
+        resources.ApplyResources(Me.btnReadGpxFiles, "btnReadGpxFiles")
+        Me.btnReadGpxFiles.Name = "btnReadGpxFiles"
+        Me.btnReadGpxFiles.UseVisualStyleBackColor = False
         '
         'lblStartDate
         '
@@ -209,10 +211,22 @@ Partial Class Form1
         Me.btnUK.Name = "btnUK"
         Me.btnUK.UseVisualStyleBackColor = True
         '
+        'lblBackupDirectory
+        '
+        resources.ApplyResources(Me.lblBackupDirectory, "lblBackupDirectory")
+        Me.lblBackupDirectory.Name = "lblBackupDirectory"
+        '
+        'txtBackupDirectory
+        '
+        resources.ApplyResources(Me.txtBackupDirectory, "txtBackupDirectory")
+        Me.txtBackupDirectory.Name = "txtBackupDirectory"
+        '
         'Form1
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.txtBackupDirectory)
+        Me.Controls.Add(Me.lblBackupDirectory)
         Me.Controls.Add(Me.btnUK)
         Me.Controls.Add(Me.btnEng)
         Me.Controls.Add(Me.btnPl)
@@ -231,7 +245,7 @@ Partial Class Form1
         Me.Controls.Add(Me.lblDirectory)
         Me.Controls.Add(Me.lblEndDate)
         Me.Controls.Add(Me.lblStartDate)
-        Me.Controls.Add(Me.btnCalculate)
+        Me.Controls.Add(Me.btnReadGpxFiles)
         Me.Controls.Add(Me.dtpEndDate)
         Me.Controls.Add(Me.dtpStartDate)
         Me.Controls.Add(Me.txtDirectory)
@@ -247,7 +261,7 @@ Partial Class Form1
     Friend WithEvents txtDirectory As TextBox
     Friend WithEvents dtpStartDate As DateTimePicker
     Friend WithEvents dtpEndDate As DateTimePicker
-    Friend WithEvents btnCalculate As Button
+    Friend WithEvents btnReadGpxFiles As Button
     Friend WithEvents lblStartDate As Label
     Friend WithEvents lblEndDate As Label
     Friend WithEvents lblDirectory As Label
@@ -269,11 +283,24 @@ Partial Class Form1
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles Me.Load
-        Me.txtDirectory.Text = Application.StartupPath
+
+        If My.Settings.Directory = "" Then
+            txtDirectory.Text = Application.StartupPath
+        Else
+            Me.txtDirectory.Text = My.Settings.Directory '
+        End If
+
+        If My.Settings.BackupDirectory = "" Then
+            txtBackupDirectory.Text = System.IO.Path.Combine(Application.StartupPath, "gpxFlesBackup")
+        Else
+            Me.txtBackupDirectory.Text = My.Settings.BackupDirectory '
+        End If
         gpxCalculator = New GPXDistanceCalculator()
         Me.dtpEndDate.Value = Now
         Me.dtpStartDate.Value = Me.dtpEndDate.Value.AddYears(-1)
     End Sub
+
+
 
     Friend WithEvents btnChartDistances As Button
     Friend WithEvents rbTotDistance As RadioButton
@@ -286,5 +313,7 @@ Partial Class Form1
     Friend WithEvents btnRu As Button
     Friend WithEvents btnPl As Button
     Friend WithEvents btnUK As Button
+    Friend WithEvents lblBackupDirectory As Label
+    Friend WithEvents txtBackupDirectory As TextBox
 End Class
 

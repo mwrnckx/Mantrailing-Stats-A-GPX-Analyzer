@@ -122,7 +122,7 @@
     <value>Segoe UI, 9pt</value>
   </data>
   <data name="btnBrowse.Location" type="System.Drawing.Point, System.Drawing">
-    <value>647, 15</value>
+    <value>692, 15</value>
   </data>
   <data name="btnBrowse.Size" type="System.Drawing.Size, System.Drawing">
     <value>143, 33</value>
@@ -144,13 +144,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnBrowse.ZOrder" xml:space="preserve">
-    <value>22</value>
+    <value>24</value>
   </data>
   <data name="txtDirectory.Location" type="System.Drawing.Point, System.Drawing">
     <value>149, 20</value>
   </data>
   <data name="txtDirectory.Size" type="System.Drawing.Size, System.Drawing">
-    <value>466, 26</value>
+    <value>537, 26</value>
   </data>
   <data name="txtDirectory.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -165,10 +165,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtDirectory.ZOrder" xml:space="preserve">
-    <value>21</value>
+    <value>23</value>
   </data>
   <data name="dtpStartDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>149, 67</value>
+    <value>149, 110</value>
   </data>
   <data name="dtpStartDate.Size" type="System.Drawing.Size, System.Drawing">
     <value>144, 26</value>
@@ -186,10 +186,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;dtpStartDate.ZOrder" xml:space="preserve">
-    <value>20</value>
+    <value>22</value>
   </data>
   <data name="dtpEndDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>149, 105</value>
+    <value>149, 148</value>
   </data>
   <data name="dtpEndDate.Size" type="System.Drawing.Size, System.Drawing">
     <value>144, 26</value>
@@ -207,40 +207,40 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;dtpEndDate.ZOrder" xml:space="preserve">
-    <value>19</value>
+    <value>21</value>
   </data>
-  <data name="btnCalculate.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="btnReadGpxFiles.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 10pt, style=Bold</value>
   </data>
-  <data name="btnCalculate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 171</value>
+  <data name="btnReadGpxFiles.Location" type="System.Drawing.Point, System.Drawing">
+    <value>21, 214</value>
   </data>
-  <data name="btnCalculate.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btnReadGpxFiles.Size" type="System.Drawing.Size, System.Drawing">
     <value>327, 72</value>
   </data>
-  <data name="btnCalculate.TabIndex" type="System.Int32, mscorlib">
+  <data name="btnReadGpxFiles.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="btnCalculate.Text" xml:space="preserve">
+  <data name="btnReadGpxFiles.Text" xml:space="preserve">
     <value>Read data from gpx files</value>
   </data>
-  <data name="&gt;&gt;btnCalculate.Name" xml:space="preserve">
-    <value>btnCalculate</value>
+  <data name="&gt;&gt;btnReadGpxFiles.Name" xml:space="preserve">
+    <value>btnReadGpxFiles</value>
   </data>
-  <data name="&gt;&gt;btnCalculate.Type" xml:space="preserve">
+  <data name="&gt;&gt;btnReadGpxFiles.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btnCalculate.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btnReadGpxFiles.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;btnCalculate.ZOrder" xml:space="preserve">
-    <value>18</value>
+  <data name="&gt;&gt;btnReadGpxFiles.ZOrder" xml:space="preserve">
+    <value>20</value>
   </data>
   <data name="lblStartDate.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Semibold, 9pt, style=Bold</value>
   </data>
   <data name="lblStartDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 67</value>
+    <value>21, 110</value>
   </data>
   <data name="lblStartDate.Size" type="System.Drawing.Size, System.Drawing">
     <value>108, 26</value>
@@ -264,13 +264,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblStartDate.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>19</value>
   </data>
   <data name="lblEndDate.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Semibold, 9pt, style=Bold</value>
   </data>
   <data name="lblEndDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 105</value>
+    <value>21, 148</value>
   </data>
   <data name="lblEndDate.Size" type="System.Drawing.Size, System.Drawing">
     <value>108, 26</value>
@@ -294,7 +294,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblEndDate.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>18</value>
   </data>
   <data name="lblDirectory.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Semibold, 9pt, style=Bold</value>
@@ -324,10 +324,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblDirectory.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>17</value>
   </data>
   <data name="txtOutput.Location" type="System.Drawing.Point, System.Drawing">
-    <value>354, 67</value>
+    <value>354, 110</value>
   </data>
   <data name="txtOutput.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -351,10 +351,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtOutput.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>16</value>
   </data>
   <data name="txtWarnings.Location" type="System.Drawing.Point, System.Drawing">
-    <value>946, 67</value>
+    <value>946, 110</value>
   </data>
   <data name="txtWarnings.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -378,10 +378,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtWarnings.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>15</value>
   </data>
   <data name="chbDateToName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 249</value>
+    <value>26, 292</value>
   </data>
   <data name="chbDateToName.Size" type="System.Drawing.Size, System.Drawing">
     <value>272, 26</value>
@@ -402,13 +402,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;chbDateToName.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>14</value>
   </data>
   <data name="btnOpenDataFile.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 10pt, style=Bold</value>
   </data>
   <data name="btnOpenDataFile.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 281</value>
+    <value>21, 324</value>
   </data>
   <data name="btnOpenDataFile.Size" type="System.Drawing.Size, System.Drawing">
     <value>327, 88</value>
@@ -432,13 +432,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnOpenDataFile.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>13</value>
   </data>
   <data name="btnChartDistances.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 10pt, style=Bold</value>
   </data>
   <data name="btnChartDistances.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 375</value>
+    <value>26, 418</value>
   </data>
   <data name="btnChartDistances.Size" type="System.Drawing.Size, System.Drawing">
     <value>322, 60</value>
@@ -462,13 +462,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnChartDistances.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>12</value>
   </data>
   <data name="rbTotDistance.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="rbTotDistance.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 451</value>
+    <value>26, 494</value>
   </data>
   <data name="rbTotDistance.Size" type="System.Drawing.Size, System.Drawing">
     <value>257, 24</value>
@@ -492,13 +492,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;rbTotDistance.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>11</value>
   </data>
   <data name="rbDistances.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="rbDistances.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 482</value>
+    <value>26, 525</value>
   </data>
   <data name="rbDistances.Size" type="System.Drawing.Size, System.Drawing">
     <value>207, 24</value>
@@ -522,13 +522,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;rbDistances.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>10</value>
   </data>
   <data name="rbAge.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="rbAge.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 513</value>
+    <value>26, 556</value>
   </data>
   <data name="rbAge.Size" type="System.Drawing.Size, System.Drawing">
     <value>118, 24</value>
@@ -552,13 +552,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;rbAge.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>9</value>
   </data>
   <data name="rbSpeed.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="rbSpeed.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 544</value>
+    <value>26, 587</value>
   </data>
   <data name="rbSpeed.Size" type="System.Drawing.Size, System.Drawing">
     <value>258, 24</value>
@@ -582,7 +582,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;rbSpeed.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>8</value>
   </data>
   <data name="btnEng.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -680,7 +680,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnEng.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="btnCS.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -725,7 +725,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnCS.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>7</value>
   </data>
   <data name="PictureBox1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Left</value>
@@ -2114,7 +2114,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;PictureBox1.ZOrder" xml:space="preserve">
-    <value>23</value>
+    <value>25</value>
   </data>
   <data name="btnDe.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2152,12 +2152,12 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnDe.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
   </data>
   <data name="btnRu.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAVCAYAAAAnzezqAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        eAAAAHgB6vJq9gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAABCSURBVEhL7c4x
+        cgAAAHIBsYahGgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAABCSURBVEhL7c4x
         FQAgFEJRkvwCJrCwjcyDBZhhEM65C9MDw2tAAxoA7MMoeTrJ00meTvJ0kqeTPJ3uGiY1oAG/BwwfFb74
         e0cyoEUAAAAASUVORK5CYII=
 </value>
@@ -2193,7 +2193,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnRu.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="btnPl.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2232,12 +2232,12 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnPl.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="btnUK.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAVCAYAAAAnzezqAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        WgAAAFoBBySI6wAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAABISURBVEhL7c4x
+        VAAAAFQBo63EFQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAABISURBVEhL7c4x
         FYBQEMTA9cnDCzLwgg707DeQOtdcMU2qJNfXURhNGE0YTRhNGE0YTRhNGE0YTc97d1L6p5N2YAd2YAeG
         B9IDPPVw2zRJa6MAAAAASUVORK5CYII=
 </value>
@@ -2273,6 +2273,54 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnUK.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="lblBackupDirectory.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblBackupDirectory.Location" type="System.Drawing.Point, System.Drawing">
+    <value>19, 67</value>
+  </data>
+  <data name="lblBackupDirectory.Size" type="System.Drawing.Size, System.Drawing">
+    <value>134, 20</value>
+  </data>
+  <data name="lblBackupDirectory.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
+  <data name="lblBackupDirectory.Text" xml:space="preserve">
+    <value>Backup Directory:</value>
+  </data>
+  <data name="&gt;&gt;lblBackupDirectory.Name" xml:space="preserve">
+    <value>lblBackupDirectory</value>
+  </data>
+  <data name="&gt;&gt;lblBackupDirectory.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblBackupDirectory.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblBackupDirectory.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="txtBackupDirectory.Location" type="System.Drawing.Point, System.Drawing">
+    <value>176, 64</value>
+  </data>
+  <data name="txtBackupDirectory.Size" type="System.Drawing.Size, System.Drawing">
+    <value>690, 26</value>
+  </data>
+  <data name="txtBackupDirectory.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="&gt;&gt;txtBackupDirectory.Name" xml:space="preserve">
+    <value>txtBackupDirectory</value>
+  </data>
+  <data name="&gt;&gt;txtBackupDirectory.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtBackupDirectory.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;txtBackupDirectory.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

@@ -53,6 +53,30 @@ Namespace My
                 Return defaultInstance
             End Get
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("d:\tules\Documents\gpxFilesBackup")>  _
+        Public Property BackupDirectory() As String
+            Get
+                Return CType(Me("BackupDirectory"),String)
+            End Get
+            Set
+                Me("BackupDirectory") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property Directory() As String
+            Get
+                Return CType(Me("Directory"),String)
+            End Get
+            Set
+                Me("Directory") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

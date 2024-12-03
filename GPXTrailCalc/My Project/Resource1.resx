@@ -171,4 +171,13 @@
   <data name="outSpeed" xml:space="preserve">
     <value>Dog' s Speed</value>
   </data>
+  <data name="outAverageDistance" xml:space="preserve">
+    <value>Average length of trails: </value>
+  </data>
+  <data name="outAverageAge" xml:space="preserve">
+    <value>Average age of trails: </value>
+  </data>
+  <data name="outAverageSpeed" xml:space="preserve">
+    <value>Average speed of dog: </value>
+  </data>
 </root>

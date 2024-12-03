@@ -119,6 +119,33 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Vyhledá lokalizovaný řetězec podobný Average age of trails: .
+        '''</summary>
+        Friend Shared ReadOnly Property outAverageAge() As String
+            Get
+                Return ResourceManager.GetString("outAverageAge", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Vyhledá lokalizovaný řetězec podobný Average length of trails: .
+        '''</summary>
+        Friend Shared ReadOnly Property outAverageDistance() As String
+            Get
+                Return ResourceManager.GetString("outAverageDistance", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Vyhledá lokalizovaný řetězec podobný Average speed of dog: .
+        '''</summary>
+        Friend Shared ReadOnly Property outAverageSpeed() As String
+            Get
+                Return ResourceManager.GetString("outAverageSpeed", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Vyhledá lokalizovaný řetězec podobný   to .
         '''</summary>
         Friend Shared ReadOnly Property outDo() As String

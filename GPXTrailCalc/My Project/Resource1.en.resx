@@ -168,4 +168,7 @@
   <data name="article" xml:space="preserve">
     <value>articl</value>
   </data>
+  <data name="outAverageDistance" xml:space="preserve">
+    <value>Average length of trails:</value>
+  </data>
 </root>

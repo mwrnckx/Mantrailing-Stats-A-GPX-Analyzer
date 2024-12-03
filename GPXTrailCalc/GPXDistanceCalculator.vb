@@ -24,6 +24,7 @@ Public Class GPXDistanceCalculator
     Public totalDistances As New List(Of Double)
     Private link As New List(Of String)
     Public speed As New List(Of Double)
+    Private save As Boolean = False
 
 
     Dim totalDistance As Double
@@ -62,15 +63,19 @@ Public Class GPXDistanceCalculator
         Return degrees * PI / 180
     End Function
 
-    ' Function to calculate the distance between two GPS points using the Haversine formula
-    Private Function HaversineDistance(lat1 As Double, lon1 As Double, lat2 As Double, lon2 As Double) As Double
+    ' Function to calculate the distance in km between two GPS points using the Haversine formula
+    Private Function HaversineDistance(lat1 As Double, lon1 As Double, lat2 As Double, lon2 As Double, units As String) As Double
         Dim dLat As Double = DegToRad(lat2 - lat1)
         Dim dLon As Double = DegToRad(lon2 - lon1)
 
         Dim a As Double = Math.Sin(dLat / 2) * Math.Sin(dLat / 2) + Math.Cos(DegToRad(lat1)) * Math.Cos(DegToRad(lat2)) * Math.Sin(dLon / 2) * Math.Sin(dLon / 2)
         Dim c As Double = 2 * Math.Atan2(Math.Sqrt(a), Math.Sqrt(1 - a))
 
-        Return EARTH_RADIUS * c ' Result in kilometers
+        If units = "km" Then
+            Return EARTH_RADIUS * c ' Result in kilometers
+        ElseIf units = "m" Then
+            Return EARTH_RADIUS * c * 1000 'result in metres
+        End If
     End Function
 
     ' Function to read the time from the first <time> node in the GPX file
@@ -104,7 +109,7 @@ Public Class GPXDistanceCalculator
             'pokusí se odečíst datum z názvu souboru a vytvořit uzel <time>
             ' Převedení nalezeného řetězce na DateTime
             layerStart = RecordedDateFromFileName
-            AddTimeNodeToFirstTrkpt(filePath, RecordedDateFromFileName.ToString("yyyy-MM-dd" & "T" & "hh:mm:ss" & "Z"))
+            AddTimeNodeToFirstTrkpt(reader, RecordedDateFromFileName.ToString("yyyy-MM-dd" & "T" & "hh:mm:ss" & "Z"))
             Form1.txtWarnings.AppendText($" <time> node with Date from file name created: {RecordedDateFromFileName.ToString("yyyy-MM-dd")}" & $"in file: {filename}")
 
 
@@ -147,7 +152,9 @@ Public Class GPXDistanceCalculator
                 newDescription = "Trail: " & ageFromTime.TotalHours.ToString("F1") & " hod" & descriptions(i)
             End If
 
-            If Not String.IsNullOrWhiteSpace(newDescription) Then SetDescription(i, newDescription)
+            If Not String.IsNullOrWhiteSpace(newDescription) Then
+                save = SetDescription(i, newDescription)
+            End If
             descriptions(i) = newDescription
         Else
 
@@ -209,31 +216,22 @@ Public Class GPXDistanceCalculator
 
 
 
-    Sub AddTimeNodeToFirstTrkpt(gpxFilePath As String, timeValue As String)
-        Dim xmlDoc As New XmlDocument()
-        xmlDoc.Load(gpxFilePath)
-
-        ' Vytvoření Namespace Manageru pro správnou práci s jmenným prostorem GPX
-        Dim namespaceManager As New XmlNamespaceManager(xmlDoc.NameTable)
-        namespaceManager.AddNamespace("gpx", "http://www.topografix.com/GPX/1/1")
+    Sub AddTimeNodeToFirstTrkpt(gpxReader As GpxReader, timeValue As String)
 
         ' Vyhledání prvního uzlu <trkpt>
-        Dim firstTrkptNode As XmlNode = xmlDoc.SelectSingleNode("//gpx:trkpt", namespaceManager)
+        Dim firstTrkptNode As XmlNode = gpxReader.SelectSingleNode("trkpt")
+        Dim save As Boolean = False
 
         If firstTrkptNode IsNot Nothing Then
-            ' Vytvoření nového uzlu <time>
-            Dim timeNode As XmlElement = xmlDoc.CreateElement("time", "http://www.topografix.com/GPX/1/1")
-            timeNode.InnerText = timeValue
-
-            ' Přidání uzlu <time> do prvního <trkpt>
-            firstTrkptNode.AppendChild(timeNode)
-
-            ' Uložení změn zpět do souboru
-            xmlDoc.Save(gpxFilePath)
+            gpxReader.CreateElement(firstTrkptNode, "time", timeValue)
+            save = True
             Debug.WriteLine("Časový uzel byl úspěšně přidán.")
         Else
             Debug.WriteLine("Uzel <trkpt> nebyl nalezen.")
         End If
+
+        gpxReader.Save(save)
+
     End Sub
     ' Function to read the <link> description from the first <trk> node in the GPX file
     Private Function Getlink(i As Integer)
@@ -265,9 +263,8 @@ Public Class GPXDistanceCalculator
         ' Vyhledání uzlu <trk> v rámci hlavního namespace
         Dim trkNode As XmlNode = gpxReaders(i).SelectSingleNode("trk")
 
-        Dim descNode As XmlNode = gpxReaders(i).SelectSingleChildNode("desc", trkNode) 'trkNode?.SelectSingleNode("desc")
+        Dim descNode As XmlNode = gpxReaders(i).SelectSingleChildNode("desc", trkNode)
 
-        'Dim descNode As XmlNode = xmlDoc.SelectSingleNode("/gpx:gpx/gpx:trk[1]/gpx:desc", namespaceManager)
 
         If descNode IsNot Nothing Then
             Return descNode.InnerText
@@ -281,7 +278,6 @@ Public Class GPXDistanceCalculator
 
 
         ' Find the first <trk> node and its <desc> subnode
-        'Dim descNode As XmlNode = xmlDoc.SelectSingleNode("/gpx:gpx/gpx:trk[1]/gpx:desc", namespaceManager)
         Dim trkNode As XmlNode = gpxReaders(i).SelectSingleNode("trk")
         Dim descNode As XmlNode = gpxReaders(i).SelectSingleChildNode("desc", trkNode)
         ' Pokud uzel <desc> neexistuje, vytvoříme jej a přidáme do <trk>
@@ -350,7 +346,7 @@ Public Class GPXDistanceCalculator
                             ' Calculate the distance between the previous and current point
                             lat2 = lat
                             lon2 = lon
-                            totalLengthOfFirst_trkseg += HaversineDistance(lat1, lon1, lat2, lon2)
+                            totalLengthOfFirst_trkseg += HaversineDistance(lat1, lon1, lat2, lon2, "km")
 
                             ' Move the current point into lat1, lon1 for the next iteration
                             lat1 = lat2
@@ -372,7 +368,7 @@ Public Class GPXDistanceCalculator
         Return totalLengthOfFirst_trkseg ' Result in kilometers
     End Function
 
-    Public Function Calculate(directorypath As String, startDate As DateTime, endDate As DateTime, PrependDatetoFileName As Boolean) As Boolean
+    Public Function ReadAndProcessData(directorypath As String, startDate As DateTime, endDate As DateTime, PrependDatetoFileName As Boolean) As Boolean
         Me.DirectoryPath = directorypath
         dateFrom = startDate
         dateTo = endDate
@@ -403,6 +399,7 @@ Public Class GPXDistanceCalculator
             Form1.txtOutput.AppendText(vbNewLine)
             Form1.txtOutput.AppendText(My.Resources.Resource1.outgpxFileName & vbTab & vbTab & My.Resources.Resource1.X_AxisLabel & vbTab & "   " & My.Resources.Resource1.outLength & "    " & My.Resources.Resource1.outAge & " " & My.Resources.Resource1.outSpeed)
             Form1.txtOutput.AppendText(vbNewLine)
+
             For i = 0 To gpxFiles.Count - 1
                 Dim gpxfilePath As String = gpxFiles(i)
 
@@ -416,6 +413,7 @@ Public Class GPXDistanceCalculator
                 layerStart.Add(GetLayerStart(gpxFiles(i), gpxReaders(i)))
                 SplitTrackIntoTwo(i) 'in gpx files, splits a track with two segments into two separate tracks
                 descriptions.Add(GetDescription(i)) 'musí být první - slouží k výpočtu age
+                CutStartAndEnd(12, gpxReaders(i)) 'ořízne nevýznamné konce a začátky trailů, když se stojí na místě.
                 distances.Add(CalculateFirstSegmentDistance(i))
                 If i = 0 Then totalDistances.Add(distances(i)) Else totalDistances.Add(totalDistances(i - 1) + distances(i))
                 dogStart.Add(GetDogStart(i))
@@ -426,7 +424,7 @@ Public Class GPXDistanceCalculator
                 link.Add(Getlink(i))
                 If Not link(i) Is Nothing Then link(i) = $"=HYPERTEXTOVÝ.ODKAZ(""{link(i)}"")"
 
-                gpxReaders(i).Save() 'hlavně kvůli desc
+                gpxReaders(i).Save(save) 'hlavně kvůli desc
                 'a nakonec
                 SetCreatedModifiedDate(i)
 
@@ -449,12 +447,16 @@ Public Class GPXDistanceCalculator
 
 
             totalDistance = totalDistances(gpxFiles.Count - 1)
+            Dim AgeAsDouble As List(Of Double) = age.Select(Function(ts) ts.TotalMinutes).ToList()
+
 
             Form1.txtOutput.AppendText(vbCrLf & My.Resources.Resource1.outProcessed_period_from & startDate.ToShortDateString & My.Resources.Resource1.outDo & endDate.ToShortDateString &
                 vbCrLf & My.Resources.Resource1.outAll_gpx_files_from_directory & directorypath & vbCrLf &
                 vbCrLf & My.Resources.Resource1.outTotalNumberOfGPXFiles & distances.Count &
-                vbCrLf &
-                vbCrLf & vbCrLf & My.Resources.Resource1.outTotalLength & totalDistance.ToString("F2") & " km" & vbCrLf)
+                vbCrLf & vbCrLf & My.Resources.Resource1.outTotalLength & totalDistance.ToString("F2") & " km" & vbCrLf &
+                My.Resources.Resource1.outAverageDistance & (1000 * AverageOf(distances)).ToString("F0") & " m" & vbCrLf &
+                 My.Resources.Resource1.outAverageAge & AverageOf(AgeAsDouble).ToString("F0") & " min" & vbCrLf &
+                 My.Resources.Resource1.outAverageSpeed & AverageOf(speed).ToString("F2") & " km/h" & vbCrLf)
 
         Catch ex As Exception
             MessageBox.Show(My.Resources.Resource1.mBoxDataRetrievalFailed & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -466,6 +468,19 @@ Public Class GPXDistanceCalculator
 
 
 
+
+    End Function
+
+    Private Function AverageOf(y As List(Of Double)) As Double
+        Dim suma As Double = 0
+        Dim n As Integer = 0
+        For Each number In y
+            If number > 0 Then
+                suma += number
+                n += 1
+            End If
+        Next
+        If n > 0 Then Return suma / n Else Return 0
 
     End Function
 
@@ -481,7 +496,7 @@ Public Class GPXDistanceCalculator
             Dim dogtimeNodes As XmlNodeList = gpxReaders(i).SelectAllChildNodes("time", trksegNodes(1)) '.SelectNodes("gpx:trkpt/gpx:time", namespaceManager)
 
             Dim DogstartTimeNode As XmlNode = dogtimeNodes(0)
-            DateTime.TryParse(DogstartTimeNode.InnerText, dogStart)
+            If Not DogstartTimeNode Is Nothing Then DateTime.TryParse(DogstartTimeNode.InnerText, dogStart)
 
         End If
         Return dogStart
@@ -499,19 +514,49 @@ Public Class GPXDistanceCalculator
             Dim dogtimeNodes As XmlNodeList = gpxReaders(i).SelectAllChildNodes("time", trksegNodes(1)) '.SelectNodes("gpx:trkpt/gpx:time", namespaceManager)
 
             Dim DogFinishTimeNode As XmlNode = dogtimeNodes(dogtimeNodes.Count - 1)
-            DateTime.TryParse(DogFinishTimeNode.InnerText, dogFinish)
+            If Not DogFinishTimeNode Is Nothing Then DateTime.TryParse(DogFinishTimeNode.InnerText, dogFinish)
         End If
         Return dogFinish
 
     End Function
 
-    ' Get a list of all GPX files in the specified directory
-    Public Function GetGpxFiles(directorypath As String) As List(Of String)
+    Private Function BackupGpxFiles(gpxFiles As List(Of String))
+        Dim backupDirectory As String
+        backupDirectory = My.Settings.BackupDirectory
+
+        Try
+            ' Zajisti, že cílový adresář existuje
+            If Not Directory.Exists(backupDirectory) Then
+                Directory.CreateDirectory(backupDirectory)
+            End If
+
+            For Each sourcefilePath In gpxFiles
+                ' Získání názvu souboru z cesty
+                Dim fileName As String = Path.GetFileName(sourcefilePath)
+
+                ' Vytvoření kompletní cílové cesty
+                Dim backupFilePath As String = Path.Combine(backupDirectory, fileName)
+
+                ' Kopírování souboru
+                File.Copy(sourcefilePath, backupFilePath, False) ' True přepíše existující soubor
+                Debug.WriteLine($"Soubor byl úspěšně zálohován do: {backupFilePath}")
+            Next
+        Catch ex As Exception
+            Console.WriteLine($"Chyba při zálohování souboru: {ex.Message}")
+        End Try
+
+
+
+
+    End Function
+
+    ' Get a list of all GPX files in the specified directory and filters them according to the specified condition, i.e. the specified time interval
+    Private Function GetGpxFiles(directorypath As String) As List(Of String)
         Try
 
             ' Načteme všechny GPX soubory
             Dim _gpxFiles As List(Of String) = Directory.GetFiles(directorypath, "*.gpx").ToList()
-
+            BackupGpxFiles(_gpxFiles)
             ' Filtrujeme soubory podle podmínky
             For i As Integer = 0 To _gpxFiles.Count - 1
 
@@ -521,14 +566,17 @@ Public Class GPXDistanceCalculator
                 If _layerStart >= dateFrom And _layerStart <= dateTo Then
                     gpxFiles.Add(_gpxFiles(i))
                     gpxReaders.Add(reader)
-                    'layerStart.Add(_layerStart)
+
                 End If
             Next
 
 
             For i = 0 To gpxFiles.Count - 1
+                'modifies the name to start with the date
+                If Form1.chbDateToName.Checked Then
+                    ChangeFilename(i)
+                End If
 
-                ChangeFilename(i)
             Next i
 
 
@@ -610,48 +658,18 @@ Public Class GPXDistanceCalculator
                 End If
 
                 ' Výstup formátu data ve tvaru YYYY-MM-DD
-                Console.WriteLine("Převedené datum: " & dateTimeFromFileName.ToString("yyyy-MM-dd"))
+                ' Debug.writeline("Převedené datum: " & dateTimeFromFileName.ToString("yyyy-MM-dd"))
                 ' Odstranění původního datového vzoru z řetězce
                 Dim modifiedFileName As String = myRegex.Replace(fileName, "")
 
                 ' Přidání přeformátovaného data na začátek modifikovaného řetězce
                 newFileName = $"{dateTimeFromFileName.ToString("yyyy-MM-dd")}{modifiedFileName}"
-                Console.WriteLine("Přeformátované file name: " & newFileName)
+                '  Debug.writeline("Přeformátované file name: " & newFileName)
 
                 If Not String.IsNullOrWhiteSpace(newFileName) AndAlso Not newFileName.TrimEnd = fileName.TrimEnd Then
 
                     newFilePath = Path.Combine(DirectoryPath, newFileName & ".gpx")
-                    If Form1.chbDateToName.Checked Then
-                        If File.Exists(newFilePath) Then
-                            ' Handle existing files
-                            Dim userInput As String = InputBox($"File {newFileName} already exists. Enter a new name:", newFileName)
-                            If Not String.IsNullOrWhiteSpace(userInput) Then
-                                newFilePath = Path.Combine(DirectoryPath, userInput & fileExtension)
-                                File.Move(gpxFiles(i), newFilePath)
-                                Form1.txtWarnings.AppendText($"Renamed file: {Path.GetFileName(gpxFiles(i))} to {Path.GetFileName(newFilePath)}.{Environment.NewLine}")
-                                Console.WriteLine($"Renamed file: {Path.GetFileName(gpxFiles(i))} to {Path.GetFileName(newFilePath)}.{Environment.NewLine}")
 
-                            Else
-                                Form1.txtWarnings.AppendText($"New name for {newFilePath} was not provided.{Environment.NewLine}")
-
-                            End If
-
-                        Else
-                            File.Move(gpxFiles(i), newFilePath)
-                            gpxFiles(i) = newFilePath
-                            Console.WriteLine($"Renamed file: {Path.GetFileName(gpxFiles(i))} to {Path.GetFileName(newFilePath)}.{Environment.NewLine}")
-                            Form1.txtWarnings.AppendText($"Renamed file: {Path.GetFileName(gpxFiles(i))} to {Path.GetFileName(newFilePath)}.{Environment.NewLine}")
-                        End If
-
-                        gpxFiles(i) = newFilePath
-                    End If
-                End If
-
-            Else
-                Console.WriteLine("Žádné datum v požadovaném formátu nebylo nalezeno.")
-                newFileName = $"{_layerStart.Date.ToString("yyyy-MM-dd")}{fileName}{fileExtension}"
-                newFilePath = Path.Combine(DirectoryPath, newFileName)
-                If Form1.chbDateToName.Checked Then
                     If File.Exists(newFilePath) Then
                         ' Handle existing files
                         Dim userInput As String = InputBox($"File {newFileName} already exists. Enter a new name:", newFileName)
@@ -659,7 +677,7 @@ Public Class GPXDistanceCalculator
                             newFilePath = Path.Combine(DirectoryPath, userInput & fileExtension)
                             File.Move(gpxFiles(i), newFilePath)
                             Form1.txtWarnings.AppendText($"Renamed file: {Path.GetFileName(gpxFiles(i))} to {Path.GetFileName(newFilePath)}.{Environment.NewLine}")
-                            Console.WriteLine($"Renamed file: {Path.GetFileName(gpxFiles(i))} to {Path.GetFileName(newFilePath)}.{Environment.NewLine}")
+                            Debug.WriteLine($"Renamed file: {Path.GetFileName(gpxFiles(i))} to {Path.GetFileName(newFilePath)}.{Environment.NewLine}")
 
                         Else
                             Form1.txtWarnings.AppendText($"New name for {newFilePath} was not provided.{Environment.NewLine}")
@@ -669,15 +687,44 @@ Public Class GPXDistanceCalculator
                     Else
                         File.Move(gpxFiles(i), newFilePath)
                         gpxFiles(i) = newFilePath
-                        Console.WriteLine($"Renamed file: {Path.GetFileName(gpxFiles(i))} to {Path.GetFileName(newFilePath)}.{Environment.NewLine}")
+                        Debug.WriteLine($"Renamed file: {Path.GetFileName(gpxFiles(i))} to {Path.GetFileName(newFilePath)}.{Environment.NewLine}")
                         Form1.txtWarnings.AppendText($"Renamed file: {Path.GetFileName(gpxFiles(i))} to {Path.GetFileName(newFilePath)}.{Environment.NewLine}")
                     End If
 
+                    gpxFiles(i) = newFilePath
                 End If
+
+
+            Else
+                Debug.WriteLine("Žádné datum v požadovaném formátu nebylo nalezeno.")
+                newFileName = $"{_layerStart.Date.ToString("yyyy-MM-dd")}{fileName}{fileExtension}"
+                newFilePath = Path.Combine(DirectoryPath, newFileName)
+
+                If File.Exists(newFilePath) Then
+                    ' Handle existing files
+                    Dim userInput As String = InputBox($"File {newFileName} already exists. Enter a new name:", newFileName)
+                    If Not String.IsNullOrWhiteSpace(userInput) Then
+                        newFilePath = Path.Combine(DirectoryPath, userInput & fileExtension)
+                        File.Move(gpxFiles(i), newFilePath)
+                        Form1.txtWarnings.AppendText($"Renamed file: {Path.GetFileName(gpxFiles(i))} to {Path.GetFileName(newFilePath)}.{Environment.NewLine}")
+                        Debug.WriteLine($"Renamed file: {Path.GetFileName(gpxFiles(i))} to {Path.GetFileName(newFilePath)}.{Environment.NewLine}")
+
+                    Else
+                        Form1.txtWarnings.AppendText($"New name for {newFilePath} was not provided.{Environment.NewLine}")
+
+                    End If
+
+                Else
+                    File.Move(gpxFiles(i), newFilePath)
+                    gpxFiles(i) = newFilePath
+                    Debug.WriteLine($"Renamed file: {Path.GetFileName(gpxFiles(i))} to {Path.GetFileName(newFilePath)}.{Environment.NewLine}")
+                    Form1.txtWarnings.AppendText($"Renamed file: {Path.GetFileName(gpxFiles(i))} to {Path.GetFileName(newFilePath)}.{Environment.NewLine}")
+                End If
+
             End If
 
         Catch ex As Exception
-            Console.WriteLine(ex.ToString)
+            Debug.WriteLine(ex.ToString)
         End Try
 
 
@@ -788,7 +835,7 @@ Public Class GPXDistanceCalculator
 
                 ' Přidej nový <trk> do dokumentu hned po prvním
                 trkNode.ParentNode.InsertAfter(newTrkNode, trkNode)
-                gpxReaders(i).Save()
+                gpxReaders(i).Save(True)
                 Form1.txtWarnings.AppendText($"Track in file {gpxFiles(i)} was successfully split.")
             End If
         End If
@@ -814,7 +861,211 @@ Public Class GPXDistanceCalculator
                 nameNode.InnerText = newname
             End If
         Next
+
     End Sub
+
+    Sub CutStartAndEndOld(minDistance As Integer, gpxReader As GpxReader)
+        'clip the start and end of both <trk>, i.e., the layer and the dog, which was recorded after (or before) the end of the trail. Useful when the GPS doesn't turn off right away.
+        ' Získání všech uzlů <trk>
+        Dim trackNodes = gpxReader.SelectNodes("trk")
+
+        For Each trkNode As XmlNode In trackNodes
+            ' Získání všech <trkseg> uvnitř <trk>
+            Dim trackSegments = gpxReader.SelectChildNodes("trkseg", trkNode)
+
+            For Each trksegNode As XmlNode In trackSegments
+                ' Získání všech <trkpt> uvnitř <trkseg>
+                Dim trackPoints = gpxReader.SelectChildNodes("trkpt", trksegNode)
+
+                ' Převod XmlNodeList na seznam pro snadnou manipulaci
+                Dim points = trackPoints.Cast(Of XmlNode).ToList()
+
+                ' Ořezávání bodů od začátku
+                If points.Count > 10 Then
+                    Dim firstPoint = points.First
+                    Dim count As Integer = 1
+                    Dim distance As Double
+                    Do While count < points.Count - 10
+                        Dim referencePoint = points(count) ' 
+
+                        ' Získání souřadnic
+                        Dim lastLat = Double.Parse(firstPoint.Attributes("lat").Value, CultureInfo.InvariantCulture)
+                        Dim lastLon = Double.Parse(firstPoint.Attributes("lon").Value, CultureInfo.InvariantCulture)
+                        Dim refLat = Double.Parse(referencePoint.Attributes("lat").Value, CultureInfo.InvariantCulture)
+                        Dim refLon = Double.Parse(referencePoint.Attributes("lon").Value, CultureInfo.InvariantCulture)
+
+                        ' Výpočet vzdálenosti
+                        distance = HaversineDistance(lastLat, lastLon, refLat, refLon, "m")
+
+                        If distance > minDistance Then Exit Do
+
+                        count += 1
+                    Loop
+
+                    'odeber všechny body, které jsou ve vzdálenosti menší než minDistance od prvního
+                    If count > 10 Then
+                        For i = 0 To count - 1
+                            firstPoint = points.First
+                            trksegNode.RemoveChild(firstPoint)
+                            points.RemoveAt(0)
+                        Next
+                    End If
+                End If
+
+                If points.Count > 10 Then
+                    Dim lastPoint = points.Last
+                    Dim count As Integer = 1
+                    Dim distance As Double
+                    Do
+                        ' Ořezávání bodů od konce
+
+                        Dim referencePoint = points(points.Count - count)
+
+                        ' Získání souřadnic
+                        Dim lastLat = Double.Parse(lastPoint.Attributes("lat").Value, CultureInfo.InvariantCulture)
+                        Dim lastLon = Double.Parse(lastPoint.Attributes("lon").Value, CultureInfo.InvariantCulture)
+                        Dim refLat = Double.Parse(referencePoint.Attributes("lat").Value, CultureInfo.InvariantCulture)
+                        Dim refLon = Double.Parse(referencePoint.Attributes("lon").Value, CultureInfo.InvariantCulture)
+
+                        ' Výpočet vzdálenosti
+                        distance = HaversineDistance(lastLat, lastLon, refLat, refLon, "m")
+                        If distance > minDistance Then Exit Do
+
+                        count += 1
+
+                    Loop
+                    ' Pokud je vzdálenost menší než minDistance, odeber poslední bod
+                    If count > 10 Then
+                        For i = 0 To count - 1
+                            lastPoint = points.Last
+                            trksegNode.RemoveChild(lastPoint)
+                            points.RemoveAt(points.Count - 1)
+                        Next
+                    End If
+
+
+
+                End If
+
+            Next
+        Next
+
+        ' Uložení upraveného souboru
+        gpxReader.Save(True)
+        Debug.WriteLine("Hotovo! Upravený GPX uložen.")
+    End Sub
+
+    Sub CutStartAndEnd(minDistance As Integer, gpxReader As GpxReader)
+        'clip the start and end of both <trk>, i.e., the layer and the dog, which was recorded after (or before) the end of the trail. Useful when the GPS doesn't turn off right away.
+        ' Získání všech uzlů <trk>
+        Dim trackNodes = gpxReader.SelectNodes("trk")
+
+        For Each trkNode As XmlNode In trackNodes
+            ' Získání všech <trkseg> uvnitř <trk>
+            Dim trackSegments = gpxReader.SelectChildNodes("trkseg", trkNode)
+
+            For Each trksegNode As XmlNode In trackSegments
+                ' Získání všech <trkpt> uvnitř <trkseg>
+                Dim trackPoints = gpxReader.SelectChildNodes("trkpt", trksegNode)
+
+                ' Převod XmlNodeList na seznam pro snadnou manipulaci
+                Dim points = trackPoints.Cast(Of XmlNode).ToList()
+
+                Dim startCluster = Cluster(points, gpxReader, minDistance)
+
+                ' Odeber body z clusteru
+                If startCluster.Count > 5 Then
+                    For i = 0 To startCluster.Count - 2 'poslední ponechá, neb je nahrazen centroidem
+                        Dim point = startCluster.Item(i)
+                        trksegNode.RemoveChild(point)
+                        points.Remove(point)
+                    Next
+                    gpxReader.Save(True)
+                End If
+
+                Dim reversedPoints = points.AsEnumerable().Reverse().ToList()
+
+                Dim endCluster = Cluster(reversedPoints, gpxReader, minDistance)
+
+                ' Odeber body z endCluster
+                If endCluster.Count > 5 Then
+                    For i = 0 To endCluster.Count - 2 ' poslední ponecháme
+                        Dim point = endCluster.Item(i)
+                        trksegNode.RemoveChild(point)
+                    Next
+                    gpxReader.Save(True)
+                End If
+            Next
+        Next
+
+
+    End Sub
+
+    Private Function Cluster(points As List(Of XmlNode), gpxReader As GpxReader, minDistance As Double) As List(Of XmlNode)
+        Dim cluster_ As New List(Of XmlNode)
+        Dim centroidLat, centroidLon As Double
+
+        Dim isCluster As Boolean = True
+
+        For i As Integer = 0 To points.Count - 1
+            Dim lat = Double.Parse(points(i).Attributes("lat").Value, CultureInfo.InvariantCulture)
+            Dim lon = Double.Parse(points(i).Attributes("lon").Value, CultureInfo.InvariantCulture)
+
+
+            If cluster_.Count = 0 Then
+                ' Inicializace clusteru
+                cluster_.Add(points(i))
+                centroidLat = lat
+                centroidLon = lon
+
+                Continue For
+            End If
+            ' Výpočet vzdálenosti od centroidu
+            Dim currentDistance = HaversineDistance(centroidLat, centroidLon, lat, lon, "m")
+            Debug.WriteLine($"   {i}  {centroidLat} {centroidLon} {lat} {lon} {currentDistance}")
+
+            ' Rozhodnutí o ukončení clusteru 
+
+            If currentDistance > minDistance Then ' Pokud je vzdálenost větší ukonči cluster
+                isCluster = False
+            End If
+
+            If Not isCluster Then
+                'poslední bod v clusteru je nahrazen centroidem
+                If cluster_.Count > 5 Then
+                    'Poslední point v klastru se nahradí centroidem,
+                    'přitom uzel time zůstává beze změny - tím se zpřesní
+                    'výpočet stáří a rychlosti psa
+                    cluster_.Last.Attributes("lat").Value = centroidLat.ToString("G", NumberFormatInfo.InvariantInfo)
+                    cluster_.Last.Attributes("lon").Value = centroidLon.ToString("G", NumberFormatInfo.InvariantInfo)
+                End If
+
+                Exit For
+            End If
+
+            cluster_.Add(points(i))
+
+
+            ' Aktualizace centroidu
+            centroidLat = Math.Round((centroidLat * cluster_.Count + lat) / (cluster_.Count + 1), 8)
+            centroidLon = Math.Round((centroidLon * cluster_.Count + lon) / (cluster_.Count + 1), 8)
+
+
+        Next
+        Return cluster_
+    End Function
+
+    ' Výpočet směru pohybu mezi dvěma body
+    Function HaversineDirection(lat1 As Double, lon1 As Double, lat2 As Double, lon2 As Double) As Double
+        Dim dLon = (lon2 - lon1) * Math.PI / 180.0
+        Dim y = Math.Sin(dLon) * Math.Cos(lat2 * Math.PI / 180.0)
+        Dim x = Math.Cos(lat1 * Math.PI / 180.0) * Math.Sin(lat2 * Math.PI / 180.0) -
+            Math.Sin(lat1 * Math.PI / 180.0) * Math.Cos(lat2 * Math.PI / 180.0) * Math.Cos(dLon)
+        Dim bearing = Math.Atan2(y, x) * 180.0 / Math.PI
+        Return (bearing + 360) Mod 360 ' Úhel v rozsahu 0–360°
+    End Function
+
+
 
 End Class
 

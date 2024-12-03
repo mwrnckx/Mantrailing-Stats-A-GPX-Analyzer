@@ -120,7 +120,7 @@
   <data name="btnBrowse.Text" xml:space="preserve">
     <value>Durchsuchen...</value>
   </data>
-  <data name="btnCalculate.Text" xml:space="preserve">
+  <data name="btnReadGpxFiles.Text" xml:space="preserve">
     <value>Daten aus gpx-Dateien lesen</value>
   </data>
   <data name="lblStartDate.Text" xml:space="preserve">
@@ -134,10 +134,6 @@
   </data>
   <data name="chbDateToName.Text" xml:space="preserve">
     <value>Hinzufügen eines Datums am Anfang von Dateinamen</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnOpenDataFile.Size" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
   </data>
   <data name="btnOpenDataFile.Text" xml:space="preserve">
     <value>Erstellen und Öffnen einer CSV-Datei</value>
@@ -170,11 +166,10 @@
   <data name="rbSpeed.Text" xml:space="preserve">
     <value>Geschwindigkeit des Hundes auf den Strecken</value>
   </data>
-
-  
   <data name="$this.Text" xml:space="preserve">
     <value>Mantrailing: Statistik und Analyse von GPX-Dateien</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btnBrowse.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -211,5 +206,7 @@
   <data name="rbSpeed.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
- 
+  <data name="lblBackupDirectory.Text" xml:space="preserve">
+    <value>Backup Directory:</value>
+  </data>
 </root>

@@ -171,4 +171,13 @@
   <data name="outSpeed" xml:space="preserve">
     <value>Скорость собаки</value>
   </data>
+  <data name="outAverageDistance" xml:space="preserve">
+    <value>Средняя длина маршрутов:</value>
+  </data>
+  <data name="outAverageAge" xml:space="preserve">
+    <value>Средний возраст троп</value>
+  </data>
+  <data name="outAverageSpeed" xml:space="preserve">
+    <value>Средняя скорость собаки:</value>
+  </data>
 </root>

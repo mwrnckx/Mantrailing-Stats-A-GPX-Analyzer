@@ -171,4 +171,13 @@
   <data name="outSpeed" xml:space="preserve">
     <value>Rychlost psa</value>
   </data>
+  <data name="outAverageDistance" xml:space="preserve">
+    <value>Průměrná délka trailů: </value>
+  </data>
+  <data name="outAverageAge" xml:space="preserve">
+    <value>Průměrné stáří trailů: </value>
+  </data>
+  <data name="outAverageSpeed" xml:space="preserve">
+    <value>Průměrná rychlost psa: </value>
+  </data>
 </root>

@@ -6,5 +6,8 @@
     ' StartupNextInstance: Volá se při spuštění aplikace s jednou instancí, pokud už je aplikace aktivní. 
     ' NetworkAvailabilityChanged: Volá se při připojení k síti nebo odpojení od sítě.
     Partial Friend Class MyApplication
+        Protected Overrides Sub Finalize()
+            MyBase.Finalize()
+        End Sub
     End Class
 End Namespace

@@ -11,10 +11,10 @@ Public Class Form1
     Private gpxCalculator As GPXDistanceCalculator
     Private currentCulture As CultureInfo = Thread.CurrentThread.CurrentCulture
 
-    Private Sub btnCalculate_Click(sender As Object, e As EventArgs) Handles btnCalculate.Click
+    Private Sub btnReadGpxFiles_Click(sender As Object, e As EventArgs) Handles btnReadGpxFiles.Click
         Try
             'send directoryPath to gpxCalculator
-            If gpxCalculator.Calculate(directoryPath, dtpStartDate.Value, dtpEndDate.Value, chbDateToName.Checked) Then
+            If gpxCalculator.ReadAndProcessData(directoryPath, dtpStartDate.Value, dtpEndDate.Value, chbDateToName.Checked) Then
 
 
                 Me.btnChartDistances.Visible = True
@@ -41,6 +41,7 @@ Public Class Form1
     End Sub
 
     Private Sub txtDirectory_TextChanged(sender As Object, e As EventArgs) Handles txtDirectory.TextChanged
+        My.Settings.Directory = Me.txtDirectory.Text
         directoryPath = txtDirectory.Text
     End Sub
 
@@ -158,5 +159,13 @@ Public Class Form1
     Private Sub btnUK_Click(sender As Object, e As EventArgs) Handles btnUK.Click
         ChangeLanguage("uk")
     End Sub
+
+
+
+    Private Sub txtBackupDirectory_textChanged(sender As Object, e As EventArgs) Handles txtBackupDirectory.TextChanged
+        My.Settings.BackupDirectory = Me.txtBackupDirectory.Text
+    End Sub
+
+
 End Class
 

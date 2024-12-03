@@ -171,4 +171,13 @@
   <data name="outSpeed" xml:space="preserve">
     <value>Tempo des Hundes</value>
   </data>
+  <data name="outAverageDistance" xml:space="preserve">
+    <value>Durchschnittliche Länge der Wanderwege:</value>
+  </data>
+  <data name="outAverageAge" xml:space="preserve">
+    <value>Durchschnittliches Alter der Wanderwege</value>
+  </data>
+  <data name="outAverageSpeed" xml:space="preserve">
+    <value>Durchschnittliche Geschwindigkeit eines Hundes:</value>
+  </data>
 </root>
