@@ -148,7 +148,7 @@
     <value>  to </value>
   </data>
   <data name="outAll_gpx_files_from_directory" xml:space="preserve">
-    <value>Processes all gpx files from the directory:</value>
+    <value>Processed all gpx files from the directory:</value>
   </data>
   <data name="outTotalNumberOfGPXFiles" xml:space="preserve">
     <value>Total number of processed GPX files, i.e. trails: </value>
@@ -179,5 +179,8 @@
   </data>
   <data name="outAverageSpeed" xml:space="preserve">
     <value>Average speed of dog: </value>
+  </data>
+  <data name="logBackupOfFiles" xml:space="preserve">
+    <value>The gpx files were successfully backed up to the directory:</value>
   </data>
 </root>

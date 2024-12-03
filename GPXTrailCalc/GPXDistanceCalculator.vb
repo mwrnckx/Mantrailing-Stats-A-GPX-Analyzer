@@ -7,6 +7,7 @@ Imports System.Collections.Generic
 Imports System.Runtime.InteropServices.ComTypes
 Imports System.DirectoryServices.ActiveDirectory
 Imports System.Diagnostics.Eventing
+Imports GPXTrailAnalyzer.My.Resources
 
 Public Class GPXDistanceCalculator
 
@@ -529,20 +530,32 @@ Public Class GPXDistanceCalculator
             If Not Directory.Exists(backupDirectory) Then
                 Directory.CreateDirectory(backupDirectory)
             End If
-
+            Dim backupFilePath As String
             For Each sourcefilePath In gpxFiles
                 ' Získání názvu souboru z cesty
                 Dim fileName As String = Path.GetFileName(sourcefilePath)
 
                 ' Vytvoření kompletní cílové cesty
-                Dim backupFilePath As String = Path.Combine(backupDirectory, fileName)
+                backupFilePath = Path.Combine(backupDirectory, fileName)
 
-                ' Kopírování souboru
-                File.Copy(sourcefilePath, backupFilePath, False) ' True přepíše existující soubor
-                Debug.WriteLine($"Soubor byl úspěšně zálohován do: {backupFilePath}")
+                If Not File.Exists(backupFilePath) Then
+                    ' Kopírování souboru
+                    Try
+                        File.Copy(sourcefilePath, backupFilePath, False)
+                    Catch ex As Exception
+                        ' Zpracování jakýchkoli neočekávaných chyb
+                        Debug.WriteLine($"Chyba při kopírování souboru {fileName}: {ex.Message}")
+                    End Try
+                Else
+                    ' Soubor již existuje, přeskočíme
+                    Debug.WriteLine($"Soubor {fileName} již existuje, přeskočeno.")
+                End If
+
             Next
+            Debug.WriteLine($"Soubory gpx byly úspěšně zálohovány do: {backupDirectory }")
+            Form1.txtWarnings.AppendText($"{Resource1.logBackupOfFiles}   {backupDirectory }")
         Catch ex As Exception
-            Console.WriteLine($"Chyba při zálohování souboru: {ex.Message}")
+            Debug.WriteLine($"Chyba při zálohování souborů: {ex.Message}")
         End Try
 
 

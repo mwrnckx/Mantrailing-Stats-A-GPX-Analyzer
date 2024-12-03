@@ -180,4 +180,7 @@
   <data name="outAverageSpeed" xml:space="preserve">
     <value>Durchschnittliche Geschwindigkeit eines Hundes:</value>
   </data>
+  <data name="logBackupOfFiles" xml:space="preserve">
+    <value>Die gpx-Dateien wurden erfolgreich in dem Verzeichnis gesichert:</value>
+  </data>
 </root>

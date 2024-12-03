@@ -3,10 +3,13 @@
   <Profiles />
   <Settings>
     <Setting Name="BackupDirectory" Type="System.String" Scope="User">
-      <Value Profile="(Default)">d:\tules\Documents\gpxFilesBackup</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="Directory" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="PrependDateToName" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
 </SettingsFile>

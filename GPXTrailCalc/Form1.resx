@@ -122,7 +122,7 @@
     <value>Segoe UI, 9pt</value>
   </data>
   <data name="btnBrowse.Location" type="System.Drawing.Point, System.Drawing">
-    <value>692, 15</value>
+    <value>697, 15</value>
   </data>
   <data name="btnBrowse.Size" type="System.Drawing.Size, System.Drawing">
     <value>143, 33</value>
@@ -2157,7 +2157,7 @@
   <data name="btnRu.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAVCAYAAAAnzezqAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        cgAAAHIBsYahGgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAABCSURBVEhL7c4x
+        cAAAAHABznhikwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAABCSURBVEhL7c4x
         FQAgFEJRkvwCJrCwjcyDBZhhEM65C9MDw2tAAxoA7MMoeTrJ00meTvJ0kqeTPJ3uGiY1oAG/BwwfFb74
         e0cyoEUAAAAASUVORK5CYII=
 </value>
@@ -2303,7 +2303,7 @@
     <value>1</value>
   </data>
   <data name="txtBackupDirectory.Location" type="System.Drawing.Point, System.Drawing">
-    <value>176, 64</value>
+    <value>225, 64</value>
   </data>
   <data name="txtBackupDirectory.Size" type="System.Drawing.Size, System.Drawing">
     <value>690, 26</value>

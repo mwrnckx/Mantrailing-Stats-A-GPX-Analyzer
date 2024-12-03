@@ -166,6 +166,8 @@ Public Class Form1
         My.Settings.BackupDirectory = Me.txtBackupDirectory.Text
     End Sub
 
-
+    Private Sub chbDateToName_CheckedChanged(sender As Object, e As EventArgs) Handles chbDateToName.CheckedChanged
+        My.Settings.PrependDateToName = chbDateToName.Checked
+    End Sub
 End Class
 

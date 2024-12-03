@@ -74,6 +74,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Vyhledá lokalizovaný řetězec podobný The gpx files were successfully backed up to the directory:.
+        '''</summary>
+        Friend Shared ReadOnly Property logBackupOfFiles() As String
+            Get
+                Return ResourceManager.GetString("logBackupOfFiles", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Vyhledá lokalizovaný řetězec podobný Data Retrieval Failed.
         '''</summary>
         Friend Shared ReadOnly Property mBoxDataRetrievalFailed() As String
@@ -110,7 +119,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Vyhledá lokalizovaný řetězec podobný Processes all gpx files from the directory:.
+        '''  Vyhledá lokalizovaný řetězec podobný Processed all gpx files from the directory:.
         '''</summary>
         Friend Shared ReadOnly Property outAll_gpx_files_from_directory() As String
             Get

@@ -180,4 +180,7 @@
   <data name="outAverageSpeed" xml:space="preserve">
     <value>Průměrná rychlost psa: </value>
   </data>
+  <data name="logBackupOfFiles" xml:space="preserve">
+    <value>Soubory gpx byly úspěšně zálohovány do: </value>
+  </data>
 </root>

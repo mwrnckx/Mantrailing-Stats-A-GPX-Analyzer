@@ -107,8 +107,9 @@ Partial Class Form1
         '
         'chbDateToName
         '
-        Me.chbDateToName.Checked = True
-        Me.chbDateToName.CheckState = System.Windows.Forms.CheckState.Checked
+        'Me.chbDateToName.Checked = True
+        Me.chbDateToName.ThreeState = False
+        'Me.chbDateToName.CheckState = System.Windows.Forms.CheckState.Checked
         resources.ApplyResources(Me.chbDateToName, "chbDateToName")
         Me.chbDateToName.Name = "chbDateToName"
         Me.chbDateToName.UseVisualStyleBackColor = True
@@ -284,6 +285,8 @@ Partial Class Form1
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles Me.Load
 
+        chbDateToName.Checked = My.Settings.PrependDateToName
+
         If My.Settings.Directory = "" Then
             txtDirectory.Text = Application.StartupPath
         Else
@@ -291,7 +294,7 @@ Partial Class Form1
         End If
 
         If My.Settings.BackupDirectory = "" Then
-            txtBackupDirectory.Text = System.IO.Path.Combine(Application.StartupPath, "gpxFlesBackup")
+            txtBackupDirectory.Text = System.IO.Path.Combine(Application.StartupPath, "gpxFilesBackup")
         Else
             Me.txtBackupDirectory.Text = My.Settings.BackupDirectory '
         End If

@@ -305,9 +305,6 @@
   <data name="btnChartDistances.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 10pt, style=Bold</value>
   </data>
-  <data name="btnChartDistances.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 375</value>
-  </data>
   <data name="btnChartDistances.Size" type="System.Drawing.Size, System.Drawing">
     <value>322, 60</value>
   </data>
