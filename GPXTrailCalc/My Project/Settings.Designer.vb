@@ -77,16 +77,16 @@ Namespace My
                 Me("Directory") = value
             End Set
         End Property
-
-        <Global.System.Configuration.UserScopedSettingAttribute(),
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.Configuration.DefaultSettingValueAttribute("False")>
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
         Public Property PrependDateToName() As Boolean
             Get
-                Return CType(Me("PrependDateToName"), Boolean)
+                Return CType(Me("PrependDateToName"),Boolean)
             End Get
             Set
-                Me("PrependDateToName") = Value
+                Me("PrependDateToName") = value
             End Set
         End Property
     End Class

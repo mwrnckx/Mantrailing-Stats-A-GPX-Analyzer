@@ -19,6 +19,7 @@ Partial Class Form1
     ' Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.btnBrowse = New System.Windows.Forms.Button()
         Me.txtDirectory = New System.Windows.Forms.TextBox()
@@ -46,31 +47,38 @@ Partial Class Form1
         Me.btnUK = New System.Windows.Forms.Button()
         Me.lblBackupDirectory = New System.Windows.Forms.Label()
         Me.txtBackupDirectory = New System.Windows.Forms.TextBox()
+        Me.btnBrowseBackup = New System.Windows.Forms.Button()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnBrowse
         '
-        Me.btnBrowse.BackColor = System.Drawing.Color.LightGreen
+        Me.btnBrowse.BackColor = System.Drawing.Color.FromArgb(CType(CType(172, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(158, Byte), Integer))
         resources.ApplyResources(Me.btnBrowse, "btnBrowse")
         Me.btnBrowse.Name = "btnBrowse"
         Me.btnBrowse.UseVisualStyleBackColor = False
         '
         'txtDirectory
         '
+        Me.txtDirectory.BackColor = System.Drawing.Color.FromArgb(CType(CType(172, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(158, Byte), Integer))
+        Me.txtDirectory.BorderStyle = System.Windows.Forms.BorderStyle.None
         resources.ApplyResources(Me.txtDirectory, "txtDirectory")
         Me.txtDirectory.Name = "txtDirectory"
+        Me.ToolTip1.SetToolTip(Me.txtDirectory, resources.GetString("txtDirectory.ToolTip"))
         '
         'dtpStartDate
         '
-        Me.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         resources.ApplyResources(Me.dtpStartDate, "dtpStartDate")
+        Me.dtpStartDate.CalendarMonthBackground = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpStartDate.Name = "dtpStartDate"
         '
         'dtpEndDate
         '
-        Me.dtpEndDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         resources.ApplyResources(Me.dtpEndDate, "dtpEndDate")
+        Me.dtpEndDate.CalendarMonthBackground = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.dtpEndDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpEndDate.Name = "dtpEndDate"
         '
         'btnReadGpxFiles
@@ -82,34 +90,36 @@ Partial Class Form1
         '
         'lblStartDate
         '
+        Me.lblStartDate.BackColor = System.Drawing.Color.FromArgb(CType(CType(172, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(158, Byte), Integer))
         resources.ApplyResources(Me.lblStartDate, "lblStartDate")
         Me.lblStartDate.Name = "lblStartDate"
         '
         'lblEndDate
         '
+        Me.lblEndDate.BackColor = System.Drawing.Color.FromArgb(CType(CType(172, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(158, Byte), Integer))
         resources.ApplyResources(Me.lblEndDate, "lblEndDate")
         Me.lblEndDate.Name = "lblEndDate"
         '
         'lblDirectory
         '
+        Me.lblDirectory.BackColor = System.Drawing.Color.FromArgb(CType(CType(172, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(158, Byte), Integer))
         resources.ApplyResources(Me.lblDirectory, "lblDirectory")
         Me.lblDirectory.Name = "lblDirectory"
         '
         'txtOutput
         '
+        Me.txtOutput.BackColor = System.Drawing.Color.FromArgb(CType(CType(237, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(213, Byte), Integer))
         resources.ApplyResources(Me.txtOutput, "txtOutput")
         Me.txtOutput.Name = "txtOutput"
         '
         'txtWarnings
         '
+        Me.txtWarnings.BackColor = System.Drawing.Color.FromArgb(CType(CType(237, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(213, Byte), Integer))
         resources.ApplyResources(Me.txtWarnings, "txtWarnings")
         Me.txtWarnings.Name = "txtWarnings"
         '
         'chbDateToName
         '
-        'Me.chbDateToName.Checked = True
-        Me.chbDateToName.ThreeState = False
-        'Me.chbDateToName.CheckState = System.Windows.Forms.CheckState.Checked
         resources.ApplyResources(Me.chbDateToName, "chbDateToName")
         Me.chbDateToName.Name = "chbDateToName"
         Me.chbDateToName.UseVisualStyleBackColor = True
@@ -214,18 +224,30 @@ Partial Class Form1
         '
         'lblBackupDirectory
         '
+        Me.lblBackupDirectory.BackColor = System.Drawing.Color.FromArgb(CType(CType(172, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(158, Byte), Integer))
         resources.ApplyResources(Me.lblBackupDirectory, "lblBackupDirectory")
         Me.lblBackupDirectory.Name = "lblBackupDirectory"
         '
         'txtBackupDirectory
         '
+        Me.txtBackupDirectory.BackColor = System.Drawing.Color.FromArgb(CType(CType(172, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(158, Byte), Integer))
+        Me.txtBackupDirectory.BorderStyle = System.Windows.Forms.BorderStyle.None
         resources.ApplyResources(Me.txtBackupDirectory, "txtBackupDirectory")
         Me.txtBackupDirectory.Name = "txtBackupDirectory"
+        Me.ToolTip1.SetToolTip(Me.txtBackupDirectory, resources.GetString("txtBackupDirectory.ToolTip"))
+        '
+        'btnBrowseBackup
+        '
+        Me.btnBrowseBackup.BackColor = System.Drawing.Color.FromArgb(CType(CType(172, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(158, Byte), Integer))
+        resources.ApplyResources(Me.btnBrowseBackup, "btnBrowseBackup")
+        Me.btnBrowseBackup.Name = "btnBrowseBackup"
+        Me.btnBrowseBackup.UseVisualStyleBackColor = False
         '
         'Form1
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.btnBrowseBackup)
         Me.Controls.Add(Me.txtBackupDirectory)
         Me.Controls.Add(Me.lblBackupDirectory)
         Me.Controls.Add(Me.btnUK)
@@ -301,6 +323,9 @@ Partial Class Form1
         gpxCalculator = New GPXDistanceCalculator()
         Me.dtpEndDate.Value = Now
         Me.dtpStartDate.Value = Me.dtpEndDate.Value.AddYears(-1)
+
+        SetTooltips()
+
     End Sub
 
 
@@ -318,5 +343,7 @@ Partial Class Form1
     Friend WithEvents btnUK As Button
     Friend WithEvents lblBackupDirectory As Label
     Friend WithEvents txtBackupDirectory As TextBox
+    Friend WithEvents btnBrowseBackup As Button
+    Friend WithEvents ToolTip1 As ToolTip
 End Class
 

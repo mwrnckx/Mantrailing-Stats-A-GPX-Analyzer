@@ -129,10 +129,11 @@
   <data name="lblDirectory.Text" xml:space="preserve">
     <value>Каталог:</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="chbDateToName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>327, 26</value>
+  <data name="txtWarnings.Text" xml:space="preserve">
+    <value>Помилки та журнали:</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+
   <data name="chbDateToName.Text" xml:space="preserve">
     <value>Додати дату на початок назв файлів</value>
   </data>
@@ -142,37 +143,27 @@
   <data name="btnChartDistances.Text" xml:space="preserve">
     <value>Створити графік:</value>
   </data>
-  <data name="rbTotDistance.Size" type="System.Drawing.Size, System.Drawing">
-    <value>258, 24</value>
-  </data>
+
   <data name="rbTotDistance.Text" xml:space="preserve">
     <value>Пройдено за вибраний період</value>
   </data>
-  <data name="rbDistances.Size" type="System.Drawing.Size, System.Drawing">
-    <value>198, 24</value>
-  </data>
+ 
   <data name="rbDistances.Text" xml:space="preserve">
     <value>Довжина окремих маршрутів</value>
   </data>
-  <data name="rbAge.Size" type="System.Drawing.Size, System.Drawing">
-    <value>105, 24</value>
-  </data>
+
   <data name="rbAge.Text" xml:space="preserve">
     <value>Вік маршрутів</value>
   </data>
-  <data name="rbSpeed.Size" type="System.Drawing.Size, System.Drawing">
-    <value>202, 24</value>
-  </data>
+
   <data name="rbSpeed.Text" xml:space="preserve">
     <value>Швидкість собаки на маршрутах</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Ман-трейлінг: статистика та аналіз файлів GPX</value>
-  </data>
-  <data name="btnCalculate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 171</value>
   </data>
   <data name="lblBackupDirectory.Text" xml:space="preserve">
     <value>Резервна копія:</value>
   </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Ман-трейлінг: статистика та аналіз файлів GPX</value>
+  </data>
+ 
 </root>

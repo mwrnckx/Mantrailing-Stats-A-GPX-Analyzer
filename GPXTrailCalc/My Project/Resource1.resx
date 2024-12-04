@@ -183,4 +183,10 @@
   <data name="logBackupOfFiles" xml:space="preserve">
     <value>The gpx files were successfully backed up to the directory:</value>
   </data>
+  <data name="Tooltip_txtDirectory" xml:space="preserve">
+    <value>The directory where all gpx files are stored</value>
+  </data>
+  <data name="Tooltip_txtBackupDirectory" xml:space="preserve">
+    <value>Directory for backing up gpx files before processing</value>
+  </data>
 </root>

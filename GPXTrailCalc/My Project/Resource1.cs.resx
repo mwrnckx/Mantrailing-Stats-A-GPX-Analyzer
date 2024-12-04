@@ -183,4 +183,10 @@
   <data name="logBackupOfFiles" xml:space="preserve">
     <value>Soubory gpx byly úspěšně zálohovány do: </value>
   </data>
+  <data name="Tooltip_txtDirectory" xml:space="preserve">
+    <value>Adresář, kde jsou gpx soubory které se mají zpracovat</value>
+  </data>
+  <data name="Tooltip_txtBackupDirectory" xml:space="preserve">
+    <value>Adresář pro zálohování gpx souborů před jejich zpracováním</value>
+  </data>
 </root>

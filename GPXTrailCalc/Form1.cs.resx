@@ -120,6 +120,9 @@
   <data name="btnBrowse.Text" xml:space="preserve">
     <value>Procházet</value>
   </data>
+  <data name="txtDirectory.ToolTip" xml:space="preserve">
+    <value>Adresář, kde jsou umístěny gpx soubory</value>
+  </data>
   <data name="btnReadGpxFiles.Text" xml:space="preserve">
     <value>Načti data ze souborů gpx</value>
   </data>
@@ -132,9 +135,8 @@
   <data name="lblDirectory.Text" xml:space="preserve">
     <value>Adresář:</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="chbDateToName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>327, 26</value>
+  <data name="txtWarnings.Text" xml:space="preserve">
+    <value>Chyby a logy:</value>
   </data>
   <data name="chbDateToName.Text" xml:space="preserve">
     <value>Přidej datum na začátek názvů souborů</value>
@@ -145,26 +147,27 @@
   <data name="btnChartDistances.Text" xml:space="preserve">
     <value>Vytvoř graf:</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="rbTotDistance.Size" type="System.Drawing.Size, System.Drawing">
-    <value>258, 24</value>
+    <value>302, 29</value>
   </data>
   <data name="rbTotDistance.Text" xml:space="preserve">
     <value>Načucháno ve zvoleném období</value>
   </data>
   <data name="rbDistances.Size" type="System.Drawing.Size, System.Drawing">
-    <value>198, 24</value>
+    <value>238, 29</value>
   </data>
   <data name="rbDistances.Text" xml:space="preserve">
     <value>Délka jednotlivých trailů</value>
   </data>
   <data name="rbAge.Size" type="System.Drawing.Size, System.Drawing">
-    <value>105, 24</value>
+    <value>123, 29</value>
   </data>
   <data name="rbAge.Text" xml:space="preserve">
     <value>Stáří trailů</value>
   </data>
   <data name="rbSpeed.Size" type="System.Drawing.Size, System.Drawing">
-    <value>202, 24</value>
+    <value>230, 29</value>
   </data>
   <data name="rbSpeed.Text" xml:space="preserve">
     <value>Rychlost psa na trailech</value>
@@ -1630,7 +1633,7 @@
   <data name="btnRu.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAVCAYAAAAnzezqAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        dAAAAHQBMYXlgQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAABCSURBVEhL7c4x
+        cAAAAHABznhikwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAABCSURBVEhL7c4x
         FQAgFEJRkvwCJrCwjcyDBZhhEM65C9MDw2tAAxoA7MMoeTrJ00meTvJ0kqeTPJ3uGiY1oAG/BwwfFb74
         e0cyoEUAAAAASUVORK5CYII=
 </value>
@@ -1644,16 +1647,16 @@
   <data name="btnUK.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAVCAYAAAAnzezqAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        VgAAAFYB3FMHnAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAABISURBVEhL7c4x
+        VAAAAFQBo63EFQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAABISURBVEhL7c4x
         FYBQEMTA9cnDCzLwgg707DeQOtdcMU2qJNfXURhNGE0YTRhNGE0YTRhNGE0YTc97d1L6p5N2YAd2YAeG
         B9IDPPVw2zRJa6MAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="lblBackupDirectory.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 20</value>
-  </data>
   <data name="lblBackupDirectory.Text" xml:space="preserve">
     <value>Adresář pro zálohy:</value>
+  </data>
+  <data name="btnBrowseBackup.Text" xml:space="preserve">
+    <value>Procházet</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

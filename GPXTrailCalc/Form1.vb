@@ -5,6 +5,7 @@ Imports System.Resources
 Imports System.Threading
 Imports System.Windows.Forms.DataVisualization.Charting
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement
+Imports GPXTrailAnalyzer.My.Resources
 
 Public Class Form1
     Dim directoryPath As String
@@ -33,8 +34,9 @@ Public Class Form1
     End Sub
 
     Private Sub btnBrowse_Click(sender As Object, e As EventArgs) Handles btnBrowse.Click
-        Dim folderDialog As New FolderBrowserDialog()
-        folderDialog.SelectedPath = txtDirectory.Text
+        Dim folderDialog As New FolderBrowserDialog With {
+            .SelectedPath = txtDirectory.Text
+        }
         If folderDialog.ShowDialog() = DialogResult.OK Then
             txtDirectory.Text = folderDialog.SelectedPath
         End If
@@ -124,17 +126,44 @@ Public Class Form1
     End Sub
 
 
+
+
+
     Public Sub ChangeLanguage(cultureName As String)
         Me.SuspendLayout()
 
         Thread.CurrentThread.CurrentUICulture = New CultureInfo(cultureName)
+
         Me.currentCulture = Thread.CurrentThread.CurrentUICulture
         Dim resources = New ComponentResourceManager(Me.GetType())
         resources.ApplyResources(Me, "$this")
         For Each ctrl As Control In Me.Controls
             resources.ApplyResources(ctrl, ctrl.Name)
+
+            If TypeOf ctrl Is DateTimePicker Then
+                Dim dtp As DateTimePicker = DirectCast(ctrl, DateTimePicker)
+
+                ' Nastavení formátu podle aktuální kultury
+                dtp.Format = DateTimePickerFormat.Custom
+                dtp.CustomFormat = Thread.CurrentThread.CurrentUICulture.DateTimeFormat.ShortDatePattern
+
+            End If
         Next
+
+        SetTooltips()
+
         Me.ResumeLayout()
+    End Sub
+
+    Private Sub SetTooltips()
+
+        Dim rm As New ResourceManager("Resource1", GetType(Form1).Assembly)
+
+        ' Nastavení ToolTip pro jednotlivé ovládací prvky
+        ToolTip1.SetToolTip(txtDirectory, Resource1.Tooltip_txtDirectory)
+        ToolTip1.SetToolTip(txtBackupDirectory, Resource1.Tooltip_txtBackupDirectory)
+
+        ' Přidej další ovládací prvky, jak je potřeba
     End Sub
 
 
@@ -169,5 +198,16 @@ Public Class Form1
     Private Sub chbDateToName_CheckedChanged(sender As Object, e As EventArgs) Handles chbDateToName.CheckedChanged
         My.Settings.PrependDateToName = chbDateToName.Checked
     End Sub
+
+    Private Sub btnBrowseBackup_Click(sender As Object, e As EventArgs) Handles btnBrowseBackup.Click
+        Dim folderDialog As New FolderBrowserDialog With {
+            .SelectedPath = txtBackupDirectory.Text
+        }
+        If folderDialog.ShowDialog() = DialogResult.OK Then
+            txtBackupDirectory.Text = folderDialog.SelectedPath
+        End If
+    End Sub
+
+
 End Class
 

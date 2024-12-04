@@ -218,6 +218,24 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Vyhledá lokalizovaný řetězec podobný Directory for backing up gpx files before processing.
+        '''</summary>
+        Friend Shared ReadOnly Property Tooltip_txtBackupDirectory() As String
+            Get
+                Return ResourceManager.GetString("Tooltip_txtBackupDirectory", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Vyhledá lokalizovaný řetězec podobný The directory where all gpx files are stored.
+        '''</summary>
+        Friend Shared ReadOnly Property Tooltip_txtDirectory() As String
+            Get
+                Return ResourceManager.GetString("Tooltip_txtDirectory", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Vyhledá lokalizovaný řetězec podobný   Date  .
         '''</summary>
         Friend Shared ReadOnly Property X_AxisLabel() As String

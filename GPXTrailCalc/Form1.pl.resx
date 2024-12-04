@@ -117,22 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnBrowse.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="btnBrowse.Size" type="System.Drawing.Size, System.Drawing">
-    <value>143, 33</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnBrowse.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
   <data name="btnBrowse.Text" xml:space="preserve">
     <value>Przeglądaj...</value>
-  </data>
-  <data name="&gt;&gt;btnBrowse.Name" xml:space="preserve">
-    <value>btnBrowse</value>
   </data>
   <data name="&gt;&gt;btnBrowse.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -151,9 +137,6 @@
   </data>
   <data name="&gt;&gt;txtDirectory.Parent" xml:space="preserve">
     <value>$this</value>
-  </data>
-  <data name="&gt;&gt;txtDirectory.ZOrder" xml:space="preserve">
-    <value>20</value>
   </data>
   <data name="&gt;&gt;dtpStartDate.Name" xml:space="preserve">
     <value>dtpStartDate</value>
@@ -194,23 +177,8 @@
   <data name="&gt;&gt;lblStartDate.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;lblStartDate.ZOrder" xml:space="preserve">
-    <value>16</value>
-  </data>
   <data name="lblEndDate.Text" xml:space="preserve">
     <value>Do:</value>
-  </data>
-  <data name="&gt;&gt;lblEndDate.Name" xml:space="preserve">
-    <value>lblEndDate</value>
-  </data>
-  <data name="&gt;&gt;lblEndDate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblEndDate.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblEndDate.ZOrder" xml:space="preserve">
-    <value>15</value>
   </data>
   <data name="lblDirectory.Text" xml:space="preserve">
     <value>Katalog:</value>
@@ -227,12 +195,6 @@
   <data name="&gt;&gt;lblDirectory.ZOrder" xml:space="preserve">
     <value>14</value>
   </data>
-  <data name="txtOutput.Multiline" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="txtOutput.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
   <data name="txtOutput.Text" xml:space="preserve">
     <value>GPX Records:</value>
   </data>
@@ -248,172 +210,41 @@
   <data name="&gt;&gt;txtOutput.ZOrder" xml:space="preserve">
     <value>13</value>
   </data>
-  <data name="txtWarnings.Multiline" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="txtWarnings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>313, 577</value>
-  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="txtWarnings.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
   <data name="txtWarnings.Text" xml:space="preserve">
-    <value>Errors and Logs:</value>
-  </data>
-  <data name="&gt;&gt;txtWarnings.Name" xml:space="preserve">
-    <value>txtWarnings</value>
-  </data>
-  <data name="&gt;&gt;txtWarnings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtWarnings.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;txtWarnings.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>Błędy i dzienniki:</value>
   </data>
   <data name="chbDateToName.Text" xml:space="preserve">
     <value>Dodawanie daty na początku nazw plików</value>
   </data>
-  <data name="&gt;&gt;chbDateToName.Name" xml:space="preserve">
-    <value>chbDateToName</value>
-  </data>
-  <data name="&gt;&gt;chbDateToName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;chbDateToName.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;chbDateToName.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
   <data name="btnOpenDataFile.Text" xml:space="preserve">
     <value>Tworzenie i otwieranie pliku danych CSV</value>
-  </data>
-  <data name="&gt;&gt;btnOpenDataFile.Name" xml:space="preserve">
-    <value>btnOpenDataFile</value>
-  </data>
-  <data name="&gt;&gt;btnOpenDataFile.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnOpenDataFile.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btnOpenDataFile.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="btnChartDistances.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 10pt, style=Bold</value>
-  </data>
-  <data name="btnChartDistances.Size" type="System.Drawing.Size, System.Drawing">
-    <value>322, 60</value>
   </data>
   <data name="btnChartDistances.Text" xml:space="preserve">
     <value>Pokaż wykres:</value>
   </data>
-  <data name="&gt;&gt;btnChartDistances.Name" xml:space="preserve">
-    <value>btnChartDistances</value>
-  </data>
-  <data name="&gt;&gt;btnChartDistances.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnChartDistances.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btnChartDistances.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
   <data name="rbTotDistance.Text" xml:space="preserve">
     <value>Sniffowano w określonym czasie</value>
-  </data>
-  <data name="&gt;&gt;rbTotDistance.Name" xml:space="preserve">
-    <value>rbTotDistance</value>
-  </data>
-  <data name="&gt;&gt;rbTotDistance.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rbTotDistance.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;rbTotDistance.ZOrder" xml:space="preserve">
-    <value>8</value>
   </data>
   <data name="rbDistances.Text" xml:space="preserve">
     <value>Długość poszczególnych szlaków</value>
   </data>
-  <data name="&gt;&gt;rbDistances.Name" xml:space="preserve">
-    <value>rbDistances</value>
-  </data>
-  <data name="&gt;&gt;rbDistances.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rbDistances.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;rbDistances.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
   <data name="rbAge.Text" xml:space="preserve">
     <value>Wiek szlaków</value>
-  </data>
-  <data name="&gt;&gt;rbAge.Name" xml:space="preserve">
-    <value>rbAge</value>
-  </data>
-  <data name="&gt;&gt;rbAge.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rbAge.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;rbAge.ZOrder" xml:space="preserve">
-    <value>6</value>
   </data>
   <data name="rbSpeed.Text" xml:space="preserve">
     <value>Średnia prędkość psa na szlakach</value>
   </data>
-  <data name="&gt;&gt;rbSpeed.Name" xml:space="preserve">
-    <value>rbSpeed</value>
+  <data name="lblBackupDirectory.Text" xml:space="preserve">
+    <value>Katalog kopii zapasowych:</value>
   </data>
-  <data name="&gt;&gt;rbSpeed.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rbSpeed.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;rbSpeed.ZOrder" xml:space="preserve">
-    <value>5</value>
+  <data name="btnBrowseBackup.Text" xml:space="preserve">
+    <value>Przeglądaj...</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Mantrailing Stats i GPX Analyzer</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>Form1</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="btnCalculate.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 10pt, style=Bold</value>
-  </data>
-  <data name="btnCalculate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>327, 72</value>
-  </data>
-  <data name="btnCalculate.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;btnCalculate.Name" xml:space="preserve">
-    <value>btnCalculate</value>
-  </data>
-  <data name="&gt;&gt;btnCalculate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnCalculate.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btnCalculate.ZOrder" xml:space="preserve">
-    <value>17</value>
-  </data>
-  <data name="lblBackupDirectory.Text" xml:space="preserve">
-    <value>Katalog kopii zapasowych:</value>
   </data>
 </root>
