@@ -186,4 +186,16 @@
   <data name="mBoxMissingData" xml:space="preserve">
     <value>Чтобы сохранить данные, считанные из файлов gpx, необходимо сначала загрузить файлы gpx. Для этого воспользуйтесь кнопкой на форме.</value>
   </data>
+  <data name="lblFrom" xml:space="preserve">
+    <value>От: </value>
+  </data>
+  <data name="lblTo" xml:space="preserve">
+    <value>До: </value>
+  </data>
+  <data name="mnuTrimGPSNoise.Text" xml:space="preserve">
+    <value>Удалить шумы в начале и конце треков</value>
+  </data>
+  <data name="Tooltip_ExportAsCSV" xml:space="preserve">
+    <value>Export as CSV file</value>
+  </data>
 </root>

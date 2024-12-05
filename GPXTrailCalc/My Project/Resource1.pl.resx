@@ -186,4 +186,16 @@
   <data name="mBoxMissingData" xml:space="preserve">
     <value>Aby zapisać dane odczytane z plików gpx, należy najpierw załadować pliki gpx. Użyj przycisku na formularzu.</value>
   </data>
+  <data name="lblFrom" xml:space="preserve">
+    <value>Od: </value>
+  </data>
+  <data name="lblTo" xml:space="preserve">
+    <value>Do: </value>
+  </data>
+  <data name="mnuTrimGPSNoise.Text" xml:space="preserve">
+    <value>Usuń szum GPS na początku i końcu trasy</value>
+  </data>
+  <data name="Tooltip_ExportAsCSV" xml:space="preserve">
+    <value>Export as CSV file</value>
+  </data>
 </root>

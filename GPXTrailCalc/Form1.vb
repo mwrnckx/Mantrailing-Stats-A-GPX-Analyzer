@@ -13,7 +13,11 @@ Public Class Form1
     Private currentCulture As CultureInfo = Thread.CurrentThread.CurrentCulture
 
     Private Sub btnReadGpxFiles_Click(sender As Object, e As EventArgs) Handles btnReadGpxFiles.Click
+        Me.txtOutput.Visible = True
+        Me.txtWarnings.Visible = True
+
         Try
+
             'send directoryPath to gpxCalculator
             If gpxCalculator.ReadAndProcessData(dtpStartDate.Value, dtpEndDate.Value) Then
                 Me.btnChartDistances.Visible = True
@@ -131,27 +135,81 @@ Public Class Form1
         Me.SuspendLayout()
         Dim cultureName As String = sender.Tag
         Thread.CurrentThread.CurrentUICulture = New CultureInfo(cultureName)
+        'Thread.CurrentThread.CurrentCulture = New CultureInfo(cultureName)
 
         Me.currentCulture = Thread.CurrentThread.CurrentUICulture
+
         Dim resources = New ComponentResourceManager(Me.GetType())
         resources.ApplyResources(Me, "$this")
         For Each ctrl As Control In Me.Controls
             resources.ApplyResources(ctrl, ctrl.Name)
-
-            If TypeOf ctrl Is DateTimePicker Then
-                Dim dtp As DateTimePicker = DirectCast(ctrl, DateTimePicker)
-
-                ' Nastavení formátu podle aktuální kultury
-                dtp.Format = DateTimePickerFormat.Custom
-                dtp.CustomFormat = Thread.CurrentThread.CurrentUICulture.DateTimeFormat.ShortDatePattern
-
-            End If
         Next
+
+        ' Lokalizace položek MenuStrip
+
+        LocalizeMenuItems(MenuStrip1.Items, resources)
 
         SetTooltips()
 
         Me.ResumeLayout()
     End Sub
+
+    Private Sub LocalizeMenuItems(items As ToolStripItemCollection, resources As ComponentResourceManager)
+        For Each item As ToolStripItem In items
+            ' Zkus lokalizovat text aktuální položky
+            resources.ApplyResources(item, item.Name)
+
+            ' Pokud má položka podmenu, projdi i jeho položky
+            If TypeOf item Is ToolStripMenuItem Then
+                Dim menuItem As ToolStripMenuItem = DirectCast(item, ToolStripMenuItem)
+                If menuItem.DropDownItems.Count > 0 Then
+                    LocalizeMenuItems(menuItem.DropDownItems, resources)
+                End If
+            End If
+        Next
+        Dim currentCulture As String = System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName
+        Dim menuIcon As Image = Nothing
+        Select Case currentCulture
+            Case "cs-CZ", "cs"
+                menuIcon = My.Resources.czech_flag
+
+            Case "en-GB", "en", "en-US"
+                menuIcon = My.Resources.en_flag
+                mnuEnglish.Image = resizeImage(My.Resources.en_flag, Nothing, 18)
+            Case "de-DE", "de"
+                menuIcon = My.Resources.De_Flag
+                mnuGerman.Image = resizeImage(My.Resources.De_Flag, Nothing, 18)
+            Case "pl-PL", "pl"
+                menuIcon = My.Resources.pl_flag
+                mnuPolish.Image = resizeImage(My.Resources.pl_flag, Nothing, 18)
+            Case "ru-RU", "ru"
+                menuIcon = My.Resources.ru_flag
+                mnuRussian.Image = resizeImage(My.Resources.ru_flag, Nothing, 18)
+            Case "uk"
+                menuIcon = My.Resources.uk_flag
+                mnuUkrainian.Image = resizeImage(My.Resources.uk_flag, Nothing, 18)
+            Case Else
+                ' Výchozí obrázek (např. angličtina)
+                menuIcon = My.Resources.en_flag
+        End Select
+
+        ' Nastavení obrázku na ToolStripMenuItem
+        mnuLanguage.Image = resizeImage(menuIcon, Nothing, 18)
+        mnuCzech.Image = resizeImage(My.Resources.czech_flag, Nothing, 18)
+    End Sub
+
+    Private Function resizeImage(menuIcon As Image, width As Integer, height As Integer) As Image
+
+        If width = Nothing Then width = menuIcon.Width * height / menuIcon.Height
+        Dim resizedImage As New Bitmap(width, height)
+        Using g As Graphics = Graphics.FromImage(resizedImage)
+            g.DrawImage(menuIcon, 0, 0, width, height)
+        End Using
+        Return resizedImage
+    End Function
+
+
+
 
     Private Sub SetTooltips()
 
@@ -161,7 +219,8 @@ Public Class Form1
         mnuSelect_directory_gpx_files.ToolTipText = Resource1.Tooltip_txtDirectory
         mnuSelectBackupDirectory.ToolTipText = Resource1.Tooltip_txtBackupDirectory
         'TODO
-        mnuSaveAsCsvFile.ToolTipText = Resource1.Tooltip_txtDirectory
+        mnuSaveAsCsvFile.ToolTipText = Resource1.Tooltip_ExportAsCSV
+
 
         ' Nastavení ToolTip pro jednotlivé ovládací prvky
 
@@ -169,6 +228,11 @@ Public Class Form1
 
 
         ' Přidej další ovládací prvky, jak je potřeba
+
+        ' Nastavení formátu dtp podle aktuální kultury
+        Me.dtpStartDate.CustomFormat = $"'{My.Resources.Resource1.lblFrom}'  {Thread.CurrentThread.CurrentUICulture.DateTimeFormat.ShortDatePattern}"
+        Me.dtpEndDate.CustomFormat = $"'{My.Resources.Resource1.lblTo}'   {Thread.CurrentThread.CurrentUICulture.DateTimeFormat.ShortDatePattern}"
+
 
 
 
@@ -197,7 +261,10 @@ Public Class Form1
     '    ChangeLanguage("uk")
     'End Sub
 
+    Private Sub chbTrimGpxFile(sender As Object, e As EventArgs) Handles mnuTrimGPSNoise.CheckedChanged
+        My.Settings.TrimGPSnoise = mnuTrimGPSNoise.Checked
 
+    End Sub
 
 
     Private Sub chbDateToName_CheckedChanged(sender As Object, e As EventArgs) Handles mnuPrependDateToFileName.CheckedChanged

@@ -186,4 +186,16 @@
   <data name="mBoxMissingData" xml:space="preserve">
     <value>In order to save data read from gpx files, you must first load the gpx files. Use the button on the form.</value>
   </data>
+  <data name="lblFrom" xml:space="preserve">
+    <value>Von: </value>
+  </data>
+  <data name="lblTo" xml:space="preserve">
+    <value>Bis: </value>
+  </data>
+  <data name="mnuTrimGPSNoise.Text" xml:space="preserve">
+    <value>"GPS-Rauschen am Anfang und Ende der Strecke entfernen"</value>
+  </data>
+  <data name="Tooltip_ExportAsCSV" xml:space="preserve">
+    <value>Export as CSV file</value>
+  </data>
 </root>

@@ -117,27 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="btnBrowse.Text" xml:space="preserve">
-    <value>Przeglądaj...</value>
-  </data>
-  <data name="&gt;&gt;btnBrowse.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnBrowse.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btnBrowse.ZOrder" xml:space="preserve">
-    <value>21</value>
-  </data>
-  <data name="&gt;&gt;txtDirectory.Name" xml:space="preserve">
-    <value>txtDirectory</value>
-  </data>
-  <data name="&gt;&gt;txtDirectory.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtDirectory.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
   <data name="&gt;&gt;dtpStartDate.Name" xml:space="preserve">
     <value>dtpStartDate</value>
   </data>
@@ -165,36 +144,6 @@
   <data name="btnReadGpxFiles.Text" xml:space="preserve">
     <value>Odczyt danych z plików gpx</value>
   </data>
-  <data name="lblStartDate.Text" xml:space="preserve">
-    <value>Od:</value>
-  </data>
-  <data name="&gt;&gt;lblStartDate.Name" xml:space="preserve">
-    <value>lblStartDate</value>
-  </data>
-  <data name="&gt;&gt;lblStartDate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblStartDate.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="lblEndDate.Text" xml:space="preserve">
-    <value>Do:</value>
-  </data>
-  <data name="lblDirectory.Text" xml:space="preserve">
-    <value>Katalog:</value>
-  </data>
-  <data name="&gt;&gt;lblDirectory.Name" xml:space="preserve">
-    <value>lblDirectory</value>
-  </data>
-  <data name="&gt;&gt;lblDirectory.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblDirectory.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblDirectory.ZOrder" xml:space="preserve">
-    <value>14</value>
-  </data>
   <data name="txtOutput.Text" xml:space="preserve">
     <value>GPX Records:</value>
   </data>
@@ -217,12 +166,6 @@
   <data name="txtWarnings.Text" xml:space="preserve">
     <value>Błędy i dzienniki:</value>
   </data>
-  <data name="chbDateToName.Text" xml:space="preserve">
-    <value>Dodawanie daty na początku nazw plików</value>
-  </data>
-  <data name="btnOpenDataFile.Text" xml:space="preserve">
-    <value>Tworzenie i otwieranie pliku danych CSV</value>
-  </data>
   <data name="btnChartDistances.Text" xml:space="preserve">
     <value>Pokaż wykres:</value>
   </data>
@@ -238,13 +181,103 @@
   <data name="rbSpeed.Text" xml:space="preserve">
     <value>Średnia prędkość psa na szlakach</value>
   </data>
+  <data name="mnuFile.Text" xml:space="preserve">
+    <value>Plik</value>
+  </data>
+  <data name="mnuPrependDateToFileName.Text" xml:space="preserve">
+    <value>Dodaj datę do nazwy pliku gpx</value>
+  </data>
+  <data name="mnuLanguage.Text" xml:space="preserve">
+    <value>Język</value>
+  </data>
+  <data name="mnuSelect_directory_gpx_files.Text" xml:space="preserve">
+    <value>Wybierz katalog, w którym znajdują się pliki gpx</value>
+  </data>
+  <data name="mnuSelectBackupDirectory.Text" xml:space="preserve">
+    <value>Wybierz katalog do utworzenia kopii zapasowej plików gpx</value>
+  </data>
+  <data name="mnuSaveAsCsvFile.Text" xml:space="preserve">
+    <value>Eksport jako plik CSV</value>
+  </data>
+  <data name="gbPeriod.Text" xml:space="preserve">
+    <value>Wybór okresu</value>
+  </data>
+  <data name="lblScentArtickle.Text" xml:space="preserve">
+    <value>próbka zapachowa</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Mantrailing Stats i GPX Analyzer</value>
+  </data>
+  <data name="lblStartDate.Text" xml:space="preserve">
+    <value>Od:</value>
+  </data>
+  <data name="lblEndDate.Text" xml:space="preserve">
+    <value>Do:</value>
+  </data>
+  <data name="btnBrowse.Text" xml:space="preserve">
+    <value>Przeglądaj...</value>
+  </data>
+  <data name="lblDirectory.Text" xml:space="preserve">
+    <value>Katalog:</value>
+  </data>
+  <data name="chbDateToName.Text" xml:space="preserve">
+    <value>Dodawanie daty na początku nazw plików</value>
+  </data>
+  <data name="btnOpenDataFile.Text" xml:space="preserve">
+    <value>Tworzenie i otwieranie pliku danych CSV</value>
+  </data>
   <data name="lblBackupDirectory.Text" xml:space="preserve">
     <value>Katalog kopii zapasowych:</value>
   </data>
   <data name="btnBrowseBackup.Text" xml:space="preserve">
     <value>Przeglądaj...</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Mantrailing Stats i GPX Analyzer</value>
+  <data name="&gt;&gt;lblStartDate.Name" xml:space="preserve">
+    <value>lblStartDate</value>
+  </data>
+  <data name="&gt;&gt;lblStartDate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblStartDate.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnBrowse.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnBrowse.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnBrowse.ZOrder" xml:space="preserve">
+    <value>21</value>
+  </data>
+  <data name="&gt;&gt;txtDirectory.Name" xml:space="preserve">
+    <value>txtDirectory</value>
+  </data>
+  <data name="&gt;&gt;txtDirectory.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtDirectory.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblDirectory.Name" xml:space="preserve">
+    <value>lblDirectory</value>
+  </data>
+  <data name="&gt;&gt;lblDirectory.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblDirectory.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblDirectory.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="mnuTrimGPSNoise.Text" xml:space="preserve">
+    <value>Usuń szum GPS na początku i końcu trasy</value>
+  </data>
+  <data name="mnuSettings.Text" xml:space="preserve">
+    <value>Przetwarzanie GPX</value>
+  </data>
+  <data name="mnuTrimGPSNoise.Text1" xml:space="preserve">
+    <value>Usuń szum GPS na początku i końcu trasy</value>
   </data>
 </root>

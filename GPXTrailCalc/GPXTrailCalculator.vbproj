@@ -204,6 +204,7 @@
     <None Include="Resources\trail1.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\bgImage.jpg" />
     <Content Include="Resources\czech_flag.gif" />
     <Content Include="Resources\De-Flag.png" />
     <Content Include="Resources\en-flag.jpeg" />

@@ -74,6 +74,24 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Vyhledá lokalizovaný řetězec podobný From: .
+        '''</summary>
+        Friend Shared ReadOnly Property lblFrom() As String
+            Get
+                Return ResourceManager.GetString("lblFrom", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Vyhledá lokalizovaný řetězec podobný To: .
+        '''</summary>
+        Friend Shared ReadOnly Property lblTo() As String
+            Get
+                Return ResourceManager.GetString("lblTo", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Vyhledá lokalizovaný řetězec podobný The gpx files were successfully backed up to the directory:.
         '''</summary>
         Friend Shared ReadOnly Property logBackupOfFiles() As String
@@ -115,6 +133,15 @@ Namespace My.Resources
         Friend Shared ReadOnly Property mBoxNo_gpx_file_was_found() As String
             Get
                 Return ResourceManager.GetString("mBoxNo gpx file was found", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Vyhledá lokalizovaný řetězec podobný Trim GPS noise at track&apos;s start and end..
+        '''</summary>
+        Friend Shared ReadOnly Property mnuTrimGPSNoise_Text() As String
+            Get
+                Return ResourceManager.GetString("mnuTrimGPSNoise.Text", resourceCulture)
             End Get
         End Property
         
@@ -223,6 +250,15 @@ Namespace My.Resources
         Friend Shared ReadOnly Property outTotalNumberOfGPXFiles() As String
             Get
                 Return ResourceManager.GetString("outTotalNumberOfGPXFiles", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Vyhledá lokalizovaný řetězec podobný Export as CSV file.
+        '''</summary>
+        Friend Shared ReadOnly Property Tooltip_ExportAsCSV() As String
+            Get
+                Return ResourceManager.GetString("Tooltip_ExportAsCSV", resourceCulture)
             End Get
         End Property
         

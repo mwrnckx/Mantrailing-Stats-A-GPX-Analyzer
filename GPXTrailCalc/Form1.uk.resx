@@ -117,8 +117,50 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="btnBrowse.Text" xml:space="preserve">
-    <value>Перегляд</value>
+  <data name="txtWarnings.Text" xml:space="preserve">
+    <value>Помилки та журнали:</value>
+  </data>
+  <data name="btnChartDistances.Text" xml:space="preserve">
+    <value>Створити графік:</value>
+  </data>
+  <data name="rbTotDistance.Text" xml:space="preserve">
+    <value>Пройдено за вибраний період</value>
+  </data>
+  <data name="rbDistances.Text" xml:space="preserve">
+    <value>Довжина окремих маршрутів</value>
+  </data>
+  <data name="rbAge.Text" xml:space="preserve">
+    <value>Вік маршрутів</value>
+  </data>
+  <data name="rbSpeed.Text" xml:space="preserve">
+    <value>Швидкість собаки на маршрутах</value>
+  </data>
+  <data name="mnuFile.Text" xml:space="preserve">
+    <value>Файл</value>
+  </data>
+  <data name="mnuPrependDateToFileName.Text" xml:space="preserve">
+    <value>Додавання дати до імені gpx-файлу</value>
+  </data>
+  <data name="mnuLanguage.Text" xml:space="preserve">
+    <value>Мова</value>
+  </data>
+  <data name="mnuSelect_directory_gpx_files.Text" xml:space="preserve">
+    <value>Виберіть директорію, де знаходяться gpx-файли</value>
+  </data>
+  <data name="mnuSelectBackupDirectory.Text" xml:space="preserve">
+    <value>Виберіть каталог для резервного копіювання gpx-файлів</value>
+  </data>
+  <data name="mnuSaveAsCsvFile.Text" xml:space="preserve">
+    <value>Експорт у файл CSV</value>
+  </data>
+  <data name="gbPeriod.Text" xml:space="preserve">
+    <value>Вибір періоду</value>
+  </data>
+  <data name="lblScentArtickle.Text" xml:space="preserve">
+    <value>зразок запаху</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Ман-трейлінг: статистика та аналіз файлів GPX</value>
   </data>
   <data name="lblStartDate.Text" xml:space="preserve">
     <value>Від:</value>
@@ -126,44 +168,28 @@
   <data name="lblEndDate.Text" xml:space="preserve">
     <value>До:</value>
   </data>
+  <data name="btnBrowse.Text" xml:space="preserve">
+    <value>Перегляд</value>
+  </data>
   <data name="lblDirectory.Text" xml:space="preserve">
     <value>Каталог:</value>
   </data>
-  <data name="txtWarnings.Text" xml:space="preserve">
-    <value>Помилки та журнали:</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-
   <data name="chbDateToName.Text" xml:space="preserve">
     <value>Додати дату на початок назв файлів</value>
   </data>
   <data name="btnOpenDataFile.Text" xml:space="preserve">
     <value>Створити та відкрити файл CSV</value>
   </data>
-  <data name="btnChartDistances.Text" xml:space="preserve">
-    <value>Створити графік:</value>
-  </data>
-
-  <data name="rbTotDistance.Text" xml:space="preserve">
-    <value>Пройдено за вибраний період</value>
-  </data>
- 
-  <data name="rbDistances.Text" xml:space="preserve">
-    <value>Довжина окремих маршрутів</value>
-  </data>
-
-  <data name="rbAge.Text" xml:space="preserve">
-    <value>Вік маршрутів</value>
-  </data>
-
-  <data name="rbSpeed.Text" xml:space="preserve">
-    <value>Швидкість собаки на маршрутах</value>
-  </data>
   <data name="lblBackupDirectory.Text" xml:space="preserve">
     <value>Резервна копія:</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Ман-трейлінг: статистика та аналіз файлів GPX</value>
+  <data name="mnuTrimGPSNoise.Text" xml:space="preserve">
+    <value>Видалити шум GPS на початку та в кінці треків</value>
   </data>
- 
+  <data name="mnuSettings.Text" xml:space="preserve">
+    <value>Обробка GPX</value>
+  </data>
+  <data name="mnuTrimGPSNoise.Text1" xml:space="preserve">
+    <value>Видалити шум GPS на початку та в кінці треків</value>
+  </data>
 </root>

@@ -377,9 +377,11 @@ Public Class GPXDistanceCalculator
         dateFrom = startDate
         dateTo = endDate
 
+        Form1.txtOutput.AppendText(vbNewLine)
+        Form1.txtOutput.AppendText(My.Resources.Resource1.outgpxFileName & vbTab & vbTab & My.Resources.Resource1.X_AxisLabel & vbTab & "   " & My.Resources.Resource1.outLength & "    " & My.Resources.Resource1.outAge & " " & My.Resources.Resource1.outSpeed)
+        Form1.txtOutput.AppendText(vbNewLine)
+
         gpxFiles.Clear()
-
-
         gpxFiles = GetGpxFiles(Me.DirectoryPath)
 
         If gpxFiles.Count = 0 Then
@@ -400,9 +402,6 @@ Public Class GPXDistanceCalculator
         link.Clear()
 
         Try
-            Form1.txtOutput.AppendText(vbNewLine)
-            Form1.txtOutput.AppendText(My.Resources.Resource1.outgpxFileName & vbTab & vbTab & My.Resources.Resource1.X_AxisLabel & vbTab & "   " & My.Resources.Resource1.outLength & "    " & My.Resources.Resource1.outAge & " " & My.Resources.Resource1.outSpeed)
-            Form1.txtOutput.AppendText(vbNewLine)
 
             For i = 0 To gpxFiles.Count - 1
                 Dim gpxfilePath As String = gpxFiles(i)
@@ -417,7 +416,7 @@ Public Class GPXDistanceCalculator
                 layerStart.Add(GetLayerStart(gpxFiles(i), gpxReaders(i)))
                 SplitTrackIntoTwo(i) 'in gpx files, splits a track with two segments into two separate tracks
                 descriptions.Add(GetDescription(i)) 'musí být první - slouží k výpočtu age
-                CutStartAndEnd(12, gpxReaders(i)) 'ořízne nevýznamné konce a začátky trailů, když se stojí na místě.
+                If My.Settings.TrimGPSnoise Then TrimGPSnoise(12, gpxReaders(i)) 'ořízne nevýznamné konce a začátky trailů, když se stojí na místě.
                 distances.Add(CalculateFirstSegmentDistance(i))
                 If i = 0 Then totalDistances.Add(distances(i)) Else totalDistances.Add(totalDistances(i - 1) + distances(i))
                 dogStart.Add(GetDogStart(i))
@@ -846,98 +845,8 @@ Public Class GPXDistanceCalculator
 
     End Sub
 
-    Sub CutStartAndEndOld(minDistance As Integer, gpxReader As GpxReader)
-        'clip the start and end of both <trk>, i.e., the layer and the dog, which was recorded after (or before) the end of the trail. Useful when the GPS doesn't turn off right away.
-        ' Získání všech uzlů <trk>
-        Dim trackNodes = gpxReader.SelectNodes("trk")
 
-        For Each trkNode As XmlNode In trackNodes
-            ' Získání všech <trkseg> uvnitř <trk>
-            Dim trackSegments = gpxReader.SelectChildNodes("trkseg", trkNode)
-
-            For Each trksegNode As XmlNode In trackSegments
-                ' Získání všech <trkpt> uvnitř <trkseg>
-                Dim trackPoints = gpxReader.SelectChildNodes("trkpt", trksegNode)
-
-                ' Převod XmlNodeList na seznam pro snadnou manipulaci
-                Dim points = trackPoints.Cast(Of XmlNode).ToList()
-
-                ' Ořezávání bodů od začátku
-                If points.Count > 10 Then
-                    Dim firstPoint = points.First
-                    Dim count As Integer = 1
-                    Dim distance As Double
-                    Do While count < points.Count - 10
-                        Dim referencePoint = points(count) ' 
-
-                        ' Získání souřadnic
-                        Dim lastLat = Double.Parse(firstPoint.Attributes("lat").Value, CultureInfo.InvariantCulture)
-                        Dim lastLon = Double.Parse(firstPoint.Attributes("lon").Value, CultureInfo.InvariantCulture)
-                        Dim refLat = Double.Parse(referencePoint.Attributes("lat").Value, CultureInfo.InvariantCulture)
-                        Dim refLon = Double.Parse(referencePoint.Attributes("lon").Value, CultureInfo.InvariantCulture)
-
-                        ' Výpočet vzdálenosti
-                        distance = HaversineDistance(lastLat, lastLon, refLat, refLon, "m")
-
-                        If distance > minDistance Then Exit Do
-
-                        count += 1
-                    Loop
-
-                    'odeber všechny body, které jsou ve vzdálenosti menší než minDistance od prvního
-                    If count > 10 Then
-                        For i = 0 To count - 1
-                            firstPoint = points.First
-                            trksegNode.RemoveChild(firstPoint)
-                            points.RemoveAt(0)
-                        Next
-                    End If
-                End If
-
-                If points.Count > 10 Then
-                    Dim lastPoint = points.Last
-                    Dim count As Integer = 1
-                    Dim distance As Double
-                    Do
-                        ' Ořezávání bodů od konce
-
-                        Dim referencePoint = points(points.Count - count)
-
-                        ' Získání souřadnic
-                        Dim lastLat = Double.Parse(lastPoint.Attributes("lat").Value, CultureInfo.InvariantCulture)
-                        Dim lastLon = Double.Parse(lastPoint.Attributes("lon").Value, CultureInfo.InvariantCulture)
-                        Dim refLat = Double.Parse(referencePoint.Attributes("lat").Value, CultureInfo.InvariantCulture)
-                        Dim refLon = Double.Parse(referencePoint.Attributes("lon").Value, CultureInfo.InvariantCulture)
-
-                        ' Výpočet vzdálenosti
-                        distance = HaversineDistance(lastLat, lastLon, refLat, refLon, "m")
-                        If distance > minDistance Then Exit Do
-
-                        count += 1
-
-                    Loop
-                    ' Pokud je vzdálenost menší než minDistance, odeber poslední bod
-                    If count > 10 Then
-                        For i = 0 To count - 1
-                            lastPoint = points.Last
-                            trksegNode.RemoveChild(lastPoint)
-                            points.RemoveAt(points.Count - 1)
-                        Next
-                    End If
-
-
-
-                End If
-
-            Next
-        Next
-
-        ' Uložení upraveného souboru
-        gpxReader.Save(True)
-        Debug.WriteLine("Hotovo! Upravený GPX uložen.")
-    End Sub
-
-    Sub CutStartAndEnd(minDistance As Integer, gpxReader As GpxReader)
+    Sub TrimGPSnoise(minDistance As Integer, gpxReader As GpxReader)
         'clip the start and end of both <trk>, i.e., the layer and the dog, which was recorded after (or before) the end of the trail. Useful when the GPS doesn't turn off right away.
         ' Získání všech uzlů <trk>
         Dim trackNodes = gpxReader.SelectNodes("trk")

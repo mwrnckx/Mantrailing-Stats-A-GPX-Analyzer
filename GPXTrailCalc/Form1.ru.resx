@@ -117,29 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="btnBrowse.Text" xml:space="preserve">
-    <value>Просмотреть...</value>
-  </data>
   <data name="btnReadGpxFiles.Text" xml:space="preserve">
     <value>Чтение данных из файлов gpx</value>
   </data>
-  <data name="lblStartDate.Text" xml:space="preserve">
-    <value>От:</value>
-  </data>
-  <data name="lblEndDate.Text" xml:space="preserve">
-    <value>До:</value>
-  </data>
-  <data name="lblDirectory.Text" xml:space="preserve">
-    <value>Каталог:</value>
-  </data>
   <data name="txtWarnings.Text" xml:space="preserve">
     <value>Ошибки и журналы:</value>
-  </data>
-  <data name="chbDateToName.Text" xml:space="preserve">
-    <value>Добавление даты к имени файла</value>
-  </data>
-  <data name="btnOpenDataFile.Text" xml:space="preserve">
-    <value>Создание и открытие файла данных CSV</value>
   </data>
   <data name="btnChartDistances.Text" xml:space="preserve">
     <value>Показать диаграмму:</value>
@@ -156,13 +138,64 @@
   <data name="rbSpeed.Text" xml:space="preserve">
     <value>Средняя скорость движения собак по тропам</value>
   </data>
+  <data name="mnuFile.Text" xml:space="preserve">
+    <value>Файл</value>
+  </data>
+  <data name="mnuPrependDateToFileName.Text" xml:space="preserve">
+    <value>Добавление даты к имени файла gpx</value>
+  </data>
+  <data name="mnuLanguage.Text" xml:space="preserve">
+    <value>Язык</value>
+  </data>
+  <data name="mnuSelect_directory_gpx_files.Text" xml:space="preserve">
+    <value>Выберите каталог, в котором находятся файлы gpx</value>
+  </data>
+  <data name="mnuSelectBackupDirectory.Text" xml:space="preserve">
+    <value>Выберите каталог для резервного копирования файлов gpx</value>
+  </data>
+  <data name="mnuSaveAsCsvFile.Text" xml:space="preserve">
+    <value>Экспорт в файл CSV</value>
+  </data>
+  <data name="gbPeriod.Text" xml:space="preserve">
+    <value>Выбор периода</value>
+  </data>
+  <data name="lblScentArtickle.Text" xml:space="preserve">
+    <value>занюшка </value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Анализатор статистики Mantrailing</value>
+  </data>
+  <data name="lblStartDate.Text" xml:space="preserve">
+    <value>От:</value>
+  </data>
+  <data name="lblEndDate.Text" xml:space="preserve">
+    <value>До:</value>
+  </data>
+  <data name="btnBrowse.Text" xml:space="preserve">
+    <value>Просмотреть...</value>
+  </data>
+  <data name="lblDirectory.Text" xml:space="preserve">
+    <value>Каталог:</value>
+  </data>
+  <data name="chbDateToName.Text" xml:space="preserve">
+    <value>Добавление даты к имени файла</value>
+  </data>
+  <data name="btnOpenDataFile.Text" xml:space="preserve">
+    <value>Создание и открытие файла данных CSV</value>
+  </data>
   <data name="lblBackupDirectory.Text" xml:space="preserve">
     <value>Каталог для резервных копий:</value>
   </data>
   <data name="btnBrowseBackup.Text" xml:space="preserve">
     <value>Просмотреть...</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Анализатор статистики Mantrailing</value>
+  <data name="mnuTrimGPSNoise.Text" xml:space="preserve">
+    <value>Удалить шумы в начале и конце треков</value>
+  </data>
+  <data name="mnuSettings.Text" xml:space="preserve">
+    <value>Обработка GPX</value>
+  </data>
+  <data name="mnuTrimGPSNoise.Text1" xml:space="preserve">
+    <value>Удалить шумы в начале и конце треков</value>
   </data>
 </root>

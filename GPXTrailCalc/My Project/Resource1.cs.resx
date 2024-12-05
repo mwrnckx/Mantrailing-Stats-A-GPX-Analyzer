@@ -192,4 +192,16 @@
   <data name="mBoxMissingData" xml:space="preserve">
     <value>Chcete-li uložit data načtená ze souborů gpx, musíte soubory gpx nejprve načíst. Použijte tlačítko na formuláři.</value>
   </data>
+  <data name="lblFrom" xml:space="preserve">
+    <value>Od: </value>
+  </data>
+  <data name="lblTo" xml:space="preserve">
+    <value>Do: </value>
+  </data>
+  <data name="mnuTrimGPSNoise.Text" xml:space="preserve">
+    <value>Odstranit šum GPS na začátku a konci tras</value>
+  </data>
+  <data name="Tooltip_ExportAsCSV" xml:space="preserve">
+    <value>Ulož data jako csv soubor</value>
+  </data>
 </root>

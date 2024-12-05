@@ -89,6 +89,18 @@ Namespace My
                 Me("PrependDateToName") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property TrimGPSnoise() As Boolean
+            Get
+                Return CType(Me("TrimGPSnoise"),Boolean)
+            End Get
+            Set
+                Me("TrimGPSnoise") = value
+            End Set
+        End Property
     End Class
 End Namespace
 
