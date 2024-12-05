@@ -189,4 +189,7 @@
   <data name="Tooltip_txtBackupDirectory" xml:space="preserve">
     <value>Directory for backing up gpx files before processing</value>
   </data>
+  <data name="mBoxMissingData" xml:space="preserve">
+    <value>In order to save data read from gpx files, you must first load the gpx files. Use the button on the form.</value>
+  </data>
 </root>

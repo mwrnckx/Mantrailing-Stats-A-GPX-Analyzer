@@ -8,18 +8,15 @@ Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 Imports GPXTrailAnalyzer.My.Resources
 
 Public Class Form1
-    Dim directoryPath As String
+
     Private gpxCalculator As GPXDistanceCalculator
     Private currentCulture As CultureInfo = Thread.CurrentThread.CurrentCulture
 
     Private Sub btnReadGpxFiles_Click(sender As Object, e As EventArgs) Handles btnReadGpxFiles.Click
         Try
             'send directoryPath to gpxCalculator
-            If gpxCalculator.ReadAndProcessData(directoryPath, dtpStartDate.Value, dtpEndDate.Value, chbDateToName.Checked) Then
-
-
+            If gpxCalculator.ReadAndProcessData(dtpStartDate.Value, dtpEndDate.Value) Then
                 Me.btnChartDistances.Visible = True
-                Me.btnOpenDataFile.Visible = True
                 Me.rbTotDistance.Visible = True
                 Me.rbDistances.Visible = True
                 Me.rbAge.Visible = True
@@ -33,36 +30,37 @@ Public Class Form1
 
     End Sub
 
-    Private Sub btnBrowse_Click(sender As Object, e As EventArgs) Handles btnBrowse.Click
-        Dim folderDialog As New FolderBrowserDialog With {
-            .SelectedPath = txtDirectory.Text
-        }
-        If folderDialog.ShowDialog() = DialogResult.OK Then
-            txtDirectory.Text = folderDialog.SelectedPath
+
+    Private Sub btnOpenDataFile_Click(sender As Object, e As EventArgs) Handles mnuSaveAsCsvFile.Click
+        If gpxCalculator.distances.Count < 1 Then
+            MessageBox.Show(My.Resources.Resource1.mBoxMissingData)
+            Return
         End If
-    End Sub
 
-    Private Sub txtDirectory_TextChanged(sender As Object, e As EventArgs) Handles txtDirectory.TextChanged
-        My.Settings.Directory = Me.txtDirectory.Text
-        directoryPath = txtDirectory.Text
-    End Sub
-
-    Private Sub btnOpenDataFile_Click(sender As Object, e As EventArgs) Handles btnOpenDataFile.Click
         Dim csvFileName As String = "GPX_File_Data_" & Today.ToString("yyyy-MM-dd") 'Path.Combine(directoryPath, "GPX_File_Data_" & Today.ToString("yyyy-MM-dd") & ".csv")
-        Dim csvFilePath As String = Path.Combine(directoryPath, "GPX_File_Data_" & Today.ToString("yyyy-MM-dd") & ".csv")
-        Try 'když existuje zeptá se 
-            If File.Exists(csvFilePath) Then
 
-                csvFilePath = gpxCalculator.SaveAsCsvFile(csvFileName)
-                Process.Start(csvFilePath)
+        Using dialog As New SaveFileDialog()
+            dialog.Filter = "Soubory csv|*.csv"
+            dialog.CheckFileExists = True 'když existuje zeptá se 
+            dialog.AddExtension = True
+            dialog.InitialDirectory = My.Settings.Directory
+            dialog.Title = "Save as CSV"
+            dialog.FileName = csvFileName
 
-            Else
-                gpxCalculator.WriteCSVfile(csvFilePath)
-                Process.Start(csvFilePath)
+            If dialog.ShowDialog() = DialogResult.OK Then
+
+                Debug.WriteLine($"Selected file: {dialog.FileName}")
+                Dim csvFilePath As String = dialog.FileName
+                Try
+                    gpxCalculator.WriteCSVfile(csvFilePath)
+                Catch ex As Exception
+                    MessageBox.Show($"{My.Resources.Resource1.mBoxErrorCreatingCSV}: {csvFilePath} " & ex.Message & vbCrLf, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End Try
             End If
-        Catch ex As Exception
-            MessageBox.Show($"{My.Resources.Resource1.mBoxErrorCreatingCSV}: {csvFilePath} " & ex.Message & vbCrLf, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
+        End Using
+
+
+
     End Sub
 
     Private Sub btnOpenChart(sender As Object, e As EventArgs) Handles btnChartDistances.Click
@@ -129,9 +127,9 @@ Public Class Form1
 
 
 
-    Public Sub ChangeLanguage(cultureName As String)
+    Public Sub ChangeLanguage(sender As Object, e As EventArgs) Handles mnuCzech.Click, mnuGerman.Click, mnuRussian.Click, mnuUkrainian.Click, mnuPolish.Click, mnuEnglish.Click
         Me.SuspendLayout()
-
+        Dim cultureName As String = sender.Tag
         Thread.CurrentThread.CurrentUICulture = New CultureInfo(cultureName)
 
         Me.currentCulture = Thread.CurrentThread.CurrentUICulture
@@ -157,56 +155,101 @@ Public Class Form1
 
     Private Sub SetTooltips()
 
-        Dim rm As New ResourceManager("Resource1", GetType(Form1).Assembly)
 
         ' Nastavení ToolTip pro jednotlivé ovládací prvky
-        ToolTip1.SetToolTip(txtDirectory, Resource1.Tooltip_txtDirectory)
-        ToolTip1.SetToolTip(txtBackupDirectory, Resource1.Tooltip_txtBackupDirectory)
+
+        mnuSelect_directory_gpx_files.ToolTipText = Resource1.Tooltip_txtDirectory
+        mnuSelectBackupDirectory.ToolTipText = Resource1.Tooltip_txtBackupDirectory
+        'TODO
+        mnuSaveAsCsvFile.ToolTipText = Resource1.Tooltip_txtDirectory
+
+        ' Nastavení ToolTip pro jednotlivé ovládací prvky
+
+        ToolTip1.SetToolTip(btnChartDistances, Resource1.Tooltip_txtDirectory)
+
 
         ' Přidej další ovládací prvky, jak je potřeba
+
+
+
     End Sub
 
 
-    Private Sub btnCS_Click(sender As Object, e As EventArgs) Handles btnCS.Click
-        ChangeLanguage("cs") ' Nastaví češtinu
+    'Private Sub btnCS_Click(sender As Object, e As EventArgs) Handles btnCS.Click
+    '    ChangeLanguage("cs") ' Nastaví češtinu
+    'End Sub
+
+    'Private Sub btnEng_Click(sender As Object, e As EventArgs) Handles btnEng.Click
+    '    ChangeLanguage("en") ' Nastaví angličtinu
+    'End Sub
+
+    'Private Sub btnDe_Click(sender As Object, e As EventArgs) Handles btnDe.Click
+    '    ChangeLanguage("de") ' Nastaví češtinu
+    'End Sub
+    'Private Sub btnRu_Click(sender As Object, e As EventArgs) Handles btnRu.Click
+    '    ChangeLanguage("ru") ' Nastaví češtinu
+    'End Sub
+    'Private Sub btnPl_Click(sender As Object, e As EventArgs) Handles btnPl.Click
+    '    ChangeLanguage("pl") ' Nastaví češtinu
+    'End Sub
+
+    'Private Sub btnUK_Click(sender As Object, e As EventArgs) Handles btnUK.Click
+    '    ChangeLanguage("uk")
+    'End Sub
+
+
+
+
+    Private Sub chbDateToName_CheckedChanged(sender As Object, e As EventArgs) Handles mnuPrependDateToFileName.CheckedChanged
+        My.Settings.PrependDateToName = mnuPrependDateToFileName.Checked
     End Sub
 
-    Private Sub btnEng_Click(sender As Object, e As EventArgs) Handles btnEng.Click
-        ChangeLanguage("en") ' Nastaví angličtinu
-    End Sub
-
-    Private Sub btnDe_Click(sender As Object, e As EventArgs) Handles btnDe.Click
-        ChangeLanguage("de") ' Nastaví češtinu
-    End Sub
-    Private Sub btnRu_Click(sender As Object, e As EventArgs) Handles btnRu.Click
-        ChangeLanguage("ru") ' Nastaví češtinu
-    End Sub
-    Private Sub btnPl_Click(sender As Object, e As EventArgs) Handles btnPl.Click
-        ChangeLanguage("pl") ' Nastaví češtinu
-    End Sub
-
-    Private Sub btnUK_Click(sender As Object, e As EventArgs) Handles btnUK.Click
-        ChangeLanguage("uk")
-    End Sub
 
 
+    Private Sub mnuSelect_directory_gpx_files_Click(sender As Object, e As EventArgs) Handles mnuSelect_directory_gpx_files.Click, mnuSelectBackupDirectory.Click
+        Dim folderDialog As New FolderBrowserDialog
 
-    Private Sub txtBackupDirectory_textChanged(sender As Object, e As EventArgs) Handles txtBackupDirectory.TextChanged
-        My.Settings.BackupDirectory = Me.txtBackupDirectory.Text
-    End Sub
 
-    Private Sub chbDateToName_CheckedChanged(sender As Object, e As EventArgs) Handles chbDateToName.CheckedChanged
-        My.Settings.PrependDateToName = chbDateToName.Checked
-    End Sub
-
-    Private Sub btnBrowseBackup_Click(sender As Object, e As EventArgs) Handles btnBrowseBackup.Click
-        Dim folderDialog As New FolderBrowserDialog With {
-            .SelectedPath = txtBackupDirectory.Text
-        }
-        If folderDialog.ShowDialog() = DialogResult.OK Then
-            txtBackupDirectory.Text = folderDialog.SelectedPath
+        If sender Is Me.mnuSelect_directory_gpx_files Then
+            folderDialog.SelectedPath = My.Settings.Directory
+        ElseIf sender Is Me.mnuSelectBackupDirectory Then
+            folderDialog.ShowNewFolderButton = True
+            folderDialog.SelectedPath = My.Settings.BackupDirectory
         End If
+
+
+
+        If folderDialog.ShowDialog() = DialogResult.OK Then
+
+            If sender Is Me.mnuSelect_directory_gpx_files Then
+                My.Settings.Directory = folderDialog.SelectedPath
+            ElseIf sender Is Me.mnuSelectBackupDirectory Then
+                My.Settings.BackupDirectory = folderDialog.SelectedPath
+            End If
+
+        End If
+
+        My.Settings.Save()
+        Me.StatusLabel1.Text = $"Directory: {ZkratCestu(My.Settings.Directory, 130)}" & vbCrLf & $"Backup Directory: {ZkratCestu(My.Settings.BackupDirectory, 130)}"
+
     End Sub
+
+
+    Private Function ZkratCestu(cesta As String, maxDelka As Integer) As String
+        ' Pokud je cesta krátká, není třeba ji upravovat
+        If cesta.Length <= maxDelka Or maxDelka < 9 Then
+            Return cesta
+        End If
+
+        ' Počet znaků, které ponecháme na začátku a na konci
+        Dim pocetZnakuNaKazdeStrane As Integer = (maxDelka - 7) \ 2
+
+        ' Vytvoříme zkrácenou cestu
+        Dim zacatek As String = cesta.Substring(0, pocetZnakuNaKazdeStrane)
+        Dim konec As String = cesta.Substring(cesta.Length - pocetZnakuNaKazdeStrane)
+
+        Return zacatek & "  ...  " & konec
+    End Function
 
 
 End Class

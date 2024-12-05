@@ -183,4 +183,7 @@
   <data name="logBackupOfFiles" xml:space="preserve">
     <value>Kopia zapasowa plików gpx została pomyślnie utworzona w katalogu:</value>
   </data>
+  <data name="mBoxMissingData" xml:space="preserve">
+    <value>Aby zapisać dane odczytane z plików gpx, należy najpierw załadować pliki gpx. Użyj przycisku na formularzu.</value>
+  </data>
 </root>

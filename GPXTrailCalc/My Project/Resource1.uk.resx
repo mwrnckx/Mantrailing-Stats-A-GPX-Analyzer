@@ -183,4 +183,7 @@
   <data name="logBackupOfFiles" xml:space="preserve">
     <value>Резервну копію gpx-файлів було успішно збережено до каталогу:</value>
   </data>
+  <data name="mBoxMissingData" xml:space="preserve">
+    <value>Для того, щоб зберегти дані, прочитані з gpx-файлів, ви повинні спочатку завантажити gpx-файли. Скористайтеся кнопкою на формі.</value>
+  </data>
 </root>

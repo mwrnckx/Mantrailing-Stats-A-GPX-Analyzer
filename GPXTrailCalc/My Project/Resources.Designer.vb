@@ -61,6 +61,56 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Vyhledává lokalizovaný prostředek typu System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property czech_flag() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("czech_flag", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Vyhledává lokalizovaný prostředek typu System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property De_Flag() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("De_Flag", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Vyhledává lokalizovaný prostředek typu System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property en_flag() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("en_flag", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Vyhledává lokalizovaný prostředek typu System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property pl_flag() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("pl_flag", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Vyhledává lokalizovaný prostředek typu System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property ru_flag() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("ru_flag", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Vyhledává lokalizovaný prostředek typu System.Drawing.Icon podobný (Ikona).
         '''</summary>
         Friend ReadOnly Property track2() As System.Drawing.Icon
@@ -76,6 +126,16 @@ Namespace My.Resources
         Friend ReadOnly Property trail1() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("trail1", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Vyhledává lokalizovaný prostředek typu System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property uk_flag() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("uk_flag", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

@@ -101,6 +101,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Vyhledá lokalizovaný řetězec podobný In order to save data read from gpx files, you must first load the gpx files. Use the button on the form..
+        '''</summary>
+        Friend Shared ReadOnly Property mBoxMissingData() As String
+            Get
+                Return ResourceManager.GetString("mBoxMissingData", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Vyhledá lokalizovaný řetězec podobný No gpx file was found.
         '''</summary>
         Friend Shared ReadOnly Property mBoxNo_gpx_file_was_found() As String

@@ -76,6 +76,8 @@ Public Class GPXDistanceCalculator
             Return EARTH_RADIUS * c ' Result in kilometers
         ElseIf units = "m" Then
             Return EARTH_RADIUS * c * 1000 'result in metres
+        Else
+            Return EARTH_RADIUS * c ' Result in kilometers
         End If
     End Function
 
@@ -369,8 +371,9 @@ Public Class GPXDistanceCalculator
         Return totalLengthOfFirst_trkseg ' Result in kilometers
     End Function
 
-    Public Function ReadAndProcessData(directorypath As String, startDate As DateTime, endDate As DateTime, PrependDatetoFileName As Boolean) As Boolean
-        Me.DirectoryPath = directorypath
+    Public Function ReadAndProcessData(startDate As DateTime, endDate As DateTime) As Boolean
+        Me.DirectoryPath = My.Settings.Directory
+        Dim PrependDatetoFileName As Boolean = My.Settings.PrependDateToName
         dateFrom = startDate
         dateTo = endDate
 
@@ -452,7 +455,7 @@ Public Class GPXDistanceCalculator
 
 
             Form1.txtOutput.AppendText(vbCrLf & My.Resources.Resource1.outProcessed_period_from & startDate.ToShortDateString & My.Resources.Resource1.outDo & endDate.ToShortDateString &
-                vbCrLf & My.Resources.Resource1.outAll_gpx_files_from_directory & directorypath & vbCrLf &
+                vbCrLf & My.Resources.Resource1.outAll_gpx_files_from_directory & DirectoryPath & vbCrLf &
                 vbCrLf & My.Resources.Resource1.outTotalNumberOfGPXFiles & distances.Count &
                 vbCrLf & vbCrLf & My.Resources.Resource1.outTotalLength & totalDistance.ToString("F2") & " km" & vbCrLf &
                 My.Resources.Resource1.outAverageDistance & (1000 * AverageOf(distances)).ToString("F0") & " m" & vbCrLf &
@@ -521,7 +524,7 @@ Public Class GPXDistanceCalculator
 
     End Function
 
-    Private Function BackupGpxFiles(gpxFiles As List(Of String))
+    Private Sub BackupGpxFiles(gpxFiles As List(Of String))
         Dim backupDirectory As String
         backupDirectory = My.Settings.BackupDirectory
 
@@ -553,15 +556,12 @@ Public Class GPXDistanceCalculator
 
             Next
             Debug.WriteLine($"Soubory gpx byly úspěšně zálohovány do: {backupDirectory }")
-            Form1.txtWarnings.AppendText($"{Resource1.logBackupOfFiles}   {backupDirectory }")
+            Form1.txtWarnings.AppendText($"{vbCrLf}{Resource1.logBackupOfFiles}   {backupDirectory }{vbCrLf}")
         Catch ex As Exception
             Debug.WriteLine($"Chyba při zálohování souborů: {ex.Message}")
         End Try
 
-
-
-
-    End Function
+    End Sub
 
     ' Get a list of all GPX files in the specified directory and filters them according to the specified condition, i.e. the specified time interval
     Private Function GetGpxFiles(directorypath As String) As List(Of String)
@@ -583,15 +583,12 @@ Public Class GPXDistanceCalculator
                 End If
             Next
 
-
-            For i = 0 To gpxFiles.Count - 1
-                'modifies the name to start with the date
-                If Form1.chbDateToName.Checked Then
-                    ChangeFilename(i)
-                End If
-
-            Next i
-
+            If My.Settings.PrependDateToName Then
+                For i = 0 To gpxFiles.Count - 1
+                    'modifies the name to start with the date
+                    PrependDateToFilename(i)
+                Next i
+            End If
 
             gpxFiles.Sort()
 
@@ -607,7 +604,7 @@ Public Class GPXDistanceCalculator
 
 
 
-    Public Sub ChangeFilename(i As Integer)
+    Public Sub PrependDateToFilename(i As Integer)
 
 
         Dim fileName As String = Path.GetFileNameWithoutExtension(gpxFiles(i))
@@ -787,7 +784,7 @@ Public Class GPXDistanceCalculator
             End Using
 
 
-            Form1.txtWarnings.AppendText($"CSV file created: {csvFilePath}.{Environment.NewLine}")
+            Form1.txtWarnings.AppendText($"{vbCrLf}CSV file created: {csvFilePath}.{Environment.NewLine}")
         Catch ex As Exception
             Form1.txtWarnings.AppendText($"{My.Resources.Resource1.mBoxErrorCreatingCSV}: {ex.Message}{Environment.NewLine}")
             MessageBox.Show($"Error creating CSV file: {ex.Message}")
@@ -795,34 +792,6 @@ Public Class GPXDistanceCalculator
     End Sub
 
 
-    Public Function SaveAsCsvFile(csvFilename As String) As String
-        ' Vytvoření instance SaveFileDialog
-        ' Nastavení filtrů a výchozí přípony
-        Dim saveFileDialog As New SaveFileDialog With {
-            .Filter = "CSV Files (*.csv)|*.csv|All Files (*.*)|*.*",
-            .DefaultExt = "csv",
-            .AddExtension = True,
-            .Title = "A file with this name already exists, Save As:",
-            .FileName = csvFilename,
-            .InitialDirectory = DirectoryPath
-        }
-
-        ' Zobrazení dialogového okna pro "Uložit Jako"
-        If saveFileDialog.ShowDialog() = DialogResult.OK Then
-            ' Získání cesty k novému souboru z dialogu
-            Dim newFilePath As String = saveFileDialog.FileName
-
-            Try
-                Me.WriteCSVfile(newFilePath)
-            Catch ex As Exception
-                MessageBox.Show(My.Resources.Resource1.mBoxErrorCreatingCSV & ex.Message, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End Try
-            Return newFilePath
-        Else
-            MessageBox.Show("Saving the file has been cancelled", "Uložení souboru", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            Return Nothing
-        End If
-    End Function
 
 
     ' in gpx files, splits a track with two segments into two separate tracks

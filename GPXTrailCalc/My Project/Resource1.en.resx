@@ -174,4 +174,7 @@
   <data name="logBackupOfFiles" xml:space="preserve">
     <value>The gpx files were successfully backed up to the directory:</value>
   </data>
+  <data name="mBoxMissingData" xml:space="preserve">
+    <value>In order to save data read from gpx files, you must first load the gpx files. Use the button on the form.</value>
+  </data>
 </root>

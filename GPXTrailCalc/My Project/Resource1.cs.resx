@@ -189,4 +189,7 @@
   <data name="Tooltip_txtBackupDirectory" xml:space="preserve">
     <value>Adresář pro zálohování gpx souborů před jejich zpracováním</value>
   </data>
+  <data name="mBoxMissingData" xml:space="preserve">
+    <value>Chcete-li uložit data načtená ze souborů gpx, musíte soubory gpx nejprve načíst. Použijte tlačítko na formuláři.</value>
+  </data>
 </root>

@@ -117,69 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnBrowse.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnBrowse.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="btnBrowse.Location" type="System.Drawing.Point, System.Drawing">
-    <value>697, 15</value>
-  </data>
-  <data name="btnBrowse.Size" type="System.Drawing.Size, System.Drawing">
-    <value>143, 43</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnBrowse.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="btnBrowse.Text" xml:space="preserve">
-    <value>Browse...</value>
-  </data>
-  <data name="&gt;&gt;btnBrowse.Name" xml:space="preserve">
-    <value>btnBrowse</value>
-  </data>
-  <data name="&gt;&gt;btnBrowse.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnBrowse.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btnBrowse.ZOrder" xml:space="preserve">
-    <value>25</value>
-  </data>
-  <data name="txtDirectory.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Semibold, 8pt, style=Bold</value>
-  </data>
-  <data name="txtDirectory.Location" type="System.Drawing.Point, System.Drawing">
-    <value>149, 26</value>
-  </data>
-  <data name="txtDirectory.Size" type="System.Drawing.Size, System.Drawing">
-    <value>537, 22</value>
-  </data>
-  <data name="txtDirectory.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <metadata name="ToolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <data name="txtDirectory.ToolTip" xml:space="preserve">
-    <value>Directory where gpx files are located</value>
-  </data>
-  <data name="&gt;&gt;txtDirectory.Name" xml:space="preserve">
-    <value>txtDirectory</value>
-  </data>
-  <data name="&gt;&gt;txtDirectory.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtDirectory.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;txtDirectory.ZOrder" xml:space="preserve">
-    <value>24</value>
-  </data>
   <data name="dtpStartDate.CalendarFont" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Semibold, 9pt, style=Bold</value>
   </data>
@@ -187,11 +125,12 @@
     <value>Segoe UI, 9pt, style=Bold</value>
   </data>
   <data name="dtpStartDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>149, 107</value>
+    <value>168, 45</value>
   </data>
   <data name="dtpStartDate.Size" type="System.Drawing.Size, System.Drawing">
     <value>144, 31</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="dtpStartDate.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
@@ -205,7 +144,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;dtpStartDate.ZOrder" xml:space="preserve">
-    <value>23</value>
+    <value>12</value>
   </data>
   <data name="dtpEndDate.CalendarFont" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Semibold, 9pt, style=Bold</value>
@@ -214,7 +153,7 @@
     <value>Segoe UI, 9pt, style=Bold</value>
   </data>
   <data name="dtpEndDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>149, 145</value>
+    <value>168, 82</value>
   </data>
   <data name="dtpEndDate.Size" type="System.Drawing.Size, System.Drawing">
     <value>144, 31</value>
@@ -232,7 +171,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;dtpEndDate.ZOrder" xml:space="preserve">
-    <value>22</value>
+    <value>11</value>
   </data>
   <data name="btnReadGpxFiles.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 10pt, style=Bold</value>
@@ -259,13 +198,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnReadGpxFiles.ZOrder" xml:space="preserve">
-    <value>21</value>
+    <value>10</value>
   </data>
   <data name="lblStartDate.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Semibold, 8pt, style=Bold</value>
   </data>
   <data name="lblStartDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 110</value>
+    <value>17, 53</value>
   </data>
   <data name="lblStartDate.Size" type="System.Drawing.Size, System.Drawing">
     <value>108, 26</value>
@@ -289,13 +228,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblStartDate.ZOrder" xml:space="preserve">
-    <value>20</value>
+    <value>9</value>
   </data>
   <data name="lblEndDate.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Semibold, 8pt, style=Bold</value>
   </data>
   <data name="lblEndDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 148</value>
+    <value>12, 90</value>
   </data>
   <data name="lblEndDate.Size" type="System.Drawing.Size, System.Drawing">
     <value>108, 26</value>
@@ -319,43 +258,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblEndDate.ZOrder" xml:space="preserve">
-    <value>19</value>
-  </data>
-  <data name="lblDirectory.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Semibold, 9pt, style=Bold</value>
-  </data>
-  <data name="lblDirectory.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblDirectory.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 24</value>
-  </data>
-  <data name="lblDirectory.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 24</value>
-  </data>
-  <data name="lblDirectory.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="lblDirectory.Text" xml:space="preserve">
-    <value>Directory:</value>
-  </data>
-  <data name="lblDirectory.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
-  <data name="&gt;&gt;lblDirectory.Name" xml:space="preserve">
-    <value>lblDirectory</value>
-  </data>
-  <data name="&gt;&gt;lblDirectory.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblDirectory.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblDirectory.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>8</value>
   </data>
   <data name="txtOutput.Location" type="System.Drawing.Point, System.Drawing">
-    <value>354, 110</value>
+    <value>354, 47</value>
   </data>
   <data name="txtOutput.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -369,9 +275,6 @@
   <data name="txtOutput.Text" xml:space="preserve">
     <value>GPX Records:</value>
   </data>
-  <data name="txtOutput.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Center</value>
-  </data>
   <data name="&gt;&gt;txtOutput.Name" xml:space="preserve">
     <value>txtOutput</value>
   </data>
@@ -382,10 +285,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtOutput.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>7</value>
   </data>
   <data name="txtWarnings.Location" type="System.Drawing.Point, System.Drawing">
-    <value>946, 110</value>
+    <value>946, 51</value>
   </data>
   <data name="txtWarnings.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -399,9 +302,6 @@
   <data name="txtWarnings.Text" xml:space="preserve">
     <value>Errors and Logs:</value>
   </data>
-  <data name="txtWarnings.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Center</value>
-  </data>
   <data name="&gt;&gt;txtWarnings.Name" xml:space="preserve">
     <value>txtWarnings</value>
   </data>
@@ -412,64 +312,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtWarnings.ZOrder" xml:space="preserve">
-    <value>16</value>
-  </data>
-  <data name="chbDateToName.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Semibold, 9pt, style=Bold</value>
-  </data>
-  <data name="chbDateToName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 292</value>
-  </data>
-  <data name="chbDateToName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>272, 26</value>
-  </data>
-  <data name="chbDateToName.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="chbDateToName.Text" xml:space="preserve">
-    <value>Prepend Date to File Name</value>
-  </data>
-  <data name="&gt;&gt;chbDateToName.Name" xml:space="preserve">
-    <value>chbDateToName</value>
-  </data>
-  <data name="&gt;&gt;chbDateToName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;chbDateToName.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;chbDateToName.ZOrder" xml:space="preserve">
-    <value>15</value>
-  </data>
-  <data name="btnOpenDataFile.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 10pt, style=Bold</value>
-  </data>
-  <data name="btnOpenDataFile.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 324</value>
-  </data>
-  <data name="btnOpenDataFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>327, 88</value>
-  </data>
-  <data name="btnOpenDataFile.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="btnOpenDataFile.Text" xml:space="preserve">
-    <value>Create and open CSV data file</value>
-  </data>
-  <data name="btnOpenDataFile.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;btnOpenDataFile.Name" xml:space="preserve">
-    <value>btnOpenDataFile</value>
-  </data>
-  <data name="&gt;&gt;btnOpenDataFile.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnOpenDataFile.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btnOpenDataFile.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>6</value>
   </data>
   <data name="btnChartDistances.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 10pt, style=Bold</value>
@@ -499,7 +342,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnChartDistances.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>5</value>
   </data>
   <data name="rbTotDistance.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -532,7 +375,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;rbTotDistance.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>4</value>
   </data>
   <data name="rbDistances.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -565,7 +408,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;rbDistances.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>3</value>
   </data>
   <data name="rbAge.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -598,7 +441,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;rbAge.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>2</value>
   </data>
   <data name="rbSpeed.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -631,152 +474,173 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;rbSpeed.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>1</value>
   </data>
-  <data name="btnEng.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        /9j/4AAQSkZJRgABAQEASABIAAD/4QCCRXhpZgAATU0AKgAAAAgABQESAAMAAAABAAEAAAEaAAUAAAAB
-        AAAASgEbAAUAAAABAAAAUgEoAAMAAAABAAIAAIdpAAQAAAABAAAAWgAAAAAAAABIAAAAAQAAAEgAAAAB
-        AAKgAgAEAAAAAQAAADKgAwAEAAAAAQAAAB8AAAAAAAD/4ge4SUNDX1BST0ZJTEUAAQEAAAeoYXBwbAIg
-        AABtbnRyUkdCIFhZWiAH2QACABkACwAaAAthY3NwQVBQTAAAAABhcHBsAAAAAAAAAAAAAAAAAAAAAAAA
-        9tYAAQAAAADTLWFwcGwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAtkZXNjAAABCAAAAG9kc2NtAAABeAAABWxjcHJ0AAAG5AAAADh3dHB0AAAHHAAAABRyWFlaAAAHMAAA
-        ABRnWFlaAAAHRAAAABRiWFlaAAAHWAAAABRyVFJDAAAHbAAAAA5jaGFkAAAHfAAAACxiVFJDAAAHbAAA
-        AA5nVFJDAAAHbAAAAA5kZXNjAAAAAAAAABRHZW5lcmljIFJHQiBQcm9maWxlAAAAAAAAAAAAAAAUR2Vu
-        ZXJpYyBSR0IgUHJvZmlsZQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAbWx1YwAAAAAAAAAeAAAADHNrU0sAAAAoAAABeGhySFIAAAAoAAABoGNhRVMAAAAkAAAByHB0
-        QlIAAAAmAAAB7HVrVUEAAAAqAAACEmZyRlUAAAAoAAACPHpoVFcAAAAWAAACZGl0SVQAAAAoAAACem5i
-        Tk8AAAAmAAAComtvS1IAAAAWAAACyGNzQ1oAAAAiAAAC3mhlSUwAAAAeAAADAGRlREUAAAAsAAADHmh1
-        SFUAAAAoAAADSnN2U0UAAAAmAAAConpoQ04AAAAWAAADcmphSlAAAAAaAAADiHJvUk8AAAAkAAADomVs
-        R1IAAAAiAAADxnB0UE8AAAAmAAAD6G5sTkwAAAAoAAAEDmVzRVMAAAAmAAAD6HRoVEgAAAAkAAAENnRy
-        VFIAAAAiAAAEWmZpRkkAAAAoAAAEfHBsUEwAAAAsAAAEpHJ1UlUAAAAiAAAE0GFyRUcAAAAmAAAE8mVu
-        VVMAAAAmAAAFGGRhREsAAAAuAAAFPgBWAWEAZQBvAGIAZQBjAG4A/QAgAFIARwBCACAAcAByAG8AZgBp
-        AGwARwBlAG4AZQByAGkBDQBrAGkAIABSAEcAQgAgAHAAcgBvAGYAaQBsAFAAZQByAGYAaQBsACAAUgBH
-        AEIAIABnAGUAbgDoAHIAaQBjAFAAZQByAGYAaQBsACAAUgBHAEIAIABHAGUAbgDpAHIAaQBjAG8EFwQw
-        BDMEMAQ7BEwEPQQ4BDkAIAQ/BEAEPgREBDAEOQQ7ACAAUgBHAEIAUAByAG8AZgBpAGwAIABnAOkAbgDp
-        AHIAaQBxAHUAZQAgAFIAVgBCkBp1KAAgAFIARwBCACCCcl9pY8+P8ABQAHIAbwBmAGkAbABvACAAUgBH
-        AEIAIABnAGUAbgBlAHIAaQBjAG8ARwBlAG4AZQByAGkAcwBrACAAUgBHAEIALQBwAHIAbwBmAGkAbMd8
-        vBgAIABSAEcAQgAg1QS4XNMMx3wATwBiAGUAYwBuAP0AIABSAEcAQgAgAHAAcgBvAGYAaQBsBeQF6AXV
-        BeQF2QXcACAAUgBHAEIAIAXbBdwF3AXZAEEAbABsAGcAZQBtAGUAaQBuAGUAcwAgAFIARwBCAC0AUABy
-        AG8AZgBpAGwAwQBsAHQAYQBsAOEAbgBvAHMAIABSAEcAQgAgAHAAcgBvAGYAaQBsZm6QGgAgAFIARwBC
-        ACBjz4/wZYdO9k4AgiwAIABSAEcAQgAgMNcw7TDVMKEwpDDrAFAAcgBvAGYAaQBsACAAUgBHAEIAIABn
-        AGUAbgBlAHIAaQBjA5MDtQO9A7kDugPMACADwAPBA78DxgOvA7sAIABSAEcAQgBQAGUAcgBmAGkAbAAg
-        AFIARwBCACAAZwBlAG4A6QByAGkAYwBvAEEAbABnAGUAbQBlAGUAbgAgAFIARwBCAC0AcAByAG8AZgBp
-        AGUAbA5CDhsOIw5EDh8OJQ5MACAAUgBHAEIAIA4XDjEOSA4nDkQOGwBHAGUAbgBlAGwAIABSAEcAQgAg
-        AFAAcgBvAGYAaQBsAGkAWQBsAGUAaQBuAGUAbgAgAFIARwBCAC0AcAByAG8AZgBpAGkAbABpAFUAbgBp
-        AHcAZQByAHMAYQBsAG4AeQAgAHAAcgBvAGYAaQBsACAAUgBHAEIEHgQxBEkEOAQ5ACAEPwRABD4ERAQ4
-        BDsETAAgAFIARwBCBkUGRAZBACAGKgY5BjEGSgZBACAAUgBHAEIAIAYnBkQGOQYnBkUARwBlAG4AZQBy
-        AGkAYwAgAFIARwBCACAAUAByAG8AZgBpAGwAZQBHAGUAbgBlAHIAZQBsACAAUgBHAEIALQBiAGUAcwBr
-        AHIAaQB2AGUAbABzAGV0ZXh0AAAAAENvcHlyaWdodCAyMDA3IEFwcGxlIEluYy4sIGFsbCByaWdodHMg
-        cmVzZXJ2ZWQuAFhZWiAAAAAAAADzUgABAAAAARbPWFlaIAAAAAAAAHRNAAA97gAAA9BYWVogAAAAAAAA
-        WnUAAKxzAAAXNFhZWiAAAAAAAAAoGgAAFZ8AALg2Y3VydgAAAAAAAAABAc0AAHNmMzIAAAAAAAEMQgAA
-        Bd7///MmAAAHkgAA/ZH///ui///9owAAA9wAAMBs/9sAQwACAgICAgECAgICAgICAwMGBAMDAwMHBQUE
-        BggHCAgIBwgICQoNCwkJDAoICAsPCwwNDg4ODgkLEBEPDhENDg4O/9sAQwECAgIDAwMGBAQGDgkICQ4O
-        Dg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4O/8AAEQgAHwAyAwEi
-        AAIRAQMRAf/EABoAAAIDAQEAAAAAAAAAAAAAAAgJAAYHBQT/xAA1EAABAwQCAQIEAwUJAAAAAAABAgME
-        BQYHEQgSABMhCRQVIhcYQSQxMlhhFiNRUpSXtdTk/8QAGQEAAwADAAAAAAAAAAAAAAAABQYHAQME/8QA
-        OBEAAQIEBAIGBQ0AAAAAAAAAAQIRAwQFIQAGBxIxQVFTYXFygRUygpGSNUJDUlRzk5SisdHj8P/aAAwD
-        AQACEQMRAD8A7WJeWmJ+Q2KGsS5Mt2n3hTZifTRYV4VNLkxtSU9UqolYeKPVc/hKY8tbcgFR6SFgBPg6
-        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
-        OJ2L+Y/sx//Z
-</value>
+  <metadata name="ToolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="StatusStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>309, 17</value>
+  </metadata>
+  <data name="StatusLabel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>194, 25</value>
   </data>
-  <data name="btnEng.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
+  <data name="StatusLabel1.Text" xml:space="preserve">
+    <value>ToolStripkkkkkkkkkkel1</value>
   </data>
-  <data name="btnEng.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
+  <data name="StatusLabel1.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
   </data>
-  <data name="btnEng.Location" type="System.Drawing.Point, System.Drawing">
-    <value>873, 17</value>
+  <data name="StatusLabel1.ToolTipText" xml:space="preserve">
+    <value>Directories can be set in the "File" menu</value>
   </data>
-  <data name="btnEng.Size" type="System.Drawing.Size, System.Drawing">
-    <value>52, 33</value>
+  <data name="StatusStrip1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 812</value>
   </data>
-  <data name="btnEng.TabIndex" type="System.Int32, mscorlib">
-    <value>22</value>
+  <data name="StatusStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1778, 32</value>
   </data>
-  <data name="&gt;&gt;btnEng.Name" xml:space="preserve">
-    <value>btnEng</value>
+  <data name="StatusStrip1.TabIndex" type="System.Int32, mscorlib">
+    <value>28</value>
   </data>
-  <data name="&gt;&gt;btnEng.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="StatusStrip1.Text" xml:space="preserve">
+    <value>StatusStrip1</value>
   </data>
-  <data name="&gt;&gt;btnEng.Parent" xml:space="preserve">
+  <data name="StatusStrip1.ToolTip" xml:space="preserve">
+    <value>Directories can be set in the "File" menu</value>
+  </data>
+  <data name="&gt;&gt;StatusStrip1.Name" xml:space="preserve">
+    <value>StatusStrip1</value>
+  </data>
+  <data name="&gt;&gt;StatusStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;StatusStrip1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;btnEng.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="&gt;&gt;StatusStrip1.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="btnCS.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        R0lGODlhMgAhAIYAAAAAAP////8WG/4JEv0KFPwKFP8VG/8WHP8WHf8XHf8XHvwXHv4YIP4YIf0YIfwY
-        H/4ZIf0ZIf0ZIvwZIvcZIvYZIvUZIvgcJP8pLvkoL/goMPgpMfosM/gsM/Y7Q/2Ijf+KjfyIjfiPkvAS
-        HtkgL9ggL9YgMdcuPMkjNsgjN5csTJUuS5QuTH8yVX4yVH4zVn0zVXdrjUo9a0o9akk+a2JZgEM/bvz8
-        /ThBczlBcjhCchRJghJNhxNJguPq8QBFhgBDgQBCgABDgABBfwBCfxBQiRFQiRlWjBtYjxxZjx5bkUt7
-        p9ji6wJHgwNJhQNJhANHgwRJhAVNhwdLhgdMhghNhwhMhgpMhhFRiRlXjUZ4pEZ4o1iGrVqHrWuQsJCu
-        yJGvyJCux6a+06e/09fi6+Pp7gBPjQBOjABPjABOiwBPiwNOiQNNiBJYkKnB1Nbh6ebt8uXs8fn9/vz9
-        /fv8/P39/fv7+/r6+vn5+fb29v///wAAAAAAAAAAAAAAAAAAACH/C05FVFNDQVBFMi4wAwEBAAAh+QQB
-        AAB6ACwAAAAAMgAhAAAI/wC9lAlwB4/BgwgTKlzIkOGdPDyUuAlAsaLFixgzatwYwE6WJkC6wOFIsiRJ
-        O0eqTBmSZIzJlzA7HrFCs4mQLnFi6tSIkibNlS13Cq3Y02dNIVx8DN1Z1KiVlUjELI3Z1KkVKECWkJlq
-        sqrVKUSwfLnBlaNXq1aiDNHCpCzPmWidUhFSJEwdtxfPxrXyZO0bvETh7pUbxMiXOYD1Dk47ZMtWt4oX
-        zy0CRk5ZOoIXo3XyIwaIDyFCix5NuvQHEZk1G01zxcWIAQViy55Nu3YBAhdSq5aCRgcKAQ0mCB9OvLhx
-        4RI26F7MGoaFBMejS5+QfHlcKWZwpDjAYLr34tVVW5JRc+UFBejf0yNXrhl7DhQHgqtXH34vFfItKiCQ
-        MH9+fbRsoGEDfPL1Rx97VlGBRg8sPKCAgQb+5xMbZ9BgggEQQBghgjQp2MMKDmoI4X8BzlCCABGIOCJ7
-        HoL4oIorHrEGGjKQgCKMGibXxg4qLICAA0AGKeSQRBZpZJENaFDDCRhw0MGTUEYp5ZRUVlllBh4EBAA7
-</value>
+  <metadata name="MenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>151, 17</value>
+  </metadata>
+  <data name="mnuSelect_directory_gpx_files.Size" type="System.Drawing.Size, System.Drawing">
+    <value>458, 34</value>
   </data>
-  <data name="btnCS.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
+  <data name="mnuSelect_directory_gpx_files.Text" xml:space="preserve">
+    <value>Select the directory with gpx files</value>
   </data>
-  <data name="btnCS.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
+  <data name="mnuSelect_directory_gpx_files.ToolTipText" xml:space="preserve">
+    <value>mnuSelecttooltip</value>
   </data>
-  <data name="btnCS.Location" type="System.Drawing.Point, System.Drawing">
-    <value>940, 17</value>
+  <data name="mnuSelectBackupDirectory.Size" type="System.Drawing.Size, System.Drawing">
+    <value>458, 34</value>
   </data>
-  <data name="btnCS.Size" type="System.Drawing.Size, System.Drawing">
-    <value>52, 33</value>
+  <data name="mnuSelectBackupDirectory.Text" xml:space="preserve">
+    <value>Select a directory to back up the gpx files</value>
   </data>
-  <data name="btnCS.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
+  <data name="mnuSaveAsCsvFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>458, 34</value>
   </data>
-  <data name="&gt;&gt;btnCS.Name" xml:space="preserve">
-    <value>btnCS</value>
+  <data name="mnuSaveAsCsvFile.Text" xml:space="preserve">
+    <value>Save as csv file</value>
   </data>
-  <data name="&gt;&gt;btnCS.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="mnuFile.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Semibold, 9pt, style=Bold</value>
   </data>
-  <data name="&gt;&gt;btnCS.Parent" xml:space="preserve">
+  <data name="mnuFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 29</value>
+  </data>
+  <data name="mnuFile.Text" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="mnuPrependDateToFileName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>368, 34</value>
+  </data>
+  <data name="mnuPrependDateToFileName.Text" xml:space="preserve">
+    <value>Prepend date to gpx file name</value>
+  </data>
+  <data name="SettingsToolStripMenuItem.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Semibold, 9pt, style=Bold</value>
+  </data>
+  <data name="SettingsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>259, 29</value>
+  </data>
+  <data name="SettingsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Gpx file processing settings</value>
+  </data>
+  <data name="mnuEnglish.Size" type="System.Drawing.Size, System.Drawing">
+    <value>205, 34</value>
+  </data>
+  <data name="mnuEnglish.Text" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="mnuGerman.Size" type="System.Drawing.Size, System.Drawing">
+    <value>205, 34</value>
+  </data>
+  <data name="mnuGerman.Text" xml:space="preserve">
+    <value>Deutch</value>
+  </data>
+  <data name="mnuCzech.Size" type="System.Drawing.Size, System.Drawing">
+    <value>205, 34</value>
+  </data>
+  <data name="mnuCzech.Text" xml:space="preserve">
+    <value>Česky</value>
+  </data>
+  <data name="mnuUkrainian.Size" type="System.Drawing.Size, System.Drawing">
+    <value>205, 34</value>
+  </data>
+  <data name="mnuUkrainian.Text" xml:space="preserve">
+    <value>Українська</value>
+  </data>
+  <data name="mnuPolish.Size" type="System.Drawing.Size, System.Drawing">
+    <value>205, 34</value>
+  </data>
+  <data name="mnuPolish.Text" xml:space="preserve">
+    <value>Polski</value>
+  </data>
+  <data name="mnuRussian.Size" type="System.Drawing.Size, System.Drawing">
+    <value>205, 34</value>
+  </data>
+  <data name="mnuRussian.Text" xml:space="preserve">
+    <value>Русский</value>
+  </data>
+  <data name="mnuLanguage.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Semibold, 9pt, style=Bold</value>
+  </data>
+  <data name="mnuLanguage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>109, 29</value>
+  </data>
+  <data name="mnuLanguage.Text" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="MenuStrip1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="MenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1778, 33</value>
+  </data>
+  <data name="MenuStrip1.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="MenuStrip1.Text" xml:space="preserve">
+    <value>MenuStrip1</value>
+  </data>
+  <data name="&gt;&gt;MenuStrip1.Name" xml:space="preserve">
+    <value>MenuStrip1</value>
+  </data>
+  <data name="&gt;&gt;MenuStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MenuStrip1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;btnCS.ZOrder" xml:space="preserve">
-    <value>8</value>
+  <data name="&gt;&gt;MenuStrip1.ZOrder" xml:space="preserve">
+    <value>13</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="PictureBox1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
+    <value>Fill</value>
   </data>
   <data name="PictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2140,11 +2004,14 @@
         Irz3WJpvCNwZrCeTaT/qZW3Rj6CqspbAemUVS0e8kvtNjnlI3nrtGBV2otYAooopAFFFFABRRRQB/9k=
 </value>
   </data>
+  <data name="PictureBox1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="PictureBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
   <data name="PictureBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1300, 844</value>
+    <value>1778, 844</value>
   </data>
   <data name="PictureBox1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
@@ -2162,259 +2029,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;PictureBox1.ZOrder" xml:space="preserve">
-    <value>26</value>
-  </data>
-  <data name="btnDe.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAATCAYAAADxlA/3AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        cAAAAHABznhikwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAABFSURBVEhL7c4x
-        EQAwDEJR3NVfhdVBBVQFjQBmWMjdy8D0MccwOTrJ0UmOTnJ0kqPPnpeEOy+pAQ3AW2ASeMCkBjQgHAB+
-        gzF5/QKqNpwAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="btnDe.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
-  </data>
-  <data name="btnDe.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="btnDe.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1007, 17</value>
-  </data>
-  <data name="btnDe.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="btnDe.Size" type="System.Drawing.Size, System.Drawing">
-    <value>52, 33</value>
-  </data>
-  <data name="btnDe.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
-  </data>
-  <data name="&gt;&gt;btnDe.Name" xml:space="preserve">
-    <value>btnDe</value>
-  </data>
-  <data name="&gt;&gt;btnDe.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnDe.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btnDe.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="btnRu.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAVCAYAAAAnzezqAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        cAAAAHABznhikwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAABCSURBVEhL7c4x
-        FQAgFEJRkvwCJrCwjcyDBZhhEM65C9MDw2tAAxoA7MMoeTrJ00meTvJ0kqeTPJ3uGiY1oAG/BwwfFb74
-        e0cyoEUAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="btnRu.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
-  </data>
-  <data name="btnRu.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="btnRu.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnRu.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1207, 17</value>
-  </data>
-  <data name="btnRu.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="btnRu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>52, 33</value>
-  </data>
-  <data name="btnRu.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
-  </data>
-  <data name="&gt;&gt;btnRu.Name" xml:space="preserve">
-    <value>btnRu</value>
-  </data>
-  <data name="&gt;&gt;btnRu.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnRu.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btnRu.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="btnPl.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAUAQMAAADWX60MAAAABGdBTUEAALGPC/xhBQAAAAZQTFRF3BQ8
-        ////77g10gAAABFJREFUGNNj+A8EpBEkAgYGAK1RJ9lGJWawAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="btnPl.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
-  </data>
-  <data name="btnPl.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="btnPl.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnPl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1074, 17</value>
-  </data>
-  <data name="btnPl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="btnPl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>52, 33</value>
-  </data>
-  <data name="btnPl.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
-  </data>
-  <data name="&gt;&gt;btnPl.Name" xml:space="preserve">
-    <value>btnPl</value>
-  </data>
-  <data name="&gt;&gt;btnPl.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnPl.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btnPl.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="btnUK.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAVCAYAAAAnzezqAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        VAAAAFQBo63EFQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAABISURBVEhL7c4x
-        FYBQEMTA9cnDCzLwgg707DeQOtdcMU2qJNfXURhNGE0YTRhNGE0YTRhNGE0YTc97d1L6p5N2YAd2YAeG
-        B9IDPPVw2zRJa6MAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="btnUK.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
-  </data>
-  <data name="btnUK.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="btnUK.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnUK.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1140, 18</value>
-  </data>
-  <data name="btnUK.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="btnUK.Size" type="System.Drawing.Size, System.Drawing">
-    <value>52, 33</value>
-  </data>
-  <data name="btnUK.TabIndex" type="System.Int32, mscorlib">
-    <value>23</value>
-  </data>
-  <data name="&gt;&gt;btnUK.Name" xml:space="preserve">
-    <value>btnUK</value>
-  </data>
-  <data name="&gt;&gt;btnUK.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnUK.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btnUK.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="lblBackupDirectory.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Semibold, 9pt, style=Bold</value>
-  </data>
-  <data name="lblBackupDirectory.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblBackupDirectory.Location" type="System.Drawing.Point, System.Drawing">
-    <value>19, 60</value>
-  </data>
-  <data name="lblBackupDirectory.Size" type="System.Drawing.Size, System.Drawing">
-    <value>245, 26</value>
-  </data>
-  <data name="lblBackupDirectory.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
-  </data>
-  <data name="lblBackupDirectory.Text" xml:space="preserve">
-    <value>Backup Directory:</value>
-  </data>
-  <data name="lblBackupDirectory.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
-  <data name="&gt;&gt;lblBackupDirectory.Name" xml:space="preserve">
-    <value>lblBackupDirectory</value>
-  </data>
-  <data name="&gt;&gt;lblBackupDirectory.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblBackupDirectory.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblBackupDirectory.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="txtBackupDirectory.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Semibold, 8pt, style=Bold</value>
-  </data>
-  <data name="txtBackupDirectory.Location" type="System.Drawing.Point, System.Drawing">
-    <value>270, 63</value>
-  </data>
-  <data name="txtBackupDirectory.Size" type="System.Drawing.Size, System.Drawing">
-    <value>671, 22</value>
-  </data>
-  <data name="txtBackupDirectory.TabIndex" type="System.Int32, mscorlib">
-    <value>25</value>
-  </data>
-  <data name="txtBackupDirectory.ToolTip" xml:space="preserve">
-    <value>něco</value>
-  </data>
-  <data name="&gt;&gt;txtBackupDirectory.Name" xml:space="preserve">
-    <value>txtBackupDirectory</value>
-  </data>
-  <data name="&gt;&gt;txtBackupDirectory.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtBackupDirectory.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;txtBackupDirectory.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="btnBrowseBackup.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="btnBrowseBackup.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="btnBrowseBackup.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnBrowseBackup.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1007, 54</value>
-  </data>
-  <data name="btnBrowseBackup.Size" type="System.Drawing.Size, System.Drawing">
-    <value>143, 43</value>
-  </data>
-  <data name="btnBrowseBackup.TabIndex" type="System.Int32, mscorlib">
-    <value>26</value>
-  </data>
-  <data name="btnBrowseBackup.Text" xml:space="preserve">
-    <value>Browse...</value>
-  </data>
-  <data name="&gt;&gt;btnBrowseBackup.Name" xml:space="preserve">
-    <value>btnBrowseBackup</value>
-  </data>
-  <data name="&gt;&gt;btnBrowseBackup.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnBrowseBackup.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btnBrowseBackup.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>14</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -9642,6 +9257,90 @@
   </data>
   <data name="&gt;&gt;ToolTip1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;StatusLabel1.Name" xml:space="preserve">
+    <value>StatusLabel1</value>
+  </data>
+  <data name="&gt;&gt;StatusLabel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mnuFile.Name" xml:space="preserve">
+    <value>mnuFile</value>
+  </data>
+  <data name="&gt;&gt;mnuFile.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mnuSelect_directory_gpx_files.Name" xml:space="preserve">
+    <value>mnuSelect_directory_gpx_files</value>
+  </data>
+  <data name="&gt;&gt;mnuSelect_directory_gpx_files.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mnuSelectBackupDirectory.Name" xml:space="preserve">
+    <value>mnuSelectBackupDirectory</value>
+  </data>
+  <data name="&gt;&gt;mnuSelectBackupDirectory.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mnuSaveAsCsvFile.Name" xml:space="preserve">
+    <value>mnuSaveAsCsvFile</value>
+  </data>
+  <data name="&gt;&gt;mnuSaveAsCsvFile.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SettingsToolStripMenuItem.Name" xml:space="preserve">
+    <value>SettingsToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;SettingsToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mnuPrependDateToFileName.Name" xml:space="preserve">
+    <value>mnuPrependDateToFileName</value>
+  </data>
+  <data name="&gt;&gt;mnuPrependDateToFileName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mnuLanguage.Name" xml:space="preserve">
+    <value>mnuLanguage</value>
+  </data>
+  <data name="&gt;&gt;mnuLanguage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mnuEnglish.Name" xml:space="preserve">
+    <value>mnuEnglish</value>
+  </data>
+  <data name="&gt;&gt;mnuEnglish.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mnuGerman.Name" xml:space="preserve">
+    <value>mnuGerman</value>
+  </data>
+  <data name="&gt;&gt;mnuGerman.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mnuCzech.Name" xml:space="preserve">
+    <value>mnuCzech</value>
+  </data>
+  <data name="&gt;&gt;mnuCzech.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mnuUkrainian.Name" xml:space="preserve">
+    <value>mnuUkrainian</value>
+  </data>
+  <data name="&gt;&gt;mnuUkrainian.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mnuPolish.Name" xml:space="preserve">
+    <value>mnuPolish</value>
+  </data>
+  <data name="&gt;&gt;mnuPolish.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mnuRussian.Name" xml:space="preserve">
+    <value>mnuRussian</value>
+  </data>
+  <data name="&gt;&gt;mnuRussian.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>Form1</value>
