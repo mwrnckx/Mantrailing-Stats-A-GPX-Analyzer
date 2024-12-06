@@ -35,7 +35,7 @@ Public Class Form1
     End Sub
 
 
-    Private Sub btnOpenDataFile_Click(sender As Object, e As EventArgs) Handles mnuSaveAsCsvFile.Click
+    Private Sub SaveCSVFile(sender As Object, e As EventArgs) Handles mnuSaveAsCsvFile.Click
         If gpxCalculator.distances.Count < 1 Then
             MessageBox.Show(My.Resources.Resource1.mBoxMissingData)
             Return
@@ -59,6 +59,51 @@ Public Class Form1
                     gpxCalculator.WriteCSVfile(csvFilePath)
                 Catch ex As Exception
                     MessageBox.Show($"{My.Resources.Resource1.mBoxErrorCreatingCSV}: {csvFilePath} " & ex.Message & vbCrLf, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End Try
+            End If
+        End Using
+
+
+
+    End Sub
+
+    Private Sub SaveRtfFile(sender As Object, e As EventArgs) Handles mnuSaveAsRtf.Click
+        If gpxCalculator.distances.Count < 1 Then
+            MessageBox.Show(My.Resources.Resource1.mBoxMissingData)
+            Return
+        End If
+
+        Dim rtfFileName As String = "GPX_File_Data_" & Today.ToString("yyyy-MM-dd") 'Path.Combine(directoryPath, "GPX_File_Data_" & Today.ToString("yyyy-MM-dd") & ".csv")
+
+        Using dialog As New SaveFileDialog()
+            dialog.Filter = "Soubory RTF|*.rtf"
+            'dialog.CheckFileExists = True 'když existuje zeptá se 
+            dialog.AddExtension = True
+            dialog.InitialDirectory = My.Settings.Directory
+            dialog.Title = "Save as RTF"
+            dialog.FileName = rtfFileName
+
+            ' Načti obsah RichTextBoxu jako RTF text
+            Dim rtfText As String = rtbOutput.Rtf
+
+            ' Najdi začátek RTF hlavičky a vlož vlastnosti pro A4 naležato
+            Dim upravenyRtf As String = rtfText.Replace("\rtf1", "\rtf1\ansi\paperw11907\paperh8267\landscape\margl1440\margr1440\margt1440\margb1440")
+
+
+
+
+            If dialog.ShowDialog() = DialogResult.OK Then
+
+                Debug.WriteLine($"Selected file: {dialog.FileName}")
+                'Ulož upravený RTF text zpět do souboru
+
+
+
+                Try
+                    'IO.File.WriteAllText(dialog.FileName, upravenyRtf)
+                    rtbOutput.SaveFile(dialog.FileName, RichTextBoxStreamType.RichText)
+                Catch ex As Exception
+                    MessageBox.Show($"{My.Resources.Resource1.mBoxErrorCreatingCSV}: {dialog.FileName} " & ex.Message & vbCrLf, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End Try
             End If
         End Using

@@ -41,6 +41,7 @@ Partial Class Form1
         Me.mnuSelect_directory_gpx_files = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuSelectBackupDirectory = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuSaveAsCsvFile = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuSaveAsRtf = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuSettings = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuPrependDateToFileName = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuTrimGPSNoise = New System.Windows.Forms.ToolStripMenuItem()
@@ -149,7 +150,7 @@ Partial Class Form1
         '
         'mnuFile
         '
-        Me.mnuFile.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuSelect_directory_gpx_files, Me.mnuSelectBackupDirectory, Me.mnuSaveAsCsvFile})
+        Me.mnuFile.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuSelect_directory_gpx_files, Me.mnuSelectBackupDirectory, Me.mnuSaveAsCsvFile, Me.mnuSaveAsRtf})
         resources.ApplyResources(Me.mnuFile, "mnuFile")
         Me.mnuFile.Name = "mnuFile"
         '
@@ -167,6 +168,11 @@ Partial Class Form1
         '
         Me.mnuSaveAsCsvFile.Name = "mnuSaveAsCsvFile"
         resources.ApplyResources(Me.mnuSaveAsCsvFile, "mnuSaveAsCsvFile")
+        '
+        'mnuSaveAsRtf
+        '
+        Me.mnuSaveAsRtf.Name = "mnuSaveAsRtf"
+        resources.ApplyResources(Me.mnuSaveAsRtf, "mnuSaveAsRtf")
         '
         'mnuSettings
         '
@@ -327,7 +333,7 @@ Partial Class Form1
 
         Me.StatusLabel1.Text = $"Directory: {ZkratCestu(My.Settings.Directory, 130)}" & vbCrLf & $"Backup Directory: {ZkratCestu(My.Settings.BackupDirectory, 130)}"
         Dim resources = New ComponentResourceManager(Me.GetType())
-        LocalizeMenuItems(MenuStrip1.Items, Resources)
+        LocalizeMenuItems(MenuStrip1.Items, resources)
         SetTooltips()
         Dim height As Integer = 18
         ' Nastavení obrázku na ToolStripMenuItem
@@ -378,5 +384,6 @@ Partial Class Form1
     Friend WithEvents lblScentArtickle As Label
     Friend WithEvents mnuTrimGPSNoise As ToolStripMenuItem
     Friend WithEvents rtbOutput As RichTextBox
+    Friend WithEvents mnuSaveAsRtf As ToolStripMenuItem
 End Class
 

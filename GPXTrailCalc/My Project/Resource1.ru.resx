@@ -121,13 +121,13 @@
     <value>Пройденные километры</value>
   </data>
   <data name="Y-AxisLabelLength" xml:space="preserve">
-    <value>Длина маршрутов (км)</value>
+    <value>Длина следoв (км)</value>
   </data>
   <data name="Y-AxisLabelAge" xml:space="preserve">
-    <value>Возраст маршрутов (часы)</value>
+    <value>Возраст следoв (часы)</value>
   </data>
   <data name="Y-AxisLabelSpeed" xml:space="preserve">
-    <value>Скорость собаки на маршрутах (км/ч)</value>
+    <value>Скорость собаки на следy (км/ч)</value>
   </data>
   <data name="X_AxisLabel" xml:space="preserve">
     <value>Дата</value>
@@ -151,10 +151,10 @@
     <value>Обрабатываются все файлы GPX из каталога:</value>
   </data>
   <data name="outTotalNumberOfGPXFiles" xml:space="preserve">
-    <value>Общее количество троп</value>
+    <value>Общее количество следoв</value>
   </data>
   <data name="outTotalLength" xml:space="preserve">
-    <value>Общая длина всех троп</value>
+    <value>Общая длина всех следoв</value>
   </data>
   <data name="outLength" xml:space="preserve">
     <value>Длина</value>
@@ -172,10 +172,10 @@
     <value>Скорость собаки</value>
   </data>
   <data name="outAverageDistance" xml:space="preserve">
-    <value>Средняя длина троп</value>
+    <value>Средняя длина следoв</value>
   </data>
   <data name="outAverageAge" xml:space="preserve">
-    <value>Средний возраст троп</value>
+    <value>Средний возраст следoв</value>
   </data>
   <data name="outAverageSpeed" xml:space="preserve">
     <value>Средняя скорость собаки</value>

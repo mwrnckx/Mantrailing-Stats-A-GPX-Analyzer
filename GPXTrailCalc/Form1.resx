@@ -225,9 +225,6 @@
   <data name="txtWarnings.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="txtWarnings.WordWrap" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="&gt;&gt;txtWarnings.Name" xml:space="preserve">
     <value>txtWarnings</value>
   </data>
@@ -470,6 +467,12 @@
   </data>
   <data name="mnuSaveAsCsvFile.Text" xml:space="preserve">
     <value>Save as csv file</value>
+  </data>
+  <data name="mnuSaveAsRtf.Size" type="System.Drawing.Size, System.Drawing">
+    <value>458, 34</value>
+  </data>
+  <data name="mnuSaveAsRtf.Text" xml:space="preserve">
+    <value>Save as rtf file</value>
   </data>
   <data name="mnuFile.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Semibold, 9pt, style=Bold</value>
@@ -7962,6 +7965,12 @@ llllllll</value>
     <value>mnuSaveAsCsvFile</value>
   </data>
   <data name="&gt;&gt;mnuSaveAsCsvFile.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mnuSaveAsRtf.Name" xml:space="preserve">
+    <value>mnuSaveAsRtf</value>
+  </data>
+  <data name="&gt;&gt;mnuSaveAsRtf.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;mnuSettings.Name" xml:space="preserve">

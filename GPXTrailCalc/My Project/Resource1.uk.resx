@@ -121,10 +121,10 @@
     <value>Пройдено кілометрів</value>
   </data>
   <data name="Y-AxisLabelLength" xml:space="preserve">
-    <value>Довжина маршрутів (км)</value>
+    <value>Довжина всіх слідів (км)</value>
   </data>
   <data name="Y-AxisLabelAge" xml:space="preserve">
-    <value>Вік маршрутів (години)</value>
+    <value>Вік слідів (години)</value>
   </data>
   <data name="Y-AxisLabelSpeed" xml:space="preserve">
     <value>Швидкість собаки на маршрутах (км/год)</value>
@@ -151,10 +151,10 @@
     <value>Обробляються всі файли GPX із каталогу:</value>
   </data>
   <data name="outTotalNumberOfGPXFiles" xml:space="preserve">
-    <value>Загальна кількість стежок</value>
+    <value>Загальна кількість слідів</value>
   </data>
   <data name="outTotalLength" xml:space="preserve">
-    <value>Загальна довжина всіх  стежок</value>
+    <value>Загальна довжина всіх слідів</value>
   </data>
   <data name="outLength" xml:space="preserve">
     <value>Довжина</value>
@@ -172,10 +172,10 @@
     <value>Швидкість собаки</value>
   </data>
   <data name="outAverageDistance" xml:space="preserve">
-    <value>Середня довжина стежок</value>
+    <value>Середня довжина слідів</value>
   </data>
   <data name="outAverageAge" xml:space="preserve">
-    <value>Середній вік стежок</value>
+    <value>Середній вік слідів</value>
   </data>
   <data name="outAverageSpeed" xml:space="preserve">
     <value>Середня швидкість собаки</value>
