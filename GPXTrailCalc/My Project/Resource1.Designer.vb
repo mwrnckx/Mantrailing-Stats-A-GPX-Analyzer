@@ -191,6 +191,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Vyhledá lokalizovaný řetězec podobný Description.
+        '''</summary>
+        Friend Shared ReadOnly Property outDescription() As String
+            Get
+                Return ResourceManager.GetString("outDescription", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Vyhledá lokalizovaný řetězec podobný   to .
         '''</summary>
         Friend Shared ReadOnly Property outDo() As String
@@ -245,7 +254,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Vyhledá lokalizovaný řetězec podobný Total number of processed GPX files, i.e. trails.
+        '''  Vyhledá lokalizovaný řetězec podobný Total number of track/trails.
         '''</summary>
         Friend Shared ReadOnly Property outTotalNumberOfGPXFiles() As String
             Get

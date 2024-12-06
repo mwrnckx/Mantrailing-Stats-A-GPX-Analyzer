@@ -151,7 +151,7 @@
     <value>Przetwarzanie wszystkich plików GPX z katalogu:</value>
   </data>
   <data name="outTotalNumberOfGPXFiles" xml:space="preserve">
-    <value>Całkowita liczba przetworzonych plików GPX, czyli tras</value>
+    <value>Całkowita liczba tras</value>
   </data>
   <data name="outTotalLength" xml:space="preserve">
     <value>Całkowita długość wszystkich tras</value>
@@ -197,5 +197,8 @@
   </data>
   <data name="Tooltip_ExportAsCSV" xml:space="preserve">
     <value>Export as CSV file</value>
+  </data>
+  <data name="outDescription" xml:space="preserve">
+    <value>Opis</value>
   </data>
 </root>

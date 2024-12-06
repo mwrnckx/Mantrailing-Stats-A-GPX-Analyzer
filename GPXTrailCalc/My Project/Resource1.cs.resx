@@ -151,7 +151,7 @@
     <value>Zpracovány všechny gpx soubory z adresáře:  </value>
   </data>
   <data name="outTotalNumberOfGPXFiles" xml:space="preserve">
-    <value>Celkový počet zpracovaných souborů GPX, tedy trailů</value>
+    <value>Celkový počet  stop/trailů</value>
   </data>
   <data name="outTotalLength" xml:space="preserve">
     <value>Celková délka trailů v daném období</value>
@@ -203,5 +203,8 @@
   </data>
   <data name="Tooltip_ExportAsCSV" xml:space="preserve">
     <value>Ulož data jako csv soubor</value>
+  </data>
+  <data name="outDescription" xml:space="preserve">
+    <value>Poznámky</value>
   </data>
 </root>

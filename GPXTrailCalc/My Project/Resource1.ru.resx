@@ -151,7 +151,7 @@
     <value>Обрабатываются все файлы GPX из каталога:</value>
   </data>
   <data name="outTotalNumberOfGPXFiles" xml:space="preserve">
-    <value>Общее количество обработанных GPX файлов, то есть троп</value>
+    <value>Общее количество троп</value>
   </data>
   <data name="outTotalLength" xml:space="preserve">
     <value>Общая длина всех троп</value>
@@ -197,5 +197,8 @@
   </data>
   <data name="Tooltip_ExportAsCSV" xml:space="preserve">
     <value>Export as CSV file</value>
+  </data>
+  <data name="outDescription" xml:space="preserve">
+    <value>Описание</value>
   </data>
 </root>

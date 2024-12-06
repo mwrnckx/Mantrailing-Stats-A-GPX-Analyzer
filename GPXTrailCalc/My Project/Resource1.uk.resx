@@ -151,10 +151,10 @@
     <value>Обробляються всі файли GPX із каталогу:</value>
   </data>
   <data name="outTotalNumberOfGPXFiles" xml:space="preserve">
-    <value>Загальна кількість оброблених файлів GPX, тобто маршрутів</value>
+    <value>Загальна кількість стежок</value>
   </data>
   <data name="outTotalLength" xml:space="preserve">
-    <value>Загальна довжина всіх маршрутів</value>
+    <value>Загальна довжина всіх  стежок</value>
   </data>
   <data name="outLength" xml:space="preserve">
     <value>Довжина</value>
@@ -197,5 +197,8 @@
   </data>
   <data name="Tooltip_ExportAsCSV" xml:space="preserve">
     <value>Export as CSV file</value>
+  </data>
+  <data name="outDescription" xml:space="preserve">
+    <value>Опис</value>
   </data>
 </root>
