@@ -151,13 +151,13 @@
     <value>Przetwarzanie wszystkich plików GPX z katalogu:</value>
   </data>
   <data name="outTotalNumberOfGPXFiles" xml:space="preserve">
-    <value>Całkowita liczba przetworzonych plików GPX, czyli tras:</value>
+    <value>Całkowita liczba przetworzonych plików GPX, czyli tras</value>
   </data>
   <data name="outTotalLength" xml:space="preserve">
-    <value>Całkowita długość wszystkich tras:</value>
+    <value>Całkowita długość wszystkich tras</value>
   </data>
   <data name="outLength" xml:space="preserve">
-    <value>Długość:</value>
+    <value>Długość</value>
   </data>
   <data name="outgpxFileName" xml:space="preserve">
     <value>Nazwa pliku GPX</value>
@@ -172,13 +172,13 @@
     <value>Prędkość psa</value>
   </data>
   <data name="outAverageDistance" xml:space="preserve">
-    <value>Średnia długość szlaków:</value>
+    <value>Średnia długość szlaków</value>
   </data>
   <data name="outAverageAge" xml:space="preserve">
     <value>Średni wiek szlaków</value>
   </data>
   <data name="outAverageSpeed" xml:space="preserve">
-    <value>Średnia prędkość psa:</value>
+    <value>Średnia prędkość psa</value>
   </data>
   <data name="logBackupOfFiles" xml:space="preserve">
     <value>Kopia zapasowa plików gpx została pomyślnie utworzona w katalogu:</value>

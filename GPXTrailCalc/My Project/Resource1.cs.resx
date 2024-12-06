@@ -130,7 +130,7 @@
     <value>Rychlost psa na trailech (km/h)</value>
   </data>
   <data name="X_AxisLabel" xml:space="preserve">
-    <value>  Datum  </value>
+    <value>Datum  </value>
   </data>
   <data name="mBoxDataRetrievalFailed" xml:space="preserve">
     <value>Načtení souborů gpx selhalo</value>
@@ -142,7 +142,7 @@
     <value>Nebyl nalezen žádný soubor gpx </value>
   </data>
   <data name="outProcessed_period_from" xml:space="preserve">
-    <value>Období od: </value>
+    <value>Zpracováno období: od </value>
   </data>
   <data name="outDo" xml:space="preserve">
     <value>  do </value>
@@ -151,16 +151,16 @@
     <value>Zpracovány všechny gpx soubory z adresáře:  </value>
   </data>
   <data name="outTotalNumberOfGPXFiles" xml:space="preserve">
-    <value>Celkový počet zpracovaných souborů GPX, tedy trailů: </value>
+    <value>Celkový počet zpracovaných souborů GPX, tedy trailů</value>
   </data>
   <data name="outTotalLength" xml:space="preserve">
-    <value>Celková délka trailů v daném období:  </value>
+    <value>Celková délka trailů v daném období</value>
   </data>
   <data name="outLength" xml:space="preserve">
-    <value>  Délka: </value>
+    <value>Délka</value>
   </data>
   <data name="outgpxFileName" xml:space="preserve">
-    <value>Jméno souboru gpx:</value>
+    <value>Jméno souboru gpx</value>
   </data>
   <data name="outAge" xml:space="preserve">
     <value>Stáří</value>
@@ -172,13 +172,13 @@
     <value>Rychlost psa</value>
   </data>
   <data name="outAverageDistance" xml:space="preserve">
-    <value>Průměrná délka trailů: </value>
+    <value>Průměrná délka trailů</value>
   </data>
   <data name="outAverageAge" xml:space="preserve">
-    <value>Průměrné stáří trailů: </value>
+    <value>Průměrné stáří trailů</value>
   </data>
   <data name="outAverageSpeed" xml:space="preserve">
-    <value>Průměrná rychlost psa: </value>
+    <value>Průměrná rychlost psa</value>
   </data>
   <data name="logBackupOfFiles" xml:space="preserve">
     <value>Soubory gpx byly úspěšně zálohovány do: </value>

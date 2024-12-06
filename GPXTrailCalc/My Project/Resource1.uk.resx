@@ -151,13 +151,13 @@
     <value>Обробляються всі файли GPX із каталогу:</value>
   </data>
   <data name="outTotalNumberOfGPXFiles" xml:space="preserve">
-    <value>Загальна кількість оброблених файлів GPX, тобто маршрутів:</value>
+    <value>Загальна кількість оброблених файлів GPX, тобто маршрутів</value>
   </data>
   <data name="outTotalLength" xml:space="preserve">
-    <value>Загальна довжина всіх маршрутів:</value>
+    <value>Загальна довжина всіх маршрутів</value>
   </data>
   <data name="outLength" xml:space="preserve">
-    <value>Довжина:</value>
+    <value>Довжина</value>
   </data>
   <data name="outgpxFileName" xml:space="preserve">
     <value>Назва файлу GPX</value>
@@ -172,13 +172,13 @@
     <value>Швидкість собаки</value>
   </data>
   <data name="outAverageDistance" xml:space="preserve">
-    <value>Середня довжина стежок:</value>
+    <value>Середня довжина стежок</value>
   </data>
   <data name="outAverageAge" xml:space="preserve">
     <value>Середній вік стежок</value>
   </data>
   <data name="outAverageSpeed" xml:space="preserve">
-    <value>Середня швидкість собаки:</value>
+    <value>Середня швидкість собаки</value>
   </data>
   <data name="logBackupOfFiles" xml:space="preserve">
     <value>Резервну копію gpx-файлів було успішно збережено до каталогу:</value>

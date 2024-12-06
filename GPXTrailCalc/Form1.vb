@@ -13,7 +13,7 @@ Public Class Form1
     Private currentCulture As CultureInfo = Thread.CurrentThread.CurrentCulture
 
     Private Sub btnReadGpxFiles_Click(sender As Object, e As EventArgs) Handles btnReadGpxFiles.Click
-        Me.txtOutput.Visible = True
+
         Me.txtWarnings.Visible = True
 
         Try

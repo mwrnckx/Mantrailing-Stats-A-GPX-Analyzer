@@ -111,6 +111,17 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Vyhledá lokalizovaný řetězec podobný {\rtf1\adeflang1025\ansi\ansicpg1250\uc1\adeff0\deff0\stshfdbch31505\stshfloch31506\stshfhich31506\stshfbi0\deflang1029\deflangfe1029\themelang1029\themelangfe0\themelangcs0{\fonttbl{\f0\fbidi \froman\fcharset238\fprq2{\*\panose 02020603050405020304}Times New Roman;}
+        '''{\f34\fbidi \froman\fcharset238\fprq2{\*\panose 02040503050406030204}Cambria Math;}{\f42\fbidi \fswiss\fcharset0\fprq2 Aptos Display;}{\f43\fbidi \fswiss\fcharset0\fprq2 Aptos;}
+        '''{\flomajor\f31500\fbidi \froman\fcharset238\fprq2{\*\panose 0202 [zbytek řetězce byl zkrácen];.
+        '''</summary>
+        Friend ReadOnly Property Readme_cs() As String
+            Get
+                Return ResourceManager.GetString("Readme_cs", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Vyhledává lokalizovaný prostředek typu System.Drawing.Bitmap.
         '''</summary>
         Friend ReadOnly Property ru_flag() As System.Drawing.Bitmap
@@ -127,16 +138,6 @@ Namespace My.Resources
             Get
                 Dim obj As Object = ResourceManager.GetObject("track2", resourceCulture)
                 Return CType(obj,System.Drawing.Icon)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Vyhledává lokalizovaný prostředek typu System.Drawing.Bitmap.
-        '''</summary>
-        Friend ReadOnly Property trail1() As System.Drawing.Bitmap
-            Get
-                Dim obj As Object = ResourceManager.GetObject("trail1", resourceCulture)
-                Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
         

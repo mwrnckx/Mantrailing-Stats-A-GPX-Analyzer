@@ -151,13 +151,13 @@
     <value>Обрабатываются все файлы GPX из каталога:</value>
   </data>
   <data name="outTotalNumberOfGPXFiles" xml:space="preserve">
-    <value>Общее количество обработанных GPX файлов, то есть маршрутов:</value>
+    <value>Общее количество обработанных GPX файлов, то есть троп</value>
   </data>
   <data name="outTotalLength" xml:space="preserve">
-    <value>Общая длина всех маршрутов:</value>
+    <value>Общая длина всех троп</value>
   </data>
   <data name="outLength" xml:space="preserve">
-    <value>Длина:</value>
+    <value>Длина</value>
   </data>
   <data name="outgpxFileName" xml:space="preserve">
     <value>Имя файла GPX</value>
@@ -172,13 +172,13 @@
     <value>Скорость собаки</value>
   </data>
   <data name="outAverageDistance" xml:space="preserve">
-    <value>Средняя длина маршрутов:</value>
+    <value>Средняя длина троп</value>
   </data>
   <data name="outAverageAge" xml:space="preserve">
     <value>Средний возраст троп</value>
   </data>
   <data name="outAverageSpeed" xml:space="preserve">
-    <value>Средняя скорость собаки:</value>
+    <value>Средняя скорость собаки</value>
   </data>
   <data name="logBackupOfFiles" xml:space="preserve">
     <value>Файлы gpx были успешно сохранены в каталоге:</value>

@@ -200,57 +200,21 @@
   <data name="&gt;&gt;btnReadGpxFiles.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
-  <data name="txtOutput.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Semibold, 9pt, style=Bold</value>
-  </data>
-  <data name="txtOutput.Location" type="System.Drawing.Point, System.Drawing">
-    <value>354, 47</value>
-  </data>
-  <data name="txtOutput.Multiline" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="txtOutput.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
-    <value>Vertical</value>
-  </data>
-  <data name="txtOutput.Size" type="System.Drawing.Size, System.Drawing">
-    <value>654, 577</value>
-  </data>
-  <data name="txtOutput.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="txtOutput.Text" xml:space="preserve">
-    <value>GPX Records:</value>
-  </data>
-  <data name="txtOutput.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;txtOutput.Name" xml:space="preserve">
-    <value>txtOutput</value>
-  </data>
-  <data name="&gt;&gt;txtOutput.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtOutput.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;txtOutput.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
   <data name="txtWarnings.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Semibold, 9pt, style=Bold</value>
   </data>
   <data name="txtWarnings.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1021, 47</value>
+    <value>330, 423</value>
   </data>
   <data name="txtWarnings.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="txtWarnings.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
     <value>Vertical</value>
   </data>
   <data name="txtWarnings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>274, 577</value>
+    <value>950, 201</value>
   </data>
   <data name="txtWarnings.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -271,7 +235,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtWarnings.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="btnChartDistances.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 10pt, style=Bold</value>
@@ -301,7 +265,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnChartDistances.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="rbTotDistance.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -334,7 +298,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;rbTotDistance.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="rbDistances.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -367,7 +331,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;rbDistances.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="rbAge.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -400,7 +364,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;rbAge.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="rbSpeed.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -433,7 +397,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;rbSpeed.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <metadata name="ToolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
@@ -466,7 +430,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;StatusStrip1.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="StatusLabel1.Size" type="System.Drawing.Size, System.Drawing">
     <value>194, 25</value>
@@ -483,90 +447,6 @@
   <metadata name="MenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>151, 17</value>
   </metadata>
-  <data name="mnuFile.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Semibold, 9pt, style=Bold</value>
-  </data>
-  <data name="mnuFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>57, 29</value>
-  </data>
-  <data name="mnuFile.Text" xml:space="preserve">
-    <value>File</value>
-  </data>
-  <data name="mnuSettings.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Semibold, 9pt, style=Bold</value>
-  </data>
-  <data name="mnuSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>156, 29</value>
-  </data>
-  <data name="mnuSettings.Text" xml:space="preserve">
-    <value>Gpx processing</value>
-  </data>
-  <data name="mnuEnglish.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="mnuEnglish.Size" type="System.Drawing.Size, System.Drawing">
-    <value>296, 44</value>
-  </data>
-  <data name="mnuEnglish.Text" xml:space="preserve">
-    <value>English</value>
-  </data>
-  <data name="mnuGerman.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="mnuGerman.Size" type="System.Drawing.Size, System.Drawing">
-    <value>296, 44</value>
-  </data>
-  <data name="mnuGerman.Text" xml:space="preserve">
-    <value>Deutch</value>
-  </data>
-  <data name="mnuCzech.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="mnuCzech.Size" type="System.Drawing.Size, System.Drawing">
-    <value>296, 44</value>
-  </data>
-  <data name="mnuCzech.Text" xml:space="preserve">
-    <value>Česky</value>
-  </data>
-  <data name="mnuUkrainian.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="mnuUkrainian.Size" type="System.Drawing.Size, System.Drawing">
-    <value>296, 44</value>
-  </data>
-  <data name="mnuUkrainian.Text" xml:space="preserve">
-    <value>Українська</value>
-  </data>
-  <data name="mnuPolish.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="mnuPolish.Size" type="System.Drawing.Size, System.Drawing">
-    <value>296, 44</value>
-  </data>
-  <data name="mnuPolish.Text" xml:space="preserve">
-    <value>Polski</value>
-  </data>
-  <data name="mnuRussian.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="mnuRussian.Size" type="System.Drawing.Size, System.Drawing">
-    <value>296, 44</value>
-  </data>
-  <data name="mnuRussian.Text" xml:space="preserve">
-    <value>Русский</value>
-  </data>
-  <data name="mnuLanguage.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Semibold, 9pt, style=Bold</value>
-  </data>
-  <data name="mnuLanguage.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="mnuLanguage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>109, 29</value>
-  </data>
-  <data name="mnuLanguage.Text" xml:space="preserve">
-    <value>Language</value>
-  </data>
   <data name="MenuStrip1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
@@ -591,6 +471,15 @@
   <data name="&gt;&gt;MenuStrip1.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
+  <data name="mnuFile.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Semibold, 9pt, style=Bold</value>
+  </data>
+  <data name="mnuFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 29</value>
+  </data>
+  <data name="mnuFile.Text" xml:space="preserve">
+    <value>File</value>
+  </data>
   <data name="mnuSelect_directory_gpx_files.Size" type="System.Drawing.Size, System.Drawing">
     <value>458, 34</value>
   </data>
@@ -612,6 +501,15 @@
   <data name="mnuSaveAsCsvFile.Text" xml:space="preserve">
     <value>Save as csv file</value>
   </data>
+  <data name="mnuSettings.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Semibold, 9pt, style=Bold</value>
+  </data>
+  <data name="mnuSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>156, 29</value>
+  </data>
+  <data name="mnuSettings.Text" xml:space="preserve">
+    <value>Gpx processing</value>
+  </data>
   <data name="mnuPrependDateToFileName.Size" type="System.Drawing.Size, System.Drawing">
     <value>439, 34</value>
   </data>
@@ -623,6 +521,72 @@
   </data>
   <data name="mnuTrimGPSNoise.Text" xml:space="preserve">
     <value>Trim GPS noise at track's start and end.</value>
+  </data>
+  <data name="mnuLanguage.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Semibold, 9pt, style=Bold</value>
+  </data>
+  <data name="mnuLanguage.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="mnuLanguage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>109, 29</value>
+  </data>
+  <data name="mnuLanguage.Text" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="mnuEnglish.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="mnuEnglish.Size" type="System.Drawing.Size, System.Drawing">
+    <value>231, 44</value>
+  </data>
+  <data name="mnuEnglish.Text" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="mnuGerman.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="mnuGerman.Size" type="System.Drawing.Size, System.Drawing">
+    <value>231, 44</value>
+  </data>
+  <data name="mnuGerman.Text" xml:space="preserve">
+    <value>Deutch</value>
+  </data>
+  <data name="mnuCzech.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="mnuCzech.Size" type="System.Drawing.Size, System.Drawing">
+    <value>231, 44</value>
+  </data>
+  <data name="mnuCzech.Text" xml:space="preserve">
+    <value>Česky</value>
+  </data>
+  <data name="mnuUkrainian.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="mnuUkrainian.Size" type="System.Drawing.Size, System.Drawing">
+    <value>231, 44</value>
+  </data>
+  <data name="mnuUkrainian.Text" xml:space="preserve">
+    <value>Українська</value>
+  </data>
+  <data name="mnuPolish.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="mnuPolish.Size" type="System.Drawing.Size, System.Drawing">
+    <value>231, 44</value>
+  </data>
+  <data name="mnuPolish.Text" xml:space="preserve">
+    <value>Polski</value>
+  </data>
+  <data name="mnuRussian.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="mnuRussian.Size" type="System.Drawing.Size, System.Drawing">
+    <value>231, 44</value>
+  </data>
+  <data name="mnuRussian.Text" xml:space="preserve">
+    <value>Русский</value>
   </data>
   <data name="PictureBox1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -679,7 +643,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;gbPeriod.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="lblScentArtickle.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -709,7 +673,33 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblScentArtickle.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
+  </data>
+  <data name="rtbOutput.Location" type="System.Drawing.Point, System.Drawing">
+    <value>330, 51</value>
+  </data>
+  <data name="rtbOutput.Size" type="System.Drawing.Size, System.Drawing">
+    <value>950, 356</value>
+  </data>
+  <data name="rtbOutput.TabIndex" type="System.Int32, mscorlib">
+    <value>30</value>
+  </data>
+  <data name="rtbOutput.Text" xml:space="preserve">
+    <value>bbbb
+kkkkk
+llllllll</value>
+  </data>
+  <data name="&gt;&gt;rtbOutput.Name" xml:space="preserve">
+    <value>rtbOutput</value>
+  </data>
+  <data name="&gt;&gt;rtbOutput.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rtbOutput.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;rtbOutput.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

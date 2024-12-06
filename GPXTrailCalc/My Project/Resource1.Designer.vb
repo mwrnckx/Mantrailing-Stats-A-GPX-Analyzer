@@ -164,7 +164,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Vyhledá lokalizovaný řetězec podobný Average age of trails: .
+        '''  Vyhledá lokalizovaný řetězec podobný Average age of trails.
         '''</summary>
         Friend Shared ReadOnly Property outAverageAge() As String
             Get
@@ -173,7 +173,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Vyhledá lokalizovaný řetězec podobný Average length of trails: .
+        '''  Vyhledá lokalizovaný řetězec podobný Average length of trails.
         '''</summary>
         Friend Shared ReadOnly Property outAverageDistance() As String
             Get
@@ -182,7 +182,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Vyhledá lokalizovaný řetězec podobný Average speed of dog: .
+        '''  Vyhledá lokalizovaný řetězec podobný Average speed of dog.
         '''</summary>
         Friend Shared ReadOnly Property outAverageSpeed() As String
             Get
@@ -209,7 +209,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Vyhledá lokalizovaný řetězec podobný Length: .
+        '''  Vyhledá lokalizovaný řetězec podobný Length.
         '''</summary>
         Friend Shared ReadOnly Property outLength() As String
             Get
@@ -236,7 +236,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Vyhledá lokalizovaný řetězec podobný Total Length of all trails:   .
+        '''  Vyhledá lokalizovaný řetězec podobný Total Length of all trails.
         '''</summary>
         Friend Shared ReadOnly Property outTotalLength() As String
             Get
@@ -245,7 +245,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Vyhledá lokalizovaný řetězec podobný Total number of processed GPX files, i.e. trails: .
+        '''  Vyhledá lokalizovaný řetězec podobný Total number of processed GPX files, i.e. trails.
         '''</summary>
         Friend Shared ReadOnly Property outTotalNumberOfGPXFiles() As String
             Get
@@ -281,7 +281,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Vyhledá lokalizovaný řetězec podobný   Date  .
+        '''  Vyhledá lokalizovaný řetězec podobný Date  .
         '''</summary>
         Friend Shared ReadOnly Property X_AxisLabel() As String
             Get

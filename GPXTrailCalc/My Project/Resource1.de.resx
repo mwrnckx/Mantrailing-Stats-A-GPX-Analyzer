@@ -130,7 +130,7 @@
     <value>Geschwindigkeit der Hunde (km/h)</value>
   </data>
   <data name="X_AxisLabel" xml:space="preserve">
-    <value>  Datum  </value>
+    <value>Datum  </value>
   </data>
   <data name="mBoxDataRetrievalFailed" xml:space="preserve">
     <value>Laden von gpx-Dateien fehlgeschlagen</value>
@@ -142,7 +142,7 @@
     <value>Es wurde keine gpx-Datei gefunden</value>
   </data>
   <data name="outProcessed_period_from" xml:space="preserve">
-    <value>Der Zeitraum von:</value>
+    <value>Bearbeiteter Zeitraum: von</value>
   </data>
   <data name="outDo" xml:space="preserve">
     <value>  zu</value>
@@ -151,16 +151,16 @@
     <value>Verarbeitet alle gpx-Dateien aus dem Verzeichnis: </value>
   </data>
   <data name="outTotalNumberOfGPXFiles" xml:space="preserve">
-    <value>Gesamtzahl der verarbeiteten GPX-Dateien, d. h. der Strecken: </value>
+    <value>Gesamtzahl der verarbeiteten GPX-Dateien, d. h. der Strecken</value>
   </data>
   <data name="outTotalLength" xml:space="preserve">
-    <value>Gesamtlänge aller Strecken:  </value>
+    <value>Gesamtlänge aller Strecken</value>
   </data>
   <data name="outLength" xml:space="preserve">
-    <value>  Länge:</value>
+    <value>Länge</value>
   </data>
   <data name="outgpxFileName" xml:space="preserve">
-    <value>GPX-Dateiname:</value>
+    <value>GPX-Dateiname</value>
   </data>
   <data name="outAge" xml:space="preserve">
     <value>Alter</value>
@@ -172,13 +172,13 @@
     <value>Tempo des Hundes</value>
   </data>
   <data name="outAverageDistance" xml:space="preserve">
-    <value>Durchschnittliche Länge der Wanderwege:</value>
+    <value>Durchschnittliche Länge der Wanderwege</value>
   </data>
   <data name="outAverageAge" xml:space="preserve">
     <value>Durchschnittliches Alter der Wanderwege</value>
   </data>
   <data name="outAverageSpeed" xml:space="preserve">
-    <value>Durchschnittliche Geschwindigkeit eines Hundes:</value>
+    <value>Durchschnittliche Geschwindigkeit eines Hundes</value>
   </data>
   <data name="logBackupOfFiles" xml:space="preserve">
     <value>Die gpx-Dateien wurden erfolgreich in dem Verzeichnis gesichert:</value>

@@ -377,9 +377,17 @@ Public Class GPXDistanceCalculator
         dateFrom = startDate
         dateTo = endDate
 
-        Form1.txtOutput.AppendText(vbNewLine)
-        Form1.txtOutput.AppendText(My.Resources.Resource1.outgpxFileName & vbTab & vbTab & My.Resources.Resource1.X_AxisLabel & vbTab & "   " & My.Resources.Resource1.outLength & "    " & My.Resources.Resource1.outAge & " " & My.Resources.Resource1.outSpeed)
-        Form1.txtOutput.AppendText(vbNewLine)
+        Form1.rtbOutput.Clear()
+        Form1.rtbOutput.SelectionFont = New Font("Consolas", 12, FontStyle.Underline Or FontStyle.Bold) ' Nastavit font
+        Form1.rtbOutput.SelectionColor = Color.DarkGreen ' Nastavit barvu
+
+
+        Form1.rtbOutput.AppendText((My.Resources.Resource1.outgpxFileName & "                    ").Substring(0, 26))
+        Form1.rtbOutput.AppendText((My.Resources.Resource1.X_AxisLabel & "            ").Substring(0, 10))
+        Form1.rtbOutput.AppendText((My.Resources.Resource1.outLength & "        ").Substring(0, 9))
+        Form1.rtbOutput.AppendText((My.Resources.Resource1.outAge & "         ").Substring(0, 7))
+        Form1.rtbOutput.AppendText(My.Resources.Resource1.outSpeed)
+        Form1.rtbOutput.AppendText(vbCrLf)
 
         gpxFiles.Clear()
         gpxFiles = GetGpxFiles(Me.DirectoryPath)
@@ -432,35 +440,72 @@ Public Class GPXDistanceCalculator
                 SetCreatedModifiedDate(i)
 
                 ' Display results
-                Dim fileShortName As String = Path.GetFileNameWithoutExtension(gpxFiles(i))
+                Dim fileShortName As String = Path.GetFileNameWithoutExtension(gpxFiles(i)) & "             "
                 If fileShortName.Length > 24 Then
-                    fileShortName = fileShortName.Substring(0, 24)
+                    fileShortName = fileShortName.Substring(0, 30)
                 End If
-                Form1.txtOutput.AppendText(fileShortName & vbTab & layerStart(i).Date.ToShortDateString & "   " & distances(i).ToString("F2") & " km")
+
+                ' Nastavení fontu a barvy textu
+                Form1.rtbOutput.SelectionStart = Form1.rtbOutput.Text.Length ' Pozice na konec textu
+                Form1.rtbOutput.SelectionFont = New Font("Consolas", 10) ' Nastavit font
+                Form1.rtbOutput.SelectionColor = Color.Brown ' Nastavit barvu
+
+                Form1.rtbOutput.AppendText(fileShortName & "   ")
+                Form1.rtbOutput.SelectionColor = Color.DarkGreen ' Nastavit barvu
+                Form1.rtbOutput.AppendText(layerStart(i).Date.ToShortDateString & "    ")
+                Form1.rtbOutput.AppendText(distances(i).ToString("F2") & " km" & "     ")
                 If age(i).TotalHours > 0 Then
-                    Form1.txtOutput.AppendText("   " & age(i).TotalHours.ToString("F1") & " h")
+                    Form1.rtbOutput.AppendText(age(i).TotalHours.ToString("F1") & " h" & "   ")
                 Else
-                    Form1.txtOutput.AppendText("        ")
+                    Form1.rtbOutput.AppendText("           ")
                 End If
                 If speed(i) > 0 Then
-                    Form1.txtOutput.AppendText("   " & speed(i).ToString("F1") & " km/h")
+                    Form1.rtbOutput.AppendText(speed(i).ToString("F1") & " km/h")
                 End If
-                Form1.txtOutput.AppendText(vbCrLf)
+                Form1.rtbOutput.AppendText(vbCrLf)
+                ' Posunutí kurzoru na konec textu
+                Form1.rtbOutput.SelectionStart = Form1.rtbOutput.Text.Length
+
+                ' Skrolování na aktuální pozici kurzoru
+                Form1.rtbOutput.ScrollToCaret()
+
             Next i
 
 
             totalDistance = totalDistances(gpxFiles.Count - 1)
             Dim AgeAsDouble As List(Of Double) = age.Select(Function(ts) ts.TotalMinutes).ToList()
 
-
-            Form1.txtOutput.AppendText(vbCrLf & My.Resources.Resource1.outProcessed_period_from & startDate.ToShortDateString & My.Resources.Resource1.outDo & endDate.ToShortDateString &
+            ' Nastavení fontu a barvy textu
+            Form1.rtbOutput.SelectionStart = Form1.rtbOutput.Text.Length ' Pozice na konec textu
+            Form1.rtbOutput.SelectionFont = New Font("Technika", 10) ' Nastavit font
+            Form1.rtbOutput.SelectionColor = Color.DarkBlue ' Nastavit barvu
+            Form1.rtbOutput.AppendText(vbCrLf & My.Resources.Resource1.outProcessed_period_from & startDate.ToShortDateString & My.Resources.Resource1.outDo & endDate.ToShortDateString &
                 vbCrLf & My.Resources.Resource1.outAll_gpx_files_from_directory & DirectoryPath & vbCrLf &
-                vbCrLf & My.Resources.Resource1.outTotalNumberOfGPXFiles & distances.Count &
-                vbCrLf & vbCrLf & My.Resources.Resource1.outTotalLength & totalDistance.ToString("F2") & " km" & vbCrLf &
-                My.Resources.Resource1.outAverageDistance & (1000 * AverageOf(distances)).ToString("F0") & " m" & vbCrLf &
-                 My.Resources.Resource1.outAverageAge & AverageOf(AgeAsDouble).ToString("F0") & " min" & vbCrLf &
-                 My.Resources.Resource1.outAverageSpeed & AverageOf(speed).ToString("F2") & " km/h" & vbCrLf)
+                vbCrLf & My.Resources.Resource1.outTotalNumberOfGPXFiles & ": " & distances.Count & vbCrLf & vbCrLf & My.Resources.Resource1.outTotalLength & ": ")
+            Form1.rtbOutput.SelectionFont = New Font("Technika", 12, FontStyle.Bold) ' Nastavit font
+            Form1.rtbOutput.SelectionColor = Color.Red
+            Form1.rtbOutput.AppendText(totalDistance.ToString("F2") & " km" & vbCrLf)
+            Form1.rtbOutput.SelectionFont = New Font("Technika", 10) ' Nastavit font
+            Form1.rtbOutput.SelectionColor = Color.DarkBlue
+            Form1.rtbOutput.AppendText(My.Resources.Resource1.outAverageDistance & ": ")
+            Form1.rtbOutput.SelectionColor = Color.Red
+            Form1.rtbOutput.AppendText((1000 * AverageOf(distances)).ToString("F0") & " m" & vbCrLf)
+            Form1.rtbOutput.SelectionFont = New Font("Technika", 10) ' Nastavit font
+            Form1.rtbOutput.SelectionColor = Color.DarkBlue
+            Form1.rtbOutput.AppendText(My.Resources.Resource1.outAverageAge & ": ")
+            Form1.rtbOutput.SelectionColor = Color.Red
+            Form1.rtbOutput.AppendText(AverageOf(AgeAsDouble).ToString("F0") & " min" & vbCrLf)
+            Form1.rtbOutput.SelectionFont = New Font("Technika", 10) ' Nastavit font
+            Form1.rtbOutput.SelectionColor = Color.DarkBlue
+            Form1.rtbOutput.AppendText(My.Resources.Resource1.outAverageSpeed & ": ")
+            Form1.rtbOutput.SelectionColor = Color.Red
+            Form1.rtbOutput.AppendText(AverageOf(speed).ToString("F2") & " km/h")
 
+            ' Posunutí kurzoru na konec textu
+            Form1.rtbOutput.SelectionStart = Form1.rtbOutput.Text.Length
+
+            ' Skrolování na aktuální pozici kurzoru
+            Form1.rtbOutput.ScrollToCaret()
         Catch ex As Exception
             MessageBox.Show(My.Resources.Resource1.mBoxDataRetrievalFailed & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return False

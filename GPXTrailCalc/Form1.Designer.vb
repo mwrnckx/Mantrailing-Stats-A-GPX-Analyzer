@@ -27,7 +27,6 @@ Partial Class Form1
         Me.dtpStartDate = New System.Windows.Forms.DateTimePicker()
         Me.dtpEndDate = New System.Windows.Forms.DateTimePicker()
         Me.btnReadGpxFiles = New System.Windows.Forms.Button()
-        Me.txtOutput = New System.Windows.Forms.TextBox()
         Me.txtWarnings = New System.Windows.Forms.TextBox()
         Me.btnChartDistances = New System.Windows.Forms.Button()
         Me.rbTotDistance = New System.Windows.Forms.RadioButton()
@@ -55,6 +54,7 @@ Partial Class Form1
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.gbPeriod = New System.Windows.Forms.GroupBox()
         Me.lblScentArtickle = New System.Windows.Forms.Label()
+        Me.rtbOutput = New System.Windows.Forms.RichTextBox()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -81,12 +81,6 @@ Partial Class Form1
         resources.ApplyResources(Me.btnReadGpxFiles, "btnReadGpxFiles")
         Me.btnReadGpxFiles.Name = "btnReadGpxFiles"
         Me.btnReadGpxFiles.UseVisualStyleBackColor = False
-        '
-        'txtOutput
-        '
-        Me.txtOutput.BackColor = System.Drawing.Color.FromArgb(CType(CType(237, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(213, Byte), Integer))
-        resources.ApplyResources(Me.txtOutput, "txtOutput")
-        Me.txtOutput.Name = "txtOutput"
         '
         'txtWarnings
         '
@@ -263,10 +257,17 @@ Partial Class Form1
         Me.lblScentArtickle.BackColor = System.Drawing.Color.FromArgb(CType(CType(237, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(213, Byte), Integer))
         Me.lblScentArtickle.Name = "lblScentArtickle"
         '
+        'rtbOutput
+        '
+        Me.rtbOutput.BackColor = System.Drawing.Color.FromArgb(CType(CType(237, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(213, Byte), Integer))
+        resources.ApplyResources(Me.rtbOutput, "rtbOutput")
+        Me.rtbOutput.Name = "rtbOutput"
+        '
         'Form1
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.rtbOutput)
         Me.Controls.Add(Me.rbSpeed)
         Me.Controls.Add(Me.lblScentArtickle)
         Me.Controls.Add(Me.gbPeriod)
@@ -276,7 +277,6 @@ Partial Class Form1
         Me.Controls.Add(Me.rbTotDistance)
         Me.Controls.Add(Me.btnChartDistances)
         Me.Controls.Add(Me.txtWarnings)
-        Me.Controls.Add(Me.txtOutput)
         Me.Controls.Add(Me.btnReadGpxFiles)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.PictureBox1)
@@ -295,7 +295,6 @@ Partial Class Form1
     Friend WithEvents dtpStartDate As DateTimePicker
     Friend WithEvents dtpEndDate As DateTimePicker
     Friend WithEvents btnReadGpxFiles As Button
-    Friend WithEvents txtOutput As TextBox
     Friend WithEvents txtWarnings As TextBox
 
     Public Sub New()
@@ -305,7 +304,7 @@ Partial Class Form1
 
         ' Přidejte libovolnou inicializaci po volání InitializeComponent().
 
-        Me.txtOutput.Text &= vbCrLf
+        Me.rtbOutput.Text &= vbCrLf
         Me.txtWarnings.Text &= vbCrLf
     End Sub
 
@@ -339,6 +338,13 @@ Partial Class Form1
         mnuUkrainian.Image = resizeImage(My.Resources.uk_flag, Nothing, height)
         mnuCzech.Image = resizeImage(My.Resources.czech_flag, Nothing, height)
 
+        Me.rtbOutput.Rtf = (My.Resources.Readme_cs)
+        ' Nastavení fontu a barvy textu
+        Me.rtbOutput.SelectionStart = Me.rtbOutput.Text.Length ' Pozice na konec textu
+        Me.rtbOutput.SelectionFont = New Font("Arial", 12, FontStyle.Bold) ' Nastavit font
+        Me.rtbOutput.SelectionColor = Color.Blue ' Nastavit barvu
+        Me.rtbOutput.SelectedText = "Formátovaný text" ' Přidat formátovaný text
+
 
 
     End Sub
@@ -371,5 +377,6 @@ Partial Class Form1
     Friend WithEvents gbPeriod As GroupBox
     Friend WithEvents lblScentArtickle As Label
     Friend WithEvents mnuTrimGPSNoise As ToolStripMenuItem
+    Friend WithEvents rtbOutput As RichTextBox
 End Class
 
