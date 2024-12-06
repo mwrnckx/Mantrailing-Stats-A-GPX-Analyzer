@@ -214,7 +214,7 @@
     <value>Vertical</value>
   </data>
   <data name="txtWarnings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>950, 201</value>
+    <value>950, 209</value>
   </data>
   <data name="txtWarnings.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -478,7 +478,7 @@
     <value>Segoe UI Semibold, 9pt, style=Bold</value>
   </data>
   <data name="mnuFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>57, 32</value>
+    <value>57, 29</value>
   </data>
   <data name="mnuFile.Text" xml:space="preserve">
     <value>File</value>
@@ -499,7 +499,7 @@
     <value>Segoe UI Semibold, 9pt, style=Bold</value>
   </data>
   <data name="mnuSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>156, 32</value>
+    <value>156, 29</value>
   </data>
   <data name="mnuSettings.Text" xml:space="preserve">
     <value>Gpx processing</value>
@@ -565,7 +565,7 @@
     <value>None</value>
   </data>
   <data name="mnuLanguage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>109, 32</value>
+    <value>109, 29</value>
   </data>
   <data name="mnuLanguage.Text" xml:space="preserve">
     <value>Language</value>
@@ -574,7 +574,7 @@
     <value>0, 0</value>
   </data>
   <data name="MenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1828, 36</value>
+    <value>1828, 33</value>
   </data>
   <data name="MenuStrip1.TabIndex" type="System.Int32, mscorlib">
     <value>27</value>
