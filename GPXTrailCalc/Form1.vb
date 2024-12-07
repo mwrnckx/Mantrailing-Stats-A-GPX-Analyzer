@@ -205,6 +205,34 @@ Public Class Form1
         Me.ResumeLayout()
     End Sub
 
+    Private toolTipLabel As Label
+
+    Private Sub ShowLabelToolTip(item As ToolStripMenuItem, toolTipText As String)
+        If toolTipLabel IsNot Nothing Then toolTipLabel.Dispose()
+        toolTipLabel = New Label With {
+        .Text = toolTipText,
+        .BackColor = Color.LightYellow,
+        .AutoSize = True,
+        .MaximumSize = New Size(300, 0), ' Maximální šířka
+        .BorderStyle = BorderStyle.FixedSingle
+    }
+        Me.Controls.Add(toolTipLabel)
+
+        Dim itemBounds = item.GetCurrentParent.Bounds
+
+
+        toolTipLabel.Location = Me.PointToClient(New Point(Cursor.Position.X + 20, Cursor.Position.Y + 30))
+        toolTipLabel.BringToFront()
+    End Sub
+
+    Private Sub HideLabelToolTip()
+        If toolTipLabel IsNot Nothing Then
+            toolTipLabel.Dispose()
+            toolTipLabel = Nothing
+        End If
+    End Sub
+
+
     Private Sub LocalizeMenuItems(items As ToolStripItemCollection, resources As ComponentResourceManager)
         For Each item As ToolStripItem In items
             ' Zkus lokalizovat text aktuální položky
@@ -272,7 +300,11 @@ Public Class Form1
         mnuSelectBackupDirectory.ToolTipText = Resource1.Tooltip_mnuBackupDirectory
         mnuexportAs.ToolTipText = Resource1.Tooltip_ExportAs
         mnuPrependDateToFileName.ToolTipText = Resource1.Tooltip_mnuPrependDate
-        mnuTrimGPSNoise.ToolTipText = Resource1.Tooltip_mnuTrim
+        'mnuTrimGPSNoise.ToolTipText = Resource1.Tooltip_mnuTrim
+
+        AddHandler mnuTrimGPSNoise.MouseEnter, Sub() ShowLabelToolTip(mnuTrimGPSNoise, Resource1.Tooltip_mnuTrim)
+        AddHandler mnuTrimGPSNoise.MouseLeave, Sub() HideLabelToolTip()
+
 
         ' Nastavení ToolTip pro jednotlivé ovládací prvky
 
