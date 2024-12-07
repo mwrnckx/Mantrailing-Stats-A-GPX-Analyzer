@@ -120,9 +120,6 @@
   <data name="btnReadGpxFiles.Text" xml:space="preserve">
     <value>Načti data ze souborů gpx</value>
   </data>
-  <data name="txtOutput.Text" xml:space="preserve">
-    <value>Tento program slouží ke zpracování vašich záznamů ze stopařské aplikace, například Geo Tracker. </value>
-  </data>
   <data name="txtWarnings.Text" xml:space="preserve">
     <value>Chyby a logy:</value>
   </data>
@@ -154,23 +151,8 @@
   <data name="rbSpeed.Text" xml:space="preserve">
     <value>Rychlost psa na trailech</value>
   </data>
-  <data name="mnuSelect_directory_gpx_files.Text" xml:space="preserve">
-    <value>Vyber adresář ve kterém jsou soubory gpx</value>
-  </data>
-  <data name="mnuSelectBackupDirectory.Text" xml:space="preserve">
-    <value>Vyber adresář do kterého se mají zálohovat soubory gpx</value>
-  </data>
-  <data name="mnuSaveAsCsvFile.Text" xml:space="preserve">
-    <value>Ulož data jako csv soubor</value>
-  </data>
   <data name="mnuFile.Text" xml:space="preserve">
     <value>Soubor</value>
-  </data>
-  <data name="mnuPrependDateToFileName.Text" xml:space="preserve">
-    <value>Připni datum na začátek jména souboru GPX</value>
-  </data>
-  <data name="mnuTrimGPSNoise.Text" xml:space="preserve">
-    <value>Odstraň šum GPS na začátku a konci tras</value>
   </data>
   <data name="mnuSettings.Text" xml:space="preserve">
     <value>Zpracování GPX</value>
@@ -178,11 +160,32 @@
   <data name="mnuLanguage.Text" xml:space="preserve">
     <value>Jazyk</value>
   </data>
+  <data name="mnuSelect_directory_gpx_files.Text" xml:space="preserve">
+    <value>Vyber adresář ve kterém jsou soubory gpx</value>
+  </data>
+  <data name="mnuSelectBackupDirectory.Text" xml:space="preserve">
+    <value>Vyber adresář do kterého se mají zálohovat soubory gpx</value>
+  </data>
+  <data name="mnuSaveAsCsvFile.Text" xml:space="preserve">
+    <value>Exportovat jako csv soubor</value>
+  </data>
+  <data name="mnuSaveAsRtf.Text" xml:space="preserve">
+    <value>Exportovat jako soubor RTF</value>
+  </data>
+  <data name="mnuPrependDateToFileName.Text" xml:space="preserve">
+    <value>Připni datum na začátek jména souboru GPX</value>
+  </data>
+  <data name="mnuTrimGPSNoise.Text" xml:space="preserve">
+    <value>Odstraň šum GPS na začátku a konci tras</value>
+  </data>
   <data name="gbPeriod.Text" xml:space="preserve">
     <value>Výběr období</value>
   </data>
   <data name="lblScentArtickle.Text" xml:space="preserve">
     <value>pachovka</value>
+  </data>
+  <data name="txtOutput.Text" xml:space="preserve">
+    <value>Tento program slouží ke zpracování vašich záznamů ze stopařské aplikace, například Geo Tracker. </value>
   </data>
   <data name="btnBrowse.Text" xml:space="preserve">
     <value>Procházet</value>

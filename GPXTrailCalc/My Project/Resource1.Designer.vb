@@ -263,29 +263,65 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Vyhledá lokalizovaný řetězec podobný Export as CSV file.
+        '''  Vyhledá lokalizovaný řetězec podobný This is the end of the period within which the trails are to be processed..
         '''</summary>
-        Friend Shared ReadOnly Property Tooltip_ExportAsCSV() As String
+        Friend Shared ReadOnly Property Tooltip_dtpEnd() As String
             Get
-                Return ResourceManager.GetString("Tooltip_ExportAsCSV", resourceCulture)
+                Return ResourceManager.GetString("Tooltip_dtpEnd", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Vyhledá lokalizovaný řetězec podobný This is the beginning of the period within which the trails are to be processed..
+        '''</summary>
+        Friend Shared ReadOnly Property Tooltip_dtpStart() As String
+            Get
+                Return ResourceManager.GetString("Tooltip_dtpStart", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Vyhledá lokalizovaný řetězec podobný Export as .
+        '''</summary>
+        Friend Shared ReadOnly Property Tooltip_ExportAs() As String
+            Get
+                Return ResourceManager.GetString("Tooltip_ExportAs", resourceCulture)
             End Get
         End Property
         
         '''<summary>
         '''  Vyhledá lokalizovaný řetězec podobný Directory for backing up gpx files before processing.
         '''</summary>
-        Friend Shared ReadOnly Property Tooltip_txtBackupDirectory() As String
+        Friend Shared ReadOnly Property Tooltip_mnuBackupDirectory() As String
             Get
-                Return ResourceManager.GetString("Tooltip_txtBackupDirectory", resourceCulture)
+                Return ResourceManager.GetString("Tooltip_mnuBackupDirectory", resourceCulture)
             End Get
         End Property
         
         '''<summary>
-        '''  Vyhledá lokalizovaný řetězec podobný The directory where all gpx files are stored.
+        '''  Vyhledá lokalizovaný řetězec podobný Navigate to the directory containing the GPX files you wish to process..
         '''</summary>
-        Friend Shared ReadOnly Property Tooltip_txtDirectory() As String
+        Friend Shared ReadOnly Property Tooltip_mnuDirectory() As String
             Get
-                Return ResourceManager.GetString("Tooltip_txtDirectory", resourceCulture)
+                Return ResourceManager.GetString("Tooltip_mnuDirectory", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Vyhledá lokalizovaný řetězec podobný Prepend date to file names during processing. Useful for sorting files etc..
+        '''</summary>
+        Friend Shared ReadOnly Property Tooltip_mnuPrependDate() As String
+            Get
+                Return ResourceManager.GetString("Tooltip_mnuPrependDate", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Vyhledá lokalizovaný řetězec podobný At the start of the trail, before you set off, and at the end, before you stop recording, \nthe GPS device often captures inaccurate or erroneous data. \nIf this option is enabled, the program will attempt to automatically remove these inaccuracies..
+        '''</summary>
+        Friend Shared ReadOnly Property Tooltip_mnuTrim() As String
+            Get
+                Return ResourceManager.GetString("Tooltip_mnuTrim", resourceCulture)
             End Get
         End Property
         

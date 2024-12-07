@@ -141,8 +141,8 @@
   <data name="mnuFile.Text" xml:space="preserve">
     <value>Datei</value>
   </data>
-  <data name="mnuPrependDateToFileName.Text" xml:space="preserve">
-    <value>Datum dem gpx-Dateinamen voranstellen</value>
+  <data name="mnuSettings.Text" xml:space="preserve">
+    <value>GPX-Verarbeitung</value>
   </data>
   <data name="mnuLanguage.Text" xml:space="preserve">
     <value>Sprache</value>
@@ -156,6 +156,15 @@
   <data name="mnuSaveAsCsvFile.Text" xml:space="preserve">
     <value>Exportieren als CSV-Datei</value>
   </data>
+  <data name="mnuSaveAsRtf.Text" xml:space="preserve">
+    <value>Exportieren als RTF-Datei</value>
+  </data>
+  <data name="mnuPrependDateToFileName.Text" xml:space="preserve">
+    <value>Datum dem gpx-Dateinamen voranstellen</value>
+  </data>
+  <data name="mnuTrimGPSNoise.Text" xml:space="preserve">
+    <value>GPS-Rauschen am Anfang und Ende der Strecke entfernen</value>
+  </data>
   <data name="gbPeriod.Text" xml:space="preserve">
     <value>Zeitraumauswahl</value>
   </data>
@@ -164,12 +173,6 @@
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Mantrailing: Statistik und Analyse von GPX-Dateien</value>
-  </data>
-  <data name="lblStartDate.Text" xml:space="preserve">
-    <value>Von:</value>
-  </data>
-  <data name="lblEndDate.Text" xml:space="preserve">
-    <value>Bis:</value>
   </data>
   <data name="btnBrowse.Text" xml:space="preserve">
     <value>Durchsuchen...</value>
@@ -189,13 +192,13 @@
   <data name="btnBrowseBackup.Text" xml:space="preserve">
     <value>Durchsuchen...</value>
   </data>
-  <data name="mnuTrimGPSNoise.Text" xml:space="preserve">
-    <value>GPS-Rauschen am Anfang und Ende der Strecke entfernen</value>
-  </data>
-  <data name="mnuSettings.Text" xml:space="preserve">
-    <value>GPX-Verarbeitung</value>
-  </data>
   <data name="mnuTrimGPSNoise.Text1" xml:space="preserve">
     <value>"GPS-Rauschen am Anfang und Ende der Strecke entfernen"</value>
+  </data>
+  <data name="lblStartDate.Text" xml:space="preserve">
+    <value>Von:</value>
+  </data>
+  <data name="lblEndDate.Text" xml:space="preserve">
+    <value>Bis:</value>
   </data>
 </root>

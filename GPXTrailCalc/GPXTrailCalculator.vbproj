@@ -203,6 +203,11 @@
     <None Include="Readme.md" />
     <None Include="Resources\cs.rtf" />
     <None Include="Resources\Readme.cs.rtf" />
+    <None Include="Resources\Readme.de.rtf" />
+    <None Include="Resources\Readme.en.rtf" />
+    <None Include="Resources\readme.pl.rtf" />
+    <None Include="Resources\readme.ru.rtf" />
+    <None Include="Resources\readme.uk.rtf" />
     <None Include="Resources\trail.jpg" />
   </ItemGroup>
   <ItemGroup>

@@ -183,6 +183,12 @@
   <data name="logBackupOfFiles" xml:space="preserve">
     <value>Die gpx-Dateien wurden erfolgreich in dem Verzeichnis gesichert:</value>
   </data>
+  <data name="Tooltip_mnuDirectory" xml:space="preserve">
+    <value>Suchen Sie das Verzeichnis, das die zu bearbeitenden gpx-Dateien enthält</value>
+  </data>
+  <data name="Tooltip_mnuBackupDirectory" xml:space="preserve">
+    <value>Verzeichnis zum Sichern von gpx-Dateien vor der Verarbeitung</value>
+  </data>
   <data name="mBoxMissingData" xml:space="preserve">
     <value>In order to save data read from gpx files, you must first load the gpx files. Use the button on the form.</value>
   </data>
@@ -195,10 +201,22 @@
   <data name="mnuTrimGPSNoise.Text" xml:space="preserve">
     <value>"GPS-Rauschen am Anfang und Ende der Strecke entfernen"</value>
   </data>
-  <data name="Tooltip_ExportAsCSV" xml:space="preserve">
-    <value>Export as CSV file</value>
+  <data name="Tooltip_ExportAs" xml:space="preserve">
+    <value>Export as file  (rtf, txt, csv)</value>
   </data>
   <data name="outDescription" xml:space="preserve">
     <value>Beschreibung</value>
+  </data>
+  <data name="Tooltip_dtpStart" xml:space="preserve">
+    <value>Dies ist der Beginn des Zeitraums, in dem die Wanderwege bearbeitet werden sollen.</value>
+  </data>
+  <data name="Tooltip_mnuPrependDate" xml:space="preserve">
+    <value>Vorangestelltes Datum bei der Verarbeitung von Dateinamen. Nützlich zum Sortieren von Dateien usw.</value>
+  </data>
+  <data name="Tooltip_dtpEnd" xml:space="preserve">
+    <value>Dies ist das Ende des Zeitraums, in dem die Wanderwege zu bearbeiten sind.</value>
+  </data>
+  <data name="Tooltip_mnuTrim" xml:space="preserve">
+    <value>Am Anfang der Strecke, bevor Sie losgehen, und am Ende, bevor Sie die Aufzeichnung beenden, zeichnet das GPS-Gerät oft ungenaue oder fehlerhafte Daten auf. Wenn diese Option aktiviert ist, versucht das Programm, diese Ungenauigkeiten automatisch zu entfernen.</value>
   </data>
 </root>

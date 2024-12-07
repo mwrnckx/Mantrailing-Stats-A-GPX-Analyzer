@@ -173,6 +173,10 @@
   <data name="&gt;&gt;dtpEndDate.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnReadGpxFiles.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
   <data name="btnReadGpxFiles.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 10pt, style=Bold</value>
   </data>
@@ -180,7 +184,7 @@
     <value>16, 168</value>
   </data>
   <data name="btnReadGpxFiles.Size" type="System.Drawing.Size, System.Drawing">
-    <value>260, 115</value>
+    <value>260, 98</value>
   </data>
   <data name="btnReadGpxFiles.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -209,7 +213,6 @@
   <data name="txtWarnings.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="txtWarnings.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
     <value>Vertical</value>
   </data>
@@ -241,7 +244,7 @@
     <value>Segoe UI, 10pt, style=Bold</value>
   </data>
   <data name="btnChartDistances.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 302</value>
+    <value>16, 287</value>
   </data>
   <data name="btnChartDistances.Size" type="System.Drawing.Size, System.Drawing">
     <value>260, 60</value>
@@ -274,7 +277,7 @@
     <value>Segoe UI Semibold, 9pt, style=Bold</value>
   </data>
   <data name="rbTotDistance.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 378</value>
+    <value>16, 360</value>
   </data>
   <data name="rbTotDistance.Size" type="System.Drawing.Size, System.Drawing">
     <value>307, 29</value>
@@ -307,7 +310,7 @@
     <value>Segoe UI Semibold, 9pt, style=Bold</value>
   </data>
   <data name="rbDistances.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 409</value>
+    <value>16, 391</value>
   </data>
   <data name="rbDistances.Size" type="System.Drawing.Size, System.Drawing">
     <value>250, 29</value>
@@ -340,7 +343,7 @@
     <value>Segoe UI Semibold, 9pt, style=Bold</value>
   </data>
   <data name="rbAge.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 440</value>
+    <value>16, 422</value>
   </data>
   <data name="rbAge.Size" type="System.Drawing.Size, System.Drawing">
     <value>138, 29</value>
@@ -373,7 +376,7 @@
     <value>Segoe UI Semibold, 9pt, style=Bold</value>
   </data>
   <data name="rbSpeed.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 471</value>
+    <value>16, 453</value>
   </data>
   <data name="rbSpeed.Size" type="System.Drawing.Size, System.Drawing">
     <value>303, 29</value>
@@ -462,17 +465,11 @@
   <data name="mnuSelectBackupDirectory.Text" xml:space="preserve">
     <value>Select a directory to back up the gpx files</value>
   </data>
-  <data name="mnuSaveAsCsvFile.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="mnuExportAs.Size" type="System.Drawing.Size, System.Drawing">
     <value>458, 34</value>
   </data>
-  <data name="mnuSaveAsCsvFile.Text" xml:space="preserve">
-    <value>Save as csv file</value>
-  </data>
-  <data name="mnuSaveAsRtf.Size" type="System.Drawing.Size, System.Drawing">
-    <value>458, 34</value>
-  </data>
-  <data name="mnuSaveAsRtf.Text" xml:space="preserve">
-    <value>Save as rtf file</value>
+  <data name="mnuExportAs.Text" xml:space="preserve">
+    <value>Export as (rtf. txt, csv)</value>
   </data>
   <data name="mnuFile.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Semibold, 9pt, style=Bold</value>
@@ -691,9 +688,7 @@
     <value>30</value>
   </data>
   <data name="rtbOutput.Text" xml:space="preserve">
-    <value>bbbb
-kkkkk
-llllllll</value>
+    <value />
   </data>
   <data name="rtbOutput.WordWrap" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -7961,16 +7956,10 @@ llllllll</value>
   <data name="&gt;&gt;mnuSelectBackupDirectory.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;mnuSaveAsCsvFile.Name" xml:space="preserve">
-    <value>mnuSaveAsCsvFile</value>
+  <data name="&gt;&gt;mnuExportAs.Name" xml:space="preserve">
+    <value>mnuExportAs</value>
   </data>
-  <data name="&gt;&gt;mnuSaveAsCsvFile.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;mnuSaveAsRtf.Name" xml:space="preserve">
-    <value>mnuSaveAsRtf</value>
-  </data>
-  <data name="&gt;&gt;mnuSaveAsRtf.Type" xml:space="preserve">
+  <data name="&gt;&gt;mnuExportAs.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;mnuSettings.Name" xml:space="preserve">

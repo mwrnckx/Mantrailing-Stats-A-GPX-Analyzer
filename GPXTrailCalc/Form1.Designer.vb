@@ -40,8 +40,7 @@ Partial Class Form1
         Me.mnuFile = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuSelect_directory_gpx_files = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuSelectBackupDirectory = New System.Windows.Forms.ToolStripMenuItem()
-        Me.mnuSaveAsCsvFile = New System.Windows.Forms.ToolStripMenuItem()
-        Me.mnuSaveAsRtf = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuExportAs = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuSettings = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuPrependDateToFileName = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuTrimGPSNoise = New System.Windows.Forms.ToolStripMenuItem()
@@ -78,7 +77,7 @@ Partial Class Form1
         '
         'btnReadGpxFiles
         '
-        Me.btnReadGpxFiles.BackColor = System.Drawing.Color.LightCoral
+        Me.btnReadGpxFiles.BackColor = System.Drawing.Color.Salmon
         resources.ApplyResources(Me.btnReadGpxFiles, "btnReadGpxFiles")
         Me.btnReadGpxFiles.Name = "btnReadGpxFiles"
         Me.btnReadGpxFiles.UseVisualStyleBackColor = False
@@ -126,6 +125,10 @@ Partial Class Form1
         Me.rbSpeed.Name = "rbSpeed"
         Me.rbSpeed.UseVisualStyleBackColor = False
         '
+        'ToolTip1
+        '
+        Me.ToolTip1.IsBalloon = True
+        '
         'StatusStrip1
         '
         Me.StatusStrip1.ImageScalingSize = New System.Drawing.Size(24, 24)
@@ -133,7 +136,7 @@ Partial Class Form1
         resources.ApplyResources(Me.StatusStrip1, "StatusStrip1")
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.ToolTip1.SetToolTip(Me.StatusStrip1, resources.GetString("StatusStrip1.ToolTip"))
-        '
+
         'StatusLabel1
         '
         Me.StatusLabel1.Name = "StatusLabel1"
@@ -150,7 +153,7 @@ Partial Class Form1
         '
         'mnuFile
         '
-        Me.mnuFile.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuSelect_directory_gpx_files, Me.mnuSelectBackupDirectory, Me.mnuSaveAsCsvFile, Me.mnuSaveAsRtf})
+        Me.mnuFile.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuSelect_directory_gpx_files, Me.mnuSelectBackupDirectory, Me.mnuExportAs})
         resources.ApplyResources(Me.mnuFile, "mnuFile")
         Me.mnuFile.Name = "mnuFile"
         '
@@ -164,15 +167,10 @@ Partial Class Form1
         Me.mnuSelectBackupDirectory.Name = "mnuSelectBackupDirectory"
         resources.ApplyResources(Me.mnuSelectBackupDirectory, "mnuSelectBackupDirectory")
         '
-        'mnuSaveAsCsvFile
+        'mnuExportAs
         '
-        Me.mnuSaveAsCsvFile.Name = "mnuSaveAsCsvFile"
-        resources.ApplyResources(Me.mnuSaveAsCsvFile, "mnuSaveAsCsvFile")
-        '
-        'mnuSaveAsRtf
-        '
-        Me.mnuSaveAsRtf.Name = "mnuSaveAsRtf"
-        resources.ApplyResources(Me.mnuSaveAsRtf, "mnuSaveAsRtf")
+        Me.mnuExportAs.Name = "mnuExportAs"
+        resources.ApplyResources(Me.mnuExportAs, "mnuExportAs")
         '
         'mnuSettings
         '
@@ -303,14 +301,14 @@ Partial Class Form1
     Friend WithEvents btnReadGpxFiles As Button
     Friend WithEvents txtWarnings As TextBox
 
-    Public Sub New()
 
+    Public Sub New()
         ' Toto volání je vyžadované návrhářem.
         InitializeComponent()
 
         ' Přidejte libovolnou inicializaci po volání InitializeComponent().
 
-        Me.rtbOutput.Text &= vbCrLf
+
         Me.txtWarnings.Text &= vbCrLf
     End Sub
 
@@ -320,7 +318,7 @@ Partial Class Form1
         mnuTrimGPSNoise.Checked = My.Settings.TrimGPSnoise
 
         If My.Settings.Directory = "" Then
-            My.Settings.Directory = Application.StartupPath
+            My.Settings.Directory = IO.Directory.GetParent(Application.StartupPath).ToString
         End If
 
         If My.Settings.BackupDirectory = "" Then
@@ -344,16 +342,39 @@ Partial Class Form1
         mnuUkrainian.Image = resizeImage(My.Resources.uk_flag, Nothing, height)
         mnuCzech.Image = resizeImage(My.Resources.czech_flag, Nothing, height)
 
-        Me.rtbOutput.Rtf = (My.Resources.Readme_cs)
+        readHelp()
+
+
+
+
+
         ' Nastavení fontu a barvy textu
         Me.rtbOutput.SelectionStart = Me.rtbOutput.Text.Length ' Pozice na konec textu
-        Me.rtbOutput.SelectionFont = New Font("Arial", 12, FontStyle.Bold) ' Nastavit font
-        Me.rtbOutput.SelectionColor = Color.Blue ' Nastavit barvu
-        Me.rtbOutput.SelectedText = "Formátovaný text" ' Přidat formátovaný text
+
+
 
 
 
     End Sub
+
+    Private Sub ReadHelp()
+        Select Case currentCulture.TwoLetterISOLanguageName
+            Case "cs"
+                Me.rtbOutput.Rtf = (My.Resources.Readme_cs)
+            Case "en"
+                Me.rtbOutput.Rtf = (My.Resources.Readme_en)
+            Case "de"
+                Me.rtbOutput.Rtf = (My.Resources.Readme_de)
+            Case "pl"
+                Me.rtbOutput.Rtf = (My.Resources.readme_pl)
+            Case "ru"
+                Me.rtbOutput.Rtf = (My.Resources.readme_ru)
+            Case "uk"
+                Me.rtbOutput.Rtf = (My.Resources.readme_uk)
+
+        End Select
+    End Sub
+
 
 
 
@@ -379,11 +400,10 @@ Partial Class Form1
     Friend WithEvents mnuGerman As ToolStripMenuItem
     Friend WithEvents mnuRussian As ToolStripMenuItem
     Friend WithEvents mnuPolish As ToolStripMenuItem
-    Friend WithEvents mnuSaveAsCsvFile As ToolStripMenuItem
     Friend WithEvents gbPeriod As GroupBox
     Friend WithEvents lblScentArtickle As Label
     Friend WithEvents mnuTrimGPSNoise As ToolStripMenuItem
     Friend WithEvents rtbOutput As RichTextBox
-    Friend WithEvents mnuSaveAsRtf As ToolStripMenuItem
+    Friend WithEvents mnuExportAs As ToolStripMenuItem
 End Class
 

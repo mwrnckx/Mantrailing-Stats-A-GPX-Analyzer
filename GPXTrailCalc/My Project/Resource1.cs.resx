@@ -183,10 +183,10 @@
   <data name="logBackupOfFiles" xml:space="preserve">
     <value>Soubory gpx byly úspěšně zálohovány do: </value>
   </data>
-  <data name="Tooltip_txtDirectory" xml:space="preserve">
-    <value>Adresář, kde jsou gpx soubory které se mají zpracovat</value>
+  <data name="Tooltip_mnuDirectory" xml:space="preserve">
+    <value>Najdi adresář, ve kterém jsou gpx soubory které se mají zpracovat</value>
   </data>
-  <data name="Tooltip_txtBackupDirectory" xml:space="preserve">
+  <data name="Tooltip_mnuBackupDirectory" xml:space="preserve">
     <value>Adresář pro zálohování gpx souborů před jejich zpracováním</value>
   </data>
   <data name="mBoxMissingData" xml:space="preserve">
@@ -201,10 +201,22 @@
   <data name="mnuTrimGPSNoise.Text" xml:space="preserve">
     <value>Odstranit šum GPS na začátku a konci tras</value>
   </data>
-  <data name="Tooltip_ExportAsCSV" xml:space="preserve">
-    <value>Ulož data jako csv soubor</value>
+  <data name="Tooltip_ExportAs" xml:space="preserve">
+    <value>Ulož data jako soubor (rtf, txt, csv)</value>
   </data>
   <data name="outDescription" xml:space="preserve">
     <value>Poznámky</value>
+  </data>
+  <data name="Tooltip_dtpStart" xml:space="preserve">
+    <value>Začátek období, ve kterém mají být stopy zpracovány.</value>
+  </data>
+  <data name="Tooltip_mnuPrependDate" xml:space="preserve">
+    <value>Přidávat datum k názvům gpx souborů při jejich zpracování. Užitečné pro třídění souborů atd.</value>
+  </data>
+  <data name="Tooltip_dtpEnd" xml:space="preserve">
+    <value>Konec období, ve kterém mají být stopy zpracovány.</value>
+  </data>
+  <data name="Tooltip_mnuTrim" xml:space="preserve">
+    <value>Na začátku trasy, než se vydáte na cestu, a na konci, než vypnete záznam, GPS přístroj často zaznamenává nepřesné nebo chybné údaje. Pokud je toto tlačítko zaškrtnuté, program se pokusí tyto nepřesnosti automaticky odstranit.</value>
   </data>
 </root>

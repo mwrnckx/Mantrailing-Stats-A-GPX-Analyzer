@@ -177,7 +177,7 @@
   <data name="mBoxMissingData" xml:space="preserve">
     <value>In order to save data read from gpx files, you must first load the gpx files. Use the button on the form.</value>
   </data>
-  <data name="Tooltip_ExportAsCSV" xml:space="preserve">
-    <value>Export as CSV file</value>
+  <data name="Tooltip_ExportAs" xml:space="preserve">
+    <value>Export as file  (rtf, txt, csv)</value>
   </data>
 </root>

@@ -183,10 +183,10 @@
   <data name="logBackupOfFiles" xml:space="preserve">
     <value>The gpx files were successfully backed up to the directory:</value>
   </data>
-  <data name="Tooltip_txtDirectory" xml:space="preserve">
-    <value>The directory where all gpx files are stored</value>
+  <data name="Tooltip_mnuDirectory" xml:space="preserve">
+    <value>Navigate to the directory containing the GPX files you wish to process.</value>
   </data>
-  <data name="Tooltip_txtBackupDirectory" xml:space="preserve">
+  <data name="Tooltip_mnuBackupDirectory" xml:space="preserve">
     <value>Directory for backing up gpx files before processing</value>
   </data>
   <data name="mBoxMissingData" xml:space="preserve">
@@ -201,10 +201,22 @@
   <data name="mnuTrimGPSNoise.Text" xml:space="preserve">
     <value>Trim GPS noise at track's start and end.</value>
   </data>
-  <data name="Tooltip_ExportAsCSV" xml:space="preserve">
-    <value>Export as CSV file</value>
+  <data name="Tooltip_ExportAs" xml:space="preserve">
+    <value>Export as </value>
   </data>
   <data name="outDescription" xml:space="preserve">
     <value>Description</value>
+  </data>
+  <data name="Tooltip_dtpStart" xml:space="preserve">
+    <value>This is the beginning of the period within which the trails are to be processed.</value>
+  </data>
+  <data name="Tooltip_mnuPrependDate" xml:space="preserve">
+    <value>Prepend date to file names during processing. Useful for sorting files etc.</value>
+  </data>
+  <data name="Tooltip_dtpEnd" xml:space="preserve">
+    <value>This is the end of the period within which the trails are to be processed.</value>
+  </data>
+  <data name="Tooltip_mnuTrim" xml:space="preserve">
+    <value>At the start of the trail, before you set off, and at the end, before you stop recording, \nthe GPS device often captures inaccurate or erroneous data. \nIf this option is enabled, the program will attempt to automatically remove these inaccuracies.</value>
   </data>
 </root>

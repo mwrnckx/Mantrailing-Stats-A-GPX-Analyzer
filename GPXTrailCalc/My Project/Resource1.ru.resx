@@ -183,6 +183,12 @@
   <data name="logBackupOfFiles" xml:space="preserve">
     <value>Файлы gpx были успешно сохранены в каталоге:</value>
   </data>
+  <data name="Tooltip_mnuDirectory" xml:space="preserve">
+    <value>Найдите каталог, содержащий файлы gpx для обработки</value>
+  </data>
+  <data name="Tooltip_mnuBackupDirectory" xml:space="preserve">
+    <value>Каталог для резервного копирования gpx-файлов перед обработкой</value>
+  </data>
   <data name="mBoxMissingData" xml:space="preserve">
     <value>Чтобы сохранить данные, считанные из файлов gpx, необходимо сначала загрузить файлы gpx. Для этого воспользуйтесь кнопкой на форме.</value>
   </data>
@@ -195,10 +201,22 @@
   <data name="mnuTrimGPSNoise.Text" xml:space="preserve">
     <value>Удалить шумы в начале и конце треков</value>
   </data>
-  <data name="Tooltip_ExportAsCSV" xml:space="preserve">
-    <value>Export as CSV file</value>
+  <data name="Tooltip_ExportAs" xml:space="preserve">
+    <value>Export as file  (rtf, txt, csv)</value>
   </data>
   <data name="outDescription" xml:space="preserve">
     <value>Описание</value>
+  </data>
+  <data name="Tooltip_dtpStart" xml:space="preserve">
+    <value>Это начало периода, в течение которого должны быть обработаны следы.</value>
+  </data>
+  <data name="Tooltip_mnuPrependDate" xml:space="preserve">
+    <value>Добавляет дату к именам файлов во время обработки. Полезно для сортировки файлов и т. д.</value>
+  </data>
+  <data name="Tooltip_dtpEnd" xml:space="preserve">
+    <value>Это конец периода, в течение которого должны быть обработаны следы.</value>
+  </data>
+  <data name="Tooltip_mnuTrim" xml:space="preserve">
+    <value>В начале следа, пока вы еще не начали движение, и в конце, пока не выключили запись, GPS-устройство может записывать неточные или ошибочные данные. Если эта опция включена, программа попытается автоматически удалить такие ошибки.</value>
   </data>
 </root>

@@ -35,13 +35,13 @@ Public Class Form1
     End Sub
 
 
-    Private Sub SaveCSVFile(sender As Object, e As EventArgs) Handles mnuSaveAsCsvFile.Click
+    Private Sub SaveCSVFile(sender As Object, e As EventArgs)
         If gpxCalculator.distances.Count < 1 Then
             MessageBox.Show(My.Resources.Resource1.mBoxMissingData)
             Return
         End If
 
-        Dim csvFileName As String = "GPX_File_Data_" & Today.ToString("yyyy-MM-dd") 'Path.Combine(directoryPath, "GPX_File_Data_" & Today.ToString("yyyy-MM-dd") & ".csv")
+        Dim FileName As String = "GPX_File_Data_" & Today.ToString("yyyy-MM-dd") 'Path.Combine(directoryPath, "GPX_File_Data_" & Today.ToString("yyyy-MM-dd") & ".csv")
 
         Using dialog As New SaveFileDialog()
             dialog.Filter = "Soubory csv|*.csv"
@@ -49,7 +49,7 @@ Public Class Form1
             dialog.AddExtension = True
             dialog.InitialDirectory = My.Settings.Directory
             dialog.Title = "Save as CSV"
-            dialog.FileName = csvFileName
+            dialog.FileName = FileName
 
             If dialog.ShowDialog() = DialogResult.OK Then
 
@@ -67,32 +67,27 @@ Public Class Form1
 
     End Sub
 
-    Private Sub SaveRtfFile(sender As Object, e As EventArgs) Handles mnuSaveAsRtf.Click
+    Private Sub SaveRtfFile(sender As Object, e As EventArgs) Handles mnuExportAs.Click
         If gpxCalculator.distances.Count < 1 Then
             MessageBox.Show(My.Resources.Resource1.mBoxMissingData)
             Return
         End If
 
-        Dim rtfFileName As String = "GPX_File_Data_" & Today.ToString("yyyy-MM-dd") 'Path.Combine(directoryPath, "GPX_File_Data_" & Today.ToString("yyyy-MM-dd") & ".csv")
+        Dim FileName As String = "GPX_File_Data_" & Today.ToString("yyyy-MM-dd") 'Path.Combine(directoryPath, "GPX_File_Data_" & Today.ToString("yyyy-MM-dd") & ".csv")
 
         Using dialog As New SaveFileDialog()
-            dialog.Filter = "Soubory RTF|*.rtf"
+            dialog.Filter = "Rich Text Format (*.rtf)|*.rtf|Text (*.txt)|*.txt|Comma-separated values (*.csv)|*.csv"
             'dialog.CheckFileExists = True 'když existuje zeptá se 
             dialog.AddExtension = True
             dialog.InitialDirectory = My.Settings.Directory
-            dialog.Title = "Save as RTF"
-            dialog.FileName = rtfFileName
+            dialog.Title = "Save as"
+            dialog.FileName = FileName
 
             ' Načti obsah RichTextBoxu jako RTF text
             Dim rtfText As String = rtbOutput.Rtf
 
-            ' Najdi začátek RTF hlavičky a vlož vlastnosti pro A4 naležato
-            Dim upravenyRtf As String = rtfText.Replace("\rtf1", "\rtf1\ansi\paperw11907\paperh8267\landscape\margl1440\margr1440\margt1440\margb1440")
-
-
-
-
             If dialog.ShowDialog() = DialogResult.OK Then
+
 
                 Debug.WriteLine($"Selected file: {dialog.FileName}")
                 'Ulož upravený RTF text zpět do souboru
@@ -100,8 +95,17 @@ Public Class Form1
 
 
                 Try
-                    'IO.File.WriteAllText(dialog.FileName, upravenyRtf)
-                    rtbOutput.SaveFile(dialog.FileName, RichTextBoxStreamType.RichText)
+                    Select Case dialog.FilterIndex
+                        Case 1
+                            rtbOutput.SaveFile(dialog.FileName, RichTextBoxStreamType.RichText)
+
+                        Case 2
+                            rtbOutput.SaveFile(dialog.FileName, RichTextBoxStreamType.PlainText)
+                        Case 3
+                            gpxCalculator.WriteCSVfile(dialog.FileName)
+                    End Select
+
+
                 Catch ex As Exception
                     MessageBox.Show($"{My.Resources.Resource1.mBoxErrorCreatingCSV}: {dialog.FileName} " & ex.Message & vbCrLf, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End Try
@@ -196,6 +200,8 @@ Public Class Form1
 
         SetTooltips()
 
+        ReadHelp()
+
         Me.ResumeLayout()
     End Sub
 
@@ -259,17 +265,20 @@ Public Class Form1
     Private Sub SetTooltips()
 
 
-        ' Nastavení ToolTip pro jednotlivé ovládací prvky
-
-        mnuSelect_directory_gpx_files.ToolTipText = Resource1.Tooltip_txtDirectory
-        mnuSelectBackupDirectory.ToolTipText = Resource1.Tooltip_txtBackupDirectory
-        'TODO
-        mnuSaveAsCsvFile.ToolTipText = Resource1.Tooltip_ExportAsCSV
-
 
         ' Nastavení ToolTip pro jednotlivé ovládací prvky
 
-        ToolTip1.SetToolTip(btnChartDistances, Resource1.Tooltip_txtDirectory)
+        mnuSelect_directory_gpx_files.ToolTipText = Resource1.Tooltip_mnuDirectory
+        mnuSelectBackupDirectory.ToolTipText = Resource1.Tooltip_mnuBackupDirectory
+        mnuexportAs.ToolTipText = Resource1.Tooltip_ExportAs
+        mnuPrependDateToFileName.ToolTipText = Resource1.Tooltip_mnuPrependDate
+        mnuTrimGPSNoise.ToolTipText = Resource1.Tooltip_mnuTrim
+
+        ' Nastavení ToolTip pro jednotlivé ovládací prvky
+
+        'ToolTip1.SetToolTip(btnChartDistances, Resource1.Tooltip_dtpStart)
+        ToolTip1.SetToolTip(dtpStartDate, Resource1.Tooltip_dtpStart)
+        ToolTip1.SetToolTip(dtpEndDate, Resource1.Tooltip_dtpEnd)
 
 
         ' Přidej další ovládací prvky, jak je potřeba
@@ -283,28 +292,6 @@ Public Class Form1
 
     End Sub
 
-
-    'Private Sub btnCS_Click(sender As Object, e As EventArgs) Handles btnCS.Click
-    '    ChangeLanguage("cs") ' Nastaví češtinu
-    'End Sub
-
-    'Private Sub btnEng_Click(sender As Object, e As EventArgs) Handles btnEng.Click
-    '    ChangeLanguage("en") ' Nastaví angličtinu
-    'End Sub
-
-    'Private Sub btnDe_Click(sender As Object, e As EventArgs) Handles btnDe.Click
-    '    ChangeLanguage("de") ' Nastaví češtinu
-    'End Sub
-    'Private Sub btnRu_Click(sender As Object, e As EventArgs) Handles btnRu.Click
-    '    ChangeLanguage("ru") ' Nastaví češtinu
-    'End Sub
-    'Private Sub btnPl_Click(sender As Object, e As EventArgs) Handles btnPl.Click
-    '    ChangeLanguage("pl") ' Nastaví češtinu
-    'End Sub
-
-    'Private Sub btnUK_Click(sender As Object, e As EventArgs) Handles btnUK.Click
-    '    ChangeLanguage("uk")
-    'End Sub
 
     Private Sub chbTrimGpxFile(sender As Object, e As EventArgs) Handles mnuTrimGPSNoise.CheckedChanged
         My.Settings.TrimGPSnoise = mnuTrimGPSNoise.Checked
@@ -365,4 +352,5 @@ Public Class Form1
 
 
 End Class
+
 

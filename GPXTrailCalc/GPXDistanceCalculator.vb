@@ -8,6 +8,8 @@ Imports System.Runtime.InteropServices.ComTypes
 Imports System.DirectoryServices.ActiveDirectory
 Imports System.Diagnostics.Eventing
 Imports GPXTrailAnalyzer.My.Resources
+'Imports System.Windows.Media
+Imports System.Drawing
 
 Public Class GPXDistanceCalculator
 
@@ -432,9 +434,7 @@ Public Class GPXDistanceCalculator
                 dogFinish.Add(GetDogFinish(i))
                 age.Add(CalculateAge(i))
                 speed.Add(CalculateSpeed(i))
-
                 link.Add(Getlink(i))
-                If Not link(i) Is Nothing Then link(i) = $"=HYPERTEXTOVÝ.ODKAZ(""{link(i)}"")"
 
                 gpxReaders(i).Save(save) 'hlavně kvůli desc
                 'a nakonec
@@ -466,6 +466,16 @@ Public Class GPXDistanceCalculator
                 If Not descriptions(i) = Nothing Then
                     Form1.rtbOutput.AppendText(descriptions(i))
                 End If
+
+                If Not link(i) = Nothing Then
+
+                    Form1.rtbOutput.AppendText("    Video: ")
+                    Form1.rtbOutput.SelectionColor = Color.Blue ' Nastavit barvu
+                    Form1.rtbOutput.AppendText(link(i))
+
+                End If
+
+
 
                 Form1.rtbOutput.AppendText(vbCrLf)
 
@@ -547,11 +557,22 @@ Public Class GPXDistanceCalculator
 
 
         Return True
-
-
-
-
     End Function
+
+    Private Sub AppendHyperlink(rtb As RichTextBox, url As String, displayText As String)
+        ' Načíst aktuální RTF obsah
+        Dim currentRtf As String = rtb.Rtf
+
+        ' Klikací odkaz v RTF formátu
+        Dim hyperlinkRtf As String = "{\field{\*\fldinst{HYPERLINK """ & url & """}}{\fldrslt{" & displayText & "}}}"
+
+        ' Vložení odkazu před poslední uzavírací složenou závorku
+        Dim newRtf As String = currentRtf.Insert(currentRtf.LastIndexOf("}"), hyperlinkRtf)
+
+        ' Aktualizace obsahu RichTextBox
+        rtb.Rtf = newRtf
+    End Sub
+
 
     Private Function AverageOf(y As List(Of Double)) As Double
         Dim suma As Double = 0
@@ -853,7 +874,10 @@ Public Class GPXDistanceCalculator
                     If Not speed(i) = 0 Then writer.Write($"{speed(i):F2};") Else writer.Write(";")
                     writer.Write($"{totalDistances(i):F2};")
                     writer.Write($"{descriptions(i)};")
-                    writer.WriteLine($"{link(i)}")
+                    If Not link(i) Is Nothing Then
+                        writer.WriteLine($"=HYPERTEXTOVÝ.ODKAZ(""{link(i)}"")")
+                    End If
+
 
                 Next
 
