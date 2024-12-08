@@ -203,7 +203,6 @@
   <ItemGroup>
     <None Include="README.cs.md" />
     <None Include="README.en.md" />
-    <None Include="Readme.md" />
     <None Include="Resources\cs.rtf" />
     <None Include="Resources\Readme.cs.rtf" />
     <None Include="Resources\Readme.de.rtf" />
