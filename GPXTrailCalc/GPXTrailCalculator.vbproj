@@ -201,7 +201,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Readme.en.md" />
+    <None Include="README.cs.md" />
+    <None Include="README.en.md" />
     <None Include="Readme.md" />
     <None Include="Resources\cs.rtf" />
     <None Include="Resources\Readme.cs.rtf" />

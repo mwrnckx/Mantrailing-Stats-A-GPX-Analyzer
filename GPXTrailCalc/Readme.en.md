@@ -4,7 +4,7 @@ The **K9 Trails Analyzer** is a Visual Basic application that processes GPX file
 Tested for Geo Tracker, A GPS Tracker and Locus map apps.
 Needs further development for The Mantrailing App and other aplications.
 
-## Features
+## Features  
 
 - **Reading data from GPX files**: The application reads GPX files from the selected directory.
 - **Filtering by date**.
