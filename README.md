@@ -2,7 +2,7 @@
 
 Welcome to my project! Choose your preferred language:
 
-- [English](README.en.md)
+- [English](Readme.en.md)
 - [Čeština](README.cs.md)
 - 
 
