@@ -21,16 +21,14 @@ Public Class Form1
             'send directoryPath to gpxCalculator
             If gpxCalculator.ReadAndProcessData(dtpStartDate.Value, dtpEndDate.Value) Then
                 Me.btnChartDistances.Visible = True
-                Me.rbTotDistance.Visible = True
-                Me.rbDistances.Visible = True
-                Me.rbAge.Visible = True
-                Me.rbSpeed.Visible = True
             Else
                 MessageBox.Show(My.Resources.Resource1.mBoxDataRetrievalFailed)
             End If
         Catch ex As Exception
             MessageBox.Show(My.Resources.Resource1.mBoxDataRetrievalFailed)
         End Try
+        'zavři případné grafy
+        CloseGrafs()
 
     End Sub
 
@@ -116,64 +114,90 @@ Public Class Form1
 
     End Sub
 
+    Private distanceCharts As New List(Of DistanceChart)
     Private Sub btnOpenChart(sender As Object, e As EventArgs) Handles btnChartDistances.Click
+
+        If gpxCalculator.distances Is Nothing Then
+            MessageBox.Show("First you need to read the data from the gpx files")
+            Return
+        End If
+
         'what to display
         Dim yAxisData() As Double
         Dim yAxisLabel As String
-        Dim xAxisData As Date() = gpxCalculator.layerStart.Select(Function(ts) ts).ToArray()
-        Dim GrafText As String = rbTotDistance.Text
+        Dim xAxisData As Date()
+        Dim GrafText As String = Resource1.Y_AxisLabelSpeed
 
-        If rbTotDistance.Checked Then
-            yAxisData = gpxCalculator.totalDistances.Select(Function(ts) ts).ToArray()
-            yAxisLabel = My.Resources.Resource1.Y_AxisLabelTotalLength
-            GrafText = rbTotDistance.Text
-        ElseIf rbDistances.Checked Then
-            yAxisData = gpxCalculator.distances.Select(Function(ts) ts).ToArray()
-            yAxisLabel = My.Resources.Resource1.Y_AxisLabelLength
-            GrafText = rbDistances.Text
-        ElseIf rbAge.Checked Then
-            ' Filtrování y-hodnot (TotalHours) a x-hodnot (časové značky) pro body, kde TotalHours není nulová
-            yAxisData = gpxCalculator.age.
-    Where(Function(ts, index) ts.TotalHours <> 0). ' Podmínka pro filtrování TotalHours == 0
-    Select(Function(ts) ts.TotalHours).
-    ToArray()
+        Dim distanceChart1 As New DistanceChart
 
-            ' Filtrování x-hodnot (časové značky) podle stejných indexů jako yAxisData
-            xAxisData = gpxCalculator.layerStart.
-    Where(Function(ts, index) gpxCalculator.age(index).TotalHours <> 0).
-    Select(Function(ts) ts).
-    ToArray()
-            yAxisLabel = My.Resources.Resource1.Y_AxisLabelAge
-            GrafText = rbAge.Text
-        ElseIf rbSpeed.Checked Then
-            ' Načtení y-hodnot a filtrování hodnot, kde je y nulové
-            yAxisData = gpxCalculator.speed.
+        'Speed
+        ' Načtení y-hodnot a filtrování hodnot, kde je y nulové
+        yAxisData = gpxCalculator.speed.
     Where(Function(ts, index) gpxCalculator.speed(index) <> 0). ' Podmínka pro filtrování y == 0
     Select(Function(ts) ts).
     ToArray()
-            ' Filtrování x-hodnot (časové značky) podle stejného indexu jako yAxisData
-            xAxisData = gpxCalculator.layerStart.
+        ' Filtrování x-hodnot (časové značky) podle stejného indexu jako yAxisData
+        xAxisData = gpxCalculator.layerStart.
     Where(Function(ts, index) gpxCalculator.speed(index) <> 0).
     Select(Function(ts) ts).
     ToArray()
 
-            yAxisLabel = My.Resources.Resource1.Y_AxisLabelSpeed
-            GrafText = rbSpeed.Text
-        End If
+        yAxisLabel = My.Resources.Resource1.Y_AxisLabelSpeed
+        GrafText = Resource1.Y_AxisLabelSpeed
+        distanceChart1 = New DistanceChart(xAxisData, yAxisData, yAxisLabel, Me.dtpStartDate.Value, dtpEndDate.Value, Me.currentCulture)
+        distanceChart1.Display(GrafText)
+        distanceCharts.Add(distanceChart1)
+
+        'Age
+        ' Filtrování y-hodnot (TotalHours) a x-hodnot (časové značky) pro body, kde TotalHours není nulová
+        yAxisData = gpxCalculator.age.
+    Where(Function(ts, index) ts.TotalHours <> 0). ' Podmínka pro filtrování TotalHours == 0
+    Select(Function(ts) ts.TotalHours).
+    ToArray()
+        ' Filtrování x-hodnot (časové značky) podle stejných indexů jako yAxisData
+        xAxisData = gpxCalculator.layerStart.
+    Where(Function(ts, index) gpxCalculator.age(index).TotalHours <> 0).
+    Select(Function(ts) ts).
+    ToArray()
+        yAxisLabel = My.Resources.Resource1.Y_AxisLabelAge
+        GrafText = Resource1.Y_AxisLabelAge
+        distanceChart1 = New DistanceChart(xAxisData, yAxisData, yAxisLabel, Me.dtpStartDate.Value, dtpEndDate.Value, Me.currentCulture)
+        distanceChart1.Display(GrafText)
+        distanceCharts.Add(distanceChart1)
 
 
 
-        ' Vytvoření instance DistanceChart s filtrováním bodů, kde je y-hodnota nulová
-        If Not gpxCalculator.distances Is Nothing Then
-            Dim distanceChart As New DistanceChart(xAxisData, yAxisData, yAxisLabel, Me.dtpStartDate.Value, dtpEndDate.Value, Me.currentCulture)
+        'Distances
+        yAxisData = gpxCalculator.distances.Select(Function(ts) ts).ToArray()
+        yAxisLabel = My.Resources.Resource1.Y_AxisLabelLength
+        xAxisData = gpxCalculator.layerStart.Select(Function(ts) ts).ToArray()
+        GrafText = Resource1.Y_AxisLabelLength
+        distanceChart1 = New DistanceChart(xAxisData, yAxisData, yAxisLabel, Me.dtpStartDate.Value, dtpEndDate.Value, Me.currentCulture)
+        distanceChart1.Display(GrafText)
+        distanceCharts.Add(distanceChart1)
 
-            ' Zobrazení grafu
-            distanceChart.Display(GrafText)
-        Else
-            MessageBox.Show("First you need to read the data from the gpx files")
-        End If
+        'TotDistance
+        yAxisData = gpxCalculator.totalDistances.Select(Function(ts) ts).ToArray()
+        yAxisLabel = My.Resources.Resource1.Y_AxisLabelTotalLength
+        xAxisData = gpxCalculator.layerStart.Select(Function(ts) ts).ToArray()
+        GrafText = Resource1.Y_AxisLabelTotalLength
+        distanceChart1 = New DistanceChart(xAxisData, yAxisData, yAxisLabel, Me.dtpStartDate.Value, dtpEndDate.Value, Me.currentCulture)
+        distanceChart1.Display(GrafText)
+        distanceCharts.Add(distanceChart1)
 
 
+        Me.BringToFront()
+
+    End Sub
+
+    Public Sub CloseGrafs()
+        ' Zavření grafů
+        For Each grf In distanceCharts
+            grf.CloseChart()
+        Next grf
+
+        ' Vyprázdnění seznamu
+        distanceCharts.Clear()
     End Sub
 
 
@@ -251,7 +275,6 @@ Public Class Form1
         Select Case currentCulture
             Case "cs-CZ", "cs"
                 menuIcon = My.Resources.czech_flag
-
             Case "en-GB", "en", "en-US"
                 menuIcon = My.Resources.en_flag
                 mnuEnglish.Image = resizeImage(My.Resources.en_flag, Nothing, 18)

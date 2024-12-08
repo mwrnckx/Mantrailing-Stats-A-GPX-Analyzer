@@ -219,4 +219,7 @@
   <data name="Tooltip_mnuTrim" xml:space="preserve">
     <value>Na začátku trasy, než se vydáte na cestu, a na konci, než vypnete záznam, GPS přístroj často zaznamenává nepřesné nebo chybné údaje. Pokud je toto tlačítko zaškrtnuté, program se pokusí tyto nepřesnosti automaticky odstranit.</value>
   </data>
+  <data name="rbDistances.Text1" xml:space="preserve">
+    <value>Délka jednotlivých trailů</value>
+  </data>
 </root>

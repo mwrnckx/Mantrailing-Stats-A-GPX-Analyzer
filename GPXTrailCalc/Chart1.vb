@@ -11,6 +11,7 @@ Public Class DistanceChart
     Private yAxisLabel As String
     Private startDate As Date
     Private endDate As Date
+    Private chartForm As Form ' Uloží referenci na formulář
 
     ' Konstruktor, který přijme data
     Public Sub New(layerStart As DateTime(), _Y_data As Double(), yAxisLabel As String, _startDate As Date, _endDate As Date, _CultureInfo As CultureInfo)
@@ -20,6 +21,10 @@ Public Class DistanceChart
         Me.startDate = _startDate
         Me.endDate = _endDate
         Thread.CurrentThread.CurrentCulture = _CultureInfo
+
+    End Sub
+
+    Public Sub New()
 
     End Sub
 
@@ -49,7 +54,7 @@ Public Class DistanceChart
     ' Metoda pro vytvoření a zobrazení grafu
     Public Sub Display(text As String)
         ' Vytvoření nového formuláře pro zobrazení grafu
-        Dim chartForm As New Form()
+        chartForm = New Form()
         chartForm.Text = text
         chartForm.Size = New Size(1000, 600)
         chartForm.Icon = My.Resources.track2
@@ -136,6 +141,12 @@ Public Class DistanceChart
         End Try
 
         ' Zobrazení formuláře
-        chartForm.ShowDialog()
+        chartForm.Show()
+    End Sub
+    Sub CloseChart()
+        If chartForm IsNot Nothing Then
+            chartForm.Close()
+            chartForm = Nothing ' Uvolní referenci
+        End If
     End Sub
 End Class

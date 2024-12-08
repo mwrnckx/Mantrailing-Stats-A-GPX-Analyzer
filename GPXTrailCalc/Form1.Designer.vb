@@ -29,10 +29,6 @@ Partial Class Form1
         Me.btnReadGpxFiles = New System.Windows.Forms.Button()
         Me.txtWarnings = New System.Windows.Forms.TextBox()
         Me.btnChartDistances = New System.Windows.Forms.Button()
-        Me.rbTotDistance = New System.Windows.Forms.RadioButton()
-        Me.rbDistances = New System.Windows.Forms.RadioButton()
-        Me.rbAge = New System.Windows.Forms.RadioButton()
-        Me.rbSpeed = New System.Windows.Forms.RadioButton()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.StatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
@@ -90,40 +86,10 @@ Partial Class Form1
         '
         'btnChartDistances
         '
-        Me.btnChartDistances.BackColor = System.Drawing.Color.Yellow
+        Me.btnChartDistances.BackColor = System.Drawing.Color.DarkGoldenrod
         resources.ApplyResources(Me.btnChartDistances, "btnChartDistances")
         Me.btnChartDistances.Name = "btnChartDistances"
         Me.btnChartDistances.UseVisualStyleBackColor = False
-        '
-        'rbTotDistance
-        '
-        resources.ApplyResources(Me.rbTotDistance, "rbTotDistance")
-        Me.rbTotDistance.BackColor = System.Drawing.Color.Yellow
-        Me.rbTotDistance.Checked = True
-        Me.rbTotDistance.Name = "rbTotDistance"
-        Me.rbTotDistance.TabStop = True
-        Me.rbTotDistance.UseVisualStyleBackColor = False
-        '
-        'rbDistances
-        '
-        resources.ApplyResources(Me.rbDistances, "rbDistances")
-        Me.rbDistances.BackColor = System.Drawing.Color.Yellow
-        Me.rbDistances.Name = "rbDistances"
-        Me.rbDistances.UseVisualStyleBackColor = False
-        '
-        'rbAge
-        '
-        resources.ApplyResources(Me.rbAge, "rbAge")
-        Me.rbAge.BackColor = System.Drawing.Color.Yellow
-        Me.rbAge.Name = "rbAge"
-        Me.rbAge.UseVisualStyleBackColor = False
-        '
-        'rbSpeed
-        '
-        resources.ApplyResources(Me.rbSpeed, "rbSpeed")
-        Me.rbSpeed.BackColor = System.Drawing.Color.Yellow
-        Me.rbSpeed.Name = "rbSpeed"
-        Me.rbSpeed.UseVisualStyleBackColor = False
         '
         'ToolTip1
         '
@@ -136,7 +102,7 @@ Partial Class Form1
         resources.ApplyResources(Me.StatusStrip1, "StatusStrip1")
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.ToolTip1.SetToolTip(Me.StatusStrip1, resources.GetString("StatusStrip1.ToolTip"))
-
+        '
         'StatusLabel1
         '
         Me.StatusLabel1.Name = "StatusLabel1"
@@ -272,13 +238,9 @@ Partial Class Form1
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.rtbOutput)
-        Me.Controls.Add(Me.rbSpeed)
         Me.Controls.Add(Me.lblScentArtickle)
         Me.Controls.Add(Me.gbPeriod)
         Me.Controls.Add(Me.StatusStrip1)
-        Me.Controls.Add(Me.rbAge)
-        Me.Controls.Add(Me.rbDistances)
-        Me.Controls.Add(Me.rbTotDistance)
         Me.Controls.Add(Me.btnChartDistances)
         Me.Controls.Add(Me.txtWarnings)
         Me.Controls.Add(Me.btnReadGpxFiles)
@@ -379,10 +341,6 @@ Partial Class Form1
 
 
     Friend WithEvents btnChartDistances As Button
-    Friend WithEvents rbTotDistance As RadioButton
-    Friend WithEvents rbDistances As RadioButton
-    Friend WithEvents rbAge As RadioButton
-    Friend WithEvents rbSpeed As RadioButton
     Friend WithEvents ToolTip1 As ToolTip
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents mnuFile As ToolStripMenuItem

@@ -124,7 +124,37 @@
     <value>Fehler und Protokolle:</value>
   </data>
   <data name="btnChartDistances.Text" xml:space="preserve">
-    <value>Erstellen Sie ein Diagramm:</value>
+    <value>Diagramme anzeigen</value>
+  </data>
+  <data name="mnuFile.Text" xml:space="preserve">
+    <value>Datei</value>
+  </data>
+  <data name="mnuSelect_directory_gpx_files.Text" xml:space="preserve">
+    <value>Wählen Sie das Verzeichnis mit den gpx-Dateien</value>
+  </data>
+  <data name="mnuSelectBackupDirectory.Text" xml:space="preserve">
+    <value>Wählen Sie ein Verzeichnis zum Sichern der gpx-Dateien</value>
+  </data>
+  <data name="mnuSettings.Text" xml:space="preserve">
+    <value>GPX-Verarbeitung</value>
+  </data>
+  <data name="mnuPrependDateToFileName.Text" xml:space="preserve">
+    <value>Datum dem gpx-Dateinamen voranstellen</value>
+  </data>
+  <data name="mnuTrimGPSNoise.Text" xml:space="preserve">
+    <value>GPS-Rauschen am Anfang und Ende der Strecke entfernen</value>
+  </data>
+  <data name="mnuLanguage.Text" xml:space="preserve">
+    <value>Sprache</value>
+  </data>
+  <data name="gbPeriod.Text" xml:space="preserve">
+    <value>Zeitraumauswahl</value>
+  </data>
+  <data name="lblScentArtickle.Text" xml:space="preserve">
+    <value>Geruchsartikel</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Mantrailing: Statistik und Analyse von GPX-Dateien</value>
   </data>
   <data name="rbTotDistance.Text" xml:space="preserve">
     <value>Fluffed in der gewählten Periode</value>
@@ -138,41 +168,11 @@
   <data name="rbSpeed.Text" xml:space="preserve">
     <value>Geschwindigkeit des Hundes auf den Strecken</value>
   </data>
-  <data name="mnuFile.Text" xml:space="preserve">
-    <value>Datei</value>
-  </data>
-  <data name="mnuSettings.Text" xml:space="preserve">
-    <value>GPX-Verarbeitung</value>
-  </data>
-  <data name="mnuLanguage.Text" xml:space="preserve">
-    <value>Sprache</value>
-  </data>
-  <data name="mnuSelect_directory_gpx_files.Text" xml:space="preserve">
-    <value>Wählen Sie das Verzeichnis mit den gpx-Dateien</value>
-  </data>
-  <data name="mnuSelectBackupDirectory.Text" xml:space="preserve">
-    <value>Wählen Sie ein Verzeichnis zum Sichern der gpx-Dateien</value>
-  </data>
   <data name="mnuSaveAsCsvFile.Text" xml:space="preserve">
     <value>Exportieren als CSV-Datei</value>
   </data>
   <data name="mnuSaveAsRtf.Text" xml:space="preserve">
     <value>Exportieren als RTF-Datei</value>
-  </data>
-  <data name="mnuPrependDateToFileName.Text" xml:space="preserve">
-    <value>Datum dem gpx-Dateinamen voranstellen</value>
-  </data>
-  <data name="mnuTrimGPSNoise.Text" xml:space="preserve">
-    <value>GPS-Rauschen am Anfang und Ende der Strecke entfernen</value>
-  </data>
-  <data name="gbPeriod.Text" xml:space="preserve">
-    <value>Zeitraumauswahl</value>
-  </data>
-  <data name="lblScentArtickle.Text" xml:space="preserve">
-    <value>Geruchsartikel</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Mantrailing: Statistik und Analyse von GPX-Dateien</value>
   </data>
   <data name="btnBrowse.Text" xml:space="preserve">
     <value>Durchsuchen...</value>

@@ -124,7 +124,37 @@
     <value>Ошибки и журналы:</value>
   </data>
   <data name="btnChartDistances.Text" xml:space="preserve">
-    <value>Показать диаграмму:</value>
+    <value>Показать диаграммы</value>
+  </data>
+  <data name="mnuFile.Text" xml:space="preserve">
+    <value>Файл</value>
+  </data>
+  <data name="mnuSelect_directory_gpx_files.Text" xml:space="preserve">
+    <value>Выберите каталог, в котором находятся файлы gpx</value>
+  </data>
+  <data name="mnuSelectBackupDirectory.Text" xml:space="preserve">
+    <value>Выберите каталог для резервного копирования файлов gpx</value>
+  </data>
+  <data name="mnuSettings.Text" xml:space="preserve">
+    <value>Обработка GPX</value>
+  </data>
+  <data name="mnuPrependDateToFileName.Text" xml:space="preserve">
+    <value>Добавление даты к имени файла gpx</value>
+  </data>
+  <data name="mnuTrimGPSNoise.Text" xml:space="preserve">
+    <value>Удалить шумы в начале и конце треков</value>
+  </data>
+  <data name="mnuLanguage.Text" xml:space="preserve">
+    <value>Язык</value>
+  </data>
+  <data name="gbPeriod.Text" xml:space="preserve">
+    <value>Выбор периода</value>
+  </data>
+  <data name="lblScentArtickle.Text" xml:space="preserve">
+    <value>занюшка </value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Анализатор статистики Mantrailing</value>
   </data>
   <data name="rbTotDistance.Text" xml:space="preserve">
     <value>Обнюхано в течение указанного времени</value>
@@ -138,38 +168,8 @@
   <data name="rbSpeed.Text" xml:space="preserve">
     <value>Средняя скорость движения собак по тропам</value>
   </data>
-  <data name="mnuFile.Text" xml:space="preserve">
-    <value>Файл</value>
-  </data>
-  <data name="mnuPrependDateToFileName.Text" xml:space="preserve">
-    <value>Добавление даты к имени файла gpx</value>
-  </data>
-  <data name="mnuLanguage.Text" xml:space="preserve">
-    <value>Язык</value>
-  </data>
-  <data name="mnuSelect_directory_gpx_files.Text" xml:space="preserve">
-    <value>Выберите каталог, в котором находятся файлы gpx</value>
-  </data>
-  <data name="mnuSelectBackupDirectory.Text" xml:space="preserve">
-    <value>Выберите каталог для резервного копирования файлов gpx</value>
-  </data>
   <data name="mnuSaveAsCsvFile.Text" xml:space="preserve">
     <value>Экспорт в файл CSV</value>
-  </data>
-  <data name="gbPeriod.Text" xml:space="preserve">
-    <value>Выбор периода</value>
-  </data>
-  <data name="lblScentArtickle.Text" xml:space="preserve">
-    <value>занюшка </value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Анализатор статистики Mantrailing</value>
-  </data>
-  <data name="lblStartDate.Text" xml:space="preserve">
-    <value>От:</value>
-  </data>
-  <data name="lblEndDate.Text" xml:space="preserve">
-    <value>До:</value>
   </data>
   <data name="btnBrowse.Text" xml:space="preserve">
     <value>Просмотреть...</value>
@@ -189,13 +189,13 @@
   <data name="btnBrowseBackup.Text" xml:space="preserve">
     <value>Просмотреть...</value>
   </data>
-  <data name="mnuTrimGPSNoise.Text" xml:space="preserve">
-    <value>Удалить шумы в начале и конце треков</value>
-  </data>
-  <data name="mnuSettings.Text" xml:space="preserve">
-    <value>Обработка GPX</value>
-  </data>
   <data name="mnuTrimGPSNoise.Text1" xml:space="preserve">
     <value>Удалить шумы в начале и конце треков</value>
+  </data>
+  <data name="lblStartDate.Text" xml:space="preserve">
+    <value>От:</value>
+  </data>
+  <data name="lblEndDate.Text" xml:space="preserve">
+    <value>До:</value>
   </data>
 </root>
