@@ -83,7 +83,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
-    <Compile Include="Chart1.vb" />
+    <Compile Include="Chart1.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GpxReader.vb" />
     <Compile Include="Form1.Designer.vb">
       <DependentUpon>Form1.vb</DependentUpon>

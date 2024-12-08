@@ -15,6 +15,8 @@ Public Class Form1
     Private Sub btnReadGpxFiles_Click(sender As Object, e As EventArgs) Handles btnReadGpxFiles.Click
 
         Me.txtWarnings.Visible = True
+        'zavři případné grafy
+        CloseGrafs()
 
         Try
 
@@ -27,8 +29,7 @@ Public Class Form1
         Catch ex As Exception
             MessageBox.Show(My.Resources.Resource1.mBoxDataRetrievalFailed)
         End Try
-        'zavři případné grafy
-        CloseGrafs()
+
 
     End Sub
 
@@ -118,7 +119,7 @@ Public Class Form1
     Private Sub btnOpenChart(sender As Object, e As EventArgs) Handles btnChartDistances.Click
 
         If gpxCalculator.distances Is Nothing Then
-            MessageBox.Show("First you need to read the data from the gpx files")
+            MessageBox.Show("First you need to read the data from the gpx files!")
             Return
         End If
 
@@ -145,7 +146,7 @@ Public Class Form1
         yAxisLabel = My.Resources.Resource1.Y_AxisLabelSpeed
         GrafText = Resource1.Y_AxisLabelSpeed
         distanceChart1 = New DistanceChart(xAxisData, yAxisData, yAxisLabel, Me.dtpStartDate.Value, dtpEndDate.Value, Me.currentCulture)
-        distanceChart1.Display(GrafText)
+        distanceChart1.Display(GrafText, 1)
         distanceCharts.Add(distanceChart1)
 
         'Age
@@ -162,7 +163,7 @@ Public Class Form1
         yAxisLabel = My.Resources.Resource1.Y_AxisLabelAge
         GrafText = Resource1.Y_AxisLabelAge
         distanceChart1 = New DistanceChart(xAxisData, yAxisData, yAxisLabel, Me.dtpStartDate.Value, dtpEndDate.Value, Me.currentCulture)
-        distanceChart1.Display(GrafText)
+        distanceChart1.Display(GrafText, 2)
         distanceCharts.Add(distanceChart1)
 
 
@@ -173,7 +174,7 @@ Public Class Form1
         xAxisData = gpxCalculator.layerStart.Select(Function(ts) ts).ToArray()
         GrafText = Resource1.Y_AxisLabelLength
         distanceChart1 = New DistanceChart(xAxisData, yAxisData, yAxisLabel, Me.dtpStartDate.Value, dtpEndDate.Value, Me.currentCulture)
-        distanceChart1.Display(GrafText)
+        distanceChart1.Display(GrafText, 3)
         distanceCharts.Add(distanceChart1)
 
         'TotDistance
@@ -182,11 +183,12 @@ Public Class Form1
         xAxisData = gpxCalculator.layerStart.Select(Function(ts) ts).ToArray()
         GrafText = Resource1.Y_AxisLabelTotalLength
         distanceChart1 = New DistanceChart(xAxisData, yAxisData, yAxisLabel, Me.dtpStartDate.Value, dtpEndDate.Value, Me.currentCulture)
-        distanceChart1.Display(GrafText)
+        distanceChart1.Display(GrafText, 4)
+
         distanceCharts.Add(distanceChart1)
 
 
-        Me.BringToFront()
+        'Me.BringToFront()
 
     End Sub
 
@@ -404,7 +406,6 @@ Public Class Form1
 
         Return zacatek & "  ...  " & konec
     End Function
-
 
 End Class
 

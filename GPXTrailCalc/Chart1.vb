@@ -5,6 +5,7 @@ Imports System.Threading
 Imports System.Windows.Forms.DataVisualization.Charting
 
 Public Class DistanceChart
+    Inherits Form
     ' Vlastnosti pro data
     Private layerStart As DateTime()
     Private Y_Data As Double()
@@ -52,12 +53,18 @@ Public Class DistanceChart
     End Function
 
     ' Metoda pro vytvoření a zobrazení grafu
-    Public Sub Display(text As String)
+    Public Sub Display(text As String, position As Integer)
+
         ' Vytvoření nového formuláře pro zobrazení grafu
         chartForm = New Form()
+
         chartForm.Text = text
-        chartForm.Size = New Size(1000, 600)
+        'chartForm.Size = New Size(1000, 600)
         chartForm.Icon = My.Resources.track2
+
+        ' Získání rozměrů obrazovky
+        Dim screenBounds As Rectangle = Screen.PrimaryScreen.Bounds
+        chartForm.Size = New Size(screenBounds.Width / 2, screenBounds.Height / 2)
 
         ' Vytvoření a nastavení komponenty Chart
         Dim chart As New Chart()
@@ -141,12 +148,18 @@ Public Class DistanceChart
         End Try
 
         ' Zobrazení formuláře
+
         chartForm.Show()
+
+        Me.chartForm.BringToFront()
+
     End Sub
+
     Sub CloseChart()
         If chartForm IsNot Nothing Then
             chartForm.Close()
             chartForm = Nothing ' Uvolní referenci
         End If
     End Sub
+
 End Class
