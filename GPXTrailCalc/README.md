@@ -1,4 +1,4 @@
-﻿# K9-Trails-Analyzer
+﻿# K9 Trails Analyzer
 
 Welcome to my project! Choose your preferred language:
 
