@@ -1,6 +1,4 @@
 ﻿Imports System.Globalization
-Imports System.Runtime.InteropServices.ComTypes
-Imports System.Text.RegularExpressions
 Imports System.Threading
 Imports System.Windows.Forms.DataVisualization.Charting
 
@@ -17,10 +15,10 @@ Public Class DistanceChart
     ' Konstruktor, který přijme data
     Public Sub New(layerStart As DateTime(), _Y_data As Double(), yAxisLabel As String, _startDate As Date, _endDate As Date, _CultureInfo As CultureInfo)
         Me.layerStart = layerStart
-        Me.Y_Data = _Y_data
+        Y_Data = _Y_data
         Me.yAxisLabel = yAxisLabel
-        Me.startDate = _startDate
-        Me.endDate = _endDate
+        startDate = _startDate
+        endDate = _endDate
         Thread.CurrentThread.CurrentCulture = _CultureInfo
 
     End Sub
@@ -151,7 +149,7 @@ Public Class DistanceChart
 
         chartForm.Show()
 
-        Me.chartForm.BringToFront()
+        chartForm.BringToFront()
 
     End Sub
 

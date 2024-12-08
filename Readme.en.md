@@ -1,8 +1,8 @@
 # K9 Trails Analyzer
 
-The **K9 Trails Analyzer** is a Visual Basic application that processes GPX files with GPS routes of the trail layer (runner) and the dog and provides statistics such as total distance, age of routes and average speed of the dog. 
+The **K9 Trails Analyzer** is a light-weigth application for Windows that processes GPX files with GPS routes of the trail layer (runner) and the dog and provides statistics such as total distance, age of routes and average speed of the dog. 
 Tested for Geo Tracker, A GPS Tracker and Locus map apps.
-Needs further development for The Mantrailing App and other aplications.
+Needs further development for The Mantrailing App and other applications.
 
 ## Features  
 

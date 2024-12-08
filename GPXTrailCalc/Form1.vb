@@ -1,10 +1,7 @@
 ﻿Imports System.ComponentModel
 Imports System.Globalization
-Imports System.IO
-Imports System.Resources
 Imports System.Threading
 Imports System.Windows.Forms.DataVisualization.Charting
-Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 Imports GPXTrailAnalyzer.My.Resources
 
 Public Class Form1
@@ -14,7 +11,7 @@ Public Class Form1
 
     Private Sub btnReadGpxFiles_Click(sender As Object, e As EventArgs) Handles btnReadGpxFiles.Click
 
-        Me.txtWarnings.Visible = True
+        txtWarnings.Visible = True
         'zavři případné grafy
         CloseGrafs()
 
@@ -22,7 +19,7 @@ Public Class Form1
 
             'send directoryPath to gpxCalculator
             If gpxCalculator.ReadAndProcessData(dtpStartDate.Value, dtpEndDate.Value) Then
-                Me.btnChartDistances.Visible = True
+                btnChartDistances.Visible = True
             Else
                 MessageBox.Show(My.Resources.Resource1.mBoxDataRetrievalFailed)
             End If
@@ -145,7 +142,7 @@ Public Class Form1
 
         yAxisLabel = My.Resources.Resource1.Y_AxisLabelSpeed
         GrafText = Resource1.Y_AxisLabelSpeed
-        distanceChart1 = New DistanceChart(xAxisData, yAxisData, yAxisLabel, Me.dtpStartDate.Value, dtpEndDate.Value, Me.currentCulture)
+        distanceChart1 = New DistanceChart(xAxisData, yAxisData, yAxisLabel, dtpStartDate.Value, dtpEndDate.Value, currentCulture)
         distanceChart1.Display(GrafText, 1)
         distanceCharts.Add(distanceChart1)
 
@@ -162,7 +159,7 @@ Public Class Form1
     ToArray()
         yAxisLabel = My.Resources.Resource1.Y_AxisLabelAge
         GrafText = Resource1.Y_AxisLabelAge
-        distanceChart1 = New DistanceChart(xAxisData, yAxisData, yAxisLabel, Me.dtpStartDate.Value, dtpEndDate.Value, Me.currentCulture)
+        distanceChart1 = New DistanceChart(xAxisData, yAxisData, yAxisLabel, dtpStartDate.Value, dtpEndDate.Value, currentCulture)
         distanceChart1.Display(GrafText, 2)
         distanceCharts.Add(distanceChart1)
 
@@ -173,7 +170,7 @@ Public Class Form1
         yAxisLabel = My.Resources.Resource1.Y_AxisLabelLength
         xAxisData = gpxCalculator.layerStart.Select(Function(ts) ts).ToArray()
         GrafText = Resource1.Y_AxisLabelLength
-        distanceChart1 = New DistanceChart(xAxisData, yAxisData, yAxisLabel, Me.dtpStartDate.Value, dtpEndDate.Value, Me.currentCulture)
+        distanceChart1 = New DistanceChart(xAxisData, yAxisData, yAxisLabel, dtpStartDate.Value, dtpEndDate.Value, currentCulture)
         distanceChart1.Display(GrafText, 3)
         distanceCharts.Add(distanceChart1)
 
@@ -182,7 +179,7 @@ Public Class Form1
         yAxisLabel = My.Resources.Resource1.Y_AxisLabelTotalLength
         xAxisData = gpxCalculator.layerStart.Select(Function(ts) ts).ToArray()
         GrafText = Resource1.Y_AxisLabelTotalLength
-        distanceChart1 = New DistanceChart(xAxisData, yAxisData, yAxisLabel, Me.dtpStartDate.Value, dtpEndDate.Value, Me.currentCulture)
+        distanceChart1 = New DistanceChart(xAxisData, yAxisData, yAxisLabel, dtpStartDate.Value, dtpEndDate.Value, currentCulture)
         distanceChart1.Display(GrafText, 4)
 
         distanceCharts.Add(distanceChart1)
@@ -207,16 +204,16 @@ Public Class Form1
 
 
     Public Sub ChangeLanguage(sender As Object, e As EventArgs) Handles mnuCzech.Click, mnuGerman.Click, mnuRussian.Click, mnuUkrainian.Click, mnuPolish.Click, mnuEnglish.Click
-        Me.SuspendLayout()
+        SuspendLayout()
         Dim cultureName As String = sender.Tag
         Thread.CurrentThread.CurrentUICulture = New CultureInfo(cultureName)
         'Thread.CurrentThread.CurrentCulture = New CultureInfo(cultureName)
 
-        Me.currentCulture = Thread.CurrentThread.CurrentUICulture
+        currentCulture = Thread.CurrentThread.CurrentUICulture
 
-        Dim resources = New ComponentResourceManager(Me.GetType())
+        Dim resources = New ComponentResourceManager([GetType]())
         resources.ApplyResources(Me, "$this")
-        For Each ctrl As Control In Me.Controls
+        For Each ctrl As Control In Controls
             resources.ApplyResources(ctrl, ctrl.Name)
         Next
 
@@ -228,7 +225,7 @@ Public Class Form1
 
         ReadHelp()
 
-        Me.ResumeLayout()
+        ResumeLayout()
     End Sub
 
     Private toolTipLabel As Label
@@ -242,12 +239,12 @@ Public Class Form1
         .MaximumSize = New Size(300, 0), ' Maximální šířka
         .BorderStyle = BorderStyle.FixedSingle
     }
-        Me.Controls.Add(toolTipLabel)
+        Controls.Add(toolTipLabel)
 
         Dim itemBounds = item.GetCurrentParent.Bounds
 
 
-        toolTipLabel.Location = Me.PointToClient(New Point(Cursor.Position.X + 20, Cursor.Position.Y + 30))
+        toolTipLabel.Location = PointToClient(New Point(Cursor.Position.X + 20, Cursor.Position.Y + 30))
         toolTipLabel.BringToFront()
     End Sub
 
@@ -323,7 +320,7 @@ Public Class Form1
 
         mnuSelect_directory_gpx_files.ToolTipText = Resource1.Tooltip_mnuDirectory
         mnuSelectBackupDirectory.ToolTipText = Resource1.Tooltip_mnuBackupDirectory
-        mnuexportAs.ToolTipText = Resource1.Tooltip_ExportAs
+        mnuExportAs.ToolTipText = Resource1.Tooltip_ExportAs
         mnuPrependDateToFileName.ToolTipText = Resource1.Tooltip_mnuPrependDate
         'mnuTrimGPSNoise.ToolTipText = Resource1.Tooltip_mnuTrim
 
@@ -341,8 +338,8 @@ Public Class Form1
         ' Přidej další ovládací prvky, jak je potřeba
 
         ' Nastavení formátu dtp podle aktuální kultury
-        Me.dtpStartDate.CustomFormat = $"'{My.Resources.Resource1.lblFrom}'  {Thread.CurrentThread.CurrentUICulture.DateTimeFormat.ShortDatePattern}"
-        Me.dtpEndDate.CustomFormat = $"'{My.Resources.Resource1.lblTo}'   {Thread.CurrentThread.CurrentUICulture.DateTimeFormat.ShortDatePattern}"
+        dtpStartDate.CustomFormat = $"'{My.Resources.Resource1.lblFrom}'  {Thread.CurrentThread.CurrentUICulture.DateTimeFormat.ShortDatePattern}"
+        dtpEndDate.CustomFormat = $"'{My.Resources.Resource1.lblTo}'   {Thread.CurrentThread.CurrentUICulture.DateTimeFormat.ShortDatePattern}"
 
 
 
@@ -366,9 +363,9 @@ Public Class Form1
         Dim folderDialog As New FolderBrowserDialog
 
 
-        If sender Is Me.mnuSelect_directory_gpx_files Then
+        If sender Is mnuSelect_directory_gpx_files Then
             folderDialog.SelectedPath = My.Settings.Directory
-        ElseIf sender Is Me.mnuSelectBackupDirectory Then
+        ElseIf sender Is mnuSelectBackupDirectory Then
             folderDialog.ShowNewFolderButton = True
             folderDialog.SelectedPath = My.Settings.BackupDirectory
         End If
@@ -377,16 +374,16 @@ Public Class Form1
 
         If folderDialog.ShowDialog() = DialogResult.OK Then
 
-            If sender Is Me.mnuSelect_directory_gpx_files Then
+            If sender Is mnuSelect_directory_gpx_files Then
                 My.Settings.Directory = folderDialog.SelectedPath
-            ElseIf sender Is Me.mnuSelectBackupDirectory Then
+            ElseIf sender Is mnuSelectBackupDirectory Then
                 My.Settings.BackupDirectory = folderDialog.SelectedPath
             End If
 
         End If
 
         My.Settings.Save()
-        Me.StatusLabel1.Text = $"Directory: {ZkratCestu(My.Settings.Directory, 130)}" & vbCrLf & $"Backup Directory: {ZkratCestu(My.Settings.BackupDirectory, 130)}"
+        StatusLabel1.Text = $"Directory: {ZkratCestu(My.Settings.Directory, 130)}" & vbCrLf & $"Backup Directory: {ZkratCestu(My.Settings.BackupDirectory, 130)}"
 
     End Sub
 

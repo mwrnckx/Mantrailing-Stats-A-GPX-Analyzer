@@ -69,7 +69,7 @@ Public Class GpxReader
     End Function
 
     Public Function CreateElement(parentNode As XmlElement, childNodeName As String, value As String) As XmlElement
-        Dim childNode As XmlElement = Me.CreateElement(childNodeName)
+        Dim childNode As XmlElement = CreateElement(childNodeName)
         childNode.InnerText = value
         ' Přidání uzlu <childNodeName> do prvního <parentNode>
         parentNode.AppendChild(childNode)

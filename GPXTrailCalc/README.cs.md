@@ -1,6 +1,6 @@
 ﻿# K9 Trails Analyzer
 
-**K9 Trails Analyzer** je aplikace ve Visual Basicu, která zpracovává GPX soubory s GPS trasami kladeče (figuranta) a psa a poskytuje statistiky, jako je celková vzdálenost, stáří tras a průměrná rychlost psa. 
+**K9 Trails Analyzer** je lehká aplikace pro Windows, která zpracovává GPX soubory s GPS trasami kladeče (figuranta) a psa a poskytuje statistiky, jako je celková vzdálenost, stáří tras a průměrná rychlost psa. 
 Testováno pro aplikace Geo Tracker, A GPS Tracker a Locus map. 
 Potřebuje další vývoj pro aplikaci Mantrailing App a další aplikace.
 

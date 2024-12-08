@@ -1,15 +1,9 @@
-﻿Imports System.Xml
+﻿Imports System.Globalization
 Imports System.IO
-Imports System.Globalization
-Imports System.Text.RegularExpressions ' Added for working with Match type
-Imports System.Windows.Forms.DataVisualization.Charting
-Imports System.Collections.Generic
-Imports System.Runtime.InteropServices.ComTypes
-Imports System.DirectoryServices.ActiveDirectory
-Imports System.Diagnostics.Eventing
+Imports System.Text.RegularExpressions
+Imports System.Xml
 Imports GPXTrailAnalyzer.My.Resources
 'Imports System.Windows.Media
-Imports System.Drawing
 
 Public Class GPXDistanceCalculator
 
@@ -374,7 +368,7 @@ Public Class GPXDistanceCalculator
     End Function
 
     Public Function ReadAndProcessData(startDate As DateTime, endDate As DateTime) As Boolean
-        Me.DirectoryPath = My.Settings.Directory
+        DirectoryPath = My.Settings.Directory
         Dim PrependDatetoFileName As Boolean = My.Settings.PrependDateToName
         dateFrom = startDate
         dateTo = endDate
@@ -393,7 +387,7 @@ Public Class GPXDistanceCalculator
         Form1.rtbOutput.AppendText(vbCrLf)
 
         gpxFiles.Clear()
-        gpxFiles = GetGpxFiles(Me.DirectoryPath)
+        gpxFiles = GetGpxFiles(DirectoryPath)
 
         If gpxFiles.Count = 0 Then
             MessageBox.Show(My.Resources.Resource1.mBoxNo_gpx_file_was_found)
