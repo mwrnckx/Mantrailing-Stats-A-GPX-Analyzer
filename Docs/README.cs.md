@@ -19,12 +19,12 @@ Potřebuje další vývoj pro aplikaci Mantrailing App a další aplikace.
 **Stáhněte soubor K9 Trails Analyzer.zip**, rozbalte jej do libovolné prázdné složky, zkopírujte své GPX soubory do této složky a spusťte soubor EXE.
 
 ## Lokalizace
-- **Angličtina**
-- **Čeština**
-- **Němčina**
-- **Polština**
-- **Ruština**
-- **Ukrajinština**
+- **English**
+- **Česky**
+- **Deutch**
+- **Polski**
+- **Русский**
+- **Українська**
 
 ## Licence
 Tento projekt je licencován pod licencí MIT - podrobnosti naleznete v souboru LICENSE.md.
