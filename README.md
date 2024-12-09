@@ -4,7 +4,7 @@ Hi, and welcome to the project for analysing K9 trails or tracks! If you have a 
 ### Choose your preferred language for details: 
 - **[English](Docs/README.en.md)**
 - **[Čeština](Docs/README.cs.md)** 
-- **[Deutsch](Docs/README.de.md)
+- **[Deutsch](Docs/README.de.md)**
 
 ## Screenshots
 <a href="https://github.com/mwrnckx/K9-Trails-Analyzer/blob/master/Docs/Screenshots/Form1a.jpg"><img src="https://github.com/mwrnckx/K9-Trails-Analyzer/blob/master/Docs/Screenshots/Form1a.jpg" width="350"></a>
