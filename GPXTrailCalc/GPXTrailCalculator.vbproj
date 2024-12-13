@@ -83,6 +83,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="Chart1.designer.vb">
+      <DependentUpon>Chart1.vb</DependentUpon>
+    </Compile>
     <Compile Include="Chart1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +136,9 @@
     <Compile Include="Settings.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Chart1.resx">
+      <DependentUpon>Chart1.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.cs.resx">
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Designer</SubType>

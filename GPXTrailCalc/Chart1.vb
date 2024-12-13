@@ -1,18 +1,23 @@
-ÔªøImports System.Globalization
+
+Imports System.Globalization
+Imports System.Runtime.InteropServices
+Imports System.Runtime.InteropServices.ComTypes
 Imports System.Threading
 Imports System.Windows.Forms.DataVisualization.Charting
 
-Public Class DistanceChart
-    Inherits Form
+Partial Class DistanceChart
+    Inherits System.Windows.Forms.Form
+
+
     ' Vlastnosti pro data
     Private layerStart As DateTime()
     Private Y_Data As Double()
     Private yAxisLabel As String
     Private startDate As Date
     Private endDate As Date
-    Private chartForm As Form ' Ulo≈æ√≠ referenci na formul√°≈ô
+    Private chartForm As Form ' UloûÌ referenci na formul·¯
 
-    ' Konstruktor, kter√Ω p≈ôijme data
+    ' Konstruktor, kter˝ p¯ijme data
     Public Sub New(layerStart As DateTime(), _Y_data As Double(), yAxisLabel As String, _startDate As Date, _endDate As Date, _CultureInfo As CultureInfo)
         Me.layerStart = layerStart
         Y_Data = _Y_data
@@ -20,6 +25,7 @@ Public Class DistanceChart
         startDate = _startDate
         endDate = _endDate
         Thread.CurrentThread.CurrentCulture = _CultureInfo
+        InitializeComponent()
 
     End Sub
 
@@ -27,7 +33,7 @@ Public Class DistanceChart
 
     End Sub
 
-    ' Metoda pro v√Ωpoƒçet smƒõrnice a posunu p≈ô√≠mky metodou nejmen≈°√≠ch ƒçtverc≈Ø
+    ' Metoda pro v˝poËet smÏrnice a posunu p¯Ìmky metodou nejmenöÌch Ëtverc˘
     Private Function CalculateLinearRegression() As Tuple(Of Double, Double)
         Dim n As Integer = layerStart.Length
         Dim sumX As Double = 0
@@ -36,7 +42,7 @@ Public Class DistanceChart
         Dim sumX2 As Double = 0
 
         For i As Integer = 0 To n - 1
-            Dim x As Double = layerStart(i).ToOADate() ' P≈ôeveden√≠ data na ƒç√≠seln√Ω form√°t
+            Dim x As Double = layerStart(i).ToOADate() ' P¯evedenÌ data na ËÌseln˝ form·t
             Dim y As Double = Y_Data(i)
             sumX += x
             sumY += y
@@ -50,76 +56,47 @@ Public Class DistanceChart
         Return Tuple.Create(slope, intercept)
     End Function
 
-    ' Metoda pro vytvo≈ôen√≠ a zobrazen√≠ grafu
-    Public Sub Display(text As String, position As Integer)
+    Public Sub Display(text As String)
+        Me.Text = text
+        Me.Show()
+    End Sub
 
-        ' Vytvo≈ôen√≠ nov√©ho formul√°≈ôe pro zobrazen√≠ grafu
-        chartForm = New Form()
-
-        chartForm.Text = text
-        'chartForm.Size = New Size(1000, 600)
-        chartForm.Icon = My.Resources.track2
-
-        ' Z√≠sk√°n√≠ rozmƒõr≈Ø obrazovky
+    Private Sub DistanceChart_Load(sender As Object, e As EventArgs) Handles Me.Load
+        ' NastavenÌ rozsahu osy X na z·kladÏ data
+        ' ZÌsk·nÌ rozmÏr˘ obrazovky
         Dim screenBounds As Rectangle = Screen.PrimaryScreen.Bounds
-        chartForm.Size = New Size(screenBounds.Width / 2, screenBounds.Height / 2)
+        Me.Size = New Size(screenBounds.Width / 2, screenBounds.Height / 2)
+        Me.chart1.ChartAreas(0).AxisX.Minimum = startDate.ToOADate()
+        Me.chart1.ChartAreas(0).AxisX.Maximum = endDate.ToOADate()
 
-        ' Vytvo≈ôen√≠ a nastaven√≠ komponenty Chart
-        Dim chart As New Chart()
-        chart.Dock = DockStyle.Fill
-        chartForm.Controls.Add(chart)
-
-        ' Nastaven√≠ oblasti grafu
-        Dim chartArea As New ChartArea()
-        chartArea.AxisX.Title = My.Resources.Resource1.X_AxisLabel
-        chartArea.AxisX.TitleFont = New Font("Arial", 14, FontStyle.Bold) ' Nastaven√≠ vƒõt≈°√≠ho a tuƒçn√©ho p√≠sma
-        'chartArea.AxisX.LabelStyle.Format = "MM.yy"
-        'Date label according the currentCulture:
-        chartArea.AxisX.LabelStyle.Format = "MMMM yy"
-        'chartArea.AxisX.LabelStyle.Format = System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.YearMonthPattern
-        'chartArea.AxisX.LabelStyle.Format = System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern
-
-        chartArea.AxisX.LabelStyle.Font = New Font("Arial", 14, FontStyle.Bold)
-        ' Nastaven√≠ rozsahu osy X na z√°kladƒõ data
-        chartArea.AxisX.Minimum = startDate.ToOADate()
-        chartArea.AxisX.Maximum = endDate.ToOADate()
-
-        ' Nastaven√≠ vlastnost√≠ pro osu Y
-        chartArea.AxisY.Title = yAxisLabel
-        chartArea.AxisY.TitleFont = New Font("Arial", 14, FontStyle.Bold) ' Nastaven√≠ vƒõt≈°√≠ho a tuƒçn√©ho p√≠sma
-        chartArea.AxisY.LabelStyle.Font = New Font("Arial", 14, FontStyle.Bold)
-        chartArea.AxisY.Minimum = 0
-        chartArea.BackColor = Color.AntiqueWhite
-
-        chart.ChartAreas.Add(chartArea)
-        chart.BackColor = Color.AntiqueWhite
-
+        ' NastavenÌ vlastnostÌ pro osu Y
+        Me.chart1.ChartAreas(0).AxisY.Title = yAxisLabel
 
         Dim series1 As New Series() With {
             .Name = "Data Points",
             .ChartType = SeriesChartType.Point,
-            .MarkerSize = 10, ' Nastav√≠ velikost bod≈Ø na 10 pixel≈Ø
+            .MarkerSize = 10, ' NastavÌ velikost bod˘ na 10 pixel˘
             .MarkerStyle = MarkerStyle.Circle,
             .MarkerColor = Color.Chocolate,
             .XValueType = ChartValueType.DateTime
         }
 
-        ' P≈ôid√°n√≠ dat do s√©rie
+        ' P¯id·nÌ dat do sÈrie
         For i As Integer = 0 To Y_Data.Length - 1
             'series1.Points.AddXY(layerStart(i), TotalDistances(i))
             series1.Points.AddXY(layerStart(i), Y_Data(i))
         Next
 
-        ' P≈ôid√°n√≠ s√©rie do grafu
+        ' P¯id·nÌ sÈrie do grafu
         'chart.Series.Add(series1)
-        chart.Series.Add(series1)
+        chart1.Series.Add(series1)
 
-        ' V√Ωpoƒçet line√°rn√≠ regrese
+        ' V˝poËet line·rnÌ regrese
         Dim regression = CalculateLinearRegression()
         Dim slope = regression.Item1
         Dim intercept = regression.Item2
 
-        ' Vytvo≈ôen√≠ nov√© s√©rie pro prolo≈æenou p≈ô√≠mku
+        ' Vytvo¯enÌ novÈ sÈrie pro proloûenou p¯Ìmku
         Dim regressionSeries As New Series() With {
             .Name = "Trend Line",
             .ChartType = SeriesChartType.Line,
@@ -130,7 +107,7 @@ Public Class DistanceChart
         Try
 
 
-            ' P≈ôid√°n√≠ dvou bod≈Ø do s√©rie, kter√© reprezentuj√≠ p≈ô√≠mku
+            ' P¯id·nÌ dvou bod˘ do sÈrie, kterÈ reprezentujÌ p¯Ìmku
             Dim xStart As Double = layerStart.First().ToOADate()
             Dim xEnd As Double = layerStart.Last().ToOADate()
             Dim yStart As Double = slope * xStart + intercept
@@ -139,25 +116,55 @@ Public Class DistanceChart
             regressionSeries.Points.AddXY(DateTime.FromOADate(xStart), yStart)
             regressionSeries.Points.AddXY(DateTime.FromOADate(xEnd), yEnd)
 
-            ' P≈ôid√°n√≠ regresn√≠ s√©rie do grafu
-            chart.Series.Add(regressionSeries)
+            ' P¯id·nÌ regresnÌ sÈrie do grafu
+            chart1.Series.Add(regressionSeries)
         Catch ex As Exception
-            Debug.WriteLine("Nepoda≈ôilo se prolo≈æit p≈ô√≠mku")
+            Debug.WriteLine("Nepoda¯ilo se proloûit p¯Ìmku")
         End Try
-
-        ' Zobrazen√≠ formul√°≈ôe
-
-        chartForm.Show()
-
-        chartForm.BringToFront()
 
     End Sub
 
     Sub CloseChart()
         If chartForm IsNot Nothing Then
             chartForm.Close()
-            chartForm = Nothing ' Uvoln√≠ referenci
+            chartForm = Nothing ' UvolnÌ referenci
         End If
     End Sub
 
+
+    Private Sub SaveAs(sender As Object, e As EventArgs) Handles SaveAsToolStripMenuItem.Click
+        Using dialog As New SaveFileDialog()
+            dialog.Filter = "PNG (*.png)|*.png|JPEG (*.jpeg)|*.jpeg"
+            'dialog.CheckFileExists = True 'kdyû existuje zept· se 
+            dialog.AddExtension = True
+            dialog.InitialDirectory = My.Settings.Directory
+            dialog.Title = "Save as"
+            dialog.FileName = Me.Text
+
+
+
+            If dialog.ShowDialog() = DialogResult.OK Then
+
+
+                Debug.WriteLine($"Selected file: {dialog.FileName}")
+                'Uloû upraven˝ RTF text zpÏt do souboru
+
+
+                Dim format As ChartImageFormat
+                Try
+                    Select Case dialog.FilterIndex
+                        Case 1
+                            format = ChartImageFormat.Png
+                        Case 2
+                            format = ChartImageFormat.Jpeg
+                    End Select
+                    Me.chart1.SaveImage(dialog.FileName, format)
+
+                Catch ex As Exception
+                    MessageBox.Show($"{My.Resources.Resource1.mBoxErrorCreatingCSV}: {dialog.FileName} " & ex.Message & vbCrLf, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End Try
+            End If
+        End Using
+    End Sub
 End Class
+

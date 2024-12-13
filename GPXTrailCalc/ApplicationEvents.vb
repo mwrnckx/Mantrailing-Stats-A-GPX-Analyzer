@@ -1,4 +1,6 @@
-﻿Namespace My
+﻿Imports Microsoft.VisualBasic.ApplicationServices
+
+Namespace My
     ' Pro MyApplication jsou dostupné následující události:
     ' Úvodní: Volá se při spouštění aplikace, před vytvořením úvodního formuláře.
     ' Závěrečný: Volá se po zavření všech formulářů aplikací.  V případě nestandardního ukončení aplikace se tato událost nevolá.
@@ -9,5 +11,6 @@
         Protected Overrides Sub Finalize()
             MyBase.Finalize()
         End Sub
+
     End Class
 End Namespace

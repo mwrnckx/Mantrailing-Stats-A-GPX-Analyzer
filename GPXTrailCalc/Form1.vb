@@ -143,7 +143,7 @@ Public Class Form1
         yAxisLabel = My.Resources.Resource1.Y_AxisLabelSpeed
         GrafText = Resource1.Y_AxisLabelSpeed
         distanceChart1 = New DistanceChart(xAxisData, yAxisData, yAxisLabel, dtpStartDate.Value, dtpEndDate.Value, currentCulture)
-        distanceChart1.Display(GrafText, 1)
+        distanceChart1.Display(GrafText)
         distanceCharts.Add(distanceChart1)
 
         'Age
@@ -160,7 +160,7 @@ Public Class Form1
         yAxisLabel = My.Resources.Resource1.Y_AxisLabelAge
         GrafText = Resource1.Y_AxisLabelAge
         distanceChart1 = New DistanceChart(xAxisData, yAxisData, yAxisLabel, dtpStartDate.Value, dtpEndDate.Value, currentCulture)
-        distanceChart1.Display(GrafText, 2)
+        distanceChart1.Display(GrafText)
         distanceCharts.Add(distanceChart1)
 
 
@@ -171,7 +171,7 @@ Public Class Form1
         xAxisData = gpxCalculator.layerStart.Select(Function(ts) ts).ToArray()
         GrafText = Resource1.Y_AxisLabelLength
         distanceChart1 = New DistanceChart(xAxisData, yAxisData, yAxisLabel, dtpStartDate.Value, dtpEndDate.Value, currentCulture)
-        distanceChart1.Display(GrafText, 3)
+        distanceChart1.Display(GrafText)
         distanceCharts.Add(distanceChart1)
 
         'TotDistance
@@ -180,7 +180,7 @@ Public Class Form1
         xAxisData = gpxCalculator.layerStart.Select(Function(ts) ts).ToArray()
         GrafText = Resource1.Y_AxisLabelTotalLength
         distanceChart1 = New DistanceChart(xAxisData, yAxisData, yAxisLabel, dtpStartDate.Value, dtpEndDate.Value, currentCulture)
-        distanceChart1.Display(GrafText, 4)
+        distanceChart1.Display(GrafText)
 
         distanceCharts.Add(distanceChart1)
 
