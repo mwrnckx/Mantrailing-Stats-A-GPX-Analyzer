@@ -33,8 +33,11 @@ Public Class GpxReader
 
     'Metoda pro získání jednoho uzlu na základě XPath
     Public Function SelectSingleChildNode(childname As String, Node As XmlNode) As XmlNode
+        If Node IsNot Nothing Then
+            Return Node.SelectSingleNode(namespacePrefix & childname, namespaceManager)
+        Else Return Nothing
+        End If
 
-        Return Node.SelectSingleNode(namespacePrefix & childname, namespaceManager)
 
     End Function
 

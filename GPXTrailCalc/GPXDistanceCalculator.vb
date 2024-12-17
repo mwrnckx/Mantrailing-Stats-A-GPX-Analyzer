@@ -261,15 +261,20 @@ Public Class GPXDistanceCalculator
         ' Find the first <trk> node and its <desc> subnode
         ' Vyhledání uzlu <trk> v rámci hlavního namespace
         Dim trkNode As XmlNode = gpxReaders(i).SelectSingleNode("trk")
+        If trkNode IsNot Nothing Then
 
-        Dim descNode As XmlNode = gpxReaders(i).SelectSingleChildNode("desc", trkNode)
+            Dim descNode As XmlNode = gpxReaders(i).SelectSingleChildNode("desc", trkNode)
 
 
-        If descNode IsNot Nothing Then
-            Return descNode.InnerText
+            If descNode IsNot Nothing Then
+                Return descNode.InnerText
+            Else
+                Return Nothing '"The <desc> node was not found."
+            End If
         Else
-            Return Nothing '"The <desc> node was not found."
+            Return Nothing
         End If
+
     End Function
 
     ' Function to set the <desc> description from the first <trk> node in the GPX file
@@ -361,7 +366,7 @@ Public Class GPXDistanceCalculator
             Next
         Else
             ' TODO: Replace direct access to Form1 with a better method for separating logic
-            Form1.txtWarnings.AppendText("No segment found in GPX file: " & gpxFiles(i) & Environment.NewLine)
+            Form1.txtWarnings.AppendText("No tracks found in GPX file: " & gpxFiles(i) & Environment.NewLine)
         End If
 
         Return totalLengthOfFirst_trkseg ' Result in kilometers

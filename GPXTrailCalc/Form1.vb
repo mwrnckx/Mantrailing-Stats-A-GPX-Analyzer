@@ -1,5 +1,6 @@
 ﻿Imports System.ComponentModel
 Imports System.Globalization
+Imports System.Reflection
 Imports System.Threading
 Imports System.Windows.Forms.DataVisualization.Charting
 Imports GPXTrailAnalyzer.My.Resources

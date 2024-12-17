@@ -139,7 +139,7 @@ Partial Class DistanceChart
             dialog.AddExtension = True
             dialog.InitialDirectory = My.Settings.Directory
             dialog.Title = "Save as"
-            dialog.FileName = Me.Text
+            dialog.FileName = Me.Text.Replace("/", " per ")
 
 
 

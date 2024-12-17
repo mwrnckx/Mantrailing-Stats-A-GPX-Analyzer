@@ -1,4 +1,5 @@
 ﻿Imports System.ComponentModel
+Imports System.Reflection
 Imports System.Threading
 
 <Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
@@ -314,7 +315,10 @@ Partial Class Form1
         Me.rtbOutput.SelectionStart = Me.rtbOutput.Text.Length ' Pozice na konec textu
 
 
-
+        Dim thisAssem As Assembly = GetType(Form1).Assembly
+        Dim thisAssemName As AssemblyName = thisAssem.GetName()
+        'verze se nastaví v AssamblyInfo.vb!!!!!!!!!!!!!!!!
+        Me.Text = thisAssemName.Name & "   " & thisAssemName.Version.ToString
 
 
     End Sub
